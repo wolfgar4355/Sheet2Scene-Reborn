@@ -1,55 +1,73 @@
-name: 📨 Sheet2Scene — Pull Request Notifications + QA Summary
+name: 📨 PR Notifications + QA Summary
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
     types: [opened, reopened, synchronize, closed]
 
 jobs:
-  notify_discord:
+  pr_notify:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🧩 Checkout Repository
-        uses: actions/checkout@v4
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: 🧠 Run quick QA summary (if preview deploy exists)
-        id: qa_check
-        continue-on-error: true
-        run: |
-          if [ -f "scripts/check-backend.sh" ]; then
-            chmod +x scripts/check-backend.sh
-            bash scripts/check-backend.sh > qa_output.log 2>&1 || true
-            if grep -q "FAIL" qa_output.log; then
-              echo "qa_status=❌ QA failed" >> $GITHUB_OUTPUT
-            else
-              echo "qa_status=✅ QA passed" >> $GITHUB_OUTPUT
-            fi
+    - name: 🧪 Run quick QA summary
+      id: qa
+      shell: bash
+      run: |
+        STATUS="unknown"
+
+        if [ -f "scripts/check-backend.sh" ]; then
+          chmod +x scripts/check-backend.sh
+          bash scripts/check-backend.sh > qa.log 2>&1 || true
+
+          if grep -q "FAIL" qa.log; then
+            STATUS="failed"
           else
-            echo "qa_status=⚙️ QA script not found" >> $GITHUB_OUTPUT
+            STATUS="passed"
           fi
+        else
+          STATUS="missing"
+        fi
 
-      - name: 📨 Send Discord notification
-        run: |
-          PR_TITLE="${{ github.event.pull_request.title }}"
-          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
-          PR_URL="${{ github.event.pull_request.html_url }}"
-          PR_ACTION="${{ github.event.action }}"
-          QA_STATUS="${{ steps.qa_check.outputs.qa_status }}"
+        echo "status=$STATUS" >> $GITHUB_OUTPUT
 
-          if [ "${{ github.event.pull_request.merged }}" = "true" ]; then
-            STATUS="✅ **Pull Request Merged into main!**"
-          elif [ "$PR_ACTION" = "closed" ]; then
-            STATUS="🛑 **Pull Request Closed (not merged)**"
-          elif [ "$PR_ACTION" = "synchronize" ]; then
-            STATUS="🔁 **Pull Request Updated**"
-          else
-            STATUS="🆕 **New Pull Request Opened**"
-          fi
+    - name: 🔍 Prepare PR metadata
+      id: meta
+      run: |
+        echo "title=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+        echo "author=${{ github.event.pull_request.user.login }}" >> $GITHUB_OUTPUT
+        echo "url=${{ github.event.pull_request.html_url }}" >> $GITHUB_OUTPUT
 
-          MESSAGE="**$STATUS**\n\n📄 *$PR_TITLE*\n👤 Author: **$PR_AUTHOR**\n🔗 [View PR]($PR_URL)\n\n🧪 QA Summary: $QA_STATUS"
+    - name: 🔔 Send Discord notification
+      run: |
+        QA="${{ steps.qa.outputs.status }}"
+        PR_TITLE="${{ steps.meta.outputs.title }}"
+        PR_AUTHOR="${{ steps.meta.outputs.author }}"
+        PR_URL="${{ steps.meta.outputs.url }}"
 
-          curl -H "Content-Type: application/json" \
-               -d "{\"content\": \"$MESSAGE\"}" \
-               ${{ secrets.DISCORD_WEBHOOK_URL }}
+        COLOR=7506394
+        MSG="PR Update"
+
+        if [ "$QA" = "passed" ]; then
+          COLOR=3066993
+          QA_TEXT="🟢 QA Passed"
+        elif [ "$QA" = "failed" ]; then
+          COLOR=15158332
+          QA_TEXT="🔴 QA Failed"
+        else
+          COLOR=9807270
+          QA_TEXT="⚪ QA Script Missing"
+        fi
+
+        JSON=$(jq -n \
+          --arg title "📨 PR Update" \
+          --arg desc "**$PR_TITLE**\nBy **$PR_AUTHOR**\n[View PR]($PR_URL)\n\n$QA_TEXT" \
+          --argjson color $COLOR \
+          '{embeds:[{title:$title, description:$desc, color:$color}]}' )
+
+        curl -s -H "Content-Type: application/json" \
+          -d "$JSON" \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"

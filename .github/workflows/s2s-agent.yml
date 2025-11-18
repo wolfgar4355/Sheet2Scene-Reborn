@@ -1,108 +1,108 @@
-name: S2S Agent
+name: "S2S Agent (Auto-Code Updates)"
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   issues:
     types: [opened, edited, labeled, reopened]
   workflow_dispatch:
 
 jobs:
-  run:
+  s2s-agent:
     runs-on: ubuntu-latest
+
+    # 🔐 Empêche les boucles infinies
+    if: github.actor != 'github-actions[bot]'
 
     permissions:
       contents: write
       pull-requests: write
 
     steps:
-      # 🧹 1. Nettoyer le cache GitHub Actions
-      - name: Clean runner cache
-        run: |
-          rm -rf .git/modules || true
-          rm -rf .gitmodules || true
-          git config --global --unset-all core.submoduleRecurse || true
-          echo "✅ Runner cache cleaned"
 
-      # 🌿 2. Installer Git LFS
-      - name: Install Git LFS
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y git-lfs
-          git lfs install
-          echo "✅ Git LFS installed"
+    # -------------------------------------------------------
+    # 1. Checkout repo propre (sans machiner le workspace)
+    # -------------------------------------------------------
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+        fetch-depth: 0
 
-      # 🧩 3. Restaurer les pointeurs LFS avant checkout
-      - name: Fix LFS pointer mismatch
-        run: |
-          echo "🔁 Re-checkout LFS pointers before branch switch"
-          git lfs fetch --all || true
-          git lfs checkout || true
+    # -------------------------------------------------------
+    # 2. Fix Git LFS complet (sécurisé)
+    # -------------------------------------------------------
+    - name: Setup Git LFS correctly
+      run: |
+        git lfs install --force
+        git lfs pull
+        git lfs checkout
+        echo "✔️ Git LFS ready"
 
-      # 📦 4. Checkout repository (sans sous-modules)
-      - name: Checkout repository (LFS + clean)
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          lfs: true
-          clean: true
-          submodules: 'false'
-          persist-credentials: false
-          set-safe-directory: false
+    # -------------------------------------------------------
+    # 3. Setup Node.js
+    # -------------------------------------------------------
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
 
-      # 🧼 5. Nettoyer l’espace de travail local
-      - name: Clean workspace
-        run: |
-          git reset --hard
-          git clean -fdx
-          echo "✅ Workspace cleaned"
+    # -------------------------------------------------------
+    # 4. Installer les dépendances
+    # -------------------------------------------------------
+    - name: Install dependencies
+      run: npm ci
 
-      # ⚙️ 6. Configurer Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+    # -------------------------------------------------------
+    # 5. Exécuter ton script d’agent
+    #    (NE MODIFIERA QUE LES FICHIERS DU BOT)
+    # -------------------------------------------------------
+    - name: Run S2S agent script
+      run: |
+        node scripts/agent.js
+        echo "✔️ Agent script executed"
 
-      # 📦 7. Installer les dépendances
-      - name: Install dependencies
-        run: npm ci
+    # -------------------------------------------------------
+    # 6. Vérifier si des fichiers ont été modifiés
+    # -------------------------------------------------------
+    - name: Check for changes
+      id: changes
+      run: |
+        if [[ -n "$(git status --porcelain)" ]]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
 
-      # 🤖 8. Exécuter le script principal de l’agent
-      - name: Run agent script
-        run: node scripts/agent.js
+    # -------------------------------------------------------
+    # 7. Si rien n'a changé → on stoppe
+    # -------------------------------------------------------
+    - name: No changes — skipping PR
+      if: steps.changes.outputs.changed == 'false'
+      run: echo "🟦 No changes produced by agent — workflow finished."
 
-      # 💾 9. Commit et push des modifications
-      - name: Commit and push changes
-        run: |
-          git config user.name "s2s-bot"
-          git config user.email "bot@sheet2scene.local"
-          git lfs track "*.png" || true
-          git add -A
-          git commit -m "🤖 Auto update by S2S Agent" || echo "No changes to commit"
-          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          echo "✅ Remote before push:" && git remote -v
-          git fetch origin main --depth=1
-          git pull --rebase --autostash || true
-          git push origin HEAD:agent-${{ github.run_id }} --force
+    # -------------------------------------------------------
+    # 8. Crée un PR propre (seulement si modifications)
+    # -------------------------------------------------------
+    - name: Create Pull Request
+      if: steps.changes.outputs.changed == 'true'
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "🤖 Auto-update by S2S Agent"
+        title: "🤖 S2S Agent — Auto Update"
+        body: |
+          ## 🤖 S2S Agent Update
 
-      # 🧹 10. Forcer un checkout propre avant création de PR
-      - name: Force clean checkout before PR
-        run: |
-          echo "🧹 Force cleaning working tree before PR"
-          git reset --hard
-          git clean -fdx
-          git fetch origin main --depth=1
-          echo "✅ Clean checkout completed"
+          The S2S Agent automatically generated updates based on internal rules.
 
-      # 📨 11. Créer une Pull Request automatique
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "🤖 Auto update by S2S Agent"
-          title: "S2S Agent = auto PR"
-          body: |
-            PR générée automatiquement par le bot **S2S Agent** 🤖  
-            Vérifiez et mergez si tout est correct.
-          branch: agent-${{ github.run_id }}
-          delete-branch: true
+          - 🔧 Updated files
+          - 🧰 Git LFS compatible
+          - 🧪 Safe mode enabled
+          - 🛡 Protections against infinite loops enabled
+
+          Please review before merging.
+
+        branch: "s2s-agent/${{ github.run_id }}"
+        delete-branch: true
+        labels: ["automation", "s2s-agent", "safe-update"]

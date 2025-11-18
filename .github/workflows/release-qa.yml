@@ -2,9 +2,10 @@ name: Release QA Summary & Pre-Deployment Check
 
 on:
   workflow_run:
-    workflows: ["Backend QA Full Suite", "Frontend QA & Build Validation"]
-    types:
-      - completed
+    workflows:
+      - "Backend QA Full Suite"
+      - "Frontend QA & Build Validation"
+    types: [completed]
   workflow_dispatch:
 
 jobs:
@@ -12,52 +13,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout repo
-        uses: actions/checkout@v4
+    - name: 📦 Checkout repo
+      uses: actions/checkout@v4
 
-      - name: 📂 Download QA Reports
-        uses: actions/download-artifact@v4
-        with:
-          path: qa_reports
-        continue-on-error: true
+    - name: 📥 Download QA Reports
+      uses: actions/download-artifact@v4
+      with:
+        pattern: "*qa-report*"
+        path: qa_reports
+      continue-on-error: true
 
-      - name: 🧩 Combine Backend & Frontend Reports
-        run: |
-          mkdir -p logs
-          BACKEND=$(jq -r '.status // "missing"' qa_reports/backend-qa-report/backend-report.json 2>/dev/null || echo "missing")
-          FRONTEND=$(jq -r '.frontend // "missing"' qa_reports/frontend-qa-report/frontend-report.json 2>/dev/null || echo "missing")
+    - name: 🔀 Combine Backend & Frontend Reports
+      run: |
+        mkdir -p logs
 
-          echo "{ \"timestamp\": \"$(date '+%Y-%m-%dT%H:%M:%S')\", \"backend\": \"$BACKEND\", \"frontend\": \"$FRONTEND\" }" \
-          | tee logs/release-summary.json
+        BACKEND=$(jq -r '.status // "missing"' qa_reports/backend-qa-report/backend-report.json 2>/dev/null || echo "missing")
+        FRONTEND=$(jq -r '.status // "missing"' qa_reports/frontend-qa-report/frontend-report.json 2>/dev/null || echo "missing")
 
-      - name: 📤 Upload Summary Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-qa-summary
-          path: logs/release-summary.json
+        echo "{\"timestamp\": \"$(date +'%Y-%m-%dT%H:%M:%S')\", \"backend\": \"$BACKEND\", \"frontend\": \"$FRONTEND\"}" \
+          > logs/release-summary.json
 
-      - name: 🔔 Notify Discord Summary
-        run: |
-          STATUS_BACK=$(jq -r '.backend' logs/release-summary.json)
-          STATUS_FRONT=$(jq -r '.frontend' logs/release-summary.json)
+    - name: 📤 Upload Summary Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-qa-summary
+        path: logs/release-summary.json
 
+    - name: 🔔 Notify Discord Summary
+      run: |
+        BACKEND=$(jq -r '.backend' logs/release-summary.json)
+        FRONTEND=$(jq -r '.frontend' logs/release-summary.json)
+
+        if [ "$BACKEND" = "success" ] && [ "$FRONTEND" = "success" ]; then
           COLOR=65280
           TEXT="✅ All QA checks passed"
-          if [ "$STATUS_BACK" != "success" ] || [ "$STATUS_FRONT" != "success" ]; then
-            COLOR=16711680
-            TEXT="❌ Some QA checks failed"
-          fi
+        else
+          COLOR=16711680
+          TEXT="❌ Some QA checks failed"
+        fi
 
-          curl -s -H "Content-Type: application/json" \
-            -d "$(jq -n \
-              --arg title '📦 Sheet2Scene — Release QA Summary' \
-              --arg desc \"$TEXT\nBackend: $STATUS_BACK\nFrontend: $STATUS_FRONT\n\nTriggered before Vercel deployment.\" \
-              --argjson color $COLOR \
-              '{embeds: [{title: $title, description: $desc, color: $color}]}')" \
-            ${{ secrets.DISCORD_WEBHOOK }}
+        JSON=$(jq -n \
+          --arg title "Sheet2Scene – Release QA Summary" \
+          --arg desc "Backend: $BACKEND\nFrontend: $FRONTEND" \
+          --arg color "$COLOR" \
+          '{embeds: [{title: $title, description: $desc, color: ($color|tonumber)}]}')
 
-      - name: 🚀 Conditional Vercel Deployment
-        if: ${{ success() }}
-        run: |
-          echo "All QA checks passed — ready for Vercel deployment ✅"
-          # optional: npx vercel --prod
+        curl -s -H "Content-Type: application/json" \
+          -d "$JSON" \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"
+
+    - name: 🟩 Conditional Vercel Deployment
+      if: success()
+      run: |
+        echo "All QA checks passed – ready for Vercel deployment 🚀"
