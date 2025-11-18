@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
+    "allowJS": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -14,23 +14,31 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+
     "paths": {
-      "@/*": ["*"],
+      "*": ["*"],
+
       "@app/*": ["app/*"],
       "@config/*": ["config/*"],
       "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"],
       "@types/*": ["types/*"],
+      "@utils/*": ["utils/*"],
+
+      /* --- S2S ENGINE --- */
       "@engine/*": ["lib/s2s/engine/*"],
       "@fantasy/*": ["lib/s2s/fantasy/*"],
-      "@s2s/*": ["lib/s2s/*"],
       "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
-"@lib/*": ["lib/*"],
-"@lib/mithril/*": ["lib/mithril/*"],
-"@mithril/*": ["components/mithril/*"]
-    },
-    "plugins": [{ "name": "next" }]
+
+      /* --- MITHRIL ENGINE --- */
+      "@lib/*": ["lib/*"],
+      "@lib/mithril/*": ["lib/mithril/*"],
+      "@mithril/*": ["components/mithril/*"]
+    }
   },
+
+  "plugins": [{ "name": "next" }],
+
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
