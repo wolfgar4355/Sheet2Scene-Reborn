@@ -1,39 +1,26 @@
-name: 🔔 Notify Discord (CI/CD Status)
+name: 🔔 Notify Discord (CI/CD Updates)
 
 on:
   workflow_run:
-    workflows: ["*"]
+    workflows:
+      - "✔ Check Backend (Supabase + Build)"
+      - "🎨 Design QA Check"
+      - "🚀 Redeploy Vercel"
     types:
       - completed
 
 jobs:
   discord_notify:
     runs-on: ubuntu-latest
-
     steps:
-    - name: 📤 Send Discord Notification
-      env:
-        WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        WF_NAME: ${{ github.event.workflow.name }}
-        WF_STATUS: ${{ github.event.workflow_run.conclusion }}
-        REPO: ${{ github.repository }}
-        ACTOR: ${{ github.actor }}
-        TIME: ${{ github.event.workflow_run.updated_at }}
-      run: |
-        COLOR=3066993
-        STATUS_ICON="🟢"
-
-        if [ "$WF_STATUS" != "success" ]; then
-          COLOR=15158332
-          STATUS_ICON="🔴"
-        fi
-
-        JSON=$(jq -n \
-          --arg title "$STATUS_ICON Workflow: $WF_NAME" \
-          --arg desc "Repository: **$REPO**\nAuthor: **$ACTOR**\nStatus: **$WF_STATUS**\nTime: **$TIME**" \
-          --argjson color $COLOR \
-          '{embeds: [{title: $title, description: $desc, color: $color}]}' )
-
-        curl -s -H "Content-Type: application/json" \
-          -d "$JSON" \
-          "$WEBHOOK"
+      - name: 📣 Send Discord notification
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        with:
+          args: >
+            **${{ github.workflow }}**
+            🔹 Repo: ${{ github.repository }}
+            🔹 Author: ${{ github.actor }}
+            🔹 Status: ${{ github.event.workflow_run.conclusion }}
+            🔹 Time: ${{ github.event.workflow_run.updated_at }}
