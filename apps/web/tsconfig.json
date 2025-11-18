@@ -24,7 +24,10 @@
       "@engine/*": ["lib/s2s/engine/*"],
       "@fantasy/*": ["lib/s2s/fantasy/*"],
       "@s2s/*": ["lib/s2s/*"],
-      "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"]
+      "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
+"@lib/*": ["lib/*"],
+"@lib/mithril/*": ["lib/mithril/*"],
+"@mithril/*": ["components/mithril/*"]
     },
     "plugins": [{ "name": "next" }]
   },
