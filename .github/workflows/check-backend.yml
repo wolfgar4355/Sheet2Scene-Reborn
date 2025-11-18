@@ -1,0 +1,75 @@
+name: 🔍 Check Backend & API
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  backend_check:
+    name: Backend QA (Supabase + OpenAI)
+    runs-on: ubuntu-latest
+
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+    steps:
+      - name: 🧭 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🧠 Test OpenAI API
+        run: |
+          echo "Testing OpenAI connectivity..."
+          curl -s https://api.openai.com/v1/models \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            | grep -q "gpt" && echo "✅ OpenAI OK" || (echo "❌ OpenAI failed" && exit 1)
+
+      - name: 🗃️ Test Supabase API
+        run: |
+          echo "Testing Supabase connectivity..."
+          curl -s "$SUPABASE_URL/rest/v1/" \
+            -H "apikey: $SUPABASE_SERVICE_KEY" \
+            | grep -q "{" && echo "✅ Supabase OK" || (echo "❌ Supabase failed" && exit 1)
+
+      - name: 🧪 Run backend checks
+        run: |
+          chmod +x scripts/check-backend.sh
+          ./scripts/check-backend.sh
+
+      - name: 📤 Notify Discord (success)
+        if: success()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d "{\"content\": \"✅ Backend check passed on main branch!\"}" \
+          $DISCORD_WEBHOOK_URL
+
+      - name: 📣 Notify Discord (failure)
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d "{\"content\": \"❌ Backend check failed on main branch! Please review logs.\"}" \
+          $DISCORD_WEBHOOK_URL
+
+- name: ✅ Commit & push QA report
+      if: success()  # seulement si le script a réussi
+      run: |
+        git config user.name "s2s-bot"
+        git config user.email "s2s-bot@users.noreply.github.com"
+        git add docs/QA-Report.md
+        git commit -m "🤖 Auto-update QA report [skip ci]" || echo "No changes to commit"
+        git push origin main

@@ -1,0 +1,66 @@
+name: Backend QA Full Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  backend-qa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 🔐 Load environment
+        run: |
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> .env
+          echo "SUPABASE_SERVICE_KEY=${{ secrets.SUPABASE_SERVICE_KEY }}" >> .env
+          echo "DISCORD_WEBHOOK=${{ secrets.DISCORD_WEBHOOK }}" >> .env
+
+      - name: 🧪 Run Backend QA Script
+        run: |
+          chmod +x scripts/check-backend.sh
+          bash scripts/check-backend.sh
+
+      - name: 🧾 Generate QA Report
+        if: always()
+        run: |
+          mkdir -p logs
+          echo "{ \"timestamp\": \"$(date '+%Y-%m-%dT%H:%M:%S')\", \"status\": \"${{ job.status }}\" }" \
+          > logs/backend-report.json
+
+      - name: 📤 Upload Report Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-qa-report
+          path: logs/backend-report.json
+
+      - name: 🔔 Notify Discord
+        if: always()
+        run: |
+          COLOR=65280
+          TEXT="✅ Backend QA Passed"
+
+          if [ "${{ job.status }}" != "success" ]; then
+            COLOR=16711680
+            TEXT="❌ Backend QA Failed"
+          fi
+
+          curl -s -H "Content-Type: application/json" \
+            -d "$(jq -n \
+              --arg title 'Sheet2Scene Backend QA' \
+              --arg desc \"$TEXT at $(date '+%Y-%m-%d %H:%M:%S')\" \
+              --argjson color $COLOR \
+              '{embeds: [{title: $title, description: $desc, color: $color}]}')" \
+            ${{ secrets.DISCORD_WEBHOOK }}

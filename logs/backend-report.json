@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2025-11-08T07:48:39Z",
+  "mode": "full",
+  "overall_status": "failure",
+  "supabase": {
+    "url_set": false,
+    "service_key_set": false,
+    "http_status": "000"
+  },
+  "runpod": {
+    "checked": true,
+    "api_key_set": false,
+    "http_status": "000"
+  },
+  "notes": "Missing Supabase env.; Missing RunPod key"
+}

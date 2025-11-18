@@ -1,0 +1,30 @@
+name: 🕵️ Privacy Scan (Maya)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  privacy-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧭 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🧹 Scan RGPD logs
+        run: |
+          echo "🔎 Analyse des logs et exports Supabase..."
+          if grep -R "gmail.com" ./logs || grep -R "@" ./exports; then
+            echo "❌ Données personnelles détectées dans les logs !"
+            exit 1
+          else
+            echo "✅ Logs conformes RGPD."
+          fi
+
+      - name: 📣 Notify Discord (optional)
+        if: failure()
+        uses: Ilshidur/action-discord@master
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          args: |
+            ⚠️ **Privacy Scan (Maya)** a détecté des données personnelles dans les logs.

@@ -1,0 +1,391 @@
+// utility.ts — Sorts utilitaires et d'exploration S2S Fantasy
+
+import type { Spell } from "../schema";
+
+export const UTILITY_SPELLS: Spell[] = [
+  // ───────────────────────────────────────────────
+  // CANTRIPS — petits outils magiques
+  // ───────────────────────────────────────────────
+
+  {
+    key: "guiding_glow",
+    name: "Lueur Guide",
+    world: "fantasy",
+    tier: "cantrip",
+    school: "vitae",
+    castingTime: "action",
+    range: { type: "sphere", value: "18m" },
+    duration: "1 heure",
+    concentration: false,
+    components: { verbal: true, somatic: true },
+    tags: ["vision", "buff-utility"],
+    availableInEras: ["ancient-age", "age-of-heroes", "high-kingdoms"],
+    shortSummary: "Crée une petite lumière flottante qui suit le lanceur.",
+    description:
+      "Une petite sphère lumineuse apparaît et flotte à proximité du lanceur, éclairant l’équivalent d’une torche.",
+    visualCue: "Petite orbe dorée flottant autour du lanceur."
+  },
+
+  {
+    key: "mage_hand_s2s",
+    name: "Main Spectrale",
+    world: "fantasy",
+    tier: "cantrip",
+    school: "aethercraft",
+    castingTime: "action",
+    range: { type: "sphere", value: "9m" },
+    duration: "1 minute",
+    concentration: true,
+    components: { verbal: false, somatic: true },
+    tags: ["movement", "buff-utility"],
+    availableInEras: ["ancient-age", "high-kingdoms"],
+    shortSummary: "Une main invisible manipule des objets légers à distance.",
+    description:
+      "Une main translucide faite d’énergie apparaît à portée et peut ouvrir des portes, saisir des objets légers ou interagir avec l’environnement.",
+    visualCue: "Main d’énergie semi-transparente."
+  },
+
+  {
+    key: "whisper_vein",
+    name: "Veine Murmurante",
+    world: "fantasy",
+    tier: "cantrip",
+    school: "mindweave",
+    castingTime: "action",
+    range: { type: "sphere", value: "18m" },
+    duration: "instantané",
+    concentration: false,
+    components: { verbal: true, somatic: false },
+    tags: ["buff-utility"],
+    availableInEras: ["dark-age", "high-kingdoms"],
+    shortSummary: "Envoie un court message mental à une cible visible.",
+    description:
+      "Le lanceur chuchote mentalement quelques mots à une créature visible dans la portée. Seule la cible perçoit le message.",
+    visualCue: "Fines vaguelettes d’énergie bleutée entre les deux esprits."
+  },
+
+  // ───────────────────────────────────────────────
+  // TIER 1 — exploration de base, détection
+  // ───────────────────────────────────────────────
+
+  {
+    key: "detect_magic_s2s",
+    name: "Détection de Magie",
+    world: "fantasy",
+    tier: "tier1",
+    school: "aethercraft",
+    castingTime: "action",
+    range: { type: "radius", value: "9m" },
+    duration: "10 minutes",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["vision", "buff-utility"],
+    availableInEras: ["ancient-age", "high-kingdoms"],
+    shortSummary: "Révèle les présences magiques dans une zone.",
+    description:
+      "Les auras magiques des objets, créatures et effets deviennent visibles pour le lanceur dans un rayon de 9 mètres.",
+    visualCue: "Contours irisés autour des objets et créatures magiques."
+  },
+
+  {
+    key: "lightstep",
+    name: "Pas-Léger",
+    world: "fantasy",
+    tier: "tier1",
+    school: "wildgrowth",
+    castingTime: "bonus-action",
+    range: { type: "self", value: "—" },
+    duration: "1 minute",
+    concentration: true,
+    components: { verbal: false, somatic: true },
+    tags: ["movement", "buff-utility"],
+    availableInEras: ["age-of-heroes"],
+    shortSummary: "Améliore la discrétion et la mobilité du lanceur.",
+    description:
+      "Les pas du lanceur ne produisent presque aucun son et ses mouvements deviennent plus fluides, facilitant la discrétion et les déplacements difficiles.",
+    visualCue: "Feuilles ou petites lueurs vertes sous les pieds."
+  },
+
+  {
+    key: "stone_echo",
+    name: "Écho de Pierre",
+    world: "fantasy",
+    tier: "tier1",
+    school: "terraforge",
+    castingTime: "action",
+    range: { type: "radius", value: "18m" },
+    duration: "instantané",
+    concentration: false,
+    components: { verbal: true, somatic: true },
+    tags: ["vision", "buff-utility"],
+    availableInEras: ["ancient-age"],
+    shortSummary: "Lis brièvement la mémoire du sol.",
+    description:
+      "Le lanceur pose sa main sur une surface minérale et perçoit des traces des passages récents : vibrations, empreintes, déplacements lourds.",
+    visualCue: "Ondes de poussière parcourant le sol."
+  },
+
+  // ───────────────────────────────────────────────
+  // TIER 2 — mobilité, vision avancée, illusions mineures
+  // ───────────────────────────────────────────────
+
+  {
+    key: "misty_step_s2s",
+    name: "Pas Brumeux",
+    world: "fantasy",
+    tier: "tier2",
+    school: "aethercraft",
+    castingTime: "bonus-action",
+    range: { type: "special", value: "9m" },
+    duration: "instantané",
+    concentration: false,
+    components: { verbal: true, somatic: true },
+    tags: ["movement", "teleport"],
+    availableInEras: ["high-kingdoms"],
+    shortSummary: "Téléportation courte dans une brume éthérée.",
+    description:
+      "Le lanceur se dissout brièvement dans une brume légère et réapparaît dans un emplacement libre qu’il voit à 9 mètres.",
+    visualCue: "Nuage de brume violette qui se dissipe instantanément."
+  },
+
+  {
+    key: "shared_darkvision",
+    name: "Vision des Ombres Partagée",
+    world: "fantasy",
+    tier: "tier2",
+    school: "umbramancy",
+    castingTime: "action",
+    range: { type: "multi-target", value: "9m, jusqu’à 3 alliés" },
+    duration: "8 heures",
+    concentration: false,
+    components: { verbal: true, somatic: true },
+    tags: ["vision", "buff-utility"],
+    availableInEras: ["dark-age", "high-kingdoms"],
+    shortSummary: "Donne une vision dans l’obscurité à plusieurs alliés.",
+    description:
+      "Les yeux des cibles se parent d’un éclat sombre, leur permettant de voir dans l’obscurité non magique sur une grande portée.",
+    visualCue: "Reflets violets dans les iris."
+  },
+
+  {
+    key: "echo_image",
+    name: "Image Écho",
+    world: "fantasy",
+    tier: "tier2",
+    school: "mindweave",
+    castingTime: "action",
+    range: { type: "sphere", value: "18m" },
+    duration: "10 minutes",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["buff-utility", "control"],
+    availableInEras: ["age-of-heroes"],
+    shortSummary: "Crée une illusion simple et fixe.",
+    description:
+      "Le lanceur façonne une image visuelle statique (ou très faiblement animée) pour tromper les observateurs, sans son ni odeur.",
+    visualCue: "Contours légèrement flous si l’on se concentre dessus."
+  },
+
+  {
+    key: "wind_voice",
+    name: "Voix du Vent",
+    world: "fantasy",
+    tier: "tier2",
+    school: "stormcalling",
+    castingTime: "action",
+    range: { type: "special", value: "jusqu’à 1 km" },
+    duration: "instantané",
+    concentration: false,
+    components: { verbal: true, somatic: false },
+    tags: ["buff-utility"],
+    availableInEras: ["ancient-age", "age-of-heroes"],
+    shortSummary: "Transporte la voix du lanceur à un endroit lointain.",
+    description:
+      "Le message du lanceur est porté par le vent jusqu’à un lieu ou une personne connue à distance, tant que la distance reste raisonnable et dans le même plan.",
+    visualCue: "Filet de vent tourbillonnant quittant la bouche du lanceur."
+  },
+
+  // ───────────────────────────────────────────────
+  // TIER 3 — exploration sérieuse, contrôle du terrain, interactions
+  // ───────────────────────────────────────────────
+
+  {
+    key: "meld_with_earth",
+    name: "Fusion Tellurique",
+    world: "fantasy",
+    tier: "tier3",
+    school: "terraforge",
+    castingTime: "action",
+    range: { type: "self", value: "—" },
+    duration: "10 minutes",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["movement", "buff-utility"],
+    availableInEras: ["ancient-age"],
+    shortSummary: "Permet de traverser pierre et terre solide lentement.",
+    description:
+      "Le corps du lanceur se fond partiellement dans la roche ou la terre, lui permettant de traverser les parois épaisses ou de se cacher à même le sol.",
+    visualCue: "La peau prend un aspect de pierre et se fond dans le décor."
+  },
+
+  {
+    key: "water_path",
+    name: "Voie des Eaux",
+    world: "fantasy",
+    tier: "tier3",
+    school: "wildgrowth",
+    castingTime: "action",
+    range: { type: "radius", value: "18m" },
+    duration: "1 heure",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["movement", "buff-utility"],
+    availableInEras: ["age-of-heroes"],
+    shortSummary: "Permet de marcher sur l’eau ou de respirer sous l’eau.",
+    description:
+      "Le lanceur choisit si les cibles marchent sur la surface de l’eau comme si elle était solide, ou respirent sous l’eau sans difficulté.",
+    visualCue: "Reflets aquatiques dans une aura légère autour des cibles."
+  },
+
+  {
+    key: "binding_roots",
+    name: "Racines Entravantes",
+    world: "fantasy",
+    tier: "tier3",
+    school: "wildgrowth",
+    castingTime: "action",
+    range: { type: "radius", value: "9m" },
+    duration: "1 minute",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["control", "area-large"],
+    availableInEras: ["age-of-heroes"],
+    shortSummary: "Entrave les déplacements ennemis avec des racines vivantes.",
+    description:
+      "Des racines et lianes surgissent du sol, entravant les créatures hostiles dans la zone et rendant le terrain difficile.",
+    visualCue: "Racines verdâtres s’enroulant autour des jambes."
+  },
+
+  {
+    key: "silent_shroud",
+    name: "Linceul Silencieux",
+    world: "fantasy",
+    tier: "tier3",
+    school: "mindweave",
+    castingTime: "action",
+    range: { type: "radius", value: "9m" },
+    duration: "10 minutes",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["control", "buff-utility", "area-large"],
+    availableInEras: ["dark-age", "high-kingdoms"],
+    shortSummary: "Crée une zone où aucun son ne peut être émis.",
+    description:
+      "Dans la zone affectée, les sons sont étouffés jusqu’au silence complet, empêchant communication verbale et cris d’alarme.",
+    visualCue: "Légère distorsion de l’air, comme une bulle de verre."
+  },
+
+  // ───────────────────────────────────────────────
+  // TIER 4 — mobilité avancée, grandes illusions, support stratégique
+  // ───────────────────────────────────────────────
+
+  {
+    key: "phantom_march",
+    name: "Marche Fantomale",
+    world: "fantasy",
+    tier: "tier4",
+    school: "mindweave",
+    castingTime: "action",
+    range: { type: "radius", value: "18m" },
+    duration: "1 heure",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["control", "buff-utility", "area-large"],
+    availableInEras: ["high-kingdoms"],
+    shortSummary: "Crée une troupe illusoire pour tromper l’ennemi.",
+    description:
+      "Une armée fantomatique se manifeste visuellement et auditivement, simulant une véritable force en marche. Idéal pour diversions ou intimidation.",
+    visualCue: "Silhouettes vaporeuses d’armées, bannières translucides."
+  },
+
+  {
+    key: "farstride_gate",
+    name: "Porte de Longs Pas",
+    world: "fantasy",
+    tier: "tier4",
+    school: "aethercraft",
+    castingTime: "action",
+    range: { type: "special", value: "jusqu’à 1 km (ligne de vue ou lieu connu)" },
+    duration: "instantané",
+    concentration: false,
+    components: { verbal: true, somatic: true },
+    tags: ["teleport", "movement"],
+    availableInEras: ["arcane-renaissance", "mythic-age"],
+    shortSummary: "Crée une ouverture pour transporter un petit groupe.",
+    description:
+      "Le lanceur ouvre une brève porte d’énergie qui relie sa position à un lieu connu ou visible, permettant à un groupe restreint de la traverser.",
+    visualCue: "Portail elliptique d’énergie, se repliant sur lui-même."
+  },
+
+  {
+    key: "veil_of_mist",
+    name: "Voile de Brume",
+    world: "fantasy",
+    tier: "tier4",
+    school: "stormcalling",
+    castingTime: "action",
+    range: { type: "radius", value: "18m" },
+    duration: "10 minutes",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["control", "buff-utility", "area-large"],
+    availableInEras: ["age-of-heroes"],
+    shortSummary: "Remplit une zone de brume épaisse pour couvrir la retraite.",
+    description:
+      "Une brume dense limite la visibilité, offrant un couvert important pour les alliés et rendant le tir à distance difficile.",
+    visualCue: "Épais nuage gris tourbillonnant lentement."
+  },
+
+  // ───────────────────────────────────────────────
+  // TIER 5 — utilitaire mythique / macro-exploration / grande information
+  // ───────────────────────────────────────────────
+
+  {
+    key: "world_sense",
+    name: "Sens du Monde",
+    world: "fantasy",
+    tier: "tier5",
+    school: "spiritbond",
+    castingTime: "ten-minutes",
+    range: { type: "special", value: "plusieurs kilomètres" },
+    duration: "10 minutes",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["vision", "buff-utility"],
+    availableInEras: ["mythic-age"],
+    shortSummary: "Perçoit grandes menaces, anomalies ou miracles sur de longues distances.",
+    description:
+      "Le lanceur s’accorde à l’esprit d’une région entière et perçoit les grandes perturbations : guerre, magie titanesque, catastrophes naturelles, présences mythiques.",
+    visualCue: "Le lanceur semble se figer, les yeux brillants d’un éclat lointain.",
+    sfxCue: "Rumeur lointaine, comme si le monde lui-même murmurait."
+  },
+
+  {
+    key: "astral_trace",
+    name: "Trace Astrale",
+    world: "fantasy",
+    tier: "tier5",
+    school: "aethercraft",
+    castingTime: "ten-minutes",
+    range: { type: "sphere", value: "inconnu / plan local" },
+    duration: "1 heure",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["vision", "buff-utility"],
+    availableInEras: ["mythic-age"],
+    shortSummary: "Suit les échos magiques d’un individu ou d’un artefact.",
+    description:
+      "Le lanceur verrouille son attention sur un nom, une aura ou un artefact. Il perçoit mentalement la direction générale et la distance approximative de sa cible, même à travers de vastes régions.",
+    visualCue: "Fines lignes de lumière quittant le lanceur vers l’horizon."
+  }
+];

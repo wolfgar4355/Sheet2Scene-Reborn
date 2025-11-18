@@ -1,0 +1,55 @@
+name: 📨 Sheet2Scene — Pull Request Notifications + QA Summary
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened, synchronize, closed]
+
+jobs:
+  notify_discord:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧩 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🧠 Run quick QA summary (if preview deploy exists)
+        id: qa_check
+        continue-on-error: true
+        run: |
+          if [ -f "scripts/check-backend.sh" ]; then
+            chmod +x scripts/check-backend.sh
+            bash scripts/check-backend.sh > qa_output.log 2>&1 || true
+            if grep -q "FAIL" qa_output.log; then
+              echo "qa_status=❌ QA failed" >> $GITHUB_OUTPUT
+            else
+              echo "qa_status=✅ QA passed" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "qa_status=⚙️ QA script not found" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 📨 Send Discord notification
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          PR_URL="${{ github.event.pull_request.html_url }}"
+          PR_ACTION="${{ github.event.action }}"
+          QA_STATUS="${{ steps.qa_check.outputs.qa_status }}"
+
+          if [ "${{ github.event.pull_request.merged }}" = "true" ]; then
+            STATUS="✅ **Pull Request Merged into main!**"
+          elif [ "$PR_ACTION" = "closed" ]; then
+            STATUS="🛑 **Pull Request Closed (not merged)**"
+          elif [ "$PR_ACTION" = "synchronize" ]; then
+            STATUS="🔁 **Pull Request Updated**"
+          else
+            STATUS="🆕 **New Pull Request Opened**"
+          fi
+
+          MESSAGE="**$STATUS**\n\n📄 *$PR_TITLE*\n👤 Author: **$PR_AUTHOR**\n🔗 [View PR]($PR_URL)\n\n🧪 QA Summary: $QA_STATUS"
+
+          curl -H "Content-Type: application/json" \
+               -d "{\"content\": \"$MESSAGE\"}" \
+               ${{ secrets.DISCORD_WEBHOOK_URL }}

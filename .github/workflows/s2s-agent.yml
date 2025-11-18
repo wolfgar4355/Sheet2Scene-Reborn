@@ -1,0 +1,108 @@
+name: S2S Agent
+
+on:
+  push:
+    branches: [main]
+  issues:
+    types: [opened, edited, labeled, reopened]
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      # 🧹 1. Nettoyer le cache GitHub Actions
+      - name: Clean runner cache
+        run: |
+          rm -rf .git/modules || true
+          rm -rf .gitmodules || true
+          git config --global --unset-all core.submoduleRecurse || true
+          echo "✅ Runner cache cleaned"
+
+      # 🌿 2. Installer Git LFS
+      - name: Install Git LFS
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-lfs
+          git lfs install
+          echo "✅ Git LFS installed"
+
+      # 🧩 3. Restaurer les pointeurs LFS avant checkout
+      - name: Fix LFS pointer mismatch
+        run: |
+          echo "🔁 Re-checkout LFS pointers before branch switch"
+          git lfs fetch --all || true
+          git lfs checkout || true
+
+      # 📦 4. Checkout repository (sans sous-modules)
+      - name: Checkout repository (LFS + clean)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+          clean: true
+          submodules: 'false'
+          persist-credentials: false
+          set-safe-directory: false
+
+      # 🧼 5. Nettoyer l’espace de travail local
+      - name: Clean workspace
+        run: |
+          git reset --hard
+          git clean -fdx
+          echo "✅ Workspace cleaned"
+
+      # ⚙️ 6. Configurer Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 📦 7. Installer les dépendances
+      - name: Install dependencies
+        run: npm ci
+
+      # 🤖 8. Exécuter le script principal de l’agent
+      - name: Run agent script
+        run: node scripts/agent.js
+
+      # 💾 9. Commit et push des modifications
+      - name: Commit and push changes
+        run: |
+          git config user.name "s2s-bot"
+          git config user.email "bot@sheet2scene.local"
+          git lfs track "*.png" || true
+          git add -A
+          git commit -m "🤖 Auto update by S2S Agent" || echo "No changes to commit"
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          echo "✅ Remote before push:" && git remote -v
+          git fetch origin main --depth=1
+          git pull --rebase --autostash || true
+          git push origin HEAD:agent-${{ github.run_id }} --force
+
+      # 🧹 10. Forcer un checkout propre avant création de PR
+      - name: Force clean checkout before PR
+        run: |
+          echo "🧹 Force cleaning working tree before PR"
+          git reset --hard
+          git clean -fdx
+          git fetch origin main --depth=1
+          echo "✅ Clean checkout completed"
+
+      # 📨 11. Créer une Pull Request automatique
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "🤖 Auto update by S2S Agent"
+          title: "S2S Agent = auto PR"
+          body: |
+            PR générée automatiquement par le bot **S2S Agent** 🤖  
+            Vérifiez et mergez si tout est correct.
+          branch: agent-${{ github.run_id }}
+          delete-branch: true

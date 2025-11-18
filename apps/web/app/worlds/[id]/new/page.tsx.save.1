@@ -1,0 +1,85 @@
+"use client";
+
+import * as React from "react";
+import { useRouter, useParams } from "next/navigation";
+import FieldInput from "@/components/FieldInput";
+import { WORLDS, type Field, type World } from "@/config/worlds";
+
+export default function NewCharacterPage() {
+  const router = useRouter();
+  const params = useParams<{ id: string }>();
+  const worldId = params?.id ?? "";
+
+  // TOUS les hooks en haut, avant tout return conditionnel
+  const [data, setData] = React.useState<Record<string, any>>({});
+
+  const world: World | undefined = React.useMemo(
+    () => WORLDS.find((w) => w.id === worldId),
+    [worldId]
+  );
+
+  // Fallback si monde introuvable (après les hooks)
+  if (!world) {
+    return (
+      <main className="p-6">
+        <h1 className="text-2xl font-bold mb-2">Monde introuvable</h1>
+        <p className="opacity-70">Aucun monde avec l’id <code>{worldId}</code>.</p>
+        <button
+          className="underline mt-4"
+          onClick={() => router.push("/worlds")}
+        >
+          Retour à la liste des mondes
+        </button>
+      </main>
+    );
+  }
+
+  const fields: Field[] = world.specs?.character?.fields ?? [];
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    // Utilise la variable ou supprime-la pour éviter “no-unused-vars”
+    // const prompt = `Nouveau personnage dans ${world.title} — ${data.name ?? "Sans nom"}`;
+
+    // Pour l’instant, simple log; branche sur ton API ensuite
+    console.log("world:", world.id, "data:", data);
+
+    // TODO: POST vers /api/characters …
+    // await fetch("/api/characters", { method: "POST", body: JSON.stringify({ worldId: world.id, data }) });
+
+    router.push(`/worlds/${world.id}`);
+  }
+
+  return (
+    <main className="p-6">
+      <h1 className="text-2xl font-bold mb-4">
+        Nouveau perso <span className="text-sm opacity-70 align-middle">({world.emoji ?? "🌍"})</span> {world.title}
+      </h1>
+
+      <form onSubmit={onSubmit} className="max-w-2xl">
+        {fields.map((f) => (
+          <FieldInput
+            key={f.id}
+            field={f}
+            value={data[f.id]}
+            onChange={(val) => setData((prev) => ({ ...prev, [f.id]: val }))}
+          />
+        ))}
+
+        <div className="mt-4 flex gap-3">
+          <button className="rounded-md bg-black px-4 py-2 text-white hover:opacity-90">
+            Enregistrer
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push(`/worlds/${world.id}`)}
+            className="rounded-md border px-4 py-2 hover:bg-gray-50"
+          >
+            Annuler
+          </button>
+        </div>
+      </form>
+    </main>
+  );
+}

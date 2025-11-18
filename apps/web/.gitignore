@@ -1,0 +1,6 @@
+
+# env files
+.env*
+apps/web/.env*
+
+ecosystem.config.cjs

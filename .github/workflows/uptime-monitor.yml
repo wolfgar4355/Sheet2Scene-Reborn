@@ -1,0 +1,87 @@
+name: Monitoring & Uptime Dashboard
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # ping every 15 minutes
+  workflow_dispatch:
+
+jobs:
+  uptime-monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🕵️ Ping Sheet2Scene site
+        run: |
+          SITE_URL="https://sheet2scene.vercel.app"
+          mkdir -p logs
+
+          # mesure latence
+          start=$(date +%s%3N)
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL")
+          end=$(date +%s%3N)
+          latency=$((end - start))
+
+          if [ "$code" -ge 200 ] && [ "$code" -lt 400 ]; then
+            status="UP"
+          else
+            status="DOWN"
+          fi
+
+          echo "$(date '+%Y-%m-%dT%H:%M:%S'),$code,$latency,$status" >> logs/uptime-history.csv
+
+      - name: 📤 Upload Uptime Log
+        uses: actions/upload-artifact@v4
+        with:
+          name: uptime-log
+          path: logs/uptime-history.csv
+
+  daily-summary:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '0 23 * * *' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 📂 Download latest uptime logs
+        uses: actions/download-artifact@v4
+        with:
+          name: uptime-log
+          path: logs
+        continue-on-error: true
+
+      - name: 📊 Compute daily stats
+        run: |
+          FILE="logs/uptime-history.csv"
+          [ ! -f "$FILE" ] && echo "No uptime log found" && exit 0
+
+          total=$(wc -l < "$FILE")
+          up=$(grep -c "UP" "$FILE" || true)
+          down=$(grep -c "DOWN" "$FILE" || true)
+          avg_latency=$(awk -F',' '{sum+=$3} END {if (NR>0) print int(sum/NR); else print 0}' "$FILE")
+
+          uptime_percent=$((100 * up / (up + down + 1)))
+          echo "{ \"total\": $total, \"up\": $up, \"down\": $down, \"latency\": $avg_latency, \"uptime\": $uptime_percent }" \
+          | tee logs/daily-uptime.json
+
+      - name: 🔔 Send daily Discord report
+        run: |
+          uptime=$(jq -r '.uptime' logs/daily-uptime.json)
+          latency=$(jq -r '.latency' logs/daily-uptime.json)
+          up=$(jq -r '.up' logs/daily-uptime.json)
+          down=$(jq -r '.down' logs/daily-uptime.json)
+
+          COLOR=65280
+          TEXT="✅ Uptime stable: ${uptime}%"
+          if [ "$uptime" -lt 98 ]; then
+            COLOR=16711680
+            TEXT="⚠️ Uptime degraded: ${uptime}%"
+          fi
+
+          curl -s -H "Content-Type: application/json" \
+            -d "$(jq -n \
+              --arg title '📈 Sheet2Scene — Daily Uptime Report' \
+              --arg desc \"$TEXT\nLatency moyenne: ${latency} ms\nUP: ${up} checks\nDOWN: ${down} checks\nDate: $(date '+%Y-%m-%d')\" \
+              --argjson color $COLOR \
+              '{embeds: [{title: $title, description: $desc, color: $color}]}')" \
+            ${{ secrets.DISCORD_WEBHOOK }}

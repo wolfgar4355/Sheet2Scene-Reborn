@@ -1,0 +1,25 @@
+name: 📣 Notify Discord (CI/CD Updates)
+
+on:
+  workflow_run:
+    workflows:
+      - "🧪 Check Backend (Supabase + Build)"
+      - "🎨 Design QA Check"
+      - "🚀 Redeploy Vercel"
+    types:
+      - completed
+
+jobs:
+  discord_notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📡 Send Discord notification
+        uses: Ilshidur/action-discord@master
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          args: |
+            ⚙️ **${{ github.workflow }}**
+            🧩 Repo: `${{ github.repository }}`
+            🧠 Author: `${{ github.actor }}`
+            🟢 Status: `${{ github.event.workflow_run.conclusion }}`
+            🕒 Time: `${{ github.event.workflow_run.updated_at }}`

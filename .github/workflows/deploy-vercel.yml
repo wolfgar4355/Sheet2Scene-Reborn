@@ -1,0 +1,57 @@
+name: 🚀 Sheet2Scene — QA, Deploy & Discord Notify
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧩 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🧠 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🧪 Run Backend QA before deploy
+        id: qa
+        run: |
+          chmod +x scripts/check-backend.sh
+          bash scripts/check-backend.sh
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+
+      - name: 🚨 Notify Discord if QA fails
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+               -d "{\"content\": \"❌ **Backend QA FAILED** — Sheet2Scene at $(date '+%Y-%m-%d %H:%M:%S') UTC.\nCheck GitHub Actions logs for details.\"}" \
+               ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: 🚀 Deploy to Vercel (Production)
+        if: success()
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          working-directory: ./
+
+      - name: ✅ Notify Discord on successful deploy
+        if: success()
+        run: |
+          curl -H "Content-Type: application/json" \
+               -d "{\"content\": \"✅ **Deployment Successful!** — Sheet2Scene deployed to production on Vercel 🎉\nTimestamp: $(date '+%Y-%m-%d %H:%M:%S') UTC\"}" \
+               ${{ secrets.DISCORD_WEBHOOK_URL }}

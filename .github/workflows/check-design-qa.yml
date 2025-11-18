@@ -1,0 +1,125 @@
+name: 🎨 Design QA — Vérification visuelle & formats
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  design-qa:
+    name: 🔍 Vérification Design QA
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧰 Cloner le dépôt
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Donner les permissions d’exécution aux scripts
+        run: chmod +x ./scripts/check-assets-names.sh
+
+      - name: 🧪 Vérifier formats & cohérence visuelle
+        id: check_files
+        run: |
+          echo "🎨 Vérification des fichiers visuels et audio..."
+          echo "------------------------------------------------------"
+          echo ""
+
+          ALLOWED_EXTENSIONS="webp|mp3|webm|ogg|woff2|svg|json|png|jpg|jpeg"
+          BAD_FILES=$(find apps/web/public -type f ! -regex ".*\.\(${ALLOWED_EXTENSIONS}\)$")
+
+          if [ -n "$BAD_FILES" ]; then
+            echo "bad_files<<EOF" >> $GITHUB_ENV
+            echo "$BAD_FILES" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+            echo "❌ Des fichiers non conformes ont été trouvés."
+            exit 1
+          else
+            echo "✅ Tous les fichiers ont des extensions autorisées."
+          fi
+
+          echo ""
+          echo "🧩 Vérification du nommage (préfixes bg-, ui-, fx-, font-, etc.)"
+          ./scripts/check-assets-names.sh
+
+      - name: 📊 Résumé du Design QA (rapport lisible)
+        if: always()
+        run: |
+          echo ""
+          echo "🪞 **Résumé du Design QA**"
+          echo ""
+          echo "| Vérification | Résultat |"
+          echo "|--------------|-----------|"
+
+          if [ "${{ steps.check_files.outcome }}" == "success" ]; then
+            echo "| Formats & extensions | ✅ Conformes |"
+          else
+            echo "| Formats & extensions | ❌ Non conformes |"
+          fi
+
+          if grep -q "✅ Tous les fichiers respectent" ./scripts/check-assets-names.sh 2>/dev/null; then
+            echo "| Nommage des assets | ✅ Conforme |"
+          else
+            echo "| Nommage des assets | ⚠️ À vérifier |"
+          fi
+
+          echo ""
+          echo "🧾 Rapport complet consultable dans les logs GitHub Actions ci-dessus."
+
+      - name: 🕒 Derniers fichiers modifiés (Bonus)
+        if: always()
+        run: |
+          echo ""
+          echo "📂 **Top 10 des fichiers modifiés récemment**"
+          echo ""
+          echo "| Fichier | Extension | Date de modification |"
+          echo "|----------|------------|----------------------|"
+          find apps/web -type f -printf "| %P | %e | %TY-%Tm-%Td %TH:%TM |\n" | sort -r | head -10
+          echo ""
+          echo "🔎 Ces fichiers ont été mis à jour récemment — idéal pour la revue visuelle."
+
+      - name: ✅ Succès final
+        if: ${{ success() }}
+        run: echo "🎉 Tous les tests Design QA sont passés avec succès."
+
+      - name: ❌ Échec final
+        if: ${{ failure() }}
+        run: echo "🚨 Certains fichiers nécessitent une correction. Consulte le rapport ci-dessus."
+
+      - name: 📢 Alerte Discord (succès ou échec)
+        if: always()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          STATUS="${{ job.status }}"
+          if [ "$STATUS" = "success" ]; then
+            COLOR=3066993
+            EMOJI="✅"
+            TITLE="Design QA réussie"
+            DESCRIPTION="Tous les fichiers visuels et audio sont conformes."
+          else
+            COLOR=15158332
+            EMOJI="❌"
+            TITLE="Design QA échouée"
+            DESCRIPTION="Certains fichiers ne respectent pas les conventions."
+          fi
+
+          MESSAGE="{
+            \"embeds\": [{
+              \"title\": \"$EMOJI $TITLE\",
+              \"description\": \"$DESCRIPTION\",
+              \"color\": $COLOR,
+              \"fields\": [
+                {\"name\": \"Auteur\", \"value\": \"${{ github.actor }}\", \"inline\": true},
+                {\"name\": \"Dépôt\", \"value\": \"${{ github.repository }}\", \"inline\": true},
+                {\"name\": \"Commit\", \"value\": \"${{ github.event.head_commit.message }}\"}
+              ],
+              \"footer\": {\"text\": \"GodinVerse • Design QA Auto-Report\"},
+              \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"
+            }]
+          }"
+
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "$MESSAGE" \
+               $DISCORD_WEBHOOK_URL

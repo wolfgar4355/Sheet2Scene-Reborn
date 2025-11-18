@@ -1,0 +1,33 @@
+# Sheet2Scene
+
+Version principale : `apps/web`  
+Versions à trier : `S2S-BACKUP/app` et `S2S-BACKUP/app-next`
+
+---
+
+## 📦 Structure
+
+- `apps/web/` : Version de référence déployée sur Vercel
+- `S2S-BACKUP/` : Anciennes versions conservées pour triage et récupération manuelle
+- `.env.local`, `.env.production` : Variables d'environnement locales et production
+
+---
+
+## 🚀 Démarrage local
+
+### Pré-requis
+
+- Node.js 18+
+- NPM ou PNPM
+- Vite (si utilisé)
+- Supabase (clé dans `.env.local`)
+- Clé OpenAI si génération activée
+- Cloudflare DNS (optionnel)
+- Vercel connecté pour déploiement (branche `main`)
+
+### Installation
+
+```bash
+cd apps/web
+npm install
+npm run dev

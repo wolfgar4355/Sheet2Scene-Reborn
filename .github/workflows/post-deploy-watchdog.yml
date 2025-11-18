@@ -1,0 +1,77 @@
+name: Post-Deploy Watchdog & Rollback
+
+on:
+  workflow_run:
+    workflows: ["Manual Deploy to Vercel"]
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  verify-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🕵️ Fetch deployment URL
+        run: |
+          DEPLOY_URL="${{ github.event.workflow_run.outputs.url }}"
+          echo "URL detected: $DEPLOY_URL"
+          if [ -z "$DEPLOY_URL" ]; then
+            echo "⚠️ No deployment URL found — using fallback"
+            DEPLOY_URL="https://sheet2scene.vercel.app"
+          fi
+          echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
+
+      - name: 🔍 Ping site health endpoints
+        run: |
+          FAIL=false
+          echo "---------------------------------------------------"
+          echo "🧩 Checking Sheet2Scene deployment health"
+          echo "---------------------------------------------------"
+
+          for path in "/" "/create" "/api/status" "/api/generate"; do
+            echo "🔎 Testing $DEPLOY_URL$path"
+            resp=$(curl -s -o /dev/null -w "%{http_code}" "$DEPLOY_URL$path")
+            if [ "$resp" -ge 200 ] && [ "$resp" -lt 400 ]; then
+              echo "✅ $path OK ($resp)"
+            else
+              echo "❌ $path failed ($resp)"
+              FAIL=true
+            fi
+          done
+
+          echo "FAIL=$FAIL" >> $GITHUB_ENV
+
+      - name: 📦 Archive Watchdog report
+        run: |
+          mkdir -p logs
+          echo "{ \"timestamp\": \"$(date '+%Y-%m-%dT%H:%M:%S')\", \"deployment\": \"$DEPLOY_URL\", \"status\": \"$FAIL\" }" \
+          > logs/watchdog-report.json
+
+      - name: 📤 Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-deploy-watchdog
+          path: logs/watchdog-report.json
+
+      - name: 🔔 Notify Discord
+        run: |
+          COLOR=65280
+          TEXT="✅ Deployment verified successfully — all endpoints alive."
+          if [ "$FAIL" = true ]; then
+            COLOR=16711680
+            TEXT="❌ Deployment issues detected — rollback may be required."
+          fi
+
+          curl -s -H "Content-Type: application/json" \
+            -d "$(jq -n \
+              --arg title 'Sheet2Scene — Post-Deploy Watchdog' \
+              --arg desc \"$TEXT\nURL: $DEPLOY_URL\nTime: $(date '+%Y-%m-%d %H:%M:%S')\" \
+              --argjson color $COLOR \
+              '{embeds: [{title: $title, description: $desc, color: $color}]}')" \
+            ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: 🧯 Automatic rollback (optional)
+        if: ${{ env.FAIL == 'true' }}
+        run: |
+          echo "⚠️ Rolling back deployment..."
+          npx vercel rollback --token=${{ secrets.VERCEL_TOKEN }}

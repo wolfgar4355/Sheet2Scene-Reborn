@@ -1,0 +1,30 @@
+# deps & builds (nested too)
+**/node_modules/
+**/.next/
+out/
+.pnpm-store/
+
+# PWA (si généré par next-pwa/workbox)
+**/public/sw.js
+**/public/workbox-*
+
+# env (tous niveaux)
+**/.env*
+
+# logs
+npm-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store
+*.swp
+*.swp
+
+# Backups
+S2S-BACKUP/**/.git/
+S2S-BACKUP/s2s_temp/
+ecosystem.config.cjs
+
+# local backups
+S2S-BACKUP/
+s2s_temp/

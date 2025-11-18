@@ -1,0 +1,84 @@
+name: Frontend QA & Build Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  frontend-qa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🧱 Build Next.js
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: 🔍 Lint & Type Check
+        run: |
+          npm run lint
+          npx tsc --noEmit
+
+      - name: 🧩 Verify Critical UI Components
+        run: |
+          echo "Verifying core UI files..."
+          for f in app/page.tsx app/layout.tsx components/ui/grimoire.tsx; do
+            if [ -f "$f" ]; then
+              echo "✅ $f present"
+            else
+              echo "❌ Missing $f"
+              exit 1
+            fi
+          done
+
+      - name: 🧪 Visual Regression (optional Percy)
+        if: ${{ secrets.PERCY_TOKEN != '' }}
+        run: |
+          npx percy snapshot http://localhost:3000
+
+      - name: 📸 Save QA Report
+        if: always()
+        run: |
+          mkdir -p logs
+          echo "{ \"timestamp\": \"$(date '+%Y-%m-%dT%H:%M:%S')\", \"frontend\": \"${{ job.status }}\" }" \
+          > logs/frontend-report.json
+
+      - name: 📤 Upload Report Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-qa-report
+          path: logs/frontend-report.json
+
+      - name: 🔔 Notify Discord
+        if: always()
+        run: |
+          COLOR=65280
+          TEXT="✅ Frontend QA Passed"
+          if [ "${{ job.status }}" != "success" ]; then
+            COLOR=16711680
+            TEXT="❌ Frontend QA Failed"
+          fi
+          curl -s -H "Content-Type: application/json" \
+            -d "$(jq -n \
+              --arg title 'Sheet2Scene Frontend QA' \
+              --arg desc \"$TEXT at $(date '+%Y-%m-%d %H:%M:%S')\" \
+              --argjson color $COLOR \
+              '{embeds: [{title: $title, description: $desc, color: $color}]}')" \
+            ${{ secrets.DISCORD_WEBHOOK }}
