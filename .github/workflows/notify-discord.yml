@@ -1,26 +1,17 @@
-name: 🔔 Notify Discord (CI/CD Updates)
+name: "🔕 Notify Discord (Disabled)"
 
 on:
   workflow_run:
     workflows:
-      - "✔ Check Backend (Supabase + Build)"
-      - "🎨 Design QA Check"
+      - "🧪 Check Backend (Supabase + Build)"
+      - "🧠 Design QA Check"
       - "🚀 Redeploy Vercel"
     types:
       - completed
 
 jobs:
-  discord_notify:
+  notify_disabled:
     runs-on: ubuntu-latest
     steps:
-      - name: 📣 Send Discord notification
-        uses: Ilshidur/action-discord@master
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        with:
-          args: >
-            **${{ github.workflow }}**
-            🔹 Repo: ${{ github.repository }}
-            🔹 Author: ${{ github.actor }}
-            🔹 Status: ${{ github.event.workflow_run.conclusion }}
-            🔹 Time: ${{ github.event.workflow_run.updated_at }}
+      - name: Skip notification
+        run: echo "Discord notifications are disabled for now."
