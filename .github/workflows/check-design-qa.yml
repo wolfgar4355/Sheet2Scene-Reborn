@@ -25,8 +25,7 @@ jobs:
         echo "🔍 Vérification des formats (images + audio)..."
 
         ALLOWED_EXTENSIONS="png|jpg|jpeg|webp|svg|mp3|wav|ogg|mp4|json|gif"
-        BAD_FILES=$(find public -type f ! -regex ".*\.\(${ALLOWED_EXTENSIONS}\)$")
-
+        BAD_FILES=$(find apps/web/public -type f ! -regex ".*\.\(${ALLOWED_EXTENSIONS}\)")
         if [[ -n "$BAD_FILES" ]]; then
           echo "❌ Certains fichiers ont des extensions interdites"
           echo "$BAD_FILES"

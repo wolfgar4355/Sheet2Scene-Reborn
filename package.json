@@ -20,15 +20,12 @@
     "lint": "turbo lint",
     "clean": "turbo clean",
     "generate": "turbo generate",
-    "typecheck": "turbo typecheck",
-
-    "prepare": "husky install"
+    "typecheck": "turbo typecheck"
   },
 
   "devDependencies": {
     "turbo": "^2.1.0",
     "typescript": "^5.4.0",
-    "husky": "^9.0.0",
     "lint-staged": "^15.2.0"
   }
 }
