@@ -11,7 +11,7 @@ jobs:
   s2s-agent:
     runs-on: ubuntu-latest
 
-    # 🔐 Empêche les boucles infinies
+    # 🚫 Empêche les boucles infinies (le workflow ignore le bot)
     if: github.actor != 'github-actions[bot]'
 
     permissions:
@@ -20,89 +20,83 @@ jobs:
 
     steps:
 
-    # -------------------------------------------------------
-    # 1. Checkout repo propre (sans machiner le workspace)
-    # -------------------------------------------------------
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        lfs: true
-        fetch-depth: 0
+      # -------------------------------
+      # 1. Checkout repo propre
+      # -------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
 
-    # -------------------------------------------------------
-    # 2. Fix Git LFS complet (sécurisé)
-    # -------------------------------------------------------
-    - name: Setup Git LFS correctly
-      run: |
-        git lfs install --force
-        git lfs pull
-        git lfs checkout
-        echo "✔️ Git LFS ready"
+      # -------------------------------
+      # 2. Fix Git LFS complet
+      # -------------------------------
+      - name: Setup Git LFS correctly
+        run: |
+          git lfs install --force
+          git lfs pull
+          git lfs checkout
+          echo "✔ Git LFS ready"
 
-    # -------------------------------------------------------
-    # 3. Setup Node.js
-    # -------------------------------------------------------
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
+      # -------------------------------
+      # 3. Setup Node.js
+      # -------------------------------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-    # -------------------------------------------------------
-    # 4. Installer les dépendances
-    # -------------------------------------------------------
-    - name: Install dependencies
-      run: npm ci
+      # -------------------------------
+      # 4. Installer les dépendances
+      # -------------------------------
+      - name: Install dependencies
+        run: npm ci
 
-    # -------------------------------------------------------
-    # 5. Exécuter ton script d’agent
-    #    (NE MODIFIERA QUE LES FICHIERS DU BOT)
-    # -------------------------------------------------------
-    - name: Run S2S agent script
-      run: |
-        node scripts/agent.js
-        echo "✔️ Agent script executed"
+      # -------------------------------
+      # 5. Exécuter script d'agent
+      # -------------------------------
+      - name: Run S2S agent script
+        run: |
+          node scripts/agent.js
+          echo "✔ Agent script executed"
 
-    # -------------------------------------------------------
-    # 6. Vérifier si des fichiers ont été modifiés
-    # -------------------------------------------------------
-    - name: Check for changes
-      id: changes
-      run: |
-        if [[ -n "$(git status --porcelain)" ]]; then
-          echo "changed=true" >> $GITHUB_OUTPUT
-        else
-          echo "changed=false" >> $GITHUB_OUTPUT
-        fi
+      # -------------------------------
+      # 6. Vérifier s'il y a des modifications
+      # -------------------------------
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
 
-    # -------------------------------------------------------
-    # 7. Si rien n'a changé → on stoppe
-    # -------------------------------------------------------
-    - name: No changes — skipping PR
-      if: steps.changes.outputs.changed == 'false'
-      run: echo "🟦 No changes produced by agent — workflow finished."
+      # -------------------------------
+      # 7. Stop si aucun changement
+      # -------------------------------
+      - name: No changes — skipping PR
+        if: steps.changes.outputs.changed == 'false'
+        run: echo "✔ No changes — workflow finished."
 
-    # -------------------------------------------------------
-    # 8. Crée un PR propre (seulement si modifications)
-    # -------------------------------------------------------
-    - name: Create Pull Request
-      if: steps.changes.outputs.changed == 'true'
-      uses: peter-evans/create-pull-request@v6
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: "🤖 Auto-update by S2S Agent"
-        title: "🤖 S2S Agent — Auto Update"
-        body: |
-          ## 🤖 S2S Agent Update
+      # -------------------------------
+      # 8. Créer PR si modifications
+      # -------------------------------
+      - name: Create Pull Request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "🤖 Auto-update by S2S Agent"
+          title: "🤖 S2S Agent – Auto Update"
+          body: |
+            The S2S Agent automatically generated updates.
 
-          The S2S Agent automatically generated updates based on internal rules.
+            - 📄 Updated files
+            - 🔒 Git LFS safe mode
+            - ♻ Infinite loop protection enabled
 
-          - 🔧 Updated files
-          - 🧰 Git LFS compatible
-          - 🧪 Safe mode enabled
-          - 🛡 Protections against infinite loops enabled
-
-          Please review before merging.
-
-        branch: "s2s-agent/${{ github.run_id }}"
-        delete-branch: true
-        labels: ["automation", "s2s-agent", "safe-update"]
+            Please review before merging.
+          branch: "s2s-agent/${{ github.run_id }}"
+          delete-branch: true
