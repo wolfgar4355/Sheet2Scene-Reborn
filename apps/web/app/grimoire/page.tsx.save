@@ -8,7 +8,7 @@ import type { GrimoireEntry } from "@/config/grimoire";
 import CreateForm from "./CreateForm";
 
 async function load(): Promise<GrimoireEntry[]> {
-  const file = path.join(process.cwd(), "data/grimoire.json");
+  const file = path.join(process.cwd(), "lib/grimoire/grimoire.json");
   try {
     return JSON.parse(await fs.readFile(file, "utf8"));
   } catch {

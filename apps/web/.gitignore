@@ -4,3 +4,4 @@
 apps/web/.env*
 
 ecosystem.config.cjs
+.vercel

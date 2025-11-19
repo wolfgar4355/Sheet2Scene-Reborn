@@ -28,3 +28,4 @@ ecosystem.config.cjs
 # local backups
 S2S-BACKUP/
 s2s_temp/
+.vercel
