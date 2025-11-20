@@ -1,8 +1,44 @@
+import path from "path";
+const r = (p) => path.resolve(__dirname, p);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: { unoptimized: true },
-  // PAS de basePath, PAS d'assetPrefix, PAS d'experimental.optimizeCss
+
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+
+      // --- App ---
+      "@": r("app"),
+      "@config": r("config"),
+      "@hooks": r("hooks"),
+      "@components": r("components"),
+      "@utils": r("utils"),
+      "@types": r("types"),
+
+      // --- Sheet2Scene Engine ---
+      "@engine": r("lib/s2s/engine"),
+      "@fantasy": r("lib/s2s/fantasy"),
+      "@bestiary": r("lib/s2s/fantasy/bestiary"),
+
+      // --- Mithril Framework ---
+      "@mithril": r("lib/mithril"),
+      "@mithrilHooks": r("lib/mithril/hooks"),
+
+      // --- Grimoire UI ---
+      "@grimoire": r("lib/grimoire"),
+
+      // --- Global shared libs ---
+      "@lib": r("lib"),
+    };
+
+    return config;
+  },
 };
+
 export default nextConfig;
-console.log('🧱 Building commit:', process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || 'local');
+
+// Debug log (optionnel)
+console.log("🔧 Building commit:", process.env.VERCEL_GIT_COMMIT_SHA || "local");

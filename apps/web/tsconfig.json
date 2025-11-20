@@ -15,29 +15,29 @@
     "incremental": true,
     "baseUrl": ".",
 
-    "paths": {
-      /* Global root alias */
-      "@/*": ["*"],
+"paths": {
+  "@/*": ["app/*"],
+  "@config/*": ["config/*"],
+  "@hooks/*": ["hooks/*"],
+  "@components/*": ["components/*"],
+  "@utils/*": ["utils/*"],
+  "@types/*": ["types/*"],
 
-      /* --- App --- */
-      "@app/*": ["app/*"],
-      "@config/*": ["config/*"],
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@types/*": ["types/*"],
-      "@utils/*": ["utils/*"],
-      "@lib/*": ["lib/*"],
+  /* Engines S2S */
+  "@engine/*": ["lib/s2s/engine/*"],
+  "@fantasy/*": ["lib/s2s/fantasy/*"],
+  "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
 
-      /* --- Sheet2Scene Engine --- */
-      "@engine/*": ["lib/s2s/engine/*"],
-      "@fantasy/*": ["lib/s2s/fantasy/*"],
-      "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
+  /* Mithril Framework */
+  "@mithril/*": ["lib/mithril/*"],
+  "@mithrilHooks/*": ["lib/mithril/hooks/*"],
 
-      /* --- Mithril Engine --- */
-      "@lib/mithril/*": ["lib/mithril/*"]
-    }
-  },
+  /* Grimoire UI */
+  "@grimoire/*": ["lib/grimoire/*"],
 
+  /* AI / services */
+  "@lib/*": ["lib/*"]
+}
   "plugins": [
     {
       "name": "next"
