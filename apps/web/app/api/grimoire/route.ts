@@ -1,6 +1,6 @@
 // apps/web/app/api/grimoire/route.ts
 import { NextResponse } from "next/server";
-import { readAll, createEntry } from "@/lib/grimoire/index";
+import { readAll, createEntry } from "@lib/grimoire/index";
 
 export async function GET() {
   try {
