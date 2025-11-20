@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
+    "allowJS": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -14,42 +14,26 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-
-"paths": {
-  "@/*": ["app/*"],
-  "@config/*": ["config/*"],
-  "@hooks/*": ["hooks/*"],
-  "@components/*": ["components/*"],
-  "@utils/*": ["utils/*"],
-  "@types/*": ["types/*"],
-
-  /* Engines S2S */
-  "@engine/*": ["lib/s2s/engine/*"],
-  "@fantasy/*": ["lib/s2s/fantasy/*"],
-  "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
-
-  /* Mithril Framework */
-  "@mithril/*": ["lib/mithril/*"],
-  "@mithrilHooks/*": ["lib/mithril/hooks/*"],
-
-  /* Grimoire UI */
-  "@grimoire/*": ["lib/grimoire/*"],
-
-  /* AI / services */
-  "@lib/*": ["lib/*"]
-}
+    "paths": {
+      "@app/*": ["app/*"],
+      "@config/*": ["config/*"],
+      "@hooks/*": ["hooks/*"],
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"],
+      "@types/*": ["types/*"],
+      "@lib/*": ["lib/*"]
+    }
+  },
   "plugins": [
     {
       "name": "next"
     }
   ],
-
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-
   "exclude": ["node_modules"]
 }
