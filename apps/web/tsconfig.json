@@ -14,31 +14,35 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+
     "paths": {
+      /* Global root alias */
+      "@/*": ["*"],
+
       /* --- App --- */
       "@app/*": ["app/*"],
       "@config/*": ["config/*"],
-      "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
       "@types/*": ["types/*"],
       "@utils/*": ["utils/*"],
+      "@lib/*": ["lib/*"],
 
       /* --- Sheet2Scene Engine --- */
       "@engine/*": ["lib/s2s/engine/*"],
       "@fantasy/*": ["lib/s2s/fantasy/*"],
       "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
 
-      /* --- Mithril Engine (FINAL) --- */
+      /* --- Mithril Engine --- */
       "@lib/mithril/*": ["lib/mithril/*"]
-    },
-
-    /* ❗ UN SEUL BLOC PLUGINS */
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    }
   },
+
+  "plugins": [
+    {
+      "name": "next"
+    }
+  ],
 
   "include": [
     "next-env.d.ts",
