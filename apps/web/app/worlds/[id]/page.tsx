@@ -2,8 +2,8 @@
 import { notFound } from "next/navigation";
 import path from "path";
 import { promises as fs } from "fs";
-import { BookShell, PageLeft, PageRight } from "@/components/BookShell";
-import FlipLink from "@/components/FlipLink";
+import { BookShell, PageLeft, PageRight } from "@components/BookShell";
+import FlipLink from "@components/FlipLink";
 
 type World = {
   id: string;

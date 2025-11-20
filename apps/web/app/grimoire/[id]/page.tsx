@@ -1,10 +1,10 @@
 // apps/web/app/grimoire/[id]/page.tsx
 import path from "path";
 import { promises as fs } from "fs";
-import { BookShell, PageLeft, PageRight } from "@/components/BookShell";
-import FlipLink from "@/components/FlipLink";
+import { BookShell, PageLeft, PageRight } from "@components/BookShell";
+import FlipLink from "@components/FlipLink";
 import EditQuick from "../EditQuick";
-import { readOne } from "@/lib/grimoire";
+import { readOne } from "@lib/grimoire";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

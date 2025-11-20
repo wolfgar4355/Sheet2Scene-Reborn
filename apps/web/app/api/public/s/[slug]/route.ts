@@ -1,6 +1,6 @@
 // app/api/public/s/[slug]/route.ts
 import { NextResponse } from 'next/server';
-import { getAdmin } from '@/lib/supabase/admin';
+import { getAdmin } from '@lib/supabase/admin';
 
 export const runtime = 'nodejs';
 
