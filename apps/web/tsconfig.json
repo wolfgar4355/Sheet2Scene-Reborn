@@ -14,15 +14,27 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["app/*"],
-      "@config/*": ["config/*"],
-      "@hooks/*": ["hooks/*"],
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"],
-      "@types/*": ["types/*"],
-      "@lib/*": ["lib/*"]
-    }
+"paths": {
+  "@/*": ["./*"],
+  "@app/*": ["app/*"],
+
+  "@config/*": ["config/*"],
+  "@engine/*": ["lib/s2s/engine/*"],
+  "@fantasy/*": ["lib/s2s/fantasy/*"],
+  "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
+
+  "@mithril/*": ["lib/mithril/*"],
+  "@mithrilHooks/*": ["lib/mithril/hooks/*"],
+
+  "@grimoire/*": ["lib/grimoire/*"],
+
+  "@supabase/*": ["lib/supabase/*"],
+
+  "@types/*": ["types/*"],
+  "@lib/*": ["lib/*"],
+  "@hooks/*": ["hooks/*"],
+  "@components/*": ["components/*"]
+}
   },
   "plugins": [
     {

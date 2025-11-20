@@ -4,7 +4,7 @@ import Link from "next/link";
 import { promises as fs } from "fs";
 import path from "path";
 import { BookShell, PageLeft, PageRight } from "@components/Grimoire";
-import type { GrimoireEntry } from "@/config/grimoire";
+import type { GrimoireEntry } from "@config/grimoire";
 import CreateForm from "./CreateForm";
 
 async function load(): Promise<GrimoireEntry[]> {

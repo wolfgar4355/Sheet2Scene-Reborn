@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
-import type { Field } from "@/config/worlds";
-import { WORLDS, BASE_FIELDS } from "@/config/worlds";
+import type { Field } from "@config/worlds";
+import { WORLDS, BASE_FIELDS } from "@config/worlds";
 
 function FieldInput({ f, value, onChange }:{ f: Field; value?: string; onChange:(v:string)=>void }){
   if(f.kind==="text") return (<label style={{display:'block',marginBottom:12}}><div style={{fontWeight:600,marginBottom:4}}>{f.label}{(f as any).required?" *":""}</div><input value={value||""} onChange={e=>onChange(e.target.value)} placeholder={(f as any).placeholder} required={(f as any).required} style={{width:'100%',padding:8,border:'1px solid #ddd',borderRadius:8}}/></label>);

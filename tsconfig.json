@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
+    "allowJS": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -14,17 +14,36 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+
     "paths": {
-      "@/*": ["*"],
+      "@/*": ["app/*"],
+
+      /* UI */
       "@app/*": ["app/*"],
-      "@lib/*": ["lib/*"],
-      "@config/*": ["config/*"],
-      "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"],
-      "@types/*": ["types/*"]
-    },
-    "plugins": [{ "name": "next" }]
+      "@hooks/*": ["hooks/*"],
+      "@config/*": ["config/*"],
+
+      /* Mithril Engine – version AAA */
+      "@engine/*": ["packages/engine/src/*"],
+      "@types/*": ["packages/engine/src/types/*"],
+      "@content/*": ["packages/engine/src/content/*"],
+
+      /* Ton système RPG complet (à NE PAS toucher) */
+      "@fantasy/*": ["lib/s2s/fantasy/*"],
+      "@bestiarry/*": ["lib/s2s/fantasy/bestiary/*"],
+      "@rpg/*": ["lib/s2s/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+
+  "plugins": [{ "name": "next" }],
+
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+
   "exclude": ["node_modules"]
 }

@@ -24,7 +24,7 @@ const nextConfig = {
       "@types": r("types"),
 
       // --- Sheet2Scene Engine ---
-      "@engine": r("lib/s2s/engine"),
+      "@engine": r("../../packages/engine/src"),
       "@fantasy": r("lib/s2s/fantasy"),
       "@bestiary": r("lib/s2s/fantasy/bestiary"),
 

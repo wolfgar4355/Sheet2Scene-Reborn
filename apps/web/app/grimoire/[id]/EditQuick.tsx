@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { WORLDS } from "@/config/worlds";
+import { WORLDS } from "@config/worlds";
 
 type Field = {
   id: string;
