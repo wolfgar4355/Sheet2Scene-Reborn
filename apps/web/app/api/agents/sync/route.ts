@@ -5,8 +5,8 @@ export const revalidate = 0;
 
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { AGENTS, AGENT_GROUPS } from "@/app/api/agents/registry";
-import { readEnv } from "@/lib/env";
+import { AGENTS, AGENT_GROUPS } from "@app/api/agents/registry";
+import { readEnv } from "@lib/env";
 
 type Agent = {
   id: string;

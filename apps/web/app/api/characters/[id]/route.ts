@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAdmin } from '@/lib/supabase/admin';
-import { getUserIdFromRequestHeaders } from '@/lib/getUserId';
+import { getAdmin } from '@lib/supabase/admin';
+import { getUserIdFromRequestHeaders } from '@lib/getUserId';
 
 export const runtime = 'nodejs';
 
