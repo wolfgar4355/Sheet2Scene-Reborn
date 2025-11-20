@@ -11,7 +11,12 @@ import React, {
 
 import AudioBoot from "@lib/mithril/AudioBoot";
 import useSeason from "@lib/mithril/hooks/useSeason";
-import { getSeason, getDayPhase, getWeather, getAmbientColor } from './ambient.config';
+import {
+  getSeason,
+  getDayPhase,
+  getWeather,
+  getAmbientColor
+} from '@ambient';
 
 interface MithrilContextType {
   season: string;

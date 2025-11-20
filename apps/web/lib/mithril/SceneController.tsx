@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, {
@@ -9,7 +10,12 @@ import React, {
 } from "react";
 
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { getSeason, getWeather } from "@lib/mithril/ambient.config";
+import {
+  getSeason,
+  getDayPhase,
+  getWeather,
+  getAmbientColor
+} from '@ambient';
 
 interface SceneContextType {
   cameraZoom: number;
