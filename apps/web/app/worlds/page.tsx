@@ -1,7 +1,7 @@
 "use client";
 
-import { WORLDS } from "@/config/worlds";
-import useBookNav from "@/hooks/useBookNav";
+import { WORLDS } from "@config/worlds";
+import useBookNav from "@hooks/useBookNav";
 
 export default function WorldsList() {
   // Ton hook peut plus tard gérer la navigation; pour l’instant on fait simple

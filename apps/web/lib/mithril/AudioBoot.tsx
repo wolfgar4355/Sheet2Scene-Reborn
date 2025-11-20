@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import bookAudio from "@/utils/bookSounds";
+import bookAudio from "@utils/bookSounds";
 
 /**
  * Réveille l'AudioContext et précharge silencieusement au 1er geste utilisateur
