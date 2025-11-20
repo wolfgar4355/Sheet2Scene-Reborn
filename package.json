@@ -20,8 +20,9 @@
     "typecheck": "npm --workspace apps/web run typecheck"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "lint-staged": "^15.2.0",
     "turbo": "^2.1.0",
-    "typescript": "^5.4.0",
-    "lint-staged": "^15.2.0"
+    "typescript": "^5.4.0"
   }
 }
