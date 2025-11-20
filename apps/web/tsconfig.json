@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJS": false,
+    "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -14,33 +14,36 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-"paths": {
-  "@/*": ["./*"],
-  "@app/*": ["app/*"],
+    "paths": {
+      /* --- App --- */
+      "@/*": ["app/*"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@config/*": ["config/*"],
+      "@types/*": ["types/*"],
+      "@lib/*": ["lib/*"],
 
-  "@config/*": ["config/*"],
-  "@engine/*": ["lib/s2s/engine/*"],
-  "@fantasy/*": ["lib/s2s/fantasy/*"],
-  "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
+      /* --- Mithril Engine --- */
+      "@engine/*": ["../../packages/engine/src/*"],
+      "@engineTypes/*": ["../../packages/engine/src/types/*"],
+      "@engineContent/*": ["../../packages/engine/src/content/*"],
 
-  "@mithril/*": ["lib/mithril/*"],
-  "@mithrilHooks/*": ["lib/mithril/hooks/*"],
+      /* --- RPG (Sheet2Scene) System --- */
+      "@fantasy/*": ["lib/s2s/fantasy/*"],
+      "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
+      "@rpg/*": ["lib/s2s/*"],
 
-  "@grimoire/*": ["lib/grimoire/*"],
+      /* --- Supabase --- */
+      "@supabase/*": ["lib/supabase/*"],
 
-  "@supabase/*": ["lib/supabase/*"],
+      /* --- Mithril Framework --- */
+      "@mithril/*": ["lib/mithril/*"],
+      "@mithrilHooks/*": ["lib/mithril/hooks/*"],
 
-  "@types/*": ["types/*"],
-  "@lib/*": ["lib/*"],
-  "@hooks/*": ["hooks/*"],
-  "@components/*": ["components/*"]
-}
-  },
-  "plugins": [
-    {
-      "name": "next"
+      /* --- Grimoire UI --- */
+      "@grimoire/*": ["lib/grimoire/*"]
     }
-  ],
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",

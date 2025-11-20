@@ -1,4 +1,4 @@
-import { getWorlds } from "@engine/getWorlds";
+import { getWorlds } from "@engine/content/worlds";
 
 export default function Page() {
   const worlds = getWorlds();
