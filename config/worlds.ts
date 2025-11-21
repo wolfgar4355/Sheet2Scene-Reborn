@@ -5,7 +5,7 @@ export const WORLDS: World[] = [
     id: "fantasy",
     title: "Fantasy",
     specs: {
-      character: {
+      characters: {
         fields: [
           { id: "name", title: "Nom", placeholder: "Eloann, Arya…" },
           { id: "race", title: "Race", placeholder: "Elfe, Nain, Humain…" },
