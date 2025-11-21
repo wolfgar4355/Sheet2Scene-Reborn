@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
 import AudioBoot from "@lib/mithril/AudioBoot";
-import { MithrilProvider } from "@mithril/engine.tsx"; // NON
+import { MithrilProvider } from "@mithril/engine"; 
 export const metadata: Metadata = {
   title: "Sheet2Scene",
   description: "Transformez vos feuilles en scènes jouables.",
