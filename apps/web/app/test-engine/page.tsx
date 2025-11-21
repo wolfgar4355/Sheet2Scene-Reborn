@@ -1,5 +1,4 @@
-import { getWorlds } from "@engine/content/worlds";
-
+import { getWorlds, getErasForWorld } from "@content/worlds";
 export default function Page() {
   const worlds = getWorlds();
   const eras = getErasForWorld("fantasy");
