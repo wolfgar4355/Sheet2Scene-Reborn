@@ -162,3 +162,4 @@ export const WORLDS: World[] = [
 export function worldById(id: string | null | undefined) {
   return WORLDS.find((w) => w.id === id);
 }
+export default WORLDS;

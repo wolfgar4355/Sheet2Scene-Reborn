@@ -71,3 +71,4 @@ export function getErasForWorld(worldId: string) {
   const world = worlds.find(w => w.id === worldId);
   return world ? world.eras : [];
 }
+export default worlds;
