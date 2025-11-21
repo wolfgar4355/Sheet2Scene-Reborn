@@ -1,23 +1,21 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
-import { useScene } from "./SceneController";
+import { useMemo } from "react";
+import { useScene } from "@mithril/SceneController";
 import {
   getSeason,
   getDayPhase,
-  getWeather,
   getAmbientColor
-} from '@ambient';
+} from '@mithril/utils/time';
 
 export default function TransitionLayer() {
   const { lightLevel } = useScene();
 
-  // Palette par saison
   const seasonTint = useMemo(() => {
     return {
       winter: "#80b3ff",
-      spring: "#8de77c",
-      summer: "#ffd47a",
+      spring: "#88dcc7",
+      summer: "#ffd74a",
       autumn: "#ff995a",
     };
   }, []);
@@ -25,18 +23,11 @@ export default function TransitionLayer() {
   const season = getSeason();
   const dayPhase = getDayPhase();
 
-  const baseTint = {
-    morning: "#ffffff",
-    day: "#ffffff",
-    evening: "#caa27a",
-    night: "#27384d",
-  }[dayPhase];
-
-  const tint = seasonTint[season] ?? "#ffffff";
+  const baseTint = dayPhase === "night" ? "#ffffff" : "#ffffff";
 
   return (
     <div className="pointer-events-none absolute inset-0 z-[5] mix-blend-soft-light transition-all duration-700">
-      {/* Couche 1 */}
+      {/* couche 1 */}
       <div
         className="absolute inset-0"
         style={{
@@ -45,11 +36,11 @@ export default function TransitionLayer() {
         }}
       />
 
-      {/* Couche 2 */}
+      {/* couche 2 */}
       <div
         className="absolute inset-0"
         style={{
-          background: `radial-gradient(70% 70% at 50% 50%, ${tint}, transparent 90%)`,
+          background: `radial-gradient(70% 70% at 50% 50%, ${seasonTint[season]}, transparent 90%)`,
           opacity: 0.45 * lightLevel,
         }}
       />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface PageTurnerProps {
   step: number;
@@ -9,8 +9,7 @@ interface PageTurnerProps {
 }
 
 /**
- * 🪶 Mithril Engine v1.3 — PageTurner
- * Gère les transitions animées entre les pages du grimoire (tourner la feuille).
+ * Mithril Engine v2 – PageTurner
  */
 export default function PageTurner({ step, pages }: PageTurnerProps) {
   return (

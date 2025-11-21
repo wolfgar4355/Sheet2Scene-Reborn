@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, {
@@ -6,32 +5,33 @@ import React, {
   useContext,
   useEffect,
   useState,
-  ReactNode,
+  type ReactNode
 } from "react";
 
 import { motion, useMotionValue, useTransform } from "framer-motion";
+
 import {
   getSeason,
   getDayPhase,
   getWeather,
   getAmbientColor
-} from '@ambient';
+} from '@mithril/utils/time';
 
 interface SceneContextType {
   cameraZoom: number;
   setCameraZoom: (v: number) => void;
   lightLevel: number;
   setLightLevel: (v: number) => void;
-  weather: string;
   season: string;
+  weather: string;
 }
 
 const SceneContext = createContext<SceneContextType | undefined>(undefined);
 
 export function useScene() {
-  const cx = useContext(SceneContext);
-  if (!cx) throw new Error("useScene must be used within SceneController");
-  return cx;
+  const ctx = useContext(SceneContext);
+  if (!ctx) throw new Error("useScene must be used inside SceneController");
+  return ctx;
 }
 
 export default function SceneController({
@@ -44,34 +44,27 @@ export default function SceneController({
   const [season, setSeason] = useState(getSeason());
   const [weather, setWeather] = useState("clear");
 
-  // Framer Motion
   const zoomMotion = useMotionValue(cameraZoom);
   const lightMotion = useMotionValue(lightLevel);
   const brightness = useTransform(lightMotion, [0, 1], [0.6, 1]);
 
-  // Synchronisation automatique (heure / saisons / météo)
+  // Lumières & météo
   useEffect(() => {
-    async function syncLighting() {
-      const currWeather = await getWeather();
-      setWeather(currWeather);
+    async function sync() {
+      const w = await getWeather();
+      setWeather(w);
 
-      const hour = new Date().getHours();
-      const isNight = hour < 6 || hour > 20;
-
-      // Light Levels
-      if (isNight) setLightLevel(0.7);
-      else setLightLevel(1);
-
-      // Saisons : actualiser toutes les minutes
-      setSeason(getSeason());
+      const now = new Date().getHours();
+      const isNight = now < 6 || now > 20;
+      setLightLevel(isNight ? 0.7 : 1);
     }
 
-    syncLighting();
-    const interval = setInterval(syncLighting, 60 * 1000);
+    sync();
+    const interval = setInterval(sync, 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
-  // Pousser valeurs dans Framer Motion
+  // Synchro motion
   useEffect(() => {
     zoomMotion.set(cameraZoom);
     lightMotion.set(lightLevel);

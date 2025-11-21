@@ -4,19 +4,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import React, {
   createContext,
   useContext,
-  useEffect,
   useState,
-  ReactNode,
+  useEffect,
+  type ReactNode,
 } from "react";
 
-import AudioBoot from "@lib/mithril/AudioBoot";
-import useSeason from "@lib/mithril/hooks/useSeason";
-import {
+import AudioBoot from '@mithril/AudioBoot';
+import useSeason, {
   getSeason,
   getDayPhase,
   getWeather,
   getAmbientColor
-} from '@ambient';
+} from '@mithril/hooks/useSeason';
 
 interface MithrilContextType {
   season: string;
@@ -33,26 +32,27 @@ export function useMithril() {
   return ctx;
 }
 
-/* ---------------------------------------------------------------------
-   ► GRIMOIRE FRAME v1.5
-   Cadre global : décor, saison, ambiance, flip, audio
------------------------------------------------------------------------- */
+/** --------------------------------------------------------------------------
+ * 🎨 GrimoireFrame v2 – Layout global du grimoire
+ * Gestion flip, saison, ambiance, pages UI
+ * -------------------------------------------------------------------------- */
 
 export default function GrimoireFrame({
   children,
 }: {
   children: ReactNode;
 }) {
-  const [season, setSeason] = useState(useSeason());
+  const seasonHook = useSeason();
+  const [season, setSeason] = useState(seasonHook);
   const [isFlipping, setFlipping] = useState(false);
 
-  function flip() {
+  const flip = () => {
     setFlipping(true);
-    setTimeout(() => setFlipping(false), 800); // durée animation
-  }
+    setTimeout(() => setFlipping(false), 800);
+  };
 
-  const bg = ambient.background ?? "/images/bg-hall.png";
-  const parchment = ambient.parchment ?? "/images/parchment.png";
+  const bg = `/images/bg_hall.png`;
+  const parchment = `/images/parchment.png`;
 
   return (
     <MithrilContext.Provider value={{ season, setSeason, flip, isFlipping }}>
@@ -63,17 +63,17 @@ export default function GrimoireFrame({
           style={{ backgroundImage: `url(${bg})` }}
         />
 
-        {/* Papier / grille */}
+        {/* Parchemin */}
         <div
           className="absolute inset-0 pointer-events-none bg-no-repeat bg-contain mix-blend-lighten opacity-90 transition-all"
           style={{ backgroundImage: `url(${parchment})` }}
         />
 
-        {/* Animation FLIP */}
+        {/* Animation Flip */}
         <AnimatePresence mode="wait">
           <motion.div
             key={isFlipping ? "flip" : "idle"}
-            initial={{ rotateY: 0 }}
+            initial={{ rotateY: 0, opacity: 1 }}
             animate={{ rotateY: isFlipping ? 180 : 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
@@ -83,7 +83,6 @@ export default function GrimoireFrame({
           </motion.div>
         </AnimatePresence>
 
-        {/* Préchargement audio global */}
         <AudioBoot />
       </main>
     </MithrilContext.Provider>

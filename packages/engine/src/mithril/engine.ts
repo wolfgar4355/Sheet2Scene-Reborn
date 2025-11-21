@@ -1,20 +1,23 @@
 /**
- * ✨ Mithril Engine v1.5 — Point d’entrée unique UI
- * Centralise les exports pour le grimoire.
+ * ✨ Mithril Engine v2 – Entrée unique UI
+ * Import centralisé pour le grimoire.
  */
 
 export {
   default as MithrilProvider,
   useMithril
-} from "@lib/mithril/GrimoireFrame";
+} from '@mithril/GrimoireFrame';
 
 export {
-  default as SceneController
-} from "@lib/mithril/SceneController";
+  default as SceneController,
+  useScene
+} from '@mithril/SceneController';
 
 export {
   default as TransitionLayer
-} from "@lib/mithril/TransitionLayer";
+} from '@mithril/TransitionLayer';
 
-// Ré-exporte la config d’ambiance pour plus de confort
-export * from "@engine/ambient";
+export {
+  AmbientProvider,
+  useAmbient
+} from '@mithril/ambient';
