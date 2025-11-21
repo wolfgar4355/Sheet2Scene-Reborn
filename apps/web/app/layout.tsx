@@ -2,8 +2,8 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
-import AudioBoot from "@/lib/mithril/AudioBoot";
-import { MithrilProvider } from "@/lib/mithril/engine";
+import AudioBoot from "@lib/mithril/AudioBoot";
+import { MithrilProvider } from "@lib/mithril/engine";
 
 export const metadata: Metadata = {
   title: "Sheet2Scene",
