@@ -1,6 +1,10 @@
-// Ré-exports publics du Mithril Engine
+// Ré-exports publics du Mithril Engine AAA v2
 
-export { default as getWorlds } from "@engine/getWorlds";
-export { default as getErasForWorld } from "@engine/getWorlds";
-export { default as bestiary } from "@engineContent/bestiary";
-export { default as spells } from "@engineContent/spells";
+// --- Worlds & Eras ---
+export { getWorlds, getErasForWorld } from "@engine/getWorlds";
+
+// --- Content (Fantasy, D&D-like univers, etc.) ---
+export * from "@engineContent/worlds";
+export * from "@engineContent/eras";
+export * from "@engineContent/bestiary";
+export * from "@engineContent/spells";
