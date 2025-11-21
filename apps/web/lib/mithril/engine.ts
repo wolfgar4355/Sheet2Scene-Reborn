@@ -17,4 +17,4 @@ export {
 } from "@lib/mithril/TransitionLayer";
 
 // Ré-exporte la config d’ambiance pour plus de confort
-export * from "./ambient.config";
+export * from "@ambient";
