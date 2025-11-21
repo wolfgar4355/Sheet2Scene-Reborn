@@ -3,7 +3,7 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const r = (p) => path.resolve(__dirname, p);
+const r = p => path.resolve(__dirname, p);
 
 const nextConfig = {
   reactStrictMode: true,
@@ -13,31 +13,30 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
 
-      // --- Core app ---
+      // ===== App =====
       "@": r("app"),
       "@config": r("config"),
-      "@hooks": r("hooks"),
       "@components": r("components"),
       "@utils": r("utils"),
-      "@types": r("types"),
 
-      // --- Engine ---
+      // ===== Mithril Engine (AAA) =====
       "@engine": r("../packages/engine/src"),
-      "@engineTypes": r("../packages/engine/src/types"),
-      "@content": r("../packages/engine/src/content"),
-      "@ambient": r("../packages/engine/src/ambient.config.ts"),
+      "@engine/content": r("../packages/engine/src/content"),
+      "@engine/types": r("../packages/engine/src/types"),
+      "@engine/ambient": r("../packages/engine/src/ambient.config.ts"),
 
-      // --- RPG system ---
+      // ===== RPG =====
       "@fantasy": r("lib/s2s/fantasy"),
       "@bestiary": r("lib/s2s/fantasy/bestiary"),
 
-      // Mithril
+      // ===== Mithril (UI + Rendering) =====
       "@mithril": r("lib/mithril"),
-      "@mithrilHooks": r("lib/mithril/hooks"),
+      "@mithril/hooks": r("lib/mithril/hooks"),
 
-      // Grimoire
+      // ===== Grimoire =====
       "@grimoire": r("lib/grimoire"),
 
+      // ===== Shared =====
       "@lib": r("lib"),
     };
 
@@ -46,3 +45,5 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
+console.log("🔨 Building commit:", process.env.VERCEL_GIT_COMMIT_SHA || "local");
