@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useCallback } from "react";
+import bookAudio from "@utils/bookSounds"; // ✅ IMPORTANT — import par défaut
 
+// ---------------------
+// COUVERTURE DU LIVRE
+// ---------------------
 export function BookShell({ children }: PropsWithChildren) {
   return (
     <div className="mx-auto max-w-5xl">
@@ -17,9 +21,18 @@ export function BookShell({ children }: PropsWithChildren) {
   );
 }
 
-export function PageLeft({ children }: PropsWithChildren) {
+// ---------------------
+// PAGE DE DROITE
+// ---------------------
+export function PageRight({ children }: PropsWithChildren) {
+
+  const onFlip = useCallback(() => {
+    bookAudio.flip(); // 🔊 joue le son de page flip
+  }, []);
+
   return (
     <motion.div
+      onClick={onFlip}         // 🔥 click = flip
       initial={{ rotateY: -2, opacity: 0.98 }}
       whileHover={{ rotateY: -1 }}
       className="bg-[url('/assets/visuals/parchment.jpg')] bg-cover bg-center p-6 md:p-8"
@@ -30,9 +43,18 @@ export function PageLeft({ children }: PropsWithChildren) {
   );
 }
 
-export function PageRight({ children }: PropsWithChildren) {
+// ---------------------
+// PAGE DE GAUCHE
+// ---------------------
+export function PageLeft({ children }: PropsWithChildren) {
+
+  const onFlip = useCallback(() => {
+    bookAudio.flip(); // 🔊 joue le son de page à gauche aussi
+  }, []);
+
   return (
     <motion.div
+      onClick={onFlip}         // 🔥 click = flip
       initial={{ rotateY: 2, opacity: 0.98 }}
       whileHover={{ rotateY: 1 }}
       className="bg-[url('/assets/visuals/parchment.jpg')] bg-cover bg-center p-6 md:p-8 border-l border-black/10"

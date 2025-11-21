@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 // Si tu n'utilises pas l'alias "@", remplace par: "../utils/bookSounds"
-import { bookAudio } from "@utils/bookSounds";
+import bookAudio from "@utils/bookSounds";
 
 /**
  * Retourne un callback qui joue le son de "page flip"
