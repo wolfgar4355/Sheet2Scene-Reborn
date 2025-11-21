@@ -22,7 +22,7 @@
       "@config/*": ["config/*"],
       "@types/*": ["types/*"],
       "@lib/*": ["lib/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
 
       /* --- Mithril Engine --- */
       "@engine/*": ["../../packages/engine/src/*"],
