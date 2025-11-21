@@ -13,7 +13,7 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
 
-      // --- App ---
+      // --- Core app ---
       "@": r("app"),
       "@config": r("config"),
       "@hooks": r("hooks"),
@@ -21,24 +21,23 @@ const nextConfig = {
       "@utils": r("utils"),
       "@types": r("types"),
 
-      // --- Sheet2Scene Engine ---
-      "@engine": r("../../packages/engine/src"),
-      "@engineTypes": r("../../packages/engine/src/types"),
-      "@content": r("../../packages/engine/src/content"),
-      "@ambient": r("../../packages/engine/src/ambient.config.ts"),
+      // --- Engine ---
+      "@engine": r("../packages/engine/src"),
+      "@engineTypes": r("../packages/engine/src/types"),
+      "@content": r("../packages/engine/src/content"),
+      "@ambient": r("../packages/engine/src/ambient.config.ts"),
 
       // --- RPG system ---
       "@fantasy": r("lib/s2s/fantasy"),
       "@bestiary": r("lib/s2s/fantasy/bestiary"),
 
-      // --- Mithril ---
+      // Mithril
       "@mithril": r("lib/mithril"),
       "@mithrilHooks": r("lib/mithril/hooks"),
 
-      // --- Grimoire ---
+      // Grimoire
       "@grimoire": r("lib/grimoire"),
 
-      // --- Global shared ---
       "@lib": r("lib"),
     };
 
@@ -47,6 +46,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
-// Debug optionnel
-console.log("🔧 Building commit:", process.env.VERCEL_GIT_COMMIT_SHA || "local");
