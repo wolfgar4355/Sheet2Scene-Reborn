@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { WORLDS } from "@/config/worlds";
+import { WORLDS } from "@config/worlds";
 
 // `type` devient optionnel, et on définit les props avec title? (optionnel)
 type Field = {
