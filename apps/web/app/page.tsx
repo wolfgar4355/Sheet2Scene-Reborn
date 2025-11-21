@@ -1,6 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import GrimoireFrame from "@/lib/mithril/GrimoireFrame";
+import TransitionLayer from "@/lib/mithril/TransitionLayer";
+import SceneController from "@/lib/mithril/SceneController";
 
 export default function Home() {
   const router = useRouter();

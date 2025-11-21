@@ -1,14 +1,17 @@
 "use client";
 
-export default function ambient() {
-    let volume = 1;
+import { useState, useEffect } from "react";
+
+export function useAmbient() {
+    const [volume, setVolume] = useState(1);
+
+    useEffect(() => {
+        const audio = document.getElementById("ambient-audio") as HTMLAudioElement;
+        if (audio) audio.volume = volume;
+    }, [volume]);
 
     return {
-        setVolume(v: number) {
-            volume = Math.max(0, Math.min(1, v));
-        },
-        getVolume() {
-            return volume;
-        }
+        volume,
+        setVolume,
     };
-}
+}}

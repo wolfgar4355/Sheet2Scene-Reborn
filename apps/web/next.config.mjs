@@ -29,17 +29,15 @@ const nextConfig = {
       "@fantasy": r("lib/s2s/fantasy"),
       "@bestiary": r("lib/s2s/fantasy/bestiary"),
 
-      // ===== Mithril (UI + Rendering) =====
-      "@mithril": r("lib/mithril"),
-      "@mithril/hooks": r("lib/mithril/hooks"),
-
       // ===== Grimoire =====
       "@grimoire": r("lib/grimoire"),
 
       // ===== Shared =====
       "@lib": r("lib"),
-    };
 
+      // ===== Mithril Framework (local) =====
+      "@mithril": r("lib/mithril"),
+};
     return config;
   },
 };
