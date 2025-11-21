@@ -1,29 +1,46 @@
-// packages/engine/src/types/worlds.ts
+export type Field = {
+  id: string;
+  title: string;
+  type?: string;
+  placeholder?: string;
+};
 
-export type WorldId = "fantasy";
+export type CharacterSpecs = {
+  fields: Field[];
+};
 
-export type FantasyEraId =
-  | "age-of-heroes"
-  | "ancient-age"
-  | "dark-ages"
-  | "high-kingdoms"
-  | "arcane-renaissance"
-  | "mystic-age";
+export type StorySpecs = {
+  fields: Field[];
+};
 
-export type EraId = FantasyEraId;
+export type Specs = {
+  characters: CharacterSpecs;
+  story: StorySpecs;
+};
 
-export interface EraDefinition {
-  id: EraId;
-  worldId: WorldId;
+export type Agent = {
   name: string;
-  shortDescription: string;
-  // ex: [1, 10] pour niveau recommandé
-  recommendedLevels?: [number, number];
-}
+  modelId: string;
+  style: string;
+};
 
-export interface WorldDefinition {
-  id: WorldId;
-  name: string;
-  tagline?: string;
-  eras: EraDefinition[];
-}
+export type Theme = {
+  accentColor: string;
+  bgColor?: string;
+  textColor?: string;
+  parchmentTexture: string;
+};
+
+export type Generators = {
+  characterPrompt: (d: any) => string;
+  storyPrompt: (d: any) => string;
+};
+
+export type World = {
+  id: string;
+  title: string;
+  specs: Specs;
+  generators: Generators;
+  agents: Agent[];
+  theme: Theme;
+};
