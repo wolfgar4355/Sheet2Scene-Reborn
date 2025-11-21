@@ -5,7 +5,7 @@ export const WORLDS: World[] = [
     id: "fantasy",
     title: "Fantasy",
     specs: {
-      character: {
+      characters: {
         fields: [
           { id: "name", title: "Nom", placeholder: "Eloann, Arya…" },
           { id: "race", title: "Race", placeholder: "Elfe, Nain, Humain…" },
@@ -45,7 +45,7 @@ export const WORLDS: World[] = [
     id: "galactic",
     title: "Galactic Saga",
     specs: {
-      character: {
+      characters: {
         fields: [
           { id: "name", title: "Nom" },
           { id: "background", title: "Historique", type: "long" },
@@ -85,7 +85,7 @@ export const WORLDS: World[] = [
     id: "pathseeker",
     title: "Pathseeker",
     specs: {
-      character: {
+      characters: {
         fields: [
           { id: "name", title: "Nom" },
           { id: "background", title: "Passé", type: "long" },
@@ -127,7 +127,7 @@ export const WORLDS: World[] = [
     id: "custom",
     title: "Custom",
     specs: {
-      character: {
+      characters: {
         fields: [
           { id: "name", title: "Nom" },
           { id: "concept", title: "Concept", type: "long" },
