@@ -2,8 +2,8 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
-import AudioBoot from "@lib/mithril/AudioBoot";
-import { MithrilProvider } from "@lib/mithril/engine";
+import AudioBoot from "@mithril/AudioBoot";
+import { MithrilProvider } from "@mithril/engine";
 
 export const metadata: Metadata = {
   title: "Sheet2Scene",
@@ -52,11 +52,11 @@ export default function RootLayout({
         {/* Préchargement audio client */}
         <AudioBoot />
 
-        {/* 👉 IMPORTANT : Fournit toutes les animations et le moteur UI */}
+        {/* 🔥 IMPORTANT : Fournit toutes les animations et le moteur UI */}
         <MithrilProvider>{children}</MithrilProvider>
 
         {/* Portail modal */}
-        <div id="modal-root" />
+        <div id="modal-root"></div>
       </body>
     </html>
   );
