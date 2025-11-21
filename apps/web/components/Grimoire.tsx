@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PropsWithChildren, useCallback } from "react";
-import { bookAudio } from "../utils/bookSounds"; // ton chemin actuel
+import bookAudio  from "@utils/bookSounds"; // ton chemin actuel
 
 export function BookShell({ children }: PropsWithChildren) {
   return (
