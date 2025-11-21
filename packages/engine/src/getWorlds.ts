@@ -1,5 +1,5 @@
-import { fantasyWorlds } from "./content/worlds";
+import worlds from "./content/worlds";
 
 export function getWorlds() {
-  return fantasyWorlds;
+  return worlds;
 }

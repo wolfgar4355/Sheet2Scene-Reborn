@@ -21,11 +21,11 @@ const nextConfig = {
       "@utils": r("utils"),
       "@types": r("types"),
 
-     // --- Sheet2Scene Engine ---
-     "@engine": r("../../packages/engine/src"),
-     "@engineTypes": r("../../packages/engine/src/types"),
-     "@content": r("../../packages/engine/src/content"),
-     "@ambient": r("../../packages/engine/src/ambient.config.ts"),
+      // --- Sheet2Scene Engine ---
+      "@engine": r("../../packages/engine/src"),
+      "@engineTypes": r("../../packages/engine/src/types"),
+      "@content": r("../../packages/engine/src/content"),
+      "@ambient": r("../../packages/engine/src/ambient.config.ts"),
 
       // --- RPG system ---
       "@fantasy": r("lib/s2s/fantasy"),
