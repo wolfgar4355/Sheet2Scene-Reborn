@@ -1,17 +1,22 @@
 "use client";
 
 import React from "react";
-import { WORLDS } from "@config/worlds";
+import { WORLDS } from "@/config/worlds";
 
-// Type local mis à jour : type devient optionnel
+// `type` devient optionnel, et on définit les props avec title? (optionnel)
 type Field = {
   id: string;
   title: string;
-  type?: string; // <-- ICI : OBLIGATOIRE POUR CORRIGER VERCEL
+  type?: string;
   placeholder?: string;
 };
 
-export default function EditQuick({ id }: { id: string }) {
+type EditQuickProps = {
+  id: string;
+  title?: string; // <-- pour matcher <EditQuick id=... title=... />
+};
+
+export default function EditQuick({ id, title }: EditQuickProps) {
   const world = WORLDS.find((w) => w.id === id);
 
   const [mode, setMode] = React.useState<"character" | "story">("character");
@@ -44,7 +49,7 @@ export default function EditQuick({ id }: { id: string }) {
 
   return (
     <div className="rounded-lg border border-amber-300 bg-white p-4">
-      {/* Sélecteur */}
+      {/* Sélecteur Personnage / Synopsis */}
       <div className="flex items-center gap-3 mb-4">
         <button
           onClick={() => setMode("character")}
@@ -67,8 +72,10 @@ export default function EditQuick({ id }: { id: string }) {
         </button>
       </div>
 
-      {/* Titre */}
-      <div className="ml-auto opacity-60 text-sm">{world?.title}</div>
+      {/* Titre du monde (ou du props title si tu veux l’utiliser plus tard) */}
+      <div className="ml-auto opacity-60 text-sm">
+        {world?.title ?? title}
+      </div>
 
       {/* Formulaire */}
       <div className="grid gap-3 mt-3">
@@ -76,7 +83,6 @@ export default function EditQuick({ id }: { id: string }) {
           <div key={f.id} className="grid gap-1">
             <label className="text-sm font-semibold">{f.title}</label>
 
-            {/* textarea SI type === long */}
             {f.type === "long" ? (
               <textarea
                 className="rounded border p-2"
