@@ -3,16 +3,17 @@
 import React from "react";
 import { WORLDS } from "@config/worlds";
 
-// Type local pour les champs du formulaire
+// Type local mis à jour : type devient optionnel
 type Field = {
   id: string;
   title: string;
-  type: "short" | "long" | string;
+  type?: string; // <-- ICI : OBLIGATOIRE POUR CORRIGER VERCEL
   placeholder?: string;
 };
 
 export default function EditQuick({ id }: { id: string }) {
   const world = WORLDS.find((w) => w.id === id);
+
   const [mode, setMode] = React.useState<"character" | "story">("character");
 
   const fields: Field[] =
@@ -29,22 +30,12 @@ export default function EditQuick({ id }: { id: string }) {
     try {
       const res = await fetch("/api/grimoire/generate", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          world: id,
-          mode,
-          data,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ world: id, mode, data }),
       });
 
       const json = await res.json();
-      if (!json.ok) {
-        setResult(`Erreur: ${json.text ?? "Erreur"}`);
-      } else {
-        setResult(json.text);
-      }
+      setResult(json.ok ? json.text : `Erreur: ${json.text ?? "Erreur"}`);
     } catch (err) {
       setResult(`Erreur réseau: ${String(err)}`);
     }
@@ -53,7 +44,7 @@ export default function EditQuick({ id }: { id: string }) {
 
   return (
     <div className="rounded-lg border border-amber-300 bg-white p-4">
-      {/* Sélecteur de mode */}
+      {/* Sélecteur */}
       <div className="flex items-center gap-3 mb-4">
         <button
           onClick={() => setMode("character")}
@@ -76,7 +67,7 @@ export default function EditQuick({ id }: { id: string }) {
         </button>
       </div>
 
-      {/* Titre du monde */}
+      {/* Titre */}
       <div className="ml-auto opacity-60 text-sm">{world?.title}</div>
 
       {/* Formulaire */}
@@ -85,6 +76,7 @@ export default function EditQuick({ id }: { id: string }) {
           <div key={f.id} className="grid gap-1">
             <label className="text-sm font-semibold">{f.title}</label>
 
+            {/* textarea SI type === long */}
             {f.type === "long" ? (
               <textarea
                 className="rounded border p-2"
