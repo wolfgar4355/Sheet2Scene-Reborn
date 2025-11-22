@@ -56,4 +56,3 @@ export const ERAS_BY_WORLD: Record<string, EraDefinition[]> = {
   fantasy: FANTASY_ERAS,
 };
 
-export { FANTASY_ERAS };
