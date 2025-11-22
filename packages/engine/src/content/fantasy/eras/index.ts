@@ -4,6 +4,7 @@
 import type { EraDefinition } from "../types-worlds";
 
 export const FANTASY_ERAS = [
+EraDefinition[] = [
   {
     id: "age-of-heroes",
     worldId: "fantasy",
