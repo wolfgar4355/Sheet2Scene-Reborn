@@ -1,7 +1,7 @@
 // Récupère tes Fantasy Eras depuis ton fichier actuel.
 // Je les place dans une constante FANTASY_ERAS
 
-import type { EraDefinition } from "../../types-worlds";
+import type { EraDefinition } from "../types-worlds";
 
 export const FANTASY_ERAS = [
   {
