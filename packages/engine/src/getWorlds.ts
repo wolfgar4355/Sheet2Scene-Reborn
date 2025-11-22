@@ -1,5 +1,5 @@
-import { WORLDS } from "./content/fantasy/worlds.ts";
-import { ERAS_BY_WORLD } from "./content/fantasy/eras/index.ts";
+import { WORLDS } from "./content/fantasy/worlds";
+import { ERAS_BY_WORLD } from "./content/fantasy/eras";
 
 // Liste complète des mondes
 export function getWorlds() {
