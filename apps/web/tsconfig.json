@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -16,29 +20,58 @@
     "baseUrl": ".",
     "paths": {
       /* --- App --- */
-      "@/*": ["app/*"],
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@config/*": ["config/*"],
-      "@types/*": ["types/*"],
-      "@lib/*": ["lib/*"],
-      "@utils/*": ["utils/*"],
-
+      "@/*": [
+        "app/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@types/*": [
+        "types/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
       /* --- Mithril Engine --- */
-      "@engine/*": ["../../packages/engine/src/*"],
-      "@engineTypes/*": ["../../packages/engine/src/types/*"],
-      "@engineContent/*": ["../../packages/engine/src/content/fantasy/*"],
-
+      "@engine/*": [
+        "../../packages/engine/src/*"
+      ],
+      "@engineTypes/*": [
+        "../../packages/engine/src/types/*"
+      ],
+      "@engineContent/*": [
+        "../../packages/engine/src/content/fantasy/*"
+      ],
       /* --- Supabase --- */
-      "@supabase/*": ["lib/supabase/*"],
-
+      "@supabase/*": [
+        "lib/supabase/*"
+      ],
       /* --- Mithril Framework --- */
-      "@mithril/*": ["lib/mithril/*"],
-      "@mithrilHooks/*": ["lib/mithril/hooks/*"],
-
+      "@mithril/*": [
+        "lib/mithril/*"
+      ],
+      "@mithrilHooks/*": [
+        "lib/mithril/hooks/*"
+      ],
       /* --- Grimoire UI --- */
-      "@grimoire/*": ["lib/grimoire/*"]
-    }
+      "@grimoire/*": [
+        "lib/grimoire/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -46,5 +79,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
