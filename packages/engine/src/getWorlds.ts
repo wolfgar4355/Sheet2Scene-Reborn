@@ -1,12 +1,13 @@
 import { WORLDS } from "./content/fantasy/worlds";
 import { ERAS_BY_WORLD } from "./content/fantasy/eras";
+import type { EraDefinition, WorldDefinition } from "./content/types/worlds";
 
-// Liste complète des mondes
-export function getWorlds() {
+export function getWorlds(): WorldDefinition[] {
   return WORLDS;
 }
 
-// Liste des ères d’un monde donné
-export function getErasForWorld(worldId: string) {
-  return ERAS_BY_WORLD[worldId] ?? [];
+export function getErasForWorld(worldId: string): EraDefinition[] {
+  return (ERAS_BY_WORLD as Record<string, EraDefinition[]>)[worldId] ?? [];
 }
+
+export default WORLDS;
