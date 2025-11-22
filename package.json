@@ -24,5 +24,8 @@
     "lint-staged": "^15.2.0",
     "turbo": "^2.1.0",
     "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.7.0"
   }
 }
