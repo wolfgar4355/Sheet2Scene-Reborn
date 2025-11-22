@@ -1,6 +1,10 @@
 // Récupère tes Fantasy Eras depuis ton fichier actuel.
 // Je les place dans une constante FANTASY_ERAS
 
+export const ERAS_BY_WORLD: Record<string, EraDefinition[]> = {
+  fantasy: FANTASY_ERAS,
+};
+
 export const FANTASY_ERAS = [
   {
     id: "age-of-heroes",
