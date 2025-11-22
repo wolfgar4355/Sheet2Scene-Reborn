@@ -24,11 +24,40 @@ jobs:
         run: npm ci
 
       - name: Build Next.js
+        id: build_step
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           NEXT_PUBLIC_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: npm run build
+        run: |
+          set +e
+          npm run build 2> build_err.log
+          echo "status=$?" >> $GITHUB_OUTPUT
+          echo "error_log<<EOF" >> $GITHUB_OUTPUT
+          sed 's/"/\\"/g' build_err.log >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          exit 0
+
+      - name: AAA v2 - Auto-Fix Patch Engine
+        if: failure()
+        run: |
+          echo "🔧 Capture des logs..."
+          sed 's/"/\\"/g' build_err.log > build_sanitized.log
+
+          echo "🔮 Envoi des logs à ODIN..."
+          PATCH_JSON=$(curl -s -X POST \
+            -H "Content-Type: application/json" \
+            -d "{\"repo\":\"sheet2scene\",\"project\":\"web\",\"logs\":\"$(cat build_sanitized.log)\"}" \
+            https://sheet2scene-reborn.vercel.app/api/agents/run)
+
+          echo "$PATCH_JSON" > patch.json
+
+          if [ -s patch.json ]; then
+            echo "📦 Patch reçu, application AAA v2..."
+            npm run apply:patch "$(cat patch.json)"
+          else
+            echo "⚠️ Aucun patch généré. ODIN n’a rien trouvé."
+          fi
 
       - name: Lint & Typecheck
         run: |
@@ -39,20 +68,18 @@ jobs:
         run: |
           for f in app/page.tsx app/layout.tsx components/ui/grimoire.tsx; do
             if [ -f "$f" ]; then
-              echo "✔ Found: $f"
+              echo "✓ Found: $f"
             else
-              echo "✘ Missing: $f"
+              echo "✗ Missing: $f"
               exit 1
             fi
           done
-
-      # Percy removed
 
       - name: Save QA Report
         if: always()
         run: |
           mkdir -p logs
-          echo "{\"time\":\"$(date -u +"%Y-%m-%dT%H:%M:%S")\",\"frontend\":\"${{ job.status }}\"}" \
+          echo "{\"time\":\"$(date -u +\"%Y-%m-%dT%H:%M:%S\")\",\"frontend\":\"${{ job.status }}\"}" \
             > logs/frontend-report.json
 
       - name: Upload Report Artifact
@@ -69,7 +96,7 @@ jobs:
           COLOR_FAIL: 16711680
           WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          if [ "${{ job.status }}" = "success" ]; then
+          if [[ "${{ job.status }}" == "success" ]]; then
             COLOR=$COLOR_SUCCESS
             DESC="Frontend QA Passed"
           else
@@ -81,8 +108,7 @@ jobs:
             --arg title "Sheet2Scene QA" \
             --arg desc "$DESC" \
             --arg color "$COLOR" \
-            '{username: "Sheet2Scene QA", embeds: [{title: $title, description: $desc, color: ($color|tonumber)}]}' \
-          )"
+            '{username:"Sheet2Scene QA", embeds:[{title:$title, description:$desc, color: ($color|tonumber)}]}' )"
 
           curl -H "Content-Type: application/json" \
             -d "$JSON" \

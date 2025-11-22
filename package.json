@@ -4,27 +4,38 @@
   "private": true,
   "packageManager": "npm@10.8.0",
   "type": "module",
+
   "engines": {
     "node": ">=20.10.0"
   },
+
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
+
   "scripts": {
-    "dev": "npm --workspace apps/web run dev",
-    "build": "npm --workspace apps/web run build",
-    "start": "npm --workspace apps/web run start",
-    "lint": "npm --workspace apps/web run lint",
-    "clean": "rm -rf node_modules apps/web/.next",
-    "typecheck": "npm --workspace apps/web run typecheck"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+
+    /* AAA v3 — Automation Orchestrator */
+    "aaa": "node scripts/aaa-engine.js all",
+    "aaa:check": "node scripts/aaa-engine.js check",
+    "aaa:fix": "node scripts/aaa-engine.js fix",
+    "aaa:patch": "node scripts/aaa-engine.js patch",
+    "aaa:triage": "node scripts/aaa-engine.js triage",
+    "aaa:ci": "node scripts/aaa-engine.js ci",
+    "aaa:task": "node scripts/aaa-engine.js one"
   },
+
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
     "lint-staged": "^15.2.0",
     "turbo": "^2.1.0",
     "typescript": "^5.4.0"
   },
+
   "dependencies": {
     "@supabase/ssr": "^0.7.0"
   }
