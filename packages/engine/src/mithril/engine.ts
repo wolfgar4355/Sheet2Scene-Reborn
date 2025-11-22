@@ -5,19 +5,19 @@
 
 export {
   default as MithrilProvider,
-  useMithril
-} from '@mithril/GrimoireFrame';
+  useMithril,
+} from "./GrimoireFrame";
 
 export {
   default as SceneController,
-  useScene
-} from '@mithril/SceneController';
+  useScene,
+} from "./SceneController";
 
 export {
-  default as TransitionLayer
-} from '@mithril/TransitionLayer';
+  default as TransitionLayer,
+} from "./TransitionLayer";
 
 export {
   AmbientProvider,
-  useAmbient
-} from '@mithril/ambient';
+  useAmbient,
+} from "./ambient";

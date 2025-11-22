@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useScene } from "@mithril/SceneController";
+import { useScene } from "./SceneController";
 
 interface Particle {
   x: number;

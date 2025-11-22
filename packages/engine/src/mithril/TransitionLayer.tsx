@@ -1,12 +1,12 @@
 "use client";
 
 import { useMemo } from "react";
-import { useScene } from "@mithril/SceneController";
+import { useScene } from "./SceneController";
 import {
   getSeason,
   getDayPhase,
   getAmbientColor
-} from '@mithril/utils/time';
+} from "../time";
 
 export default function TransitionLayer() {
   const { lightLevel } = useScene();

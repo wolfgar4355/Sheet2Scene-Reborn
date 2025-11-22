@@ -16,7 +16,7 @@ import {
   AmbientConfig,
   getAmbientColor,
   type AmbientSource,
-} from "@mithril/ambient.config";
+} from "../ambient.config";
 
 import { getSeason, getDayPhase, getWeather } from "./hooks/useSeason";
 

@@ -27,12 +27,7 @@
       /* --- Mithril Engine --- */
       "@engine/*": ["../../packages/engine/src/*"],
       "@engineTypes/*": ["../../packages/engine/src/types/*"],
-      "@engineContent/*": ["../../packages/engine/src/content/*"],
-
-      /* --- RPG (Sheet2Scene) System --- */
-      "@fantasy/*": ["lib/s2s/fantasy/*"],
-      "@bestiary/*": ["lib/s2s/fantasy/bestiary/*"],
-      "@rpg/*": ["lib/s2s/*"],
+      "@engineContent/*": ["../../packages/engine/src/content/fantasy/*"],
 
       /* --- Supabase --- */
       "@supabase/*": ["lib/supabase/*"],

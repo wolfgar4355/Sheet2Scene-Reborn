@@ -15,7 +15,7 @@ import {
   getDayPhase,
   getWeather,
   getAmbientColor
-} from '@mithril/utils/time';
+} from "../time";
 
 interface SceneContextType {
   cameraZoom: number;

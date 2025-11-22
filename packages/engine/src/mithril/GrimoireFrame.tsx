@@ -9,13 +9,13 @@ import React, {
   type ReactNode,
 } from "react";
 
-import AudioBoot from '@mithril/AudioBoot';
+import AudioBoot from './AudioBoot';
 import useSeason, {
   getSeason,
   getDayPhase,
   getWeather,
   getAmbientColor
-} from '@mithril/hooks/useSeason';
+} from './hooks/useSeason';
 
 interface MithrilContextType {
   season: string;

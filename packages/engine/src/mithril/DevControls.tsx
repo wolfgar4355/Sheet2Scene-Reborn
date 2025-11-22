@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { AmbientConfig } from '@mithril/ambient.config';
+import { AmbientConfig } from '../ambient.config';
 import { useCamera } from './hooks/useCamera';
 
 /**
