@@ -1,58 +1,58 @@
+// Récupère tes Fantasy Eras depuis ton fichier actuel.
+// Je les place dans une constante FANTASY_ERAS
+
 export const FANTASY_ERAS = [
   {
-    key: "medieval-high",
-    label: "Médiéval (High Fantasy)",
-    description:
-      "Époque classique des royaumes, ordres chevaleresques, grands dragons et magie omniprésente.",
-    magicLevel: "high",
-    technology: "medieval",
-    theme: "Aventure héroïque"
+    id: "age-of-heroes",
+    worldId: "fantasy",
+    name: "Age of Heroes",
+    shortDescription:
+      "Épopées légendaires, proto-royaumes et premiers artefacts mythiques.",
+    recommendedLevels: [1, 10],
   },
   {
-    key: "dark-ages",
-    label: "Âges Sombres",
-    description:
-      "Un monde ravagé par des guerres anciennes. Sorcellerie interdite, monstres dans l'ombre, famine et peste.",
-    magicLevel: "low",
-    technology: "primitive",
-    theme: "Horreur et survie"
+    id: "ancient-age",
+    worldId: "fantasy",
+    name: "Ancient Age",
+    shortDescription:
+      "Empires antiques, cités-États magiques et ruines cyclopéennes.",
+    recommendedLevels: [3, 12],
   },
   {
-    key: "arcane-renaissance",
-    label: "Renaissance Arcanique",
-    description:
-      "La magie est maîtrisée comme une science. Grandes académies, inventions magiques, conflits politiques sophistiqués.",
-    magicLevel: "high",
-    technology: "arcanic",
-    theme: "Intrigues politiques et savoir"
+    id: "dark-ages",
+    worldId: "fantasy",
+    name: "Dark Ages",
+    shortDescription:
+      "Pestes, guerres saintes et magie interdite dans un monde en déclin.",
+    recommendedLevels: [1, 8],
   },
   {
-    key: "mythic-age",
-    label: "Âge Mythique",
-    description:
-      "Les dieux marchent encore parmi les mortels. Créatures primordiales, épreuves divines, héros légendaires.",
-    magicLevel: "very-high",
-    technology: "primitive",
-    theme: "Mythologie et destin"
+    id: "high-kingdoms",
+    worldId: "fantasy",
+    name: "High Kingdoms",
+    shortDescription:
+      "Grandes monarchies, ordres chevaleresques et conflits épiques.",
+    recommendedLevels: [1, 20],
   },
   {
-    key: "iron-dominion",
-    label: "Domination de Fer",
-    description:
-      "Première apparition des machines, armures lourdes raffinées, guildes militarisées et magie instable.",
-    magicLevel: "medium",
-    technology: "pre-steampunk",
-    theme: "Expansion et conflits technologiques"
+    id: "arcane-renaissance",
+    worldId: "fantasy",
+    name: "Arcane Renaissance",
+    shortDescription:
+      "Renaissance culturelle et explosion de la magie savante.",
+    recommendedLevels: [5, 15],
   },
   {
-    key: "shattered-realms",
-    label: "Royaumes Brisés",
-    description:
-      "Le monde a été déchiré par une catastrophe magique. Failles dimensionnelles, énergies sauvages et territoires hostiles.",
-    magicLevel: "chaotic",
-    technology: "medieval",
-    theme: "Exploration et survie"
+    id: "mystic-age",
+    worldId: "fantasy",
+    name: "Mystic Age",
+    shortDescription:
+      "Temps où le voile entre les plans devient instable.",
+    recommendedLevels: [10, 20],
   }
 ] as const;
 
-export type FantasyEra = typeof FANTASY_ERAS[number];
+// MAPPING pour le moteur AAA v2
+export const ERAS_BY_WORLD = {
+  fantasy: FANTASY_ERAS
+} as const;
