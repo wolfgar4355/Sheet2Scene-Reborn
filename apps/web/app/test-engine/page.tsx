@@ -1,11 +1,8 @@
-import { getWorlds } from "@engine/getWorlds";
-import { getErasForWorld } from "@engine/content/worlds";
+import { getWorlds, getErasForWorld } from "@engine/getWorlds";
 
 export default function Page() {
   const worlds = getWorlds();
   const eras = getErasForWorld("fantasy");
 
-  return (
-    <pre>{JSON.stringify({ worlds, eras }, null, 2)}</pre>
-  );
+  return <pre>{JSON.stringify({ worlds, eras }, null, 2)}</pre>;
 }
