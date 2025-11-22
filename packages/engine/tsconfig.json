@@ -10,8 +10,15 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "@engine/*": ["./*"],
+      "@engineContent/*": ["./content/fantasy/*"]
+    }
   },
+
   "include": ["src", "data"],
   "exclude": ["node_modules"]
 }
