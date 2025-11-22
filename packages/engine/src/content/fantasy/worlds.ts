@@ -1,5 +1,5 @@
 // Définition d’un monde Fantasy
-import type { WorldDefinition } from "../../types-worlds";
+import type { WorldDefinition } from "../types-worlds";
 
 export const WORLDS: WorldDefinition[] = [
   {
