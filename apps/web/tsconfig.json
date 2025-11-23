@@ -31,10 +31,12 @@
       "@eras/*": ["../packages/engine/src/content/fantasy/eras/*"],
       "@worlds-content/*": ["../packages/engine/src/content/fantasy/worlds/*"],
 
-      "@grimoire/*": ["../packages/engine/src/content/grimoire/*"],
+// --- Mithril Framework --- //
+    "@mithril/*": ["../packages/engine/src/mithril/*"],
+    "@mithrilHooks/*": ["../packages/engine/src/mithril/hooks/*"],
 
-      "@mithril/*": ["../packages/engine/src/mithril/*"],
-      "@mithril/hooks/*": ["../packages/engine/src/mithril/hooks/*"],
+    // --- Grimoire Content --- //
+    "@grimoire/*": ["../packages/engine/src/content/grimoire/*"],
 
       "@config/worlds": ["../packages/engine/src/getWorlds.ts"],
 

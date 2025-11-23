@@ -29,8 +29,10 @@ const REWRITES: [RegExp, string][] = [
   [/from\s+["']lib\/ambient["']/g, 'from "@engine/ambient"'],
   [/from\s+["']lib\/discord["']/g, 'from "@engine/utils/discord"'],
 
-  // === Ancien grimoire local ===
-  [/from\s+["']lib\/grimoire["']/g, 'from "@lib/grimoire"'],
+// === Ancien grimoire local ===
+[/from\s+["']lib\/grimoire["']/g, 'from "@grimoire"'],
+[/from\s+["']@lib\/grimoire["']/g, 'from "@grimoire"'],
+[/@lib\/grimoire\//g, '@grimoire/'],
 ];
 
 // Dossiers à ignorer

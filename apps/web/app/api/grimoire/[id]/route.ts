@@ -1,6 +1,6 @@
 // apps/web/app/api/grimoire/[id]/route.ts
 import { NextResponse } from "next/server";
-import { readOne, updateEntry } from "@lib/grimoire/index";
+import { readOne, updateEntry } from "@grimoire/index";
 
 // ------------------------------------------------------------
 // GET /api/grimoire/[id]
