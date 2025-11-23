@@ -21,7 +21,7 @@
   "@lib/supabase/*": ["lib/supabase/*"],
   "@lib/getUserId": ["lib/getUserId.ts"],
   "@lib/mithril/*": ["lib/mithril/*"],
-  "@mithril/*": ["../../packages/engine/src/mithril/*"]
+  "@mithril/*": ["../../packages/engine/src/mithril/*"],
   "@components/*": ["components/*"],
   "@hooks/*": ["hooks/*"],
   "@utils/*": ["utils/*"],
