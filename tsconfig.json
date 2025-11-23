@@ -2,10 +2,9 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJS": false,
+    "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -14,36 +13,35 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-
     "paths": {
       "@/*": ["app/*"],
-
-      /* UI */
-      "@app/*": ["app/*"],
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
+      "@components/*": ["components/*"],                                                "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
 
-      /* Mithril Engine – version AAA */
-      "@engine/*": ["packages/engine/src/*"],
-      "@types/*": ["packages/engine/src/types/*"],
-      "@content/*": ["packages/engine/src/content/*"],
+      "@engine/*": ["../../packages/engine/src/*"],
+      "@engine/content/*": ["../../packages/engine/src/content/*"],
+      "@engine/types/*": ["../../packages/engine/src/types/*"],
+      "@engine/ambient": ["../../packages/engine/src/ambient.config.ts"],
 
-      /* Ton système RPG complet (à NE PAS toucher) */
-      "@fantasy/*": ["lib/s2s/fantasy/*"],
-      "@bestiarry/*": ["lib/s2s/fantasy/bestiary/*"],
-      "@rpg/*": ["lib/s2s/*"]
+      "@fantasy/*": ["../../packages/engine/src/content/fantasy/*"],
+      "@bestiary/*": ["../../packages/engine/src/content/fantasy/bestiary/*"],
+      "@spells/*": ["../../packages/engine/src/content/fantasy/spells/*"],
+      "@eras/*": ["../../packages/engine/src/content/fantasy/eras/*"],
+      "@worlds-content/*": ["../../packages/engine/src/content/fantasy/worlds/*"],
+
+// --- Mithril Framework --- //
+    "@mithril/*": ["../../packages/engine/src/mithril/*"],
+    "@mithrilHooks/*": ["../../packages/engine/src/mithril/hooks/*"],
+
+    // --- Grimoire Content --- //
+    "@grimoire/*": ["../../packages/engine/src/content/grimoire/*"],
+
+      "@config/worlds": ["../../packages/engine/src/getWorlds.ts"],
+
+      "@lib/*": ["lib/*"]
     }
   },
-
-  "plugins": [{ "name": "next" }],
-
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
