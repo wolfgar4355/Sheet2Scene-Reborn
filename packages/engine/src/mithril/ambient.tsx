@@ -6,7 +6,7 @@ export type AmbientState = {
   music?: string | null;
   ambience?: string | null;
   sfx?: string | null;
-  volume?: number;
+  volume: number;
 };
 
 const defaultValue: AmbientState = {
@@ -16,17 +16,15 @@ const defaultValue: AmbientState = {
   volume: 1,
 };
 
-type AmbientContextType = {
+export const AmbientContext = createContext<{
   ambient: AmbientState;
   setAmbient: (v: AmbientState) => void;
-};
-
-export const AmbientContext = createContext<AmbientContextType>({
+}>({
   ambient: defaultValue,
   setAmbient: () => {},
 });
 
-/** Provider AAA v2 minimal pour gérer l’ambiance globale */
+/** Provider AAA v2 minimal pour piloter les états globaux */
 export function AmbientProvider({ children }: { children: React.ReactNode }) {
   const [ambient, setAmbient] = useState<AmbientState>(defaultValue);
 
