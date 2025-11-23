@@ -5,14 +5,12 @@ const config = {
     "./components/**/*.{ts,tsx,mdx}",
     "./pages/**/*.{ts,tsx,mdx}",
     "./public/**/*.html",
+  ],
 
-    // Pour inclure tes classes dynamiques (raw)
+  // Pour inclure tes classes dynamiques (raw)
+  safelist: [
     {
-      raw: `
-        bg-[url('/images/parchment.png')]
-        bg-[url('/images/bg-hall.png')]
-        bg-[url('/images/bg-study.jpg')]
-      `,
+      pattern: /bg-\[url\(\'\/images\/.*\'\)\]/,
     },
   ],
 
