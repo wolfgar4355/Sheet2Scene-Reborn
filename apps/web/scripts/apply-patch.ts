@@ -1,62 +1,104 @@
-/**
- * Patch-Applier Engine AAA v2
- * Applique un patch généré par ODIN / agents IA.
- * Compatible GitHub Actions + monorepo.
- */
+// scripts/apply-patch.ts
+// Auto-fix des anciens imports vers les nouveaux alias Webpack
 
 import fs from "fs";
 import path from "path";
-import { execSync } from "child_process";
 
-interface Patch {
-  file: string;
-  diff: string;
+// On lance le script depuis apps/web
+const WEB_DIR = process.cwd();
+const EXTS = [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs"];
+
+console.log("🌐 WEB_DIR:", WEB_DIR);
+
+// ===============================
+// Paires [regexp, replacement]
+// ===============================
+const REWRITES: [RegExp, string][] = [
+  // === AAA Fantasy vers alias ===
+  [/from\s+["']lib\/s2s\/fantasy["']/g, 'from "@fantasy"'],
+  [/from\s+["']lib\/s2s\/fantasy\/bestiary["']/g, 'from "@bestiary"'],
+  [/from\s+["']lib\/s2s\/fantasy\/spells["']/g, 'from "@spells"'],
+  [/from\s+["']lib\/s2s\/fantasy\/eras["']/g, 'from "@eras"'],
+  [/from\s+["']lib\/s2s\/fantasy\/worlds["']/g, 'from "@worlds-content"'],
+
+  // === Ancien moteur s2s ===
+  [/from\s+["']lib\/s2s\/engine["']/g, 'from "@engine"'],
+
+  // === Utils IA / ambient / discord ===
+  [/from\s+["']lib\/ai["']/g, 'from "@engine/utils/ai"'],
+  [/from\s+["']lib\/ambient["']/g, 'from "@engine/ambient"'],
+  [/from\s+["']lib\/discord["']/g, 'from "@engine/utils/discord"'],
+
+  // === Ancien grimoire local ===
+  [/from\s+["']lib\/grimoire["']/g, 'from "@lib/grimoire"'],
+];
+
+// Dossiers à ignorer
+const IGNORE_DIRS = new Set<string>([
+  "node_modules",
+  ".next",
+  ".git",
+  "public",
+]);
+
+function shouldProcessFile(file: string): boolean {
+  return EXTS.some((ext) => file.endsWith(ext));
 }
 
-/** Utilitaires */
-function log(msg: string) {
-  console.log(`[PATCH-ENGINE] ${msg}`);
-}
+function walk(dir: string, files: string[] = []): string[] {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
 
-function applyUnifiedDiff(filePath: string, diff: string) {
-  const tmp = "/tmp/patch.diff";
-  fs.writeFileSync(tmp, diff, "utf8");
-
-  try {
-    execSync(`patch -p1 < ${tmp}`, { stdio: "inherit" });
-  } catch (err) {
-    log(`Erreur lors de l'application du patch pour ${filePath}`);
-    throw err;
+    if (entry.isDirectory()) {
+      if (!IGNORE_DIRS.has(entry.name)) {
+        walk(full, files);
+      }
+    } else if (entry.isFile() && shouldProcessFile(full)) {
+      files.push(full);
+    }
   }
+  return files;
 }
 
-/** Point d’entrée */
-export function applyPatch(patch: Patch) {
-  const filePath = path.resolve(process.cwd(), patch.file);
+function applyRewrites(content: string): { changed: boolean; result: string } {
+  let changed = false;
+  let result = content;
 
-  if (!fs.existsExists(filePath)) {
-    throw new Error(`Fichier introuvable: ${filePath}`);
+  for (const [regex, replacement] of REWRITES) {
+    if (regex.test(result)) {
+      result = result.replace(regex, replacement);
+      changed = true;
+    }
   }
 
-  applyUnifiedDiff(filePath, patch.diff);
-
-  log(`Patch appliqué: ${patch.file}`);
+  return { changed, result };
 }
 
-/** CLI GitHub */
-if (require.main === module) {
-  const raw = process.argv[2];
+function main() {
+  console.log("🛠️ Running patch...");
 
-  if (!raw) {
-    console.error("Aucun patch JSON fourni.");
-    process.exit(1);
+  const files = walk(WEB_DIR);
+  console.log(`📄 Fichiers à scanner: ${files.length}`);
+
+  let patchedCount = 0;
+
+  for (const file of files) {
+    const src = fs.readFileSync(file, "utf8");
+    const { changed, result } = applyRewrites(src);
+
+    if (changed) {
+      fs.writeFileSync(file, result, "utf8");
+      patchedCount++;
+      console.log("✅ Patched:", path.relative(WEB_DIR, file));
+    }
   }
 
-  const patchData = JSON.parse(raw) as Patch;
-  applyPatch(patchData);
+  console.log(`🎉 Terminé. Fichiers modifiés: ${patchedCount}`);
+}
 
-  execSync(`git add "${patchData.file}"`);
-  execSync(`git commit -m "AAA v2 • Auto-fix: ${patchData.file}"`);
-
-  log("Commit généré ✔");
+try {
+  main();
+} catch (err) {
+  console.error("❌ Patch error:", err);
+  process.exit(1);
 }

@@ -4,7 +4,6 @@ import { WORLDS } from "@config/worlds";
 import useBookNav from "@hooks/useBookNav";
 
 export default function WorldsList() {
-  // Ton hook peut plus tard gérer la navigation; pour l’instant on fait simple
   useBookNav();
 
   const goToWorld = (id: string) => {
@@ -24,6 +23,7 @@ export default function WorldsList() {
             >
               <div className="text-3xl">{(w as any).emoji ?? "🌍"}</div>
               <div className="mt-2 font-semibold">{w.title}</div>
+
               {(w as any).tags?.length ? (
                 <div className="text-xs opacity-70">
                   {(w as any).tags.join(", ")}

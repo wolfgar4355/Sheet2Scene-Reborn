@@ -3,35 +3,40 @@
 import React from "react";
 import { WORLDS } from "@config/worlds";
 
-// `type` devient optionnel, et on définit les props avec title? (optionnel)
+// Types internes pour le formulaire
 type Field = {
   id: string;
   title: string;
-  type?: string;
+  type?: "short" | "long";
   placeholder?: string;
 };
 
 type EditQuickProps = {
   id: string;
-  title?: string; // <-- pour matcher <EditQuick id=... title=... />
+  title?: string; // Optionnel : utilisé si jamais le monde n'a pas de title
 };
 
 export default function EditQuick({ id, title }: EditQuickProps) {
+  // Récupération du monde selon l'ID d'URL
   const world = WORLDS.find((w) => w.id === id);
 
   const [mode, setMode] = React.useState<"character" | "story">("character");
 
+  // Champs du moteur AAA
   const fields: Field[] =
     mode === "character"
-      ? world?.specs.characters?.fields ?? []
-      : world?.specs.story?.fields ?? [];
+      ? world?.specs?.characters?.fields ?? []
+      : world?.specs?.story?.fields ?? [];
 
   const [data, setData] = React.useState<Record<string, any>>({});
   const [loading, setLoading] = React.useState(false);
   const [result, setResult] = React.useState<string>("");
 
+  // Envoi à ton endpoint IA
   async function onGenerate() {
     setLoading(true);
+    setResult("");
+
     try {
       const res = await fetch("/api/grimoire/generate", {
         method: "POST",
@@ -40,16 +45,23 @@ export default function EditQuick({ id, title }: EditQuickProps) {
       });
 
       const json = await res.json();
-      setResult(json.ok ? json.text : `Erreur: ${json.text ?? "Erreur"}`);
+
+      if (json.ok) {
+        setResult(json.text);
+      } else {
+        setResult(`Erreur: ${json.text ?? "Erreur serveur"}`);
+      }
     } catch (err) {
-      setResult(`Erreur réseau: ${String(err)}`);
+      setResult("Erreur réseau : " + String(err));
     }
+
     setLoading(false);
   }
 
   return (
     <div className="rounded-lg border border-amber-300 bg-white p-4">
-      {/* Sélecteur Personnage / Synopsis */}
+
+      {/* Toggle Character / Story */}
       <div className="flex items-center gap-3 mb-4">
         <button
           onClick={() => setMode("character")}
@@ -72,12 +84,12 @@ export default function EditQuick({ id, title }: EditQuickProps) {
         </button>
       </div>
 
-      {/* Titre du monde (ou du props title si tu veux l’utiliser plus tard) */}
+      {/* Titre du monde */}
       <div className="ml-auto opacity-60 text-sm">
-        {world?.title ?? title}
+        {world?.title ?? title ?? "Monde inconnu"}
       </div>
 
-      {/* Formulaire */}
+      {/* Form */}
       <div className="grid gap-3 mt-3">
         {fields.map((f) => (
           <div key={f.id} className="grid gap-1">
@@ -85,8 +97,8 @@ export default function EditQuick({ id, title }: EditQuickProps) {
 
             {f.type === "long" ? (
               <textarea
-                className="rounded border p-2"
                 rows={4}
+                className="rounded border p-2"
                 placeholder={f.placeholder}
                 onChange={(e) =>
                   setData((d) => ({ ...d, [f.id]: e.target.value }))
@@ -105,7 +117,7 @@ export default function EditQuick({ id, title }: EditQuickProps) {
         ))}
       </div>
 
-      {/* Bouton Générer */}
+      {/* Bouton générer */}
       <div className="mt-4 flex items-center gap-3">
         <button
           disabled={loading}
@@ -124,4 +136,4 @@ export default function EditQuick({ id, title }: EditQuickProps) {
       )}
     </div>
   );
-}
+}}
