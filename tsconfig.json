@@ -18,7 +18,8 @@
       "@lib": ["./lib"],
       "@lib/supabase": ["./lib/supabase"],
       "@lib/getUserId": ["./lib/getUserId.ts"],
-      "@components/*": ["components/*"],                                                "@hooks/*": ["hooks/*"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
 
@@ -36,6 +37,7 @@
 // --- Mithril Framework --- //
     "@mithril/*": ["../../packages/engine/src/mithril/*"],
     "@mithrilHooks/*": ["../../packages/engine/src/mithril/hooks/*"],
+    "@lib/mithril/*": ["../../packages/engine/src/mithril/*"],
 
     // --- Grimoire Content --- //
     "@grimoire/*": ["../../packages/engine/src/content/grimoire/*"],

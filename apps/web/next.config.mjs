@@ -9,10 +9,10 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     serverComponentsExternalPackages: ["@engine", "@grimoire", "@mithril"],
-    outputFileTracingRoot: path.join(__dirname, "../../")
+7    outputFileTracingRoot: path.join(__dirname, "../../")
   },
   webpack(config) {
-    config.resolve.alias = {
+ ï9   config.resolve.alias = {
       /* UI */
       "@/": r("./app"),
       "@lib": r("./lib"),
@@ -33,6 +33,11 @@ const nextConfig = {
 
       /* GRIMOIRE */
       "@grimoire": r("../../packages/engine/src/content/grimoire"),
+    /* MITHRIL */
+    "@mithril": r("../../packages/engine/src/mithril"),
+    "@lib/mithril": r("../../packages/engine/src/mithril"),
+    "@mithril/engine": r("../../packages/engine/src/mithril/engine.ts"),
+  };
 
       /* FANTASY */
       "@fantasy": r("../../packages/engine/src/content/fantasy"),
