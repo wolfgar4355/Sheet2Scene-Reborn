@@ -1,12 +1,12 @@
-import type { Config } from "tailwindcss"
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+const config = {
   content: [
     "./app/**/*.{ts,tsx,mdx}",
     "./components/**/*.{ts,tsx,mdx}",
     "./pages/**/*.{ts,tsx,mdx}",
     "./public/**/*.html",
-    // Si tu veux forcer l'inclusion de classes dynamiques ou non détectées
+
+    // Pour inclure tes classes dynamiques (raw)
     {
       raw: `
         bg-[url('/images/parchment.png')]
@@ -15,6 +15,7 @@ const config: Config = {
       `,
     },
   ],
+
   theme: {
     extend: {
       backgroundImage: {
@@ -24,6 +25,8 @@ const config: Config = {
       },
     },
   },
+
   plugins: [],
-}
-export default config
+};
+
+module.exports = config;
