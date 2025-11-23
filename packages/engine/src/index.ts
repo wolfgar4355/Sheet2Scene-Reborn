@@ -11,3 +11,10 @@ export * from "./content/fantasy/spells";
 
 // --- GM / Encounter Engine ---
 export * from "./gm";
+
+// --- Agents Engine ---
+export * from "./agents/registry";
+export * from "./agents/groups";
+export * from "./agents/chat";
+export * from "./agents/run";
+export * from "./agents/sync";
