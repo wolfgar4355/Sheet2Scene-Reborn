@@ -20,25 +20,25 @@
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
 
-      "@engine/*": ["../packages/engine/src/*"],
-      "@engine/content/*": ["../packages/engine/src/content/*"],
-      "@engine/types/*": ["../packages/engine/src/types/*"],
-      "@engine/ambient": ["../packages/engine/src/ambient.config.ts"],
+      "@engine/*": ["../../packages/engine/src/*"],
+      "@engine/content/*": ["../../packages/engine/src/content/*"],
+      "@engine/types/*": ["../../packages/engine/src/types/*"],
+      "@engine/ambient": ["../../packages/engine/src/ambient.config.ts"],
 
-      "@fantasy/*": ["../packages/engine/src/content/fantasy/*"],
-      "@bestiary/*": ["../packages/engine/src/content/fantasy/bestiary/*"],
-      "@spells/*": ["../packages/engine/src/content/fantasy/spells/*"],
-      "@eras/*": ["../packages/engine/src/content/fantasy/eras/*"],
-      "@worlds-content/*": ["../packages/engine/src/content/fantasy/worlds/*"],
+      "@fantasy/*": ["../../packages/engine/src/content/fantasy/*"],
+      "@bestiary/*": ["../../packages/engine/src/content/fantasy/bestiary/*"],
+      "@spells/*": ["../../packages/engine/src/content/fantasy/spells/*"],
+      "@eras/*": ["../../packages/engine/src/content/fantasy/eras/*"],
+      "@worlds-content/*": ["../../packages/engine/src/content/fantasy/worlds/*"],
 
 // --- Mithril Framework --- //
-    "@mithril/*": ["../packages/engine/src/mithril/*"],
-    "@mithrilHooks/*": ["../packages/engine/src/mithril/hooks/*"],
+    "@mithril/*": ["../../packages/engine/src/mithril/*"],
+    "@mithrilHooks/*": ["../../packages/engine/src/mithril/hooks/*"],
 
     // --- Grimoire Content --- //
-    "@grimoire/*": ["../packages/engine/src/content/grimoire/*"],
+    "@grimoire/*": ["../../packages/engine/src/content/grimoire/*"],
 
-      "@config/worlds": ["../packages/engine/src/getWorlds.ts"],
+      "@config/worlds": ["../../packages/engine/src/getWorlds.ts"],
 
       "@lib/*": ["lib/*"]
     }

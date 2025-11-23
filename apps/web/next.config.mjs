@@ -11,38 +11,35 @@ const nextConfig = {
 
   webpack: (config) => {
     config.resolve.alias = {
-      // ==== App directories ====
+      // ==== App ====
       "@": r("./app"),
       "@components": r("./components"),
       "@hooks": r("./hooks"),
       "@utils": r("./utils"),
       "@config": r("./config"),
-
-      // ==== Engine root ====
-      "@engine": r("../packages/engine/src"),
-      "@engine/content": r("../packages/engine/src/content"),
-      "@engine/types": r("../packages/engine/src/types"),
-      "@engine/ambient": r("../packages/engine/src/ambient.config.ts"),
-
-      // ==== RPG/D&D AAA content ====
-      "@fantasy": r("../packages/engine/src/content/fantasy"),
-      "@bestiary": r("../packages/engine/src/content/fantasy/bestiary"),
-      "@spells": r("../packages/engine/src/content/fantasy/spells"),
-      "@eras": r("../packages/engine/src/content/fantasy/eras"),
-      "@worlds-content": r("../packages/engine/src/content/fantasy/worlds"),
-
-      // ==== Grimoire ====
-      "@grimoire": r("../packages/engine/src/content/grimoire"),
-
-      // ==== Shared ====
       "@lib": r("./lib"),
 
-      // ==== Mithril Framework ====
-      "@mithril": r("../packages/engine/src/mithril"),
-      "@mithril/hooks": r("../packages/engine/src/mithril/hooks"),
+      // ==== ENGINE ROOT ====
+      "@engine": r("../../packages/engine/src"),
 
-      // ==== Config world keys ====
-      "@config/worlds": r("../packages/engine/src/getWorlds.ts"),
+      // ==== ENGINE CONTENT ====
+      "@engine/content": r("../../packages/engine/src/content"),
+      "@engine/types": r("../../packages/engine/src/types"),
+      "@engine/ambient": r("../../packages/engine/src/ambient.config.ts"),
+
+      // ==== GRIMOIRE ====
+      "@engine/content/grimoire": r("../../packages/engine/src/content/grimoire"),
+
+      // ==== FANTASY ====
+      "@engine/content/fantasy": r("../../packages/engine/src/content/fantasy"),
+
+      "@engine/content/fantasy/bestiary": r("../../packages/engine/src/content/fantasy/bestiary"),
+      "@engine/content/fantasy/spells": r("../../packages/engine/src/content/fantasy/spells"),
+      "@engine/content/fantasy/eras": r("../../packages/engine/src/content/fantasy/eras"),
+      "@engine/content/fantasy/worlds": r("../../packages/engine/src/content/fantasy/worlds"),
+
+      // ==== WORLD KEYS ====
+      "@engine/getWorlds": r("../../packages/engine/src/getWorlds.ts"),
     };
 
     return config;
@@ -50,5 +47,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
-console.log("⚙️ Building commit:", process.env.VERCEL_GIT_COMMIT_SHA || "local");
