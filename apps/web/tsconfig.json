@@ -14,36 +14,36 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "paths": {
-      /* UI */
-      "@/*": ["app/*"],
-      "@lib": r("./lib"),
-      "@lib/supabase": r("./lib/supabase"),
-      "@lib/getUserId": r("./lib/getUserId.ts"),
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@utils/*": ["utils/*"],
-      "@config/*": ["config/*"],
+"paths": {
+  /* UI */
+  "@/*": ["app/*"],
+  "@lib/*": ["lib/*"],
+  "@lib/supabase/*": ["lib/supabase/*"],
+  "@lib/getUserId": ["lib/getUserId.ts"],
+  "@components/*": ["components/*"],
+  "@hooks/*": ["hooks/*"],
+  "@utils/*": ["utils/*"],
+  "@config/*": ["config/*"],
 
-      /* ENGINE ROOT */
-      "@engine/*": ["../../packages/engine/src/*"],
+  /* ENGINE ROOT */
+  "@engine/*": ["../../packages/engine/src/*"],
 
-      /* ENGINE CONTENT */
-      "@engine/content/*": ["../../packages/engine/src/content/*"],
-      "@engine/types/*": ["../../packages/engine/src/types/*"],
-      "@engine/ambient/*": ["../../packages/engine/src/ambient.config.ts"],
+  /* ENGINE CONTENT */
+  "@engine/content/*": ["../../packages/engine/src/content/*"],
+  "@engine/types/*": ["../../packages/engine/src/types/*"],
+  "@engine/ambient/*": ["../../packages/engine/src/ambient.config.ts"],
 
-      /* GRIMOIRE */
-      "@grimoire/*": ["../../packages/engine/src/content/grimoire/*"],
+  /* GRIMOIRE */
+  "@grimoire/*": ["../../packages/engine/src/content/grimoire/*"],
 
-      /* FANTASY */
-      "@fantasy/*": ["../../packages/engine/src/content/fantasy/*"],
-      "@bestiary/*": ["../../packages/engine/src/content/fantasy/bestiary/*"],
-      "@spells/*": ["../../packages/engine/src/content/fantasy/spells/*"],
-      "@eras/*": ["../../packages/engine/src/content/fantasy/eras/*"],
-      "@worlds-content/*": ["../../packages/engine/src/content/fantasy/worlds/*"]
-    }
-  },
+  /* FANTASY */
+  "@fantasy/*": ["../../packages/engine/src/content/fantasy/*"],
+  "@bestiary/*": ["../../packages/engine/src/content/fantasy/bestiary/*"],
+  "@spells/*": ["../../packages/engine/src/content/fantasy/spells/*"],
+  "@eras/*": ["../../packages/engine/src/content/fantasy/eras/*"],
+  "@worlds-content/*": ["../../packages/engine/src/content/fantasy/worlds/*"]
+}
+ },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
