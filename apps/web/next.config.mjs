@@ -7,43 +7,40 @@ const r = (p) => path.resolve(__dirname, p);
 
 const nextConfig = {
   reactStrictMode: true,
-  images: { unoptimized: true },
-
-  webpack: (config) => {
+  experimental: {
+    serverComponentsExternalPackages: ["@engine", "@grimoire", "@mithril"],
+    outputFileTracingRoot: path.join(__dirname, "../../")
+  },
+  webpack(config) {
     config.resolve.alias = {
-      // ==== App ====
-      "@": r("./app"),
+      /* UI */
+      "@/": r("./app"),
       "@components": r("./components"),
       "@hooks": r("./hooks"),
       "@utils": r("./utils"),
       "@config": r("./config"),
-      "@lib": r("./lib"),
 
-      // ==== ENGINE ROOT ====
+      /* ENGINE ROOT */
       "@engine": r("../../packages/engine/src"),
 
-      // ==== ENGINE CONTENT ====
+      /* ENGINE CONTENT */
       "@engine/content": r("../../packages/engine/src/content"),
       "@engine/types": r("../../packages/engine/src/types"),
       "@engine/ambient": r("../../packages/engine/src/ambient.config.ts"),
 
-      // ==== GRIMOIRE ====
-      "@engine/content/grimoire": r("../../packages/engine/src/content/grimoire"),
+      /* GRIMOIRE */
+      "@grimoire": r("../../packages/engine/src/content/grimoire"),
 
-      // ==== FANTASY ====
-      "@engine/content/fantasy": r("../../packages/engine/src/content/fantasy"),
-
-      "@engine/content/fantasy/bestiary": r("../../packages/engine/src/content/fantasy/bestiary"),
-      "@engine/content/fantasy/spells": r("../../packages/engine/src/content/fantasy/spells"),
-      "@engine/content/fantasy/eras": r("../../packages/engine/src/content/fantasy/eras"),
-      "@engine/content/fantasy/worlds": r("../../packages/engine/src/content/fantasy/worlds"),
-
-      // ==== WORLD KEYS ====
-      "@engine/getWorlds": r("../../packages/engine/src/getWorlds.ts"),
+      /* FANTASY */
+      "@fantasy": r("../../packages/engine/src/content/fantasy"),
+      "@bestiary": r("../../packages/engine/src/content/fantasy/bestiary"),
+      "@spells": r("../../packages/engine/src/content/fantasy/spells"),
+      "@eras": r("../../packages/engine/src/content/fantasy/eras"),
+      "@worlds-content": r("../../packages/engine/src/content/fantasy/worlds")
     };
 
     return config;
-  },
+  }
 };
 
 export default nextConfig;

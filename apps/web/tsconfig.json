@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
+    "allowJS": false,
     "skipLibCheck": true,
     "strict": true,
+    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -14,33 +15,30 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      /* UI */
       "@/*": ["app/*"],
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
 
+      /* ENGINE ROOT */
       "@engine/*": ["../../packages/engine/src/*"],
+
+      /* ENGINE CONTENT */
       "@engine/content/*": ["../../packages/engine/src/content/*"],
       "@engine/types/*": ["../../packages/engine/src/types/*"],
-      "@engine/ambient": ["../../packages/engine/src/ambient.config.ts"],
+      "@engine/ambient/*": ["../../packages/engine/src/ambient.config.ts"],
 
+      /* GRIMOIRE */
+      "@grimoire/*": ["../../packages/engine/src/content/grimoire/*"],
+
+      /* FANTASY */
       "@fantasy/*": ["../../packages/engine/src/content/fantasy/*"],
       "@bestiary/*": ["../../packages/engine/src/content/fantasy/bestiary/*"],
       "@spells/*": ["../../packages/engine/src/content/fantasy/spells/*"],
       "@eras/*": ["../../packages/engine/src/content/fantasy/eras/*"],
-      "@worlds-content/*": ["../../packages/engine/src/content/fantasy/worlds/*"],
-
-// --- Mithril Framework --- //
-    "@mithril/*": ["../../packages/engine/src/mithril/*"],
-    "@mithrilHooks/*": ["../../packages/engine/src/mithril/hooks/*"],
-
-    // --- Grimoire Content --- //
-    "@grimoire/*": ["../../packages/engine/src/content/grimoire/*"],
-
-      "@config/worlds": ["../../packages/engine/src/getWorlds.ts"],
-
-      "@lib/*": ["lib/*"]
+      "@worlds-content/*": ["../../packages/engine/src/content/fantasy/worlds/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

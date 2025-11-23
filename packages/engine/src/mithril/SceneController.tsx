@@ -15,7 +15,7 @@ import {
   getDayPhase,
   getWeather,
   getAmbientColor
-} from "../time";
+} from "./time";
 
 interface SceneContextType {
   cameraZoom: number;
