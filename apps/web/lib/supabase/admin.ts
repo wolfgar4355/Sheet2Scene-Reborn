@@ -1,5 +1,5 @@
 // lib/supabase/admin.ts
-import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import { createServerClient } from '@supabase/auth-helpers-nextjs';
 
 let _admin: SupabaseClient | null = null;
 

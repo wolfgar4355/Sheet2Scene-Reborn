@@ -6,7 +6,7 @@ import {
   getSeason,
   getDayPhase,
   getAmbientColor
-} from "../time";
+} from "./time";
 
 export default function TransitionLayer() {
   const { lightLevel } = useScene();

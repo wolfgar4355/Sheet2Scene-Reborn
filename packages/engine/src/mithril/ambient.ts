@@ -16,14 +16,20 @@ const defaultValue: AmbientState = {
   volume: 1,
 };
 
-export const AmbientContext = createContext({
+type AmbientContextType = {
+  ambient: AmbientState;
+  setAmbient: (v: AmbientState) => void;
+};
+
+export const AmbientContext = createContext<AmbientContextType>({
   ambient: defaultValue,
-  setAmbient: (_v: AmbientState) => {},
+  setAmbient: () => {},
 });
 
-/** Provider AAA v2 minimal pour piloter les états globaux */
+/** Provider AAA v2 minimal pour gérer l’ambiance globale */
 export function AmbientProvider({ children }: { children: React.ReactNode }) {
   const [ambient, setAmbient] = useState<AmbientState>(defaultValue);
+
   return (
     <AmbientContext.Provider value={{ ambient, setAmbient }}>
       {children}

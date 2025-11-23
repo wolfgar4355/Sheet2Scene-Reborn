@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { createServerClient } from "@supabase/ssr";
+import { createServerClient } from '@supabase/auth-helpers-nextjs';
 
 export function getSupabaseServerClient() {
   const cookieStore = cookies();
