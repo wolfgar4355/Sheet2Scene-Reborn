@@ -15,6 +15,9 @@ const nextConfig = {
     config.resolve.alias = {
       /* UI */
       "@/": r("./app"),
+      "@lib": r("./lib"),
+      "@lib/supabase": r("./lib/supabase"),
+      "@lib/getUserId": r("./lib/getUserId.ts"),
       "@components": r("./components"),
       "@hooks": r("./hooks"),
       "@utils": r("./utils"),

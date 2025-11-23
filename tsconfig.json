@@ -15,6 +15,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["app/*"],
+      "@lib": r("./lib"),
+      "@lib/supabase": r("./lib/supabase"),
+      "@lib/getUserId": r("./lib/getUserId.ts"),
       "@components/*": ["components/*"],                                                "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
