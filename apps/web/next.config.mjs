@@ -17,6 +17,8 @@ const nextConfig = {
     config.resolve.alias = {
       "@": r("./app"),
       "@lib": r("./lib"),
+      "@lib/mithril": r("./lib/mithril"),
+      "@mithril": r("../../packages/engine/src/mithril"),
       "@supabase": r("./lib/supabase"),
       "@components": r("./components"),
       "@hooks": r("./hooks"),
