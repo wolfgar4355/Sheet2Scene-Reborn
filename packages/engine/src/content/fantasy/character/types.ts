@@ -1,14 +1,19 @@
-
-// lib/s2s/fantasy/character/types.ts
+// ==========================================================================
+// FANTASY — Character Types
+// ==========================================================================
 
 import type { FantasyRace } from "../races";
 import type { FantasyClass } from "../classes";
 import type { FantasyEra } from "../eras";
 
+// keys dérivés
 export type FantasyRaceKey = FantasyRace["key"];
 export type FantasyClassKey = FantasyClass["key"];
 export type FantasyEraKey = FantasyEra["key"];
 
+// --------------------------------------------------------------------------
+// ATTRIBUTS
+// --------------------------------------------------------------------------
 export interface FantasyAttributes {
   strength: number;
   dexterity: number;
@@ -18,6 +23,9 @@ export interface FantasyAttributes {
   charisma: number;
 }
 
+// --------------------------------------------------------------------------
+// SKILLS
+// --------------------------------------------------------------------------
 export interface FantasySkills {
   combat: number;
   survival: number;
@@ -27,6 +35,9 @@ export interface FantasySkills {
   crafting: number;
 }
 
+// --------------------------------------------------------------------------
+// INVENTORY ITEM
+// --------------------------------------------------------------------------
 export interface FantasyInventoryItem {
   id: string;
   name: string;
@@ -34,16 +45,22 @@ export interface FantasyInventoryItem {
   description?: string;
 }
 
+// --------------------------------------------------------------------------
+// BACKGROUND
+// --------------------------------------------------------------------------
 export interface FantasyBackground {
-  origin: string;        // village, cité, tribu, ordre…
-  occupation: string;    // métier / rôle avant l’aventure
-  faction?: string;      // guilde, ordre, royaume
-  personalGoal?: string; // objectif perso
-  flaw?: string;         // faiblesse / défaut
-  trait?: string;        // trait de caractère
-  notes?: string;        // notes libres
+  origin: string;          // village, cité, tribu
+  occupation: string;      // métier
+  faction?: string;        // ordre / guilde
+  personalGoal?: string;
+  flaw?: string;
+  trait?: string;
+  notes?: string;
 }
 
+// --------------------------------------------------------------------------
+// IDENTITY
+// --------------------------------------------------------------------------
 export interface FantasyIdentity {
   name: string;
   age: number | null;
@@ -53,8 +70,12 @@ export interface FantasyIdentity {
   class: FantasyClassKey | "";
   archetype?: string;
   era: FantasyEraKey | "";
-  subworld?: string; // ex: "shadow-domains", "skyshard-empires"
+  subworld?: string; // ex : skyshard-empires
 }
+
+// --------------------------------------------------------------------------
+// MAGIC
+// --------------------------------------------------------------------------
 export interface FantasyMagic {
   school: string;
   focus: string;
@@ -62,10 +83,13 @@ export interface FantasyMagic {
   rituals: string[];
 }
 
+// --------------------------------------------------------------------------
+// CHARACTER SHEET
+// --------------------------------------------------------------------------
 export interface FantasyCharacterSheet {
   id: string;
   world: "fantasy";
-  variant: "core"; // plus tard: "shadow-domains", "highlands", etc.
+  variant: "core";
   identity: FantasyIdentity;
   attributes: FantasyAttributes;
   skills: FantasySkills;
@@ -73,11 +97,13 @@ export interface FantasyCharacterSheet {
   background: FantasyBackground;
   magic: FantasyMagic;
   portraitUrl?: string;
-  createdAt: string; // ISO
-  updatedAt: string; // ISO
+  createdAt: string;
+  updatedAt: string;
 }
 
-// valeur de base (pour un nouveau perso)
+// --------------------------------------------------------------------------
+// DEFAULT SHEET
+// --------------------------------------------------------------------------
 export const DEFAULT_FANTASY_SHEET: FantasyCharacterSheet = {
   id: "",
   world: "fantasy",
@@ -119,12 +145,20 @@ export const DEFAULT_FANTASY_SHEET: FantasyCharacterSheet = {
     trait: "",
     notes: "",
   },
+  magic: {
+    school: "",
+    focus: "",
+    spells: [],
+    rituals: [],
+  },
   portraitUrl: "",
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
 };
 
-// petite factory pratique
+// --------------------------------------------------------------------------
+// FACTORY — crée une nouvelle fiche vide
+// --------------------------------------------------------------------------
 export function createEmptyFantasySheet(id: string): FantasyCharacterSheet {
   const now = new Date().toISOString();
   return {
