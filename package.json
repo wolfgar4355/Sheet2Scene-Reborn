@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "dev": "npm run dev --workspace=web",
-    "build": "npm run build -w engine && npm run build -w web",
+    "build": "npm run build --workspaces",
     "start": "npm run start --workspace=web",
     "aaa": "node scripts/aaa-engine.js all",
     "aaa:check": "node scripts/aaa-engine.js check",
