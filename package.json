@@ -23,13 +23,14 @@
     "aaa:ci": "node scripts/aaa-engine.js ci",
     "aaa:task": "node scripts/aaa-engine.js one"
   },
-"devDependencies": {
-  "tailwindcss": "^3.4.13",
-  "lint-staged": "^15.2.0",
-  "turbo": "^2.1.0",
-  "typescript": "^5.4.0"
-},
+  "devDependencies": {
+    "lint-staged": "^15.2.0",
+    "tailwindcss": "^3.4.13",
+    "turbo": "^2.1.0",
+    "typescript": "^5.4.0"
+  },
   "dependencies": {
-    "@supabase/ssr": "^0.7.0"
+    "@supabase/ssr": "^0.7.0",
+    "zod": "^4.1.13"
   }
 }

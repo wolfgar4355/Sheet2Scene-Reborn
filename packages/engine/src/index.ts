@@ -18,3 +18,8 @@ export * from "./agents/groups";
 export * from "./agents/chat";
 export * from "./agents/run";
 export * from "./agents/sync";
+
+export * as lib from "./utils";
+export * from "./utils/ai";
+export * from "./utils/discord";
+export * from "./utils/ambient";

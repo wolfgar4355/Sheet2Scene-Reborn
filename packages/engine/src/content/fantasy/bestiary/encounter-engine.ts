@@ -2,12 +2,12 @@
 // FANTASY → MITHRIL ENGINE — ENCOUNTER ADAPTER
 // =====================================================
 
-import { runEncounterEngine } from "@engine/modules/mithril";
+import { runEncounterEngine } from "@engine/mithril";
 import type {
   EncounterRequest,
   GeneratedEncounter,
   MithrilMonster,
-} from "@engine/modules/mithril";
+} from "@engine/mithril";
 
 import { ALL_MONSTERS } from "./ALL_MONSTERS";
 
