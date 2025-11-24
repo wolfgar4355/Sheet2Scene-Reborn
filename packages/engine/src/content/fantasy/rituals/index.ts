@@ -1,8 +1,8 @@
-import { RITUALS_DIVINE } from "./sources/ritual_divine.ts";
-import { RITUALS_NATURE } from "./sources/ritual_nature.ts";
-import { RITUALS_ARCANE } from "./sources/ritual_arcane.ts";
-import { RITUALS_NECRO } from "./sources/ritual_necromancy.ts";
-import { RITUALS_SPIRIT } from "./sources/ritual_spirit.ts";
+export * from "./sources/ritual_divine";
+export * from "./sources/ritual_nature";
+export * from "./sources/ritual_arcane";
+export * from "./sources/ritual_necromancy";
+export * from "./sources/ritual_spirit";
 
 export const ALL_RITUALS = [
   ...RITUALS_DIVINE,
