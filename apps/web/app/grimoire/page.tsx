@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { BookShell } from "@components/BookShell";
 import { readAll } from "@content/grimoire";
-import WORLDS from "@config/worlds"; // <-- si tu veux les mondes
+import WORLDS from "@engine/worlds"; // <-- si tu veux les mondes
 
 export default async function GrimoireHome() {
   const items = await readAll();
