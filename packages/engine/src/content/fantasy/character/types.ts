@@ -1,3 +1,4 @@
+
 // lib/s2s/fantasy/character/types.ts
 
 import type { FantasyRace } from "../races";
@@ -131,6 +132,5 @@ export function createEmptyFantasySheet(id: string): FantasyCharacterSheet {
     id,
     createdAt: now,
     updatedAt: now,
-},
   };
-
+}
