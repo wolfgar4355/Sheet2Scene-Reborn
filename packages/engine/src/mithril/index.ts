@@ -16,4 +16,4 @@ export * from './hooks/useCamera';
 export * from './hooks/useSeason';
 
 // utilitaires
-export * from './utils/time';
+export * from './time';
