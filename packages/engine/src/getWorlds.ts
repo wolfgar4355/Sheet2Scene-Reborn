@@ -1,4 +1,4 @@
-import { WORLDS } from "./content/fantasy/worlds";
+import { WORLDS } from "@fantasy/worlds";
 import { ERAS_BY_WORLD } from "./content/fantasy/eras";
 import type { EraDefinition, WorldDefinition } from "./content/fantasy/types-worlds"; 
 // (ou le bon fichier type — envoie-moi ls si tu n’es pas sûr)
