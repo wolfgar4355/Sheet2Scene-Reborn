@@ -1,7 +1,7 @@
 // apps/web/app/grimoire/page.tsx
 import Link from "next/link";
 import { BookShell } from "@components/BookShell";
-import { readAll } from "@content/grimoire";
+import { readAll } from "@grimoire";
 import WORLDS from "@engine/worlds"; // <-- si tu veux les mondes
 
 export default async function GrimoireHome() {
