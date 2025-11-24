@@ -1,9 +1,16 @@
 {
   "name": "sheet2scene",
   "private": true,
+  "version": "1.0.1",
+  "type": "module",
+  "packageManager": "npm@10.8.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "cd apps/web && npm run dev",
-    "build": "cd apps/web && npm run build",
-    "start": "cd apps/web && npm run start"
+    "dev": "npm run dev --workspace=web",
+    "build": "npm run build --workspace=web",
+    "start": "npm run start --workspace=web"
   }
 }
