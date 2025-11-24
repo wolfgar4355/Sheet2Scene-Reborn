@@ -20,7 +20,7 @@ export * from "./sources/categories";
 export * from "./sources/encounters";
 
 // Sous-dossiers spécialisés
-export * as CR from "./sources/cr";
-export * as FILTERS from "./sources/filters";
-export * as MYSTIC from "./sources/mystic";
-export * as MINIONS from "./sources/minions";
+export * from "./sources/cr";
+export * from "./sources/filters";
+export * from "./sources/mystic";
+export * from "./sources/minions";
