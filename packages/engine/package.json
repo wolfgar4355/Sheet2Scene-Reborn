@@ -5,9 +5,10 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "dev": "tsc -p tsconfig.json --watch"
+"scripts": {
+  "build": "tsc -p tsconfig.json",
+  "prepack": "npm run build"
+}
   },
   "dependencies": {},
   "devDependencies": {}
