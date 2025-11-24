@@ -1,6 +1,11 @@
-import type { MonsterDefinition } from "../../types";
+// ============================================================================
+// FANTASY — ENCOUNTERS (Biomes) – INDEX
+// Charge dynamiquement toutes les tables de rencontres par biome
+// ============================================================================
 
-// Biomes – imports
+import type { EncounterTableEntry } from "../../types";
+
+// Imports statiques de tous les biomes
 import CAVES from "./CAVES_ENCOUNTERS";
 import COAST from "./COAST_ENCOUNTERS";
 import DESERT from "./DESERT_ENCOUNTERS";
@@ -27,8 +32,8 @@ import ASTRAL from "./ASTRAL_FRACTURES_ENCOUNTERS";
 import ARCANE from "./ARCANE_LABS_ENCOUNTERS";
 import NEXUS from "./ARCANE_NEXUS_ENCOUNTERS";
 
-// Mapping table
-const BIOME_TABLES: Record<string, MonsterDefinition[]> = {
+// Table de mapping
+const BIOME_TABLES: Record<string, EncounterTableEntry[]> = {
   caves: CAVES,
   coast: COAST,
   desert: DESERT,
@@ -57,6 +62,8 @@ const BIOME_TABLES: Record<string, MonsterDefinition[]> = {
 };
 
 // API
-export function loadBiomeTable(biome: string): MonsterDefinition[] {
+export function loadBiomeTable(biome: string): EncounterTableEntry[] {
   return BIOME_TABLES[biome] ?? [];
 }
+
+export default BIOME_TABLES;
