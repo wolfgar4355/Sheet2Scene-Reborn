@@ -133,4 +133,4 @@ export function createEmptyFantasySheet(id: string): FantasyCharacterSheet {
     updatedAt: now,
 },
   };
-}
+
