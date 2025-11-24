@@ -1,4 +1,4 @@
-export const arcaneHabitats = [
+export const ARCANE_HABITATS = [
   "ARCANE_LABS_ENCOUNTERS",
   "ARCANE_NEXUS_ENCOUNTERS",
   "MANA_FIELDS_ENCOUNTERS",

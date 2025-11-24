@@ -1,8 +1,7 @@
-// Abyss habitats → liste des encounters compatibles
-export const abyssHabitats = [
+export const ABYSS_HABITATS = [
   "CAVES_ENCOUNTERS",
-  "UNDERSARK_ENCOUNTERS", // si tu renommes plus tard
-  "ABYSSAL_STAR_DRAGON_ENCOUNTERS", // si tu ajoutes le biome abyssal cosmique
-  "ETHEREAL_MISTLANDS_ENCOUNTERS", // optionnel
-  "ASTRAL_FRACTURES_ENCOUNTERS",  // optionnel
+  "UNDERDARK_ENCOUNTERS",
+  "ABYSSAL_STAR_DRAGON_ENCOUNTERS",
+  "ETHEREAL_MISTLANDS_ENCOUNTERS",
+  "ASTRAL_FRACTURES_ENCOUNTERS",
 ] as const;
