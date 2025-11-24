@@ -1,6 +1,6 @@
 "use client";
 
-import { WORLDS } from "@config/worlds";
+import { WORLDS } from "@fantasy/worlds";
 import useBookNav from "@hooks/useBookNav";
 
 export default function WorldsList() {

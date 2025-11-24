@@ -15,7 +15,7 @@ export type GrimoireEntry = {
 };
 
 // 📌 Emplacement du fichier JSON (centralisé)
-const DATA = path.join(process.cwd(), "lib/grimoire/grimoire.json");
+const DATA = path.join(process.cwd(), "@grimoire/grimoire.json");
 
 // ---------------------------------------------------------
 // 🔧 Assure que le fichier existe
