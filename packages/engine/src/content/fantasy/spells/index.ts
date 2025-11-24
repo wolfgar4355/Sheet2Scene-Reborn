@@ -9,4 +9,3 @@ export * from "./tiers";
 export * from "./sources/offense";
 export * from "./sources/defense";
 export * from "./sources/utility";
-export * from "./sources/rituals";
