@@ -1,6 +1,6 @@
 // packages/engine/src/adapters/habitats.adapter.ts
-import * as HABITATS from "../../content/mithril-quest/habitats";
+import * as HABITATS from "../content/fantasy/habitats";
 
-export function getHabitats() {
-  return HABITATS;
-}
+export function getAllHabitats() {
+  return Object.values(HABITATS).flat();
+}}

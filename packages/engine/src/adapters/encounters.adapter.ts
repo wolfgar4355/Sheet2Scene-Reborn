@@ -1,10 +1,6 @@
 // packages/engine/src/adapters/encounters.adapter.ts
-import * as TABLES from "../../content/mithril-quest/encounters";
+import * as ENCOUNTERS from "../content/fantasy/eras"; // ou le bon fichier/table de rencontres
 
-export function getEncounterTable(biome: string) {
-  return TABLES[biome.toUpperCase()] ?? [];
-}
-
-export function getAllEncounterTables() {
-  return TABLES;
-}
+export function getAllEncounters() {
+  return Object.values(ENCOUNTERS).flat();
+}}

@@ -1,10 +1,17 @@
-// Mithril Engine – Point d'entrée officiel (PROD)
+// packages/engine/src/index.ts
+// Ré-exports publics du Mithril Engine (Mithril Quest)
 
-export * from "./adapters/spells.adapter";
-export * from "./adapters/bestiary.adapter";
-export * from "./adapters/encounters.adapter";
-export * from "./adapters/habitats.adapter";
+// Worlds & Eras
+export { getWorlds, getErasForWorld } from "./getWorlds";
 
-export * from "./core"; // moteur de rencontres
-export * from "./gm";   // outils MJ
-export * from "./utils";
+// Adapters de contenu Mithril Quest
+export * as MQBestiary from "./adapters/bestiary.adapter";
+export * as MQSpells from "./adapters/spells.adapter";
+export * as MQEncounters from "./adapters/encounters.adapter";
+export * as MQHabitats from "./adapters/habitats.adapter";
+
+// GM / Encounter engine
+export * from "./gm";
+
+// Types publics si tu veux
+export * from "./types";
