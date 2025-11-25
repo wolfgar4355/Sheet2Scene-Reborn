@@ -1,5 +1,7 @@
-import * as MQ_SPELLS from "../content/fantasy/spells/index";
+// src/adapters/spells.adapter.ts
+
+import * as SPELLS from "../content/fantasy/spells";
 
 export function getAllSpells() {
-  return Object.values(MQ_SPELLS).flat();
+  return Object.values(SPELLS).flat();
 }

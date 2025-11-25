@@ -1,5 +1,7 @@
-import * as MQ_ENCOUNTERS from "../content/fantasy/encounters/index";
+// src/adapters/encounters.adapter.ts
 
-export function getAllEncounterTables() {
-  return MQ_ENCOUNTERS;
+import * as ENCOUNTERS from "../content/fantasy/bestiary/sources/encounters";
+
+export function getAllEncounters() {
+  return Object.values(ENCOUNTERS).flat();
 }

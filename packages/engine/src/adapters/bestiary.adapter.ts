@@ -1,19 +1,22 @@
-// packages/engine/src/adapters/bestiary.adapter.ts
-import * as MQ_BESTIARY from "../content/fantasy/bestiary/index";
+// src/adapters/bestiary.adapter.ts
 
-export function getAllMonsters() {
-  return Object.values(MQ_BESTIARY).flat();
+import * as MONSTERS from "../content/fantasy/bestiary";
+
+type Monster = (typeof MONSTERS)[keyof typeof MONSTERS][number];
+
+export function getAllMonsters(): Monster[] {
+  return Object.values(MONSTERS).flat();
 }
 
 export function getMonstersByCR() {
   const all = getAllMonsters();
-  const buckets: Record<number, any[]> = {};
+  const buckets: Record<number, Monster[]> = {};
 
-  all.forEach((m) => {
-    const cr = m.cr ?? 0;
+  all.forEach((m: any) => {
+    const cr = (m.cr ?? 0) as number;
     if (!buckets[cr]) buckets[cr] = [];
     buckets[cr].push(m);
   });
 
   return buckets;
-}
+}}
