@@ -1,5 +1,5 @@
 // packages/engine/src/adapters/bestiary.adapter.ts
-import * as MQ_BESTIARY from "../../content/fantasy/bestiary/index";
+import * as MQ_BESTIARY from "./content/fantasy/bestiary/index";
 
 export function getAllMonsters() {
   return Object.values(MQ_BESTIARY).flat();
