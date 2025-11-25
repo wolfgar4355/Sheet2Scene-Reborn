@@ -1,6 +1,5 @@
-// packages/engine/src/adapters/habitats.adapter.ts
-import * as HABITATS from "../content/fantasy/habitats";
+import * as MQ_HABITATS from "../content/fantasy/habitats/index";
 
-export function getAllHabitats() {
-  return Object.values(HABITATS).flat();
-}}
+export function getHabitats() {
+  return MQ_HABITATS;
+}

@@ -1,7 +1,5 @@
-// packages/engine/src/adapters/spells.adapter.ts
-import * as SPELLS from "../content/fantasy/spells";
-import type { Spell } from "../types"; // adapte le nom si ton type est différent
+import * as MQ_SPELLS from "../content/fantasy/spells/index";
 
-export function getAllSpells(): Spell[] {
-  return Object.values(SPELLS).flat() as Spell[];
+export function getAllSpells() {
+  return Object.values(MQ_SPELLS).flat();
 }

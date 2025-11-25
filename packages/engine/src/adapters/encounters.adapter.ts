@@ -1,6 +1,5 @@
-// packages/engine/src/adapters/encounters.adapter.ts
-import * as ENCOUNTERS from "../content/fantasy/eras"; // ou le bon fichier/table de rencontres
+import * as MQ_ENCOUNTERS from "../content/fantasy/encounters/index";
 
-export function getAllEncounters() {
-  return Object.values(ENCOUNTERS).flat();
-}}
+export function getAllEncounterTables() {
+  return MQ_ENCOUNTERS;
+}
