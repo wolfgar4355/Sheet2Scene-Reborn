@@ -1,25 +1,10 @@
-// packages/engine/src/index.ts
+// Mithril Engine – Point d'entrée officiel (PROD)
 
-// --- Worlds & Eras ---
-export { getWorlds, getErasForWorld } from "./getWorlds";
+export * from "./adapters/spells.adapter";
+export * from "./adapters/bestiary.adapter";
+export * from "./adapters/encounters.adapter";
+export * from "./adapters/habitats.adapter";
 
-// --- Content (Fantasy / AAA univers) ---
-export * from "./content/fantasy/worlds";
-export * from "./content/fantasy/eras";
-export * from "./content/fantasy/bestiary";
-export * from "./content/fantasy/spells";
-
-// --- GM / Encounter Engine ---
-export * from "./gm";
-
-// --- Agents Engine ---
-export * from "./agents/registry";
-export * from "./agents/groups";
-export * from "./agents/chat";
-export * from "./agents/run";
-export * from "./agents/sync";
-
-export * as lib from "./utils";
-export * from "./utils/ai";
-export * from "./utils/discord";
-export * from "./utils/ambient";
+export * from "./core"; // moteur de rencontres
+export * from "./gm";   // outils MJ
+export * from "./utils";
