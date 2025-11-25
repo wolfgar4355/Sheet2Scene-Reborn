@@ -1,4 +1,4 @@
-// Ré-exports publics du Mithril Engine AAA v2
+// packages/engine/src/index.ts
 
 // --- Worlds & Eras ---
 export { getWorlds, getErasForWorld } from "./getWorlds";

@@ -28,7 +28,7 @@
       "@engine/types/*": ["../../packages/engine/src/types/*"],
       "@engine/ambient": ["../../packages/engine/src/ambient.config.ts"],
 
-      "@fantasy/*": ["../../packages/engine/src/content/fantasy/*"],
+      "@mithril-quest/*": ["src/content/fantasy/*"],
       "@bestiary/*": ["../../packages/engine/src/content/fantasy/bestiary/*"],
       "@spells/*": ["../../packages/engine/src/content/fantasy/spells/*"],
       "@eras/*": ["../../packages/engine/src/content/fantasy/eras/*"],
