@@ -1,5 +1,3 @@
-// src/adapters/bestiary.adapter.ts
-
 import * as MONSTERS from "../content/fantasy/bestiary";
 
 type Monster = (typeof MONSTERS)[keyof typeof MONSTERS][number];
@@ -19,4 +17,4 @@ export function getMonstersByCR() {
   });
 
   return buckets;
-}}
+}
