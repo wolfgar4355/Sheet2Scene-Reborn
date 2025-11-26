@@ -15,52 +15,67 @@
     "baseUrl": ".",
 
     "paths": {
-      /* --- App --- */
-      "@app/*": ["app/*"],
+      "@/*": ["app/*"],
       "@lib/*": ["lib/*"],
       "@lib/supabase": ["lib/supabase"],
+      "@lib/getUserId": ["lib/getUserId.ts"],
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
 
-      /* --- Legacy @s2s fantasy imports (BREAKING → FIXED) --- */
-      "@s2s/fantasy/types": ["packages/engine/src/content/fantasy/_schema/types.d.ts"],
-
-      /* --- Engine Core --- */
+      // --- si TON FRONT a besoin directement du moteur,
+      // on garde ces alias, sinon on pourrait même les enlever
       "@engine/*": ["packages/engine/src/*"],
       "@engine/content/*": ["packages/engine/src/content/*"],
       "@engine/types/*": ["packages/engine/src/types/*"],
-      "@engine/ambient": ["packages/engine/src/ambient/ambient.config.ts"],
+      "@engine/ambient": ["packages/engine/src/ambient.config.ts"],
 
-      /* --- Engine Adapters --- */
-      "@adapters/*": ["packages/engine/src/adapters/*"],
+      // alias fantasy si jamais utilisés depuis le front
+      "@s2s/fantasy/types": [
+        "packages/engine/src/content/fantasy/_schema/types"
+      ],
+      "@mithril-quest/*": ["src/content/fantasy/*"],
+      "@bestiary/*": [
+        "packages/engine/src/content/fantasy/bestiary/*"
+      ],
+      "@spells/*": [
+        "packages/engine/src/content/fantasy/spells/*"
+      ],
+      "@eras/*": [
+        "packages/engine/src/content/fantasy/eras/*"
+      ],
+      "@worlds/*": [
+        "packages/engine/src/content/fantasy/worlds/*"
+      ],
 
-      /* --- Fantasy Content (NEW CLEAN PATHS) --- */
-      "@fantasy/*": ["packages/engine/src/content/fantasy/*"],
-      "@fantasy/bestiary/*": ["packages/engine/src/content/fantasy/bestiary/*"],
-      "@fantasy/spells/*": ["packages/engine/src/content/fantasy/spells/*"],
-      "@fantasy/rituals/*": ["packages/engine/src/content/fantasy/rituals/*"],
-      "@fantasy/habitats/*": ["packages/engine/src/content/fantasy/habitats/*"],
-      "@fantasy/eras/*": ["packages/engine/src/content/fantasy/eras/*"],
-      "@fantasy/worlds/*": ["packages/engine/src/content/fantasy/worlds/*"],
-
-      /* --- GM / Game Master --- */
-      "@gm/*": ["packages/engine/src/gm/*"],
-
-      /* --- Mithril Framework --- */
+      // --- Mithril framework ---
       "@mithril/*": ["packages/engine/src/mithril/*"],
       "@mithrilHooks/*": ["packages/engine/src/mithril/hooks/*"],
       "@lib/mithril/*": ["packages/engine/src/mithril/*"],
 
-      /* --- Grimoire (your UI) --- */
+      // --- Grimoire content (si tu l’utilises dans le front) ---
       "@grimoire/*": ["packages/engine/src/content/grimoire/*"],
+      "@config/worlds": ["packages/engine/src/getWorlds.ts"],
 
-      /* --- Worlds Helper --- */
-      "@config/worlds": ["packages/engine/src/getWorlds.ts"]
+      "@lib/*": ["lib/*"]
     }
   },
 
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  // ⚠️ IMPORTANT : on dit à TypeScript du FRONT
+  // d’IGNORER le moteur (packages/engine)
+  "include": [
+    "next-env.d.ts",
+    "app/**/*",
+    "pages/**/*",
+    "components/**/*",
+    "lib/**/*",
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "packages/engine",       // <- toute la lib moteur
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }
