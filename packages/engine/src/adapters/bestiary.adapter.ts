@@ -1,46 +1,29 @@
-// src/adapters/bestiary.adapter.ts
-import type { Monster } from "../types";
+import ALL_MONSTERS from "./ALL_MONSTERS";
+import UNIVERSAL_CREATURE from "./UNIVERSAL_CREATURE";
+import type { MonsterDefinition } from "./types";
 
-export function getAllMonsters(): Monster[] {
-  // @ts-ignore – require.context est fourni par Vite / Webpack lors du build
-  const context = require.context(
-    "../content/fantasy/bestiary",
-    true,
-    /\.ts$/
-  );
-
-  const monsters: Monster[] = [];
-
-  context.keys().forEach((key: string) => {
-    // ignore les fichiers de types et index
-    if (key.endsWith("types.ts")) return;
-    if (key.endsWith("index.ts")) return;
-    if (key.endsWith("ALL_MONSTERS.ts")) return;
-
-    const mod = context(key);
-
-    // Chaque fichier exporte 1 ou plusieurs monstres
-    const exported = mod.default ?? mod;
-
-    if (Array.isArray(exported)) {
-      monsters.push(...exported);
-    } else if (typeof exported === "object") {
-      monsters.push(exported);
-    }
-  });
-
-  return monsters;
+export function getAllMonsters(): MonsterDefinition[] {
+  return [
+    ...UNIVERSAL_CREATURE,
+    ...ALL_MONSTERS,
+  ];
 }
 
-export function getMonstersByCR() {
-  const all = getAllMonsters();
-  const buckets: Record<number, Monster[]> = {};
+export function getMonsterById(id: string): MonsterDefinition | undefined {
+  return getAllMonsters().find(m => m.id === id);
+}
 
-  all.forEach((m) => {
-    const cr = Number(m.cr) || 0;
-    if (!buckets[cr]) buckets[cr] = [];
-    buckets[cr].push(m);
-  });
+export function getMonstersByCategory(category: string): MonsterDefinition[] {
+  return getAllMonsters().filter(m => m.category === category);
+}
 
-  return buckets;
+export function getMonstersByCr(cr: string): MonsterDefinition[] {
+  return getAllMonsters().filter(m => m.cr === cr);
+}
+
+export function getMonsterSources() {
+  return {
+    universal: UNIVERSAL_CREATURE,
+    all: ALL_MONSTERS,
+  };
 }
