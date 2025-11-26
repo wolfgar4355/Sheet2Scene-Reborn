@@ -11,7 +11,7 @@ import type {
   Trait,
 } from "./types";
 
-import type { Minion } from "../minions/types";
+import type { Minion } from "@s2s/fantasy/types";
 
 // Choix de taille par défaut
 function defaultSizeForCategory(category: CreatureType): CreatureSize {

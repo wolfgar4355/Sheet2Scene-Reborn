@@ -22,6 +22,7 @@
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
+      "@s2s/fantasy/types": ["packages/engine/src/content/fantasy/_schema/types"]
 
       "@engine/*": ["../../packages/engine/src/*"],
       "@engine/content/*": ["../../packages/engine/src/content/*"],

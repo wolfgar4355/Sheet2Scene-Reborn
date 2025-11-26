@@ -1,7 +1,8 @@
 // src/adapters/habitats.adapter.ts
+import HABITATS from "../content/fantasy/habitats";
 
-import * as HABITATS from "../content/fantasy/habitats";
+export type Habitat = (typeof HABITATS)[number];
 
-export function getAllHabitats() {
-  return Object.values(HABITATS);
+export function getAllHabitats(): Habitat[] {
+  return [...HABITATS];
 }

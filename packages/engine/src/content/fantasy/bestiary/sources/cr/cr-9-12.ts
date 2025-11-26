@@ -1,4 +1,4 @@
-import type { GmeMonster } from "../../../modules/gme/types";
+import type { GmeMonster } from "@s2s/fantasy/types";
 
 export const MONSTERS: GmeMonster[] = [
 
