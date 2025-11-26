@@ -90,7 +90,7 @@ ALL.sort((a, b) => a.cr - b.cr);
 const output =
   `// AUTO-GENERATED — DO NOT EDIT\n` +
   `// Generated on: ${new Date().toISOString()}\n\n` +
-  `import type { Monster } from "@s2s/fantasy/types";\n\n` +
+  `import type { Monster } from "@engine/content/fantasy/types";\n\n` +
   `export const ALL_MONSTERS: Monster[] = ${JSON.stringify(ALL, null, 2)};\n`;
 
 fs.writeFileSync(path.join(BASE, "ALL_MONSTERS.ts"), output);

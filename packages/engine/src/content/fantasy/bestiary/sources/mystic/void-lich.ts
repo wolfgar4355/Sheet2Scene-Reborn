@@ -1,4 +1,4 @@
-import { MythicBoss } from "../../types";
+import { MythicBoss } from "@engine/content/fantasy/types";
 
 // ---------------------------------------------------------------------------
 // VOID LICH — SAZHUL, ARCHILICHE DU NÉANT

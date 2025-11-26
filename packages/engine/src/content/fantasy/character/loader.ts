@@ -3,7 +3,7 @@ import {
   createEmptyFantasySheet,
   DEFAULT_FANTASY_SHEET,
   type FantasyCharacterSheet,
-} from "@s2s/fantasy/types";
+} from "@engine/content/fantasy/types";
 import { getFantasySheetSchema } from "../fantasy/character/schema";
 
 export type AnyCharacterSheet = FantasyCharacterSheet;

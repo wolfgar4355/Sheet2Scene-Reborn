@@ -1,4 +1,4 @@
-import type { GmeMonster } from "@s2s/fantasy/types";
+import type { GmeMonster } from "@engine/content/fantasy/types";
 
 export const MONSTERS: GmeMonster[] = [
   // 🐺 BÊTES & PETITE FAUNE

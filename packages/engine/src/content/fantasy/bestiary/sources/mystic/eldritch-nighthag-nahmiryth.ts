@@ -1,7 +1,7 @@
 // NAHMIRYTH — Nightbag Eldritch Mythique
 // Hag du Vide Onirique corrompant rêves, perceptions et réalité mentale.
 
-import { MythicBoss, MythicPhase } from "../../types";
+import { MythicBoss, MythicPhase } from "@engine/content/fantasy/types";
 
 // ---------------------------------------------------------------------------
 // NAHMIRYTH — NIGHTHAG ELDRITCH DU VIDE

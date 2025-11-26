@@ -1,4 +1,4 @@
-import { Minion } from "@s2s/fantasy/types";
+import { Minion } from "@engine/content/fantasy/types";
 
 export const MINIONS: Minion[] = [
 

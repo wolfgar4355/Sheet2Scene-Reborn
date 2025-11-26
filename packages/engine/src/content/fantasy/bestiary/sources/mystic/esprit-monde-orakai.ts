@@ -1,4 +1,4 @@
-import { MythicBoss, MythicPhase } from "../../types";
+import { MythicBoss, MythicPhase } from "@engine/content/fantasy/types";
 
 // ---------------------------------------------------------------------------
 // ORAKAI — ESPRIT DU MONDE ANCIEN (MYTHIQUE)

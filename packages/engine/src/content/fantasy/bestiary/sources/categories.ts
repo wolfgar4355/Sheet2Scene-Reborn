@@ -1,6 +1,6 @@
 // /apps/web/lib/s2s/fantasy/bestiary/sources/categories.ts
 
-import type { CreatureType, CreatureSize } from "@s2s/fantasy/types";
+import type { CreatureType, CreatureSize } from "@engine/content/fantasy/types";
 
 // Ce fichier doit uniquement contenir les listes statiques
 // de catégories, tailles, rôles, etc.

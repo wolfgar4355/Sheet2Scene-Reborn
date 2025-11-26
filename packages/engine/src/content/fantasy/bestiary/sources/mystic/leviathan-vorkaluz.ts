@@ -1,4 +1,4 @@
-import { MythicBoss } from "../../types";
+import { MythicBoss } from "@engine/content/fantasy/types";
 
 // ---------------------------------------------------------------------------
 // VORKALUZ — LEVIATHAN DES ABYSSES (MYTHIQUE)

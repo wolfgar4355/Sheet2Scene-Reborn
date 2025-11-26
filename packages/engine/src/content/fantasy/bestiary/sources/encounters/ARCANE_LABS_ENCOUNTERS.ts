@@ -1,4 +1,4 @@
-import type { EncounterTableEntry } from "@s2s/fantasy/types";
+import type { EncounterTableEntry } from "@engine/content/fantasy/types";
 
 export const ARCANE_LABS_ENCOUNTERS: EncounterTableEntry[] = [
   {

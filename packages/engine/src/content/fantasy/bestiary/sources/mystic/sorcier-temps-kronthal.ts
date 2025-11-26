@@ -1,4 +1,4 @@
-import { MythicBoss } from "../../types";
+import { MythicBoss } from "@engine/content/fantasy/types";
 
 // ---------------------------------------------------------------------------
 // KRON’THAL — SORCIER PRIMORDIAL DU TEMPS (MYTHIQUE)

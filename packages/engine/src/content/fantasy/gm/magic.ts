@@ -1,6 +1,6 @@
 // lib/s2s/fantasy/gm/magic.ts
 
-import type { FantasyClassKey } from "@s2s/fantasy/types";
+import type { FantasyClassKey } from "@engine/content/fantasy/types";
 
 /**
  * SYSTÈME DE MAGIE — Sheet2Scene Fantasy
