@@ -1,0 +1,1 @@
+export const feywildBiomes = ["feywild"];

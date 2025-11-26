@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -14,38 +18,86 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-"paths": {
-  /* UI */
-  "@/*": ["app/*"],
-  "@lib/*": ["lib/*"],
-  "@lib/supabase/*": ["lib/supabase/*"],
-  "@lib/getUserId": ["lib/getUserId.ts"],
-  "@lib/mithril/*": ["lib/mithril/*"],
-  "@mithril/*": ["../../packages/engine/src/mithril/*"],
-  "@components/*": ["components/*"],
-  "@hooks/*": ["hooks/*"],
-  "@utils/*": ["utils/*"],
-  "@config/*": ["config/*"],
-
-  /* ENGINE ROOT */
-  "@engine/*": ["../../packages/engine/src/*"],
-
-  /* ENGINE CONTENT */
-  "@engine/content/*": ["../../packages/engine/src/content/*"],
-  "@engine/types/*": ["../../packages/engine/src/types/*"],
-  "@engine/ambient/*": ["../../packages/engine/src/ambient.config.ts"],
-
-  /* GRIMOIRE */
-  "@grimoire/*": ["../../packages/engine/src/content/grimoire/*"],
-
-  /* FANTASY */
-  "@fantasy/*": ["../../packages/engine/src/content/fantasy/*"],
-  "@bestiary/*": ["../../packages/engine/src/content/fantasy/bestiary/*"],
-  "@spells/*": ["../../packages/engine/src/content/fantasy/spells/*"],
-  "@eras/*": ["../../packages/engine/src/content/fantasy/eras/*"],
-  "@worlds-content/*": ["../../packages/engine/src/content/fantasy/worlds/*"]
-}
- },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+    "paths": {
+      /* UI */
+      "@/*": [
+        "app/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@lib/supabase/*": [
+        "lib/supabase/*"
+      ],
+      "@lib/getUserId": [
+        "lib/getUserId.ts"
+      ],
+      "@lib/mithril/*": [
+        "lib/mithril/*"
+      ],
+      "@mithril/*": [
+        "../../packages/engine/src/mithril/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      /* ENGINE ROOT */
+      "@engine/*": [
+        "../../packages/engine/src/*"
+      ],
+      /* ENGINE CONTENT */
+      "@engine/content/*": [
+        "../../packages/engine/src/content/*"
+      ],
+      "@engine/types/*": [
+        "../../packages/engine/src/types/*"
+      ],
+      "@engine/ambient/*": [
+        "../../packages/engine/src/ambient.config.ts"
+      ],
+      /* GRIMOIRE */
+      "@grimoire/*": [
+        "../../packages/engine/src/content/grimoire/*"
+      ],
+      /* FANTASY */
+      "@fantasy/*": [
+        "../../packages/engine/src/content/fantasy/*"
+      ],
+      "@bestiary/*": [
+        "../../packages/engine/src/content/fantasy/bestiary/*"
+      ],
+      "@spells/*": [
+        "../../packages/engine/src/content/fantasy/spells/*"
+      ],
+      "@eras/*": [
+        "../../packages/engine/src/content/fantasy/eras/*"
+      ],
+      "@worlds-content/*": [
+        "../../packages/engine/src/content/fantasy/worlds/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

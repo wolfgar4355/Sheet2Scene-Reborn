@@ -1,0 +1,1 @@
+export const forestBiomes = ["forest"];

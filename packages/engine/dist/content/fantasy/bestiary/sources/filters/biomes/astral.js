@@ -1,0 +1,1 @@
+export const astralBiomes = ["astral"];
