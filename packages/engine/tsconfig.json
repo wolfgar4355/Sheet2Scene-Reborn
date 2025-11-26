@@ -1,27 +1,26 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "rootDir": "src",
     "outDir": "dist",
-    "declaration": true,
-    "declarationDir": "dist",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "target": "ES2020",
-
-    "jsx": "react-jsx",
-
+    "noEmit": false,
+    "composite": false,
     "baseUrl": "src",
     "paths": {
-      "@engine/*": ["*"]
-    },
-
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": false
+      "@s2s/fantasy/types": ["content/fantasy/_schema/types"],
+      "@engine/*": ["*"],
+      "@engine/content/*": ["content/*"],
+      "@engine/types/*": ["types/*"],
+      "@engine/ambient": ["ambient.config.ts"]
+    }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": [
+    "node_modules",
+
+    // on met de côté les scripts et adapters qui explosent le typage
+    "src/content/fantasy/bestiary/adapter.ts",
+    "src/content/fantasy/bestiary/encounter-engine.ts",
+    "src/content/fantasy/rituals/generate-all-rituals.ts"
+  ]
 }
