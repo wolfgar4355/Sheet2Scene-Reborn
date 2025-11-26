@@ -5,10 +5,15 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "src/types",
+    "src/scripts"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "fix:fantasy": "node ./src/scripts/fix-fantasy.js"
   },
   "dependencies": {},
   "devDependencies": {}
