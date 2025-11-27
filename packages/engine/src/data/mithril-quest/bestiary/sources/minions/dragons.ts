@@ -17,7 +17,8 @@ export const MINIONS: Minion[] = [
   factions: ["chromatic-dragons"],
   tags: ["flying", "fire"],
   behavior: { aggression: 4, courage: 3 },
-  tactics: ["fly-by-breath"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["fly-by-breath"]
   stats: {
     hp: 52,
     ac: 16,
@@ -25,8 +26,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d10 + fire breath 15ft",
     speed: "30 ft, fly 60 ft",
   },
-  loot: ["dragon-scale-red", "ember-heart"],
-  abilities: ["Fire Breath", "Keen Sense"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["dragon-scale-red", "ember-heart"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Fire Breath", "Keen Sense"],
 },
 
 /* --------------------------------------------------------- */
@@ -44,7 +47,8 @@ export const MINIONS: Minion[] = [
   factions: ["chromatic-dragons"],
   tags: ["cold", "flying"],
   behavior: { aggression: 3, courage: 3 },
-  tactics: ["freeze-then-bite"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["freeze-then-bite"]
   stats: {
     hp: 45,
     ac: 15,
@@ -52,8 +56,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d8 + frost breath 30ft",
     speed: "30 ft, fly 50 ft",
   },
-  loot: ["dragon-scale-blue"],
-  abilities: ["Cold Breath", "Ice Glide"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["dragon-scale-blue"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Cold Breath", "Ice Glide"],
 },
 /* --------------------------------------------------------- */
 /*                YOUNG EARTH DRAGON — CR 7                 */
@@ -70,7 +76,8 @@ export const MINIONS: Minion[] = [
   factions: ["primordial-dragons"],
   tags: ["earth", "burrow"],
   behavior: { aggression: 4, courage: 4 },
-  tactics: ["tunnel-ambush"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["tunnel-ambush"]
   stats: {
     hp: 136,
     ac: 18,
@@ -78,8 +85,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10+5 earth breath 60ft",
     speed: "40 ft, burrow 70 ft",
   },
-  loot: ["earth-gem", "dragon-tooth"],
-  abilities: ["Earth Breath", "Tremor Step"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["earth-gem", "dragon-tooth"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Earth Breath", "Tremor Step"],
 },
 
 /* --------------------------------------------------------- */
@@ -97,7 +106,8 @@ export const MINIONS: Minion[] = [
   factions: ["primordial-dragons"],
   tags: ["lightning", "flying"],
   behavior: { aggression: 4, courage: 5 },
-  tactics: ["aoe-burst-then-fly-high"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["aoe-burst-then-fly-high"]
   stats: {
     hp: 150,
     ac: 20,
@@ -105,8 +115,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d12 + lightning breath 100ft",
     speed: "45 ft, fly 80 ft",
   },
-  loot: ["storm-core"],
-  abilities: ["Lightning Breath", "Storm Call", "Wing Buffet"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["storm-core"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Lightning Breath", "Storm Call", "Wing Buffet"],
 },
 /* --------------------------------------------------------- */
 /*                ADULT SHADOW DRAGON — CR 15               */
@@ -123,7 +135,8 @@ export const MINIONS: Minion[] = [
   factions: ["umbral-flight"],
   tags: ["shadow", "fear"],
   behavior: { aggression: 5, courage: 5 },
-  tactics: ["darken-arena-then-devour"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["darken-arena-then-devour"]
   stats: {
     hp: 265,
     ac: 21,
@@ -131,8 +144,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d12 + shadow breath (120ft necrotic)",
     speed: "40 ft, fly 80 ft",
   },
-  loot: ["shadow-scale", "ancient-shadow-core"],
-  abilities: ["Shadow Breath", "Dark Aura", "Frightful Presence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["shadow-scale", "ancient-shadow-core"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Shadow Breath", "Dark Aura", "Frightful Presence"],
 },
 
 /* --------------------------------------------------------- */
@@ -150,7 +165,8 @@ export const MINIONS: Minion[] = [
   factions: ["astral-dragons"],
   tags: ["radiant", "flying", "legendary"],
   behavior: { aggression: 3, courage: 7 },
-  tactics: ["holy-awe-battle"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["holy-awe-battle"]
   stats: {
     hp: 330,
     ac: 23,
@@ -158,8 +174,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d12 radiant / radiant breath 160ft",
     speed: "45 ft, fly 120 ft",
   },
-  loot: ["celestial-essence", "dragon-halo-crystal"],
-  abilities: [
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["celestial-essence", "dragon-halo-crystal"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
     "Radiant Breath",
     "Heavenly Transcendence",
     "Holy Restoration",

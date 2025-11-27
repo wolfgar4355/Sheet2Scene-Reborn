@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 3,
   },
-  tactics: ["grip-from-undergrowth"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["grip-from-undergrowth"]
   stats: {
     hp: 12,
     ac: 12,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d4 slashing",
     speed: "5 ft",
   },
-  loot: ["druidic-sap"],
-  abilities: ["Splintering Bind", "Creeping Cover"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["druidic-sap"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Splintering Bind", "Creeping Cover"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 6,
     courage: 4,
   },
-  tactics: ["lash-closest-target"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["lash-closest-target"]
   stats: {
     hp: 28,
     ac: 13,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6 + 2 piercing",
     speed: "10 ft",
   },
-  loot: ["thorn-core", "alchemical-sap"],
-  abilities: ["Barbed Vines", "Toxic Sap"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["thorn-core", "alchemical-sap"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Barbed Vines", "Toxic Sap"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 5,
   },
-  tactics: ["grab-stragglers-first"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["grab-stragglers-first"]
   stats: {
     hp: 60,
     ac: 14,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6 + 3 bludgeoning",
     speed: "20 ft",
   },
-  loot: ["enchanted-vine", "druid-knot"],
-  abilities: ["Grasping Vines", "Reel In Prey"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["enchanted-vine", "druid-knot"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Grasping Vines", "Reel In Prey"],
 },
 
 /* ------------------------------------------------------------ */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 7,
     courage: 4,
   },
-  tactics: ["swallow-isolated-targets"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["swallow-isolated-targets"]
   stats: {
     hp: 85,
     ac: 15,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10 + 3 bludgeoning",
     speed: "10 ft",
   },
-  loot: ["corrosive-pollen", "rare-seed-pod"],
-  abilities: ["Engulfing Maw", "Acidic Nectar"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["corrosive-pollen", "rare-seed-pod"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Engulfing Maw", "Acidic Nectar"],
 },
 
 /* ------------------------------------------------------------ */
@@ -135,7 +147,8 @@ export const MINIONS: Minion[] = [
     aggression: 2,
     courage: 9,
   },
-  tactics: ["buff-allies-and-root-intruders"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["buff-allies-and-root-intruders"]
   stats: {
     hp: 135,
     ac: 16,
@@ -143,8 +156,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10 + 4 radiant+smash",
     speed: "0 ft (rooted)",
   },
-  loot: ["grove-shard", "lifebloom-petal"],
-  abilities: ["Healing Canopy", "Entangling Roots", "Verdant Aura"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["grove-shard", "lifebloom-petal"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Healing Canopy", "Entangling Roots", "Verdant Aura"],
 },
 
 ];

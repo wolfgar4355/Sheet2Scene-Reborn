@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 1,
     courage: 6,
   },
-  tactics: ["beam-light-and-aid-ally"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["beam-light-and-aid-ally"]
   stats: {
     hp: 18,
     ac: 14,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d4 radiant",
     speed: "10 ft (hover)",
   },
-  loot: ["radiant-spark"],
-  abilities: ["Holy Glow", "Minor Heal", "Soothing Hymn"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["radiant-spark"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Holy Glow", "Minor Heal", "Soothing Hymn"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 3,
     courage: 8,
   },
-  tactics: ["stand-still-and-pierce-on-12"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["stand-still-and-pierce-on-12"]
   stats: {
     hp: 55,
     ac: 18,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d8+3 radiant",
     speed: "25 ft",
   },
-  loot: ["radiant-ingot"],
-  abilities: ["Radiant Smite", "Divine Ward"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["radiant-ingot"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Radiant Smite", "Divine Ward"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 9,
   },
-  tactics: ["dive-charge-from-above"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["dive-charge-from-above"]
   stats: {
     hp: 78,
     ac: 17,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8+3 radiant (lance)",
     speed: "40 ft, fly 80 ft",
   },
-  loot: ["valkyrian-feather"],
-  abilities: ["Sky Charge", "Radiant Lance", "Wing Buffet"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["valkyrian-feather"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Sky Charge", "Radiant Lance", "Wing Buffet"],
 },
 
 /* ------------------------------------------------------------ */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 3,
     courage: 10,
   },
-  tactics: ["frontline-then-radiant-burst"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["frontline-then-radiant-burst"]
   stats: {
     hp: 110,
     ac: 19,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10+4 radiant",
     speed: "30 ft",
   },
-  loot: ["light-core"],
-  abilities: ["Radiant Pulse", "Aegis Shield", "Unbreakable Frame"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["light-core"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Radiant Pulse", "Aegis Shield", "Unbreakable Frame"],
 },
 
 /* ------------------------------------------------------------ */
@@ -135,7 +147,8 @@ export const MINIONS: Minion[] = [
     aggression: 7,
     courage: 10,
   },
-  tactics: ["smite-evil-with-powered-strike"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["smite-evil-with-powered-strike"]
   stats: {
     hp: 145,
     ac: 20,
@@ -143,8 +156,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10+6 radiant",
     speed: "40 ft, fly 80 ft",
   },
-  loot: ["seraphic-feather", "flame-sigil"],
-  abilities: [
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["seraphic-feather", "flame-sigil"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
     "Holy Smite",
     "Divine Wings",
     "Blinding Flare",

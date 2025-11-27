@@ -18,7 +18,8 @@ export const MINIONS: Minion[] = [
       aggression: 1,
       courage: 2,
     },
-    tactics: ["crawl-and-latch"],
+    tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["crawl-and-latch"]
     stats: {
       hp: 18,
       ac: 7,
@@ -26,8 +27,10 @@ export const MINIONS: Minion[] = [
       dmg: "1d6 acid",
       speed: "20 ft",
     },
-    loot: ["sticky-residue"],
-    abilities: ["Amorphous Body"],
+    // NOTE (fix-fantasy v2 auto-commented)
+loot: ["sticky-residue"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Amorphous Body"],
   },
 
   /* ------------------------------------------------------------ */
@@ -46,7 +49,8 @@ export const MINIONS: Minion[] = [
       aggression: 3,
       courage: 3,
     },
-    tactics: ["engulf-and-divide"],
+    tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["engulf-and-divide"]
     stats: {
       hp: 52,
       ac: 8,
@@ -54,8 +58,10 @@ export const MINIONS: Minion[] = [
       dmg: "2d8 acid",
       speed: "20 ft",
     },
-    loot: ["gel-mass"],
-    abilities: ["Divide on Hit", "Engulf"],
+    // NOTE (fix-fantasy v2 auto-commented)
+loot: ["gel-mass"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Divide on Hit", "Engulf"],
   },
 
   /* ------------------------------------------------------------ */
@@ -74,7 +80,8 @@ export const MINIONS: Minion[] = [
       aggression: 3,
       courage: 4,
     },
-    tactics: ["strike-and-dissolve"],
+    tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["strike-and-dissolve"]
     stats: {
       hp: 55,
       ac: 12,
@@ -82,8 +89,10 @@ export const MINIONS: Minion[] = [
       dmg: "2d6 acid",
       speed: "25 ft, swim 30 ft",
     },
-    loot: ["volatile-acid"],
-    abilities: ["Toxic Mist", "Dissolve Flesh"],
+    // NOTE (fix-fantasy v2 auto-commented)
+loot: ["volatile-acid"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Toxic Mist", "Dissolve Flesh"],
   },
 
   /* ------------------------------------------------------------ */
@@ -102,7 +111,8 @@ export const MINIONS: Minion[] = [
       aggression: 5,
       courage: 5,
     },
-    tactics: ["grip-and-corrosion"],
+    tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["grip-and-corrosion"]
     stats: {
       hp: 78,
       ac: 10,
@@ -110,8 +120,10 @@ export const MINIONS: Minion[] = [
       dmg: "2d10 acid",
       speed: "20 ft, climb 10 ft",
     },
-    loot: ["corroded-armor", "ooze-gland"],
-    abilities: ["Equipment Corrosion", "Split"],
+    // NOTE (fix-fantasy v2 auto-commented)
+loot: ["corroded-armor", "ooze-gland"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Equipment Corrosion", "Split"],
   },
 
   /* ------------------------------------------------------------ */
@@ -130,7 +142,8 @@ export const MINIONS: Minion[] = [
       aggression: 6,
       courage: 6,
     },
-    tactics: ["pull-then-devour"],
+    tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["pull-then-devour"]
     stats: {
       hp: 145,
       ac: 15,
@@ -138,8 +151,10 @@ export const MINIONS: Minion[] = [
       dmg: "2d10 necrotic + disintegrating touch",
       speed: "30 ft",
     },
-    loot: ["voidic-residue", "collapsed-reality-shard"],
-    abilities: ["Gravity Pull", "Void Dissolution", "Matter Collapse"],
+    // NOTE (fix-fantasy v2 auto-commented)
+loot: ["voidic-residue", "collapsed-reality-shard"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Gravity Pull", "Void Dissolution", "Matter Collapse"],
   },
 
 ];

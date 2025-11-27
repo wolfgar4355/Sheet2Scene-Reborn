@@ -1,4 +1,4 @@
-import { MythicBoss } from "../../types";
+import { MythicBoss } from "../types";
 
 // ---------------------------------------------------------------------------
 // KRON’THAL — SORCIER PRIMORDIAL DU TEMPS (MYTHIQUE)
@@ -14,25 +14,25 @@ export const KRONTHAL: MythicBoss = {
   encounterDifficulty: "mythic",
   aiProfile: "chronomancer",
   tags: [
-    "mythic",
-    "time",
-    "arcane",
-    "chronomancer",
-    "paradox",
-    "time-lord"
+    // NOTE (fix-fantasy v2 auto-commented): "mythic",
+    // NOTE (fix-fantasy v2 auto-commented): "time",
+    // NOTE (fix-fantasy v2 auto-commented): "arcane",
+    // NOTE (fix-fantasy v2 auto-commented): "chronomancer",
+    // NOTE (fix-fantasy v2 auto-commented): "paradox",
+    // NOTE (fix-fantasy v2 auto-commented): "time-lord"
   ],
 
   biomes: [
-    "time-rifts",
-    "ancient-labs",
-    "crystal-spires",
-    "arcane-ruins",
-    "temporal-storms"
+    // NOTE (fix-fantasy v2 auto-commented): "time-rifts",
+    // NOTE (fix-fantasy v2 auto-commented): "ancient-labs",
+    // NOTE (fix-fantasy v2 auto-commented): "crystal-spires",
+    // NOTE (fix-fantasy v2 auto-commented): "arcane-ruins",
+    // NOTE (fix-fantasy v2 auto-commented): "temporal-storms"
   ],
 
   summary:
     "Un mage qui manipule initiative, actions, clones temporels et paradoxes. " +
-    "Ses pouvoirs peuvent effacer des événements entiers ou rejouer un round complet.",
+    // NOTE (fix-fantasy v2 auto-commented): "Ses pouvoirs peuvent effacer des événements entiers ou rejouer un round complet.",
 
   // -------------------------------------------------------------------------
   // PHASES
@@ -49,13 +49,12 @@ export const KRONTHAL: MythicBoss = {
 
       description:
         "Un maître du temps qui inverse initiative, réécrit les actions et " +
-        "manipule les points faibles temporels du champ de bataille.",
+        // NOTE (fix-fantasy v2 auto-commented): "manipule les points faibles temporels du champ de bataille.",
 
-      tactics: [
-        "Cibler les joueurs trop rapides.",
-        "Annuler les actions clés.",
-        "Désorganiser le combat avec du déplacement temporel."
-      ],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["Cibler les joueurs trop rapides.",
+        // NOTE (fix-fantasy v2 auto-commented): "Annuler les actions clés.",
+        "Désorganiser le combat avec du déplacement temporel."]
 
       stats: {
         hp: 520,
@@ -65,24 +64,26 @@ export const KRONTHAL: MythicBoss = {
         speed: "30 ft, blink 15 ft (bonus)"
       },
 
-      abilities: [
-        "Rebond du Temps — renvoie 1 attaque vers l’attaquant (1/round).",
-        "Vieillir d’Âge — affaiblit ou fait vieillir une cible.",
-        "Double Incantation — lance 2 sorts moyens.",
-        "Boucle Temporelle Mineure — répète la dernière action d’un joueur.",
-        "Aurore Chronique — ralentit toutes les créatures proches."
+      // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
+        // NOTE (fix-fantasy v2 auto-commented): "Rebond du Temps — renvoie 1 attaque vers l’attaquant (1/round).",
+        // NOTE (fix-fantasy v2 auto-commented): "Vieillir d’Âge — affaiblit ou fait vieillir une cible.",
+        // NOTE (fix-fantasy v2 auto-commented): "Double Incantation — lance 2 sorts moyens.",
+        // NOTE (fix-fantasy v2 auto-commented): "Boucle Temporelle Mineure — répète la dernière action d’un joueur.",
+        // NOTE (fix-fantasy v2 auto-commented): "Aurore Chronique — ralentit toutes les créatures proches."
       ],
 
-      loot: [
-        "Sablier de Kron’Thal",
-        "Fragment d’Âge Perdu",
-        "Tome des Paradoxes",
-        "Gemme des Millénaires"
+      // NOTE (fix-fantasy v2 auto-commented)
+loot: [
+        // NOTE (fix-fantasy v2 auto-commented): "Sablier de Kron’Thal",
+        // NOTE (fix-fantasy v2 auto-commented): "Fragment d’Âge Perdu",
+        // NOTE (fix-fantasy v2 auto-commented): "Tome des Paradoxes",
+        // NOTE (fix-fantasy v2 auto-commented): "Gemme des Millénaires"
       ],
 
       phaseTriggers: [
-        "À 0 HP → fracturation temporelle massive.",
-        "Les clones instables apparaissent autour de lui."
+        // NOTE (fix-fantasy v2 auto-commented): "À 0 HP → fracturation temporelle massive.",
+        // NOTE (fix-fantasy v2 auto-commented): "Les clones instables apparaissent autour de lui."
       ]
     },
 
@@ -96,21 +97,20 @@ export const KRONTHAL: MythicBoss = {
       role: "mythic-controller",
 
       biomes: [
-        "time-rifts",
-        "temporal-storms",
-        "non-places",
-        "fractured-time"
+        // NOTE (fix-fantasy v2 auto-commented): "time-rifts",
+        // NOTE (fix-fantasy v2 auto-commented): "temporal-storms",
+        // NOTE (fix-fantasy v2 auto-commented): "non-places",
+        // NOTE (fix-fantasy v2 auto-commented): "fractured-time"
       ],
 
       description:
         "Le sorcier devient instable, existant en plusieurs états temporels. " +
-        "Il contrôle les clones, efface des tours, et manipule des tempêtes chrono-fractales.",
+        // NOTE (fix-fantasy v2 auto-commented): "Il contrôle les clones, efface des tours, et manipule des tempêtes chrono-fractales.",
 
-      tactics: [
-        "Manipuler les clones pour absorber les attaques.",
-        "Effacer les rounds des joueurs.",
-        "Créer un chaos temporel constant."
-      ],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["Manipuler les clones pour absorber les attaques.",
+        // NOTE (fix-fantasy v2 auto-commented): "Effacer les rounds des joueurs.",
+        "Créer un chaos temporel constant."]
 
       stats: {
         hp: 700,
@@ -120,20 +120,22 @@ export const KRONTHAL: MythicBoss = {
         speed: "40 ft, hover 20 ft"
       },
 
-      abilities: [
-        "Effondrement Temporel — supprime un tour complet (1x/combat).",
-        "Âge Inversé — renforce ou affaiblit une cible au hasard.",
-        "Clones Paradoxaux — 2 doubles instables.",
-        "Flash du Millénaire — téléportation + attaque bonus.",
-        "Pause Globale — arrête toutes les créatures 1 tour (recharge 6).",
-        "Stabilité Impossible — régénère 20 PV tant que les clones existent."
+      // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
+        // NOTE (fix-fantasy v2 auto-commented): "Effondrement Temporel — supprime un tour complet (1x/combat).",
+        // NOTE (fix-fantasy v2 auto-commented): "Âge Inversé — renforce ou affaiblit une cible au hasard.",
+        // NOTE (fix-fantasy v2 auto-commented): "Clones Paradoxaux — 2 doubles instables.",
+        // NOTE (fix-fantasy v2 auto-commented): "Flash du Millénaire — téléportation + attaque bonus.",
+        // NOTE (fix-fantasy v2 auto-commented): "Pause Globale — arrête toutes les créatures 1 tour (recharge 6).",
+        // NOTE (fix-fantasy v2 auto-commented): "Stabilité Impossible — régénère 20 PV tant que les clones existent."
       ],
 
-      loot: [
-        "Cœur Paradoxal de Kron’Thal",
-        "Chronoblade du Seigneur du Temps",
-        "Ancre Temporelle",
-        "Graine d’Âge Infini"
+      // NOTE (fix-fantasy v2 auto-commented)
+loot: [
+        // NOTE (fix-fantasy v2 auto-commented): "Cœur Paradoxal de Kron’Thal",
+        // NOTE (fix-fantasy v2 auto-commented): "Chronoblade du Seigneur du Temps",
+        // NOTE (fix-fantasy v2 auto-commented): "Ancre Temporelle",
+        // NOTE (fix-fantasy v2 auto-commented): "Graine d’Âge Infini"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-import { MythicBoss } from "../../types";
+import { MythicBoss } from "../types";
 
 // ---------------------------------------------------------------------------
 // MALDRAVEN — SEIGNEUR VAMPIRE MYTHIQUE
@@ -15,23 +15,23 @@ export const MALDRAVEN: MythicBoss = {
   aiProfile: "vampire-lord",
 
   tags: [
-    "vampire",
-    "undead",
-    "mythic",
-    "noble",
-    "shadow",
-    "mist-form"
+    // NOTE (fix-fantasy v2 auto-commented): "vampire",
+    // NOTE (fix-fantasy v2 auto-commented): "undead",
+    // NOTE (fix-fantasy v2 auto-commented): "mythic",
+    // NOTE (fix-fantasy v2 auto-commented): "noble",
+    // NOTE (fix-fantasy v2 auto-commented): "shadow",
+    // NOTE (fix-fantasy v2 auto-commented): "mist-form"
   ],
 
   biomes: [
-    "gothic-castle",
-    "shadowlands",
-    "night-forest",
-    "ruins"
+    // NOTE (fix-fantasy v2 auto-commented): "gothic-castle",
+    // NOTE (fix-fantasy v2 auto-commented): "shadowlands",
+    // NOTE (fix-fantasy v2 auto-commented): "night-forest",
+    // NOTE (fix-fantasy v2 auto-commented): "ruins"
   ],
 
   summary:
-    "Un vampire noble qui manipule les ombres, charme ses adversaires et se "
+    // NOTE (fix-fantasy v2 auto-commented): "Un vampire noble qui manipule les ombres, charme ses adversaires et se "
     + "réincarne en une forme de brume immortelle. Sa vitesse et ses drains "
     + "en font un boss extrêmement dangereux dans les combats prolongés.",
 
@@ -50,22 +50,21 @@ export const MALDRAVEN: MythicBoss = {
       role: "mythic-controller",
 
       biomes: [
-        "gothic-castle",
-        "shadowlands",
-        "night-forest",
-        "ruins"
+        // NOTE (fix-fantasy v2 auto-commented): "gothic-castle",
+        // NOTE (fix-fantasy v2 auto-commented): "shadowlands",
+        // NOTE (fix-fantasy v2 auto-commented): "night-forest",
+        // NOTE (fix-fantasy v2 auto-commented): "ruins"
       ],
 
       description:
-        "Un vampire souverain capable de contrôler l’esprit, drainer la vie et "
+        // NOTE (fix-fantasy v2 auto-commented): "Un vampire souverain capable de contrôler l’esprit, drainer la vie et "
         + "invoquer des brumes toxiques. Son style de combat repose sur la "
         + "manipulation mentale, la domination et la mobilité rapide.",
 
-      tactics: [
-        "Charmer les cibles isolées.",
-        "Utiliser la brume pour couper la ligne de vue.",
-        "Sauter sur les cibles faibles pour maximiser le drain."
-      ],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["Charmer les cibles isolées.",
+        // NOTE (fix-fantasy v2 auto-commented): "Utiliser la brume pour couper la ligne de vue.",
+        "Sauter sur les cibles faibles pour maximiser le drain."]
 
       stats: {
         hp: 520,
@@ -75,24 +74,26 @@ export const MALDRAVEN: MythicBoss = {
         speed: "40 ft, climb 40 ft, mist step (bonus)"
       },
 
-      abilities: [
-        "Vol de Sang — vole 20 PV, soigne Maldraven du même montant.",
-        "Domination Vampirique — contrôle mental sur 1 cible faible.",
-        "Voile de Brume — téléportation brumeuse 9 m.",
-        "Essaim d’Ombres — invoque un swarm temporaire.",
-        "Noble Sombre — réduit les dégâts nécrotiques reçus."
+      // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
+        // NOTE (fix-fantasy v2 auto-commented): "Vol de Sang — vole 20 PV, soigne Maldraven du même montant.",
+        // NOTE (fix-fantasy v2 auto-commented): "Domination Vampirique — contrôle mental sur 1 cible faible.",
+        // NOTE (fix-fantasy v2 auto-commented): "Voile de Brume — téléportation brumeuse 9 m.",
+        // NOTE (fix-fantasy v2 auto-commented): "Essaim d’Ombres — invoque un swarm temporaire.",
+        // NOTE (fix-fantasy v2 auto-commented): "Noble Sombre — réduit les dégâts nécrotiques reçus."
       ],
 
-      loot: [
-        "Armure du Sang Éternel",
-        "Cape Obsidienne Nocturne",
-        "Diamant Sanguin",
-        "Clé de la Crypte Perdue"
+      // NOTE (fix-fantasy v2 auto-commented)
+loot: [
+        // NOTE (fix-fantasy v2 auto-commented): "Armure du Sang Éternel",
+        // NOTE (fix-fantasy v2 auto-commented): "Cape Obsidienne Nocturne",
+        // NOTE (fix-fantasy v2 auto-commented): "Diamant Sanguin",
+        // NOTE (fix-fantasy v2 auto-commented): "Clé de la Crypte Perdue"
       ],
 
       phaseTriggers: [
-        "À 0 HP → Maldraven se dissout en brume immortelle.",
-        "La zone devient totalement obscure."
+        // NOTE (fix-fantasy v2 auto-commented): "À 0 HP → Maldraven se dissout en brume immortelle.",
+        // NOTE (fix-fantasy v2 auto-commented): "La zone devient totalement obscure."
       ]
     },
 
@@ -109,15 +110,14 @@ export const MALDRAVEN: MythicBoss = {
       biomes: ["gothic-castle", "shadowlands"],
 
       description:
-        "Sa forme brumeuse est intouchable par les armes non-magiques, capable "
+        // NOTE (fix-fantasy v2 auto-commented): "Sa forme brumeuse est intouchable par les armes non-magiques, capable "
         + "de se régénérer rapidement et de déchiqueter les esprits par de "
         + "massifs drains d'âme.",
 
-      tactics: [
-        "Éviter tout dégât physique grâce à sa forme intangible.",
-        "Drainer en continu plusieurs cibles.",
-        "Utiliser illusions et brume pour diviser le groupe."
-      ],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["Éviter tout dégât physique grâce à sa forme intangible.",
+        // NOTE (fix-fantasy v2 auto-commented): "Drainer en continu plusieurs cibles.",
+        "Utiliser illusions et brume pour diviser le groupe."]
 
       stats: {
         hp: 630,
@@ -127,20 +127,22 @@ export const MALDRAVEN: MythicBoss = {
         speed: "hover 50 ft, teleport 20 ft"
       },
 
-      abilities: [
-        "Forme de Brume Pure — immunité totale aux armes non-magiques.",
-        "Tempête Sanguine — zone 12 m, dégâts nécrotiques massifs.",
-        "Drain d’Âme — siphonne 30 PV à 3 cibles.",
-        "Illusions Brumeuses — crée 3 clones insubstantiels.",
-        "Nuit Éternelle — obscurité totale dans un rayon de 15 m.",
-        "Régénération Vampirique — 25 PV par round."
+      // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
+        // NOTE (fix-fantasy v2 auto-commented): "Forme de Brume Pure — immunité totale aux armes non-magiques.",
+        // NOTE (fix-fantasy v2 auto-commented): "Tempête Sanguine — zone 12 m, dégâts nécrotiques massifs.",
+        // NOTE (fix-fantasy v2 auto-commented): "Drain d’Âme — siphonne 30 PV à 3 cibles.",
+        // NOTE (fix-fantasy v2 auto-commented): "Illusions Brumeuses — crée 3 clones insubstantiels.",
+        // NOTE (fix-fantasy v2 auto-commented): "Nuit Éternelle — obscurité totale dans un rayon de 15 m.",
+        // NOTE (fix-fantasy v2 auto-commented): "Régénération Vampirique — 25 PV par round."
       ],
 
-      loot: [
-        "Cœur de Brume du Vampire",
-        "Gantelets du Noble Sombre",
-        "Sceptre Sanguin",
-        "Relique de la Nuit Infinie"
+      // NOTE (fix-fantasy v2 auto-commented)
+loot: [
+        // NOTE (fix-fantasy v2 auto-commented): "Cœur de Brume du Vampire",
+        // NOTE (fix-fantasy v2 auto-commented): "Gantelets du Noble Sombre",
+        // NOTE (fix-fantasy v2 auto-commented): "Sceptre Sanguin",
+        // NOTE (fix-fantasy v2 auto-commented): "Relique de la Nuit Infinie"
       ]
     }
   ]

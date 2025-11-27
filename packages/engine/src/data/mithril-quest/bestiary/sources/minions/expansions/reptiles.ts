@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 3,
   },
-  tactics: ["stab-and-retreat", "net-snare"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["stab-and-retreat", "net-snare"]
   stats: {
     hp: 26,
     ac: 14,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d8 piercing",
     speed: "30 ft, swim 30 ft",
   },
-  loot: ["horn-spear", "wet-scales"],
-  abilities: ["Blood Frenzy", "Reptile Instinct"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["horn-spear", "wet-scales"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Blood Frenzy", "Reptile Instinct"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 4,
   },
-  tactics: ["coil-and-strike"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["coil-and-strike"]
   stats: {
     hp: 45,
     ac: 13,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d8 + poison",
     speed: "40 ft, swim 30 ft",
   },
-  loot: ["venom-gland"],
-  abilities: ["Constriction", "Poison Fangs"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["venom-gland"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Constriction", "Poison Fangs"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 5,
   },
-  tactics: ["surface-grab-and-drag"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["surface-grab-and-drag"]
   stats: {
     hp: 30,
     ac: 15,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6 piercing",
     speed: "40 ft, swim 40 ft",
   },
-  loot: ["thick-hide"],
-  abilities: ["Death Roll", "Water Ambush"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["thick-hide"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Death Roll", "Water Ambush"],
 },
 
 /* ------------------------------------------------------------ */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 6,
   },
-  tactics: ["gaze-first-then-bite"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["gaze-first-then-bite"]
   stats: {
     hp: 95,
     ac: 16,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8 piercing",
     speed: "35 ft",
   },
-  loot: ["petrified-skin-fragment"],
-  abilities: ["Petrifying Gaze", "Venom Bite"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["petrified-skin-fragment"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Petrifying Gaze", "Venom Bite"],
 },
 
 /* ------------------------------------------------------------ */
@@ -135,7 +147,8 @@ export const MINIONS: Minion[] = [
     aggression: 6,
     courage: 7,
   },
-  tactics: ["trample-then-roar"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["trample-then-roar"]
   stats: {
     hp: 186,
     ac: 17,
@@ -143,8 +156,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10 bludgeoning + lightning",
     speed: "50 ft",
   },
-  loot: ["thunder-scale", "ancient-scales"],
-  abilities: ["Thunder Roar", "Stampede", "Lightning Pulse"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["thunder-scale", "ancient-scales"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Thunder Roar", "Stampede", "Lightning Pulse"],
 },
 
 ];

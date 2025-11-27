@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 4,
         },
-        tactics: ["charge-and-maul"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["charge-and-maul"]
         stats: {
             hp: 35,
             ac: 13,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 5,
         },
-        tactics: ["reckless-charge"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["reckless-charge"]
         stats: {
             hp: 45,
             ac: 14,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: ["pounce-from-shadow"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["pounce-from-shadow"]
         stats: {
             hp: 58,
             ac: 16,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 10,
         },
-        tactics: ["defend-pack"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["defend-pack"]
         stats: {
             hp: 92,
             ac: 15,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 9,
             courage: 10,
         },
-        tactics: ["roar-to-buff-pack-then-rip"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["roar-to-buff-pack-then-rip"]
         stats: {
             hp: 210,
             ac: 18,

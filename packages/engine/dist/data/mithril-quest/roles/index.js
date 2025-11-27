@@ -1,6 +1,6 @@
 // Roles (Gameplay Archetypes)
 export const ROLES = {
-    damage: "Spécialisé dans les dégâts directs",
+    damage: { dice: "Spécialisé dans les dégâts", type: "directs" },
     defense: "Absorption, tanking, garde du corps",
     mobility: "Déplacements rapides, contrôle de terrain",
     support: "Buffs, debuffs, heal, utilités",

@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: ["fly-by-attack"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["fly-by-attack"]
         stats: {
             hp: 52,
             ac: 13,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 6,
         },
-        tactics: ["charge"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["charge"]
         stats: {
             hp: 68,
             ac: 15,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 3,
         },
-        tactics: ["spike-volley"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["spike-volley"]
         stats: {
             hp: 56,
             ac: 14,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: ["petrifying-gaze"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["petrifying-gaze"]
         stats: {
             hp: 85,
             ac: 15,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 5,
         },
-        tactics: ["bite-claw-maul"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["bite-claw-maul"]
         stats: {
             hp: 114,
             ac: 14,

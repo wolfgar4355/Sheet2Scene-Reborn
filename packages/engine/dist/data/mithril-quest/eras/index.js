@@ -37,7 +37,7 @@ export const FANTASY_ERAS = [
         recommendedLevels: [5, 15],
     },
     {
-        id: "mystic-age",
+        id: "mythic-age",
         worldId: "fantasy",
         name: "Mystic Age",
         shortDescription: "Temps où le voile entre les plans devient instable.",

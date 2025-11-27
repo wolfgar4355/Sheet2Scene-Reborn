@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 2,
         },
-        tactics: ["surround-and-sting"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["surround-and-sting"]
         stats: {
             hp: 22,
             ac: 12,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 4,
         },
-        tactics: ["swarm-the-softest-target"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["swarm-the-softest-target"]
         stats: {
             hp: 36,
             ac: 14,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: ["web-then-overwhelm"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["web-then-overwhelm"]
         stats: {
             hp: 45,
             ac: 15,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 1,
             courage: 6,
         },
-        tactics: ["blinding-dazzle"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["blinding-dazzle"]
         stats: {
             hp: 50,
             ac: 16,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 9,
             courage: 6,
         },
-        tactics: ["consume-everything"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["consume-everything"]
         stats: {
             hp: 90,
             ac: 16,
@@ -156,7 +156,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 6,
         },
-        tactics: ["strike-from-darkness"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["strike-from-darkness"]
         stats: {
             hp: 110,
             ac: 17,

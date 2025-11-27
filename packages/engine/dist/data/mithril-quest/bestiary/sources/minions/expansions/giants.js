@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 3,
         },
-        tactics: ["rush-frontline"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["rush-frontline"]
         stats: {
             hp: 55,
             ac: 11,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 5,
         },
-        tactics: ["buff-ogres"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["buff-ogres"]
         stats: {
             hp: 65,
             ac: 12,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 7,
         },
-        tactics: ["boulder-from-range"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["boulder-from-range"]
         stats: {
             hp: 130,
             ac: 15,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 6,
         },
-        tactics: ["charge-then-crush"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["charge-then-crush"]
         stats: {
             hp: 150,
             ac: 15,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 8,
         },
-        tactics: ["disable-then-hurl"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["disable-then-hurl"]
         stats: {
             hp: 185,
             ac: 16,
@@ -156,7 +156,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 10,
         },
-        tactics: ["storm-then-mega-strike"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["storm-then-mega-strike"]
         stats: {
             hp: 265,
             ac: 18,

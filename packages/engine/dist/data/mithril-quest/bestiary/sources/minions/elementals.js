@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: ["hit-and-drift"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["hit-and-drift"]
         stats: {
             hp: 90,
             ac: 15,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: ["burrow-ambush"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["burrow-ambush"]
         stats: {
             hp: 126,
             ac: 17,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: ["burn-through-lines"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["burn-through-lines"]
         stats: {
             hp: 102,
             ac: 14,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 4,
         },
-        tactics: ["engulf-and-drown"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["engulf-and-drown"]
         stats: {
             hp: 114,
             ac: 14,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: ["eruption-charge"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["eruption-charge"]
         stats: {
             hp: 130,
             ac: 16,
@@ -156,7 +156,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 6,
         },
-        tactics: ["aoe-burst-then-hover"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["aoe-burst-then-hover"]
         stats: {
             hp: 140,
             ac: 16,

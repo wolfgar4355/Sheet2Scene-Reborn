@@ -10,16 +10,16 @@ export const SERAPHIEL = {
     category: "celestial",
     tags: ["mythic", "celestial", "fallen", "archon"],
     biomes: [
-        "celestial-planes",
-        "holy-temples",
-        "sky-fortresses",
-        "fractured-light",
-        "sanctums-of-light"
+    // NOTE (fix-fantasy v2 auto-commented): "celestial-planes",
+    // NOTE (fix-fantasy v2 auto-commented): "holy-temples",
+    // NOTE (fix-fantasy v2 auto-commented): "sky-fortresses",
+    // NOTE (fix-fantasy v2 auto-commented): "fractured-light",
+    // NOTE (fix-fantasy v2 auto-commented): "sanctums-of-light"
     ],
     summary: "Ancien Archon du Premier Cantique, Seraphiel était jadis un parangon de lumière pure. " +
         "Sa chute a fragmenté son essence en deux aspects : la lumière sacrée punitive et la lumière brisée chaotique. " +
-        "Il alterne entre bénédictions, illusions lumineuses et déchaînements radiants.",
-    encounterDifficulty: "mythic",
+        // NOTE (fix-fantasy v2 auto-commented): "Il alterne entre bénédictions, illusions lumineuses et déchaînements radiants.",
+        encounterDifficulty, "mythic": ,
     aiProfile: "mythic-celestial-executioner",
     mythicActions: [
         "Tempête de Lumière : début de round — inflige 4d8 radiant à toutes les créatures non-célestes dans un rayon de 12 m.",
@@ -39,61 +39,55 @@ export const SERAPHIEL = {
             ac: 24,
             role: "mythic-elite-controller",
             description: "Seraphiel irradie une lumière sacrée écrasante. Il punit les mages et soigneurs, " +
-                "frappe de rayons convergents et déchaîne des vagues d’énergie céleste.",
-            tactics: [
-                "Priorise les lanceurs de sorts et soigneurs.",
-                "Empêche le regroupement des PJ via des rayons en ligne.",
-                "Utilise sa mobilité aérienne pour punir les cibles exposées."
-            ],
-            abilities: [
-                "Lame de l'Aube — Dégâts radiant + aveuglement court.",
-                "Bouclier Céleste — Réduction de 50% des dégâts magiques.",
-                "Cantique Béni — Dissipe les malédictions dans 9 m et soigne légèrement.",
-                "Rayons Convergents — Attaques en ligne de lumière compressée."
-            ],
-            phaseTriggers: [
-                "À 0 PV pour la première fois, son corps se brise en éclats prismatiques.",
-                "Lumière fracturée se répand dans l’arène, modifiant le terrain.",
-                "Transition immédiate vers la Phase 2 : illusions actives + distorsions lumineuses."
-            ]
-        },
-        // PHASE 2 — Lumière Brisée
-        {
-            key: "phase-2",
-            name: "Lumière Brisée",
-            cr: 25,
-            hp: 770,
-            ac: 26,
-            role: "mythic-controller",
-            description: "L’essence brisée de Seraphiel explose en un torrent de lumière chaotique. " +
-                "Il déchaîne des illusions vivantes, des fractures lumineuses et des ondes photométriques.",
-            tactics: [
-                "Contrôle total du terrain via zones de lumière instables.",
-                "Illusions pour détourner l’attention et piéger les PJ.",
-                "Attire les PJ dans les zones dangereuses fracturées."
-            ],
-            abilities: [
-                "Lumière Fractale — Se divise en 3 copies lumineuses (illusions offensives).",
-                "Jugement Prismatique — Dégâts radiant + foudre + dissociation magique.",
-                "Explosion Photométrique — Zone 12 m, aveuglement puissant + dégâts massifs.",
-                "Cœur de Lumen — Fait apparaître des éclats de lumière orbitaux.",
-                "Régénération Sacrée — 30 PV/round tant qu'une lumière active existe."
-            ],
-            phaseTriggers: [
-                "Si toutes ses illusions sont détruites en même temps, Seraphiel perd sa régénération pendant 1d4 rounds.",
-                "Si un PJ purifie une zone de lumière, la suivante devient instable (explosion 3d10 radiant).",
-                "À 100 PV restants, Seraphiel implose en une sphère de lumière noire puis déclenche son Jugement Final."
-            ]
-        }
+                // NOTE (fix-fantasy v2 auto-commented): "frappe de rayons convergents et déchaîne des vagues d’énergie céleste.",
+                tactics
+        }, { prefersAmbush: true }, // NOTE: anciennement tactics: ["Priorise les lanceurs de sorts et soigneurs.",
+        // NOTE (fix-fantasy v2 auto-commented): "Empêche le regroupement des PJ via des rayons en ligne.",
+        "Utilise sa mobilité aérienne pour punir les cibles exposées."
     ],
-    // -----------------------------------------------------------------------
-    // LOOT
-    // -----------------------------------------------------------------------
-    loot: [
-        "Cœur Prismatique de Seraphiel — focus céleste, +2 aux sorts radiants.",
-        "Aile de Lumière Pure — cape légendaire, vol + absorbance de sort radiant.",
-        "Couronne du Premier Cantique — améliore les bénédictions et aura sacrée.",
-        "Talisman de l’Éclat Perdu — protège contre illusions et lumière fractale."
+    abilities: [
+    // NOTE (fix-fantasy v2 auto-commented): "Lame de l'Aube — Dégâts radiant + aveuglement court.",
+    // NOTE (fix-fantasy v2 auto-commented): "Bouclier Céleste — Réduction de 50% des dégâts magiques.",
+    // NOTE (fix-fantasy v2 auto-commented): "Cantique Béni — Dissipe les malédictions dans 9 m et soigne légèrement.",
+    // NOTE (fix-fantasy v2 auto-commented): "Rayons Convergents — Attaques en ligne de lumière compressée."
+    ],
+    phaseTriggers: [
+        // NOTE (fix-fantasy v2 auto-commented): "À 0 PV pour la première fois, son corps se brise en éclats prismatiques.",
+        // NOTE (fix-fantasy v2 auto-commented): "Lumière fracturée se répand dans l’arène, modifiant le terrain.",
+        "Transition immédiate vers la Phase 2 : illusions actives + distorsions lumineuses."
     ]
-};
+}, 
+// PHASE 2 — Lumière Brisée
+{ key: , "phase-2": , name: , "Lumière Brisée": , cr: , 25: , hp: , 770: , ac: , 26: , role: , "mythic-controller": , description: , "L’essence brisée de Seraphiel explose en un torrent de lumière chaotique. ":  };
++
+// NOTE (fix-fantasy v2 auto-commented): "Il déchaîne des illusions vivantes, des fractures lumineuses et des ondes photométriques.",
+tactics;
+{
+    prefersAmbush: true;
+}
+// NOTE (fix-fantasy v2 auto-commented): "Illusions pour détourner l’attention et piéger les PJ.",
+"Attire les PJ dans les zones dangereuses fracturées.";
+abilities: [
+// NOTE (fix-fantasy v2 auto-commented): "Lumière Fractale — Se divise en 3 copies lumineuses (illusions offensives).",
+// NOTE (fix-fantasy v2 auto-commented): "Jugement Prismatique — Dégâts radiant + foudre + dissociation magique.",
+// NOTE (fix-fantasy v2 auto-commented): "Explosion Photométrique — Zone 12 m, aveuglement puissant + dégâts massifs.",
+// NOTE (fix-fantasy v2 auto-commented): "Cœur de Lumen — Fait apparaître des éclats de lumière orbitaux.",
+// NOTE (fix-fantasy v2 auto-commented): "Régénération Sacrée — 30 PV/round tant qu'une lumière active existe."
+],
+    phaseTriggers;
+[
+// NOTE (fix-fantasy v2 auto-commented): "Si toutes ses illusions sont détruites en même temps, Seraphiel perd sa régénération pendant 1d4 rounds.",
+// NOTE (fix-fantasy v2 auto-commented): "Si un PJ purifie une zone de lumière, la suivante devient instable (explosion 3d10 radiant).",
+// NOTE (fix-fantasy v2 auto-commented): "À 100 PV restants, Seraphiel implose en une sphère de lumière noire puis déclenche son Jugement Final."
+];
+// -----------------------------------------------------------------------
+// LOOT
+// -----------------------------------------------------------------------
+loot: [
+// NOTE (fix-fantasy v2 auto-commented): "Cœur Prismatique de Seraphiel — focus céleste, +2 aux sorts radiants.",
+// NOTE (fix-fantasy v2 auto-commented): "Aile de Lumière Pure — cape légendaire, vol + absorbance de sort radiant.",
+// NOTE (fix-fantasy v2 auto-commented): "Couronne du Premier Cantique — améliore les bénédictions et aura sacrée.",
+// NOTE (fix-fantasy v2 auto-commented): "Talisman de l’Éclat Perdu — protège contre illusions et lumière fractale."
+];
+;
 export default SERAPHIEL;

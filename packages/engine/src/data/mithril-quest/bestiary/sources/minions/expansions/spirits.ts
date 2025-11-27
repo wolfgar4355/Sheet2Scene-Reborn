@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 2,
     courage: 4,
   },
-  tactics: ["flicker-near-targets"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["flicker-near-targets"]
   stats: {
     hp: 18,
     ac: 10,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6 radiant",
     speed: "10 ft, hover 30 ft",
   },
-  loot: ["flicker-wax"],
-  abilities: ["Flickering Glow", "Flicker Step"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["flicker-wax"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Flickering Glow", "Flicker Step"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 3,
   },
-  tactics: ["hit-and-fade"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["hit-and-fade"]
   stats: {
     hp: 36,
     ac: 14,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6 necrotic",
     speed: "40 ft, hover 40 ft",
   },
-  loot: ["cold-shards"],
-  abilities: ["Shadow Touch", "Ethereal Drift"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["cold-shards"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Shadow Touch", "Ethereal Drift"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 3,
     courage: 5,
   },
-  tactics: ["psychic-scream-then-possess"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["psychic-scream-then-possess"]
   stats: {
     hp: 52,
     ac: 13,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8 psychic",
     speed: "20 ft, hover 40 ft",
   },
-  loot: ["whispering-bone"],
-  abilities: ["Mortifying Wail", "Mind Grip", "Possess Corpse"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["whispering-bone"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Mortifying Wail", "Mind Grip", "Possess Corpse"],
 },
 
 /* ------------------------------------------------------------ */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 7,
   },
-  tactics: ["protect-sacred-zone"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["protect-sacred-zone"]
   stats: {
     hp: 110,
     ac: 17,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10 radiant",
     speed: "35 ft",
   },
-  loot: ["ancestral-sigil"],
-  abilities: ["Radiant Slam", "Guardian Shield", "Sanctified Light"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["ancestral-sigil"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Radiant Slam", "Guardian Shield", "Sanctified Light"],
 },
 
 /* ------------------------------------------------------------ */
@@ -135,7 +147,8 @@ export const MINIONS: Minion[] = [
     aggression: 6,
     courage: 8,
   },
-  tactics: ["scatter-party-then-aoe-pulse"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["scatter-party-then-aoe-pulse"]
   stats: {
     hp: 180,
     ac: 18,
@@ -143,8 +156,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d10 psychic + soul drain",
     speed: "hover 60 ft",
   },
-  loot: ["resonant-crystal", "tempest-essence"],
-  abilities: [
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["resonant-crystal", "tempest-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
     "Soul Screech",
     "Spirit Pulse",
     "Astral Sunder",

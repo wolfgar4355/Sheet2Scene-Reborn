@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 3,
         },
-        tactics: ["poison-sting"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["poison-sting"]
         stats: {
             hp: 22,
             ac: 13,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 2,
         },
-        tactics: ["fear-spike"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["fear-spike"]
         stats: {
             hp: 18,
             ac: 13,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 3,
         },
-        tactics: ["leap-and-maul"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["leap-and-maul"]
         stats: {
             hp: 56,
             ac: 14,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 4,
         },
-        tactics: ["barb-sprint", "spike-barrage"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["barb-sprint", "spike-barrage"]
         stats: {
             hp: 96,
             ac: 16,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: ["impale-and-bleed"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["impale-and-bleed"]
         stats: {
             hp: 120,
             ac: 17,
@@ -156,7 +156,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 5,
         },
-        tactics: ["ambush-from-shadows"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["ambush-from-shadows"]
         stats: {
             hp: 112,
             ac: 15,

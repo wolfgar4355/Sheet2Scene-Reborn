@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 3,
   },
-  tactics: ["flank-and-slam"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["flank-and-slam"]
   stats: {
     hp: 18,
     ac: 14,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6+2 slashing",
     speed: "40 ft, climb 30 ft",
   },
-  loot: ["chitin-shard"],
-  abilities: ["Pheromone Mark"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["chitin-shard"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Pheromone Mark"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 4,
   },
-  tactics: ["burst-from-ground"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["burst-from-ground"]
   stats: {
     hp: 36,
     ac: 16,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8+3 piercing",
     speed: "35 ft, burrow 30 ft",
   },
-  loot: ["chitin-carapace"],
-  abilities: ["Burrow Ambush", "Chitin Charge"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["chitin-carapace"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Burrow Ambush", "Chitin Charge"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 6,
     courage: 3,
   },
-  tactics: ["stun-then-venom-slash"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["stun-then-venom-slash"]
   stats: {
     hp: 68,
     ac: 16,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d10 necrotic",
     speed: "40 ft",
   },
-  loot: ["mantis-fang"],
-  abilities: ["Paralyzing Gaze", "Necrotic Lash"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["mantis-fang"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Paralyzing Gaze", "Necrotic Lash"],
 },
 
 /* ------------------------------------------------------------ */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 7,
     courage: 4,
   },
-  tactics: ["summon-minions-and-overwhelm"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["summon-minions-and-overwhelm"]
   stats: {
     hp: 110,
     ac: 17,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10 slashing",
     speed: "30 ft, burrow 10 ft",
   },
-  loot: ["scarab-gland"],
-  abilities: ["Summon Scarabs", "Carapace Burst", "Fear Chitter"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["scarab-gland"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Summon Scarabs", "Carapace Burst", "Fear Chitter"],
 },
 
 /* ------------------------------------------------------------ */
@@ -135,7 +147,8 @@ export const MINIONS: Minion[] = [
     aggression: 9,
     courage: 10,
   },
-  tactics: ["stomp-frontline-then-gore"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["stomp-frontline-then-gore"]
   stats: {
     hp: 240,
     ac: 20,
@@ -143,8 +156,10 @@ export const MINIONS: Minion[] = [
     dmg: "4d12 slashing",
     speed: "40 ft",
   },
-  loot: ["colossus-plate", "ancient-chitin-core"],
-  abilities: [
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["colossus-plate", "ancient-chitin-core"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
     "Massive Stomp",
     "Gore Rampage",
     "Hive Roar",

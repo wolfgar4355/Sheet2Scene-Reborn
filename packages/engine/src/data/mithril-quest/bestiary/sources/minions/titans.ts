@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 6,
   },
-  tactics: ["crush-from-line"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["crush-from-line"]
   stats: {
     hp: 260,
     ac: 20,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "4d12 bludgeoning",
     speed: "40 ft",
   },
-  loot: ["titanbone", "mountain-heart"],
-  abilities: ["Stone Form", "Boulder Throw", "Ground Splitter"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["titanbone", "mountain-heart"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Stone Form", "Boulder Throw", "Ground Splitter"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 6,
   },
-  tactics: ["aoe-burst-then-hover"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["aoe-burst-then-hover"]
   stats: {
     hp: 295,
     ac: 21,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "4d10 lightning",
     speed: "35 ft, fly 70 ft",
   },
-  loot: ["tempest-crystal"],
-  abilities: ["Chain Lightning Burst", "Thunderstep", "Storm Tempest Aura"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["tempest-crystal"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Chain Lightning Burst", "Thunderstep", "Storm Tempest Aura"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 5,
   },
-  tactics: ["lava-wave-then-burn-frontline"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["lava-wave-then-burn-frontline"]
   stats: {
     hp: 310,
     ac: 22,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "4d10+10 fire",
     speed: "40 ft",
   },
-  loot: ["molten-core", "obsidian-plating"],
-  abilities: ["Lava Burst", "Blazing Move", "Heat Aura"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["molten-core", "obsidian-plating"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Lava Burst", "Blazing Move", "Heat Aura"],
 },
 
 /* ------------------------------------------------------------ */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 7,
   },
-  tactics: ["blinding-radiant-judgment"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["blinding-radiant-judgment"]
   stats: {
     hp: 340,
     ac: 23,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "4d12 radiant",
     speed: "40 ft, fly 80 ft",
   },
-  loot: ["radiant-core", "celestial-shard"],
-  abilities: ["Blinding Judgment", "Ascendant Smite", "Sanctified Aura"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["radiant-core", "celestial-shard"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Blinding Judgment", "Ascendant Smite", "Sanctified Aura"],
 },
 
 ];

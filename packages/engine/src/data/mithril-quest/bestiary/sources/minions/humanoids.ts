@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 2,
     courage: 2,
   },
-  tactics: ["hit-and-run"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["hit-and-run"]
   stats: {
     hp: 11,
     ac: 12,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6 scimitar",
     speed: "30 ft",
   },
-  loot: ["tarnished-coin", "rusty-dagger"],
-  abilities: ["Pack Tactics (variant)"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["tarnished-coin", "rusty-dagger"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Pack Tactics (variant)"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 1,
     courage: 3,
   },
-  tactics: ["curse-first"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["curse-first"]
   stats: {
     hp: 15,
     ac: 12,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6 scimitar",
     speed: "30 ft",
   },
-  loot: ["ritual-knife", "void-charm"],
-  abilities: ["Dark Chant", "Curse Bolt"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["ritual-knife", "void-charm"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Dark Chant", "Curse Bolt"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 4,
   },
-  tactics: ["berserk-charge"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["berserk-charge"]
   stats: {
     hp: 19,
     ac: 13,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d8 spear",
     speed: "30 ft",
   },
-  loot: ["tribal-necklace"],
-  abilities: ["Battle Cry"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["tribal-necklace"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Battle Cry"],
 },
 /* ------------------------------------------------------------ */
 /* SCOUT — CR 1                                                 */
@@ -105,7 +114,8 @@ export const MINIONS: Minion[] = [
     aggression: 2,
     courage: 2,
   },
-  tactics: ["ranged-kite"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["ranged-kite"]
   stats: {
     hp: 16,
     ac: 13,
@@ -113,8 +123,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d8 longbow",
     speed: "35 ft",
   },
-  loot: ["arrow-bundle"],
-  abilities: ["Keen Sight", "Hide"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["arrow-bundle"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Keen Sight", "Hide"],
 },
 
 /* ------------------------------------------------------------ */
@@ -134,7 +146,8 @@ export const MINIONS: Minion[] = [
     aggression: 3,
     courage: 4,
   },
-  tactics: ["alpha-strike"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["alpha-strike"]
   stats: {
     hp: 78,
     ac: 15,
@@ -142,8 +155,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6+4 / 7d6 sneak attack",
     speed: "40 ft",
   },
-  loot: ["black-poison", "shadow-dagger"],
-  abilities: ["Sneak Attack", "Poison Strike", "Shadow Step"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["black-poison", "shadow-dagger"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Sneak Attack", "Poison Strike", "Shadow Step"],
 },
 
 /* ------------------------------------------------------------ */
@@ -163,7 +178,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 5,
   },
-  tactics: ["command-strike"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["command-strike"]
   stats: {
     hp: 148,
     ac: 17,
@@ -171,8 +187,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d10+7 / 2d8 cleave",
     speed: "30 ft",
   },
-  loot: ["warlord-sigil", "battle-banner"],
-  abilities: ["Command Ally", "War Cry", "Brutal Strike"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["warlord-sigil", "battle-banner"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Command Ally", "War Cry", "Brutal Strike"],
 },
 
 ];

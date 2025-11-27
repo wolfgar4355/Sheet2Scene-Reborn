@@ -34,11 +34,13 @@ export const constructs: UniversalCreature[] = [
   behavior: {
     aggression: 1,
     courage: 3,
-    tactics: ["ranged-focus", "keep-distance"]
+    // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["ranged-focus", "keep-distance"]
   },
 
   drops: ["arcane-circuit", "mana-crystal"],
-  abilities: ["Overheat Burst", "Mana Surge"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Overheat Burst", "Mana Surge"],
 
   visuals: ["floating-runes", "golem-joints", "arcane-glow"]
 },
@@ -71,11 +73,13 @@ export const constructs: UniversalCreature[] = [
   behavior: {
     aggression: 2,
     courage: 5,
-    tactics: ["block-path", "protect-zone"]
+    // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["block-path", "protect-zone"]
   },
 
   drops: ["living-stone-core", "granite-shard"],
-  abilities: ["Immovable Frame", "Energy Absorption"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Immovable Frame", "Energy Absorption"],
 
   visuals: ["cracked-stone", "glowing-sigils"]
 },
@@ -108,11 +112,13 @@ export const constructs: UniversalCreature[] = [
   behavior: {
     aggression: 3,
     courage: 4,
-    tactics: ["auto-parry", "advance-and-strike"]
+    // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["auto-parry", "advance-and-strike"]
   },
 
   drops: ["steel-spring", "clockwork-core"],
-  abilities: ["Auto-Counter", "Winding Surge"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Auto-Counter", "Winding Surge"],
 
   visuals: ["whirring-gears", "steam-vents", "metal-plates"]
 },
@@ -145,11 +151,13 @@ export const constructs: UniversalCreature[] = [
   behavior: {
     aggression: 4,
     courage: 5,
-    tactics: ["magma-trail", "smash-frontline"]
+    // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["magma-trail", "smash-frontline"]
   },
 
   drops: ["obsidian-fragment", "molten-heart"],
-  abilities: ["Molten Body", "Lava Burst"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Molten Body", "Lava Burst"],
 
   visuals: ["cracked-magma-skin", "lava-veins"]
 },
@@ -182,11 +190,13 @@ export const constructs: UniversalCreature[] = [
   behavior: {
     aggression: 2,
     courage: 5,
-    tactics: ["zone-denial", "magic-suppression"]
+    // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["zone-denial", "magic-suppression"]
   },
 
   drops: ["astral-shard", "null-core"],
-  abilities: ["Null Field", "Levitation", "Disrupt Magic"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Null Field", "Levitation", "Disrupt Magic"],
 
   visuals: ["floating-sphere", "glowing-runes", "gravity-distortion"]
 },

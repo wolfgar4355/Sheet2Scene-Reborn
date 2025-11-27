@@ -4,7 +4,7 @@ export const TYPE_CONTROLLER = {
     stats: {
         hp: "Moyens",
         ac: "Moyenne",
-        damage: "Faible à moyen",
+        damage: { dice: "Faible à", type: "moyen" },
         mobility: "Faible à moyenne",
     },
     traits: [

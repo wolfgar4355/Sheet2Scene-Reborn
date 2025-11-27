@@ -46,7 +46,7 @@ EraDefinition[] = [
     recommendedLevels: [5, 15],
   },
   {
-    id: "mystic-age",
+    id: "mythic-age",
     worldId: "fantasy",
     name: "Mystic Age",
     shortDescription:

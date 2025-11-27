@@ -37,7 +37,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "instantané",
     "concentration": false,
@@ -88,7 +88,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "instantané",
     "concentration": false,
@@ -116,7 +116,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "1h",
     "concentration": true,
@@ -193,7 +193,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "10 minutes",
     "concentration": true,
@@ -220,7 +220,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "1h",
     "concentration": true,
@@ -272,7 +272,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "instantané",
     "concentration": false,
@@ -299,7 +299,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "instantané",
     "concentration": false,
@@ -326,7 +326,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "1h",
     "concentration": true,
@@ -458,7 +458,7 @@ export const ALL_SPELLS = [
     "castingTime": "action",
     "range": {
       "type": "touch",
-      "value": "contact"
+      "value": "touch"
     },
     "duration": "instantané",
     "concentration": false,

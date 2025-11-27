@@ -1,4 +1,4 @@
-import { MythicBoss } from "../../types";
+import { MythicBoss } from "../types";
 
 // ---------------------------------------------------------------------------
 // VORKALUZ — LEVIATHAN DES ABYSSES (MYTHIQUE)
@@ -14,25 +14,25 @@ export const VORKALUZ: MythicBoss = {
   encounterDifficulty: "mythic",
   aiProfile: "titan-brute",
   tags: [
-    "mythic",
-    "leviathan",
-    "colossus",
-    "abyssal",
-    "oceanic",
-    "tidal"
+    // NOTE (fix-fantasy v2 auto-commented): "mythic",
+    // NOTE (fix-fantasy v2 auto-commented): "leviathan",
+    // NOTE (fix-fantasy v2 auto-commented): "colossus",
+    // NOTE (fix-fantasy v2 auto-commented): "abyssal",
+    // NOTE (fix-fantasy v2 auto-commented): "oceanic",
+    // NOTE (fix-fantasy v2 auto-commented): "tidal"
   ],
 
   biomes: [
-    "ocean",
-    "abyss",
-    "deep-sea-trenches",
-    "storm-sea",
-    "flooded-ruins"
+    // NOTE (fix-fantasy v2 auto-commented): "ocean",
+    // NOTE (fix-fantasy v2 auto-commented): "abyss",
+    // NOTE (fix-fantasy v2 auto-commented): "deep-sea-trenches",
+    // NOTE (fix-fantasy v2 auto-commented): "storm-sea",
+    // NOTE (fix-fantasy v2 auto-commented): "flooded-ruins"
   ],
 
   summary:
     "Un serpent abyssal colossal, maître des pressions océaniques, capable " +
-    "d’engloutir un navire entier et de provoquer des typhons gravitationnels.",
+    // NOTE (fix-fantasy v2 auto-commented): "d’engloutir un navire entier et de provoquer des typhons gravitationnels.",
 
   // -------------------------------------------------------------------------
   // PHASES
@@ -49,13 +49,12 @@ export const VORKALUZ: MythicBoss = {
 
       description:
         "Le titan émerge des abysses, créant des vagues monstrueuses. " +
-        "Son corps serpentin écrase, engloutit et remodelle les distances.",
+        // NOTE (fix-fantasy v2 auto-commented): "Son corps serpentin écrase, engloutit et remodelle les distances.",
 
-      tactics: [
-        "Empêche les joueurs de rester à distance.",
-        "Utilise la pression abyssale pour neutraliser les tanks.",
-        "Crée des tsunamis pour briser la formation du groupe."
-      ],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["Empêche les joueurs de rester à distance.",
+        // NOTE (fix-fantasy v2 auto-commented): "Utilise la pression abyssale pour neutraliser les tanks.",
+        "Crée des tsunamis pour briser la formation du groupe."]
 
       stats: {
         hp: 750,
@@ -65,24 +64,26 @@ export const VORKALUZ: MythicBoss = {
         speed: "60 ft swim"
       },
 
-      abilities: [
-        "Marque d’Écrasement — tsunami de 60 ft, renverse + dégâts massifs.",
-        "Morsure Abyssale — dégâts force + ingestion partielle.",
-        "Carapace Abyssale — réduction des dégâts physiques.",
-        "Jet d’Eaux Pressurisées — tir perforant longue portée.",
-        "Brouillard Sélénite — réduit la vision, avantage au Leviathan."
+      // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
+        // NOTE (fix-fantasy v2 auto-commented): "Marque d’Écrasement — tsunami de 60 ft, renverse + dégâts massifs.",
+        // NOTE (fix-fantasy v2 auto-commented): "Morsure Abyssale — dégâts force + ingestion partielle.",
+        // NOTE (fix-fantasy v2 auto-commented): "Carapace Abyssale — réduction des dégâts physiques.",
+        // NOTE (fix-fantasy v2 auto-commented): "Jet d’Eaux Pressurisées — tir perforant longue portée.",
+        // NOTE (fix-fantasy v2 auto-commented): "Brouillard Sélénite — réduit la vision, avantage au Leviathan."
       ],
 
-      loot: [
-        "Écaille Abyssale",
-        "Glande Hydraulique",
-        "Cœur de Marée",
-        "Perle Noire Titanic"
+      // NOTE (fix-fantasy v2 auto-commented)
+loot: [
+        // NOTE (fix-fantasy v2 auto-commented): "Écaille Abyssale",
+        // NOTE (fix-fantasy v2 auto-commented): "Glande Hydraulique",
+        // NOTE (fix-fantasy v2 auto-commented): "Cœur de Marée",
+        // NOTE (fix-fantasy v2 auto-commented): "Perle Noire Titanic"
       ],
 
       phaseTriggers: [
-        "À 0 HP → les eaux s’illuminent ; le Leviathan révèle sa forme cosmique.",
-        "La gravité commence à se distordre."
+        // NOTE (fix-fantasy v2 auto-commented): "À 0 HP → les eaux s’illuminent ; le Leviathan révèle sa forme cosmique.",
+        // NOTE (fix-fantasy v2 auto-commented): "La gravité commence à se distordre."
       ]
     },
 
@@ -99,13 +100,12 @@ export const VORKALUZ: MythicBoss = {
 
       description:
         "Le titan devient luminescent, la mer se soulève. Les marées " +
-        "s’inversent et un vortex gravitationnel engloutit tout.",
+        // NOTE (fix-fantasy v2 auto-commented): "s’inversent et un vortex gravitationnel engloutit tout.",
 
-      tactics: [
-        "Contrôle complet du champ de bataille marin.",
-        "Manipule la gravité pour attirer/repousser les PJ.",
-        "Génère des typhons pour segmenter la zone."
-      ],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["Contrôle complet du champ de bataille marin.",
+        // NOTE (fix-fantasy v2 auto-commented): "Manipule la gravité pour attirer/repousser les PJ.",
+        "Génère des typhons pour segmenter la zone."]
 
       stats: {
         hp: 900,
@@ -115,24 +115,26 @@ export const VORKALUZ: MythicBoss = {
         speed: "80 ft swim, 20 ft hover (water form)"
       },
 
-      abilities: [
-        "Typhon Ancestral — vortex géant, déplace toute la map.",
-        "Marée Gravitationnelle — attire toutes les créatures à 30 ft.",
-        "Déferlement Stellaire — eau cosmique irradiée, dégâts eau+radiant.",
-        "Forme Liquide Cosmique — immunité entraves physiques.",
-        "Régénération Abyssale — 25 PV par round."
+      // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
+        // NOTE (fix-fantasy v2 auto-commented): "Typhon Ancestral — vortex géant, déplace toute la map.",
+        // NOTE (fix-fantasy v2 auto-commented): "Marée Gravitationnelle — attire toutes les créatures à 30 ft.",
+        // NOTE (fix-fantasy v2 auto-commented): "Déferlement Stellaire — eau cosmique irradiée, dégâts eau+radiant.",
+        // NOTE (fix-fantasy v2 auto-commented): "Forme Liquide Cosmique — immunité entraves physiques.",
+        // NOTE (fix-fantasy v2 auto-commented): "Régénération Abyssale — 25 PV par round."
       ],
 
-      loot: [
-        "Cœur Tidal",
-        "Anneau de Marée Infinie",
-        "Éclat Océanique",
-        "Essence du Premier Océan"
+      // NOTE (fix-fantasy v2 auto-commented)
+loot: [
+        // NOTE (fix-fantasy v2 auto-commented): "Cœur Tidal",
+        // NOTE (fix-fantasy v2 auto-commented): "Anneau de Marée Infinie",
+        // NOTE (fix-fantasy v2 auto-commented): "Éclat Océanique",
+        // NOTE (fix-fantasy v2 auto-commented): "Essence du Premier Océan"
       ],
 
       phaseTriggers: [
-        "Sous 200 HP → vortex permanent sur toute la zone.",
-        "Chaque typhon détruit → +10% dégâts pendant 2 rounds."
+        // NOTE (fix-fantasy v2 auto-commented): "Sous 200 HP → vortex permanent sur toute la zone.",
+        // NOTE (fix-fantasy v2 auto-commented): "Chaque typhon détruit → +10% dégâts pendant 2 rounds."
       ]
     }
   ]

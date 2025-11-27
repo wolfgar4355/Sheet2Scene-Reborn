@@ -15,34 +15,40 @@ export const MONSTERS = [
             courage: 9,
             awareness: 8
         },
-        tactics: [
-            "opens-with-dark-nova",
-            "teleport-behind-target",
-            "summon-shadow-minions",
-            "finish-with-void-lance"
-        ],
-        stats: {
-            hp: 210,
-            ac: 18,
-            atk: 19,
-            dmg: "2d10+6 necrotic",
-            speed: "40 ft, teleport 30 ft"
-        },
-        loot: [
-            "obsidian-heart",
-            "shadow-lord-crown",
-            "essence-of-night"
-        ],
-        abilities: [
-            "Shadowstep",
-            "Cone of Darkness",
-            "Nightbound Command",
-            "Void Lance",
-            "Summon Umbral Shades"
-        ],
-        ref: {
-            source: "custom",
-            key: "shadow-lord"
-        }
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["opens-with-dark-nova",
+        // NOTE (fix-fantasy v2 auto-commented): "teleport-behind-target",
+        // NOTE (fix-fantasy v2 auto-commented): "summon-shadow-minions",
+        "finish-with-void-lance": 
     }
 ];
+stats: {
+    hp: 210,
+        ac;
+    18,
+        atk;
+    19,
+        dmg;
+    "2d10+6 necrotic",
+        speed;
+    "40 ft, teleport 30 ft";
+}
+loot: [
+// NOTE (fix-fantasy v2 auto-commented): "obsidian-heart",
+// NOTE (fix-fantasy v2 auto-commented): "shadow-lord-crown",
+// NOTE (fix-fantasy v2 auto-commented): "essence-of-night"
+],
+    abilities;
+[
+// NOTE (fix-fantasy v2 auto-commented): "Shadowstep",
+// NOTE (fix-fantasy v2 auto-commented): "Cone of Darkness",
+// NOTE (fix-fantasy v2 auto-commented): "Nightbound Command",
+// NOTE (fix-fantasy v2 auto-commented): "Void Lance",
+// NOTE (fix-fantasy v2 auto-commented): "Summon Umbral Shades"
+],
+    ref;
+{
+    source: "custom",
+        key;
+    "shadow-lord";
+}
+;

@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: ["grip-from-undergrowth"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["grip-from-undergrowth"]
         stats: {
             hp: 12,
             ac: 12,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 4,
         },
-        tactics: ["lash-closest-target"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["lash-closest-target"]
         stats: {
             hp: 28,
             ac: 13,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 5,
         },
-        tactics: ["grab-stragglers-first"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["grab-stragglers-first"]
         stats: {
             hp: 60,
             ac: 14,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 4,
         },
-        tactics: ["swallow-isolated-targets"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["swallow-isolated-targets"]
         stats: {
             hp: 85,
             ac: 15,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 9,
         },
-        tactics: ["buff-allies-and-root-intruders"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["buff-allies-and-root-intruders"]
         stats: {
             hp: 135,
             ac: 16,

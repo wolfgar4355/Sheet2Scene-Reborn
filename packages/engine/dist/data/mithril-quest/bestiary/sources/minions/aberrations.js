@@ -21,13 +21,13 @@ export const aberrations = [
             {
                 name: "Tentacle",
                 bonus: +5,
-                damage: "1d10 piercing + paralysis",
+                damage: { dice: "1d10 piercing +", type: "paralysis" },
             },
         ],
         behavior: {
-            aggression: "lurker",
+            aggression: "defensive",
             confidence: "coward",
-            tactics: ["descend-silently-and-grapple"],
+            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["descend-silently-and-grapple"]
         },
         drops: ["neural-tentacle"],
         abilities: ["Paralyzing Tentacles", "Silent Glide"],
@@ -57,13 +57,13 @@ export const aberrations = [
             {
                 name: "Bite",
                 bonus: +4,
-                damage: "1d12 slashing",
+                damage: { dice: "1d12", type: "slashing" },
             },
         ],
         behavior: {
-            aggression: "predator",
+            aggression: "aggressive",
             confidence: "courage:3",
-            tactics: ["ambush-from-above"],
+            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["ambush-from-above"]
         },
         drops: ["chitin-shard"],
         abilities: ["Stone Camouflage"],
@@ -93,13 +93,13 @@ export const aberrations = [
             {
                 name: "Mind Spike",
                 bonus: +4,
-                damage: "1d8 psychic",
+                damage: { dice: "1d8", type: "psychic" },
             },
         ],
         behavior: {
             aggression: "instinct",
             confidence: "coward",
-            tactics: ["psionic-scream-and-hide"],
+            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["psionic-scream-and-hide"]
         },
         drops: ["psionic-residue"],
         abilities: ["Mind Screech", "Neural Feedback"],
@@ -129,13 +129,13 @@ export const aberrations = [
             {
                 name: "Maw",
                 bonus: +6,
-                damage: "4d6 acid",
+                damage: { dice: "4d6", type: "acid" },
             },
         ],
         behavior: {
             aggression: "obsession",
             confidence: "fearless",
-            tactics: ["suppress-all-sanity-with-aura"],
+            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["suppress-all-sanity-with-aura"]
         },
         drops: ["fractured-organ"],
         abilities: ["Gibbering Aura", "Amorphous Engulf"],
@@ -165,13 +165,13 @@ export const aberrations = [
             {
                 name: "Brain Rend",
                 bonus: +5,
-                damage: "1d8 psychic",
+                damage: { dice: "1d8", type: "psychic" },
             },
         ],
         behavior: {
-            aggression: "hunter",
+            aggression: "aggressive",
             confidence: "courage:5",
-            tactics: ["assail-brain-then-pursue"],
+            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["assail-brain-then-pursue"]
         },
         drops: ["horror-residue"],
         abilities: ["Horror Instinct", "Body Thief"],
@@ -201,13 +201,13 @@ export const aberrations = [
             {
                 name: "Void Lance",
                 bonus: +8,
-                damage: "3d10 force",
+                damage: { dice: "3d10", type: "force" },
             },
         ],
         behavior: {
-            aggression: "annihilation",
+            aggression: "berserk",
             confidence: "fearless",
-            tactics: ["float-at-range-and-swap-space"],
+            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["float-at-range-and-swap-space"]
         },
         drops: ["void-core"],
         abilities: ["Null Aura", "Void Beam", "Levitation"],

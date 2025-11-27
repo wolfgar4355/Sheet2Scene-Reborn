@@ -3,7 +3,7 @@
 // Charge dynamiquement toutes les tables de rencontres par biome
 // ============================================================================
 
-import type { EncounterTableEntry } from "../../types";
+import type { EncounterTableEntry } from "../types";
 
 // Imports statiques de tous les biomes
 import CAVES from "./CAVES_ENCOUNTERS";

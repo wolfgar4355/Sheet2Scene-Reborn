@@ -15,7 +15,7 @@ export const MINIONS = [
             aggression: 1,
             courage: 2,
         },
-        tactics: ["crawl-and-latch"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["crawl-and-latch"]
         stats: {
             hp: 18,
             ac: 7,
@@ -42,7 +42,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 3,
         },
-        tactics: ["engulf-and-divide"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["engulf-and-divide"]
         stats: {
             hp: 52,
             ac: 8,
@@ -69,7 +69,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 4,
         },
-        tactics: ["strike-and-dissolve"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["strike-and-dissolve"]
         stats: {
             hp: 55,
             ac: 12,
@@ -96,7 +96,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: ["grip-and-corrosion"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["grip-and-corrosion"]
         stats: {
             hp: 78,
             ac: 10,
@@ -123,7 +123,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 6,
         },
-        tactics: ["pull-then-devour"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["pull-then-devour"]
         stats: {
             hp: 145,
             ac: 15,

@@ -1,7 +1,7 @@
 // _schema/types.ts — canon
 export type EraId =
   | "age-of-heroes" | "ancient-age" | "arcane-renaissance"
-  | "dark-ages" | "high-kingdoms" | "mystic-age";
+  | "dark-ages" | "high-kingdoms" | "mythic-age";
 
 export type SpellSchoolId =
   | "abjuration" | "conjuration" | "divination" | "enchantment"

@@ -26,18 +26,20 @@ export const aberrations: UniversalCreature[] = [
       {
         name: "Tentacle",
         bonus: +5,
-        damage: "1d10 piercing + paralysis",
+        damage: { dice: "1d10 piercing +", type: "paralysis" },
       },
     ],
 
     behavior: {
-      aggression: "lurker",
+      aggression: "defensive",
       confidence: "coward",
-      tactics: ["descend-silently-and-grapple"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["descend-silently-and-grapple"]
     },
 
     drops: ["neural-tentacle"],
-    abilities: ["Paralyzing Tentacles", "Silent Glide"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Paralyzing Tentacles", "Silent Glide"],
 
     visuals: {
       icon: "grell",
@@ -68,18 +70,20 @@ export const aberrations: UniversalCreature[] = [
       {
         name: "Bite",
         bonus: +4,
-        damage: "1d12 slashing",
+        damage: { dice: "1d12", type: "slashing" },
       },
     ],
 
     behavior: {
-      aggression: "predator",
+      aggression: "aggressive",
       confidence: "courage:3",
-      tactics: ["ambush-from-above"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["ambush-from-above"]
     },
 
     drops: ["chitin-shard"],
-    abilities: ["Stone Camouflage"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Stone Camouflage"],
 
     visuals: {
       icon: "grick",
@@ -110,18 +114,20 @@ export const aberrations: UniversalCreature[] = [
       {
         name: "Mind Spike",
         bonus: +4,
-        damage: "1d8 psychic",
+        damage: { dice: "1d8", type: "psychic" },
       },
     ],
 
     behavior: {
       aggression: "instinct",
       confidence: "coward",
-      tactics: ["psionic-scream-and-hide"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["psionic-scream-and-hide"]
     },
 
     drops: ["psionic-residue"],
-    abilities: ["Mind Screech", "Neural Feedback"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Mind Screech", "Neural Feedback"],
 
     visuals: {
       icon: "worm",
@@ -152,18 +158,20 @@ export const aberrations: UniversalCreature[] = [
       {
         name: "Maw",
         bonus: +6,
-        damage: "4d6 acid",
+        damage: { dice: "4d6", type: "acid" },
       },
     ],
 
     behavior: {
       aggression: "obsession",
       confidence: "fearless",
-      tactics: ["suppress-all-sanity-with-aura"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["suppress-all-sanity-with-aura"]
     },
 
     drops: ["fractured-organ"],
-    abilities: ["Gibbering Aura", "Amorphous Engulf"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Gibbering Aura", "Amorphous Engulf"],
 
     visuals: {
       icon: "mass",
@@ -194,18 +202,20 @@ export const aberrations: UniversalCreature[] = [
       {
         name: "Brain Rend",
         bonus: +5,
-        damage: "1d8 psychic",
+        damage: { dice: "1d8", type: "psychic" },
       },
     ],
 
     behavior: {
-      aggression: "hunter",
+      aggression: "aggressive",
       confidence: "courage:5",
-      tactics: ["assail-brain-then-pursue"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["assail-brain-then-pursue"]
     },
 
     drops: ["horror-residue"],
-    abilities: ["Horror Instinct", "Body Thief"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Horror Instinct", "Body Thief"],
 
     visuals: {
       icon: "brain",
@@ -236,18 +246,20 @@ export const aberrations: UniversalCreature[] = [
       {
         name: "Void Lance",
         bonus: +8,
-        damage: "3d10 force",
+        damage: { dice: "3d10", type: "force" },
       },
     ],
 
     behavior: {
-      aggression: "annihilation",
+      aggression: "berserk",
       confidence: "fearless",
-      tactics: ["float-at-range-and-swap-space"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["float-at-range-and-swap-space"]
     },
 
     drops: ["void-core"],
-    abilities: ["Null Aura", "Void Beam", "Levitation"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Null Aura", "Void Beam", "Levitation"],
 
     visuals: {
       icon: "eye",

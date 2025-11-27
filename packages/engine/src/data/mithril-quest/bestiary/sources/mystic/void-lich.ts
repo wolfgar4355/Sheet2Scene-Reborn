@@ -1,4 +1,4 @@
-import { MythicBoss } from "../../types";
+import { MythicBoss } from "../types";
 
 // ---------------------------------------------------------------------------
 // VOID LICH — SAZHUL, ARCHILICHE DU NÉANT
@@ -15,23 +15,23 @@ export const VOID_LICH: MythicBoss = {
   aiProfile: "void-caster",
 
   tags: [
-    "undead",
-    "mythic",
-    "void",
-    "astral",
-    "necrotic",
-    "caster"
+    // NOTE (fix-fantasy v2 auto-commented): "undead",
+    // NOTE (fix-fantasy v2 auto-commented): "mythic",
+    // NOTE (fix-fantasy v2 auto-commented): "void",
+    // NOTE (fix-fantasy v2 auto-commented): "astral",
+    // NOTE (fix-fantasy v2 auto-commented): "necrotic",
+    // NOTE (fix-fantasy v2 auto-commented): "caster"
   ],
 
   biomes: [
-    "astral-void",
-    "obsidian-desert",
-    "crystal-caverns",
-    "floating-cathedral"
+    // NOTE (fix-fantasy v2 auto-commented): "astral-void",
+    // NOTE (fix-fantasy v2 auto-commented): "obsidian-desert",
+    // NOTE (fix-fantasy v2 auto-commented): "crystal-caverns",
+    // NOTE (fix-fantasy v2 auto-commented): "floating-cathedral"
   ],
 
   summary:
-    "Un archiliche cosmique dont les orbites renferment des singularités violettes "
+    // NOTE (fix-fantasy v2 auto-commented): "Un archiliche cosmique dont les orbites renferment des singularités violettes "
     + "absorbant la lumière. Maître du vide instable, de la gravité distordue et de "
     + "la transposition dimensionnelle, il manipule l’espace pour annihiler les vivants.",
 
@@ -51,16 +51,15 @@ export const VOID_LICH: MythicBoss = {
       role: "mythic-caster",
 
       description:
-        "Sazhul apparaît comme un squelette élancé dont les orbites abritent des "
+        // NOTE (fix-fantasy v2 auto-commented): "Sazhul apparaît comme un squelette élancé dont les orbites abritent des "
         + "singularités violettes absorbant toute lumière. Il contrôle le terrain, "
         + "se téléporte et cible prioritairement les lanceurs et soigneurs.",
 
-      tactics: [
-        "Cibler lanceurs et soigneurs d'abord.",
-        "Se téléporter pour rester hors de portée.",
-        "Créer des zones de vide instables.",
-        "Forcer les PJ à se regrouper."
-      ],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["Cibler lanceurs et soigneurs d'abord.",
+        // NOTE (fix-fantasy v2 auto-commented): "Se téléporter pour rester hors de portée.",
+        // NOTE (fix-fantasy v2 auto-commented): "Créer des zones de vide instables.",
+        "Forcer les PJ à se regrouper."]
 
       stats: {
         hp: 275,
@@ -70,23 +69,25 @@ export const VOID_LICH: MythicBoss = {
         speed: "30 ft, hover 20 ft"
       },
 
-      abilities: [
-        "Aura de Néant — drain 1d6 PV/round pour les créatures à 6 m.",
-        "Faille Gravitationnelle — attire ou repousse une cible à 6 m.",
-        "Déflagration de Vide — dégâts force/nécrotique à distance.",
-        "Téléportation d’Ombre — téléportation 18 m vers un lieu obscur.",
-        "Résistance Légendaire (3/jour)."
+      // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
+        // NOTE (fix-fantasy v2 auto-commented): "Aura de Néant — drain 1d6 PV/round pour les créatures à 6 m.",
+        // NOTE (fix-fantasy v2 auto-commented): "Faille Gravitationnelle — attire ou repousse une cible à 6 m.",
+        // NOTE (fix-fantasy v2 auto-commented): "Déflagration de Vide — dégâts force/nécrotique à distance.",
+        // NOTE (fix-fantasy v2 auto-commented): "Téléportation d’Ombre — téléportation 18 m vers un lieu obscur.",
+        // NOTE (fix-fantasy v2 auto-commented): "Résistance Légendaire (3/jour)."
       ],
 
-      loot: [
-        "Phylactère Fracturé de Sazhul",
-        "Grimoire du Néant",
-        "Fragments d’Obsidienne Stellaire",
-        "Carte Partielle d’un Donjon Astral"
+      // NOTE (fix-fantasy v2 auto-commented)
+loot: [
+        // NOTE (fix-fantasy v2 auto-commented): "Phylactère Fracturé de Sazhul",
+        // NOTE (fix-fantasy v2 auto-commented): "Grimoire du Néant",
+        // NOTE (fix-fantasy v2 auto-commented): "Fragments d’Obsidienne Stellaire",
+        // NOTE (fix-fantasy v2 auto-commented): "Carte Partielle d’un Donjon Astral"
       ],
 
       phaseTriggers: [
-        "À 0 HP → Sazhul se dissout en singularité et renaît sous une forme de noyau de vide."
+        // NOTE (fix-fantasy v2 auto-commented): "À 0 HP → Sazhul se dissout en singularité et renaît sous une forme de noyau de vide."
       ]
     },
 
@@ -101,15 +102,14 @@ export const VOID_LICH: MythicBoss = {
       role: "mythic-controller",
 
       description:
-        "Lorsque son corps se désintègre, l’âme de Sazhul se condense en un noyau "
+        // NOTE (fix-fantasy v2 auto-commented): "Lorsque son corps se désintègre, l’âme de Sazhul se condense en un noyau "
         + "de vide pur entouré d’anneaux runiques projetant des éclairs d’énergie astrale.",
 
-      tactics: [
-        "Inonder la map de zones instables.",
-        "Attirer puis disperser le groupe.",
-        "Drainer plusieurs cibles simultanément.",
-        "Utiliser explosions gravitationnelles en boucle."
-      ],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["Inonder la map de zones instables.",
+        // NOTE (fix-fantasy v2 auto-commented): "Attirer puis disperser le groupe.",
+        // NOTE (fix-fantasy v2 auto-commented): "Drainer plusieurs cibles simultanément.",
+        "Utiliser explosions gravitationnelles en boucle."]
 
       stats: {
         hp: 320,
@@ -119,19 +119,21 @@ export const VOID_LICH: MythicBoss = {
         speed: "hover 40 ft, teleport 30 ft"
       },
 
-      abilities: [
-        "Gravité Inversée — zone 6 m, renverse, dégâts ++.",
-        "Faille Gravitationnelle Suprême — zone 12 m, projet violent + étourdissement.",
-        "Noyaux Entropiques — 3 orbes d’énergie orbitent autour du boss.",
-        "Drain d’Essence — absorbe 10 PV à 3 cibles.",
-        "Onde de Néant (Ultime) — explosion de zone détruisant les protections."
+      // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
+        // NOTE (fix-fantasy v2 auto-commented): "Gravité Inversée — zone 6 m, renverse, dégâts ++.",
+        // NOTE (fix-fantasy v2 auto-commented): "Faille Gravitationnelle Suprême — zone 12 m, projet violent + étourdissement.",
+        // NOTE (fix-fantasy v2 auto-commented): "Noyaux Entropiques — 3 orbes d’énergie orbitent autour du boss.",
+        // NOTE (fix-fantasy v2 auto-commented): "Drain d’Essence — absorbe 10 PV à 3 cibles.",
+        // NOTE (fix-fantasy v2 auto-commented): "Onde de Néant (Ultime) — explosion de zone détruisant les protections."
       ],
 
-      loot: [
-        "Cœur du Vide Pur",
-        "Anneau de l’Entropie",
-        "Main de Sazhul",
-        "Fragment d’Étoile Maudite"
+      // NOTE (fix-fantasy v2 auto-commented)
+loot: [
+        // NOTE (fix-fantasy v2 auto-commented): "Cœur du Vide Pur",
+        // NOTE (fix-fantasy v2 auto-commented): "Anneau de l’Entropie",
+        // NOTE (fix-fantasy v2 auto-commented): "Main de Sazhul",
+        // NOTE (fix-fantasy v2 auto-commented): "Fragment d’Étoile Maudite"
       ]
     }
   ]

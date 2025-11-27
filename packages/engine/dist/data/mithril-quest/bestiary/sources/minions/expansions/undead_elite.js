@@ -13,7 +13,7 @@ export const MINIONS = [
         tags: ["dark-auras", "fire-magic", "unholy"],
         factions: ["Grave Sovereignty"],
         behavior: { aggression: 7, courage: 6 },
-        tactics: ["smite-then-burn"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["smite-then-burn"]
         stats: {
             hp: 165,
             ac: 18,
@@ -38,7 +38,7 @@ export const MINIONS = [
         tags: ["ethereal", "life-drain"],
         factions: ["Ebon Host"],
         behavior: { aggression: 6, courage: 5 },
-        tactics: ["phase-through-walls-then-drain"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["phase-through-walls-then-drain"]
         stats: {
             hp: 130,
             ac: 17,
@@ -63,7 +63,7 @@ export const MINIONS = [
         tags: ["multi-head", "poison", "necrotic"],
         factions: ["Corpseforge Dominion"],
         behavior: { aggression: 8, courage: 7 },
-        tactics: ["multi-head-breach-then-lash"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["multi-head-breach-then-lash"]
         stats: {
             hp: 170,
             ac: 16,
@@ -88,7 +88,7 @@ export const MINIONS = [
         tags: ["bone-giant", "grave-construct"],
         factions: ["Corpseforge Dominion"],
         behavior: { aggression: 9, courage: 8 },
-        tactics: ["slam-frontline-then-ground-pound"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["slam-frontline-then-ground-pound"]
         stats: {
             hp: 240,
             ac: 19,
@@ -113,7 +113,7 @@ export const MINIONS = [
         tags: ["necromancy", "summoner", "ritualist"],
         factions: ["Grave Sovereignty"],
         behavior: { aggression: 5, courage: 7 },
-        tactics: ["summon-horde-then-cast-death"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["summon-horde-then-cast-death"]
         stats: {
             hp: 220,
             ac: 18,

@@ -6,15 +6,14 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "src/types",
-    "src/scripts"
+    "dist"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "prepack": "npm run build",
-    "fix:fantasy": "node ./src/scripts/fix-fantasy.js"
+    "fix": "node ./scripts/fix-fantasy.cjs"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "ts-morph": "^27.0.2"
+  }
 }

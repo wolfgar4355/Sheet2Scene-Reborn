@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: ["flank-and-slam"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["flank-and-slam"]
         stats: {
             hp: 18,
             ac: 14,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: ["burst-from-ground"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["burst-from-ground"]
         stats: {
             hp: 36,
             ac: 16,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 3,
         },
-        tactics: ["stun-then-venom-slash"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["stun-then-venom-slash"]
         stats: {
             hp: 68,
             ac: 16,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 4,
         },
-        tactics: ["summon-minions-and-overwhelm"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["summon-minions-and-overwhelm"]
         stats: {
             hp: 110,
             ac: 17,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 9,
             courage: 10,
         },
-        tactics: ["stomp-frontline-then-gore"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["stomp-frontline-then-gore"]
         stats: {
             hp: 240,
             ac: 20,

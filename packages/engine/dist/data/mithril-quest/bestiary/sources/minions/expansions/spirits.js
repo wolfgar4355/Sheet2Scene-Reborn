@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 4,
         },
-        tactics: ["flicker-near-targets"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["flicker-near-targets"]
         stats: {
             hp: 18,
             ac: 10,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: ["hit-and-fade"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["hit-and-fade"]
         stats: {
             hp: 36,
             ac: 14,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 5,
         },
-        tactics: ["psychic-scream-then-possess"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["psychic-scream-then-possess"]
         stats: {
             hp: 52,
             ac: 13,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 7,
         },
-        tactics: ["protect-sacred-zone"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["protect-sacred-zone"]
         stats: {
             hp: 110,
             ac: 17,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 8,
         },
-        tactics: ["scatter-party-then-aoe-pulse"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["scatter-party-then-aoe-pulse"]
         stats: {
             hp: 180,
             ac: 18,

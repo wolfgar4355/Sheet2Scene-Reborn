@@ -20,7 +20,8 @@ export const MINIONS: Minion[] = [
     aggression: 1,
     courage: 4,
   },
-  tactics: ["invisible-harassment", "illusion-dash"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["invisible-harassment", "illusion-dash"]
   stats: {
     hp: 15,
     ac: 14,
@@ -28,8 +29,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d4 magic dust",
     speed: "fly 30 ft",
   },
-  loot: ["pixie-dust"],
-  abilities: ["Invisibility", "Dancing Lights"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["pixie-dust"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Invisibility", "Dancing Lights"],
 },
 
 /* --------------------------------------------------------- */
@@ -50,7 +53,8 @@ export const MINIONS: Minion[] = [
     aggression: 2,
     courage: 3,
   },
-  tactics: ["harass-disrupt"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["harass-disrupt"]
   stats: {
     hp: 31,
     ac: 14,
@@ -58,8 +62,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6+2 / 1d6+2 shortbow",
     speed: "40 ft",
   },
-  loot: ["fae-flute"],
-  abilities: ["Pan Flute Magic", "Charm Person"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["fae-flute"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Pan Flute Magic", "Charm Person"],
 },
 
 /* --------------------------------------------------------- */
@@ -80,7 +86,8 @@ export const MINIONS: Minion[] = [
     aggression: 2,
     courage: 2,
   },
-  tactics: ["charm-then-hide", "phase-through-trees"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["charm-then-hide", "phase-through-trees"]
   stats: {
     hp: 22,
     ac: 14,
@@ -88,8 +95,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d4 staff",
     speed: "30 ft",
   },
-  loot: ["enchanted-bark"],
-  abilities: ["Tree Stride", "Charm Person", "Entangle"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["enchanted-bark"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Tree Stride", "Charm Person", "Entangle"],
 },
 
 /* --------------------------------------------------------- */
@@ -110,7 +119,8 @@ export const MINIONS: Minion[] = [
     aggression: 3,
     courage: 5,
   },
-  tactics: ["phase-through-trees", "vine-lash"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["phase-through-trees", "vine-lash"]
   stats: {
     hp: 36,
     ac: 15,
@@ -118,8 +128,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d8+3 nature force",
     speed: "30 ft",
   },
-  loot: ["spirit-essence"],
-  abilities: ["Phase Step", "Vine Lash", "Nature’s Ward"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["spirit-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Phase Step", "Vine Lash", "Nature’s Ward"],
 },
 
 /* --------------------------------------------------------- */
@@ -140,7 +152,8 @@ export const MINIONS: Minion[] = [
     aggression: 9,
     courage: 5,
   },
-  tactics: ["kill-the-weak-first"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["kill-the-weak-first"]
   stats: {
     hp: 45,
     ac: 14,
@@ -148,8 +161,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6+7 / 2d4+2 iron boots",
     speed: "40 ft",
   },
-  loot: ["blood-soaked-cap"],
-  abilities: ["Iron Boot Stomp", "Dreadful Glare"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["blood-soaked-cap"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Iron Boot Stomp", "Dreadful Glare"],
 },
 /* --------------------------------------------------------- */
 /*                 GREEN HAG — CR 3                          */
@@ -169,7 +184,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 6,
   },
-  tactics: ["illusion-lure"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["illusion-lure"]
   stats: {
     hp: 62,
     ac: 14,
@@ -177,8 +193,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6+3 claws",
     speed: "30 ft",
   },
-  loot: ["witch-teeth"],
-  abilities: ["Illusory Appearance", "Mimicry", "Horrific Touch"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["witch-teeth"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Illusory Appearance", "Mimicry", "Horrific Touch"],
 },
 
 /* --------------------------------------------------------- */
@@ -199,7 +217,8 @@ export const MINIONS: Minion[] = [
     aggression: 6,
     courage: 7,
   },
-  tactics: ["lure-into-water", "shadow-ambush"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["lure-into-water", "shadow-ambush"]
   stats: {
     hp: 90,
     ac: 17,
@@ -207,8 +226,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8 psychic",
     speed: "30 ft, swim 20 ft",
   },
-  loot: ["other-sphere-essence"],
-  abilities: ["Shadow Form", "Dream Bind", "Illusionary Double"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["other-sphere-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Shadow Form", "Dream Bind", "Illusionary Double"],
 },
 
 /* --------------------------------------------------------- */
@@ -229,7 +250,8 @@ export const MINIONS: Minion[] = [
     aggression: 2,
     courage: 6,
   },
-  tactics: ["bright-flourish", "mist-step"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["bright-flourish", "mist-step"]
   stats: {
     hp: 70,
     ac: 16,
@@ -237,8 +259,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6 radiant",
     speed: "30 ft",
   },
-  loot: ["spring-essence"],
-  abilities: ["Fey Step (Spring)", "Euphoria Burst"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["spring-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Fey Step (Spring)", "Euphoria Burst"],
 },
 
 /* --------------------------------------------------------- */
@@ -259,7 +283,8 @@ export const MINIONS: Minion[] = [
     aggression: 3,
     courage: 7,
   },
-  tactics: ["sapping-sorrow", "charm-bloom"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["sapping-sorrow", "charm-bloom"]
   stats: {
     hp: 72,
     ac: 16,
@@ -267,8 +292,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6 psychic",
     speed: "30 ft",
   },
-  loot: ["autumn-leaf-charm"],
-  abilities: ["Fey Step (Autumn)", "Sorrow Wave"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["autumn-leaf-charm"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Fey Step (Autumn)", "Sorrow Wave"],
 },
 /* --------------------------------------------------------- */
 /*                 ELADRIN (WINTER) — CR 5                   */
@@ -288,7 +315,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 8,
   },
-  tactics: ["frost-step", "frozen-embrace"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["frost-step", "frozen-embrace"]
   stats: {
     hp: 88,
     ac: 17,
@@ -296,8 +324,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8 cold",
     speed: "30 ft",
   },
-  loot: ["winter-crystal"],
-  abilities: ["Fey Step (Winter)", "Winter’s Grasp"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["winter-crystal"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Fey Step (Winter)", "Winter’s Grasp"],
 },
 
 /* --------------------------------------------------------- */
@@ -318,7 +348,8 @@ export const MINIONS: Minion[] = [
     aggression: 7,
     courage: 10,
   },
-  tactics: ["blazing-step", "radiant-burst"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["blazing-step", "radiant-burst"]
   stats: {
     hp: 95,
     ac: 17,
@@ -326,8 +357,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8 fire",
     speed: "30 ft",
   },
-  loot: ["sun-fragment"],
-  abilities: ["Fey Step (Summer)", "Radiant Flare"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["sun-fragment"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Fey Step (Summer)", "Radiant Flare"],
 },
 
 /* --------------------------------------------------------- */
@@ -348,7 +381,8 @@ export const MINIONS: Minion[] = [
     aggression: 6,
     courage: 12,
   },
-  tactics: ["mind-bend", "dream-binding", "phase-warp"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["mind-bend", "dream-binding", "phase-warp"]
   stats: {
     hp: 210,
     ac: 19,
@@ -356,8 +390,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d10 psychic",
     speed: "40 ft",
   },
-  loot: ["fey-heart-core", "archfey-sigil"],
-  abilities: [
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["fey-heart-core", "archfey-sigil"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: [
     "Master of Illusions",
     "Dream Realm Step",
     "Charm Domination",

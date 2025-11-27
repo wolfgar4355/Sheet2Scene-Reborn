@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: ["stab-and-retreat", "net-snare"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["stab-and-retreat", "net-snare"]
         stats: {
             hp: 26,
             ac: 14,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: ["coil-and-strike"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["coil-and-strike"]
         stats: {
             hp: 45,
             ac: 13,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: ["surface-grab-and-drag"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["surface-grab-and-drag"]
         stats: {
             hp: 30,
             ac: 15,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 6,
         },
-        tactics: ["gaze-first-then-bite"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["gaze-first-then-bite"]
         stats: {
             hp: 95,
             ac: 16,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 7,
         },
-        tactics: ["trample-then-roar"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["trample-then-roar"]
         stats: {
             hp: 186,
             ac: 17,

@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 1,
             courage: 4,
         },
-        tactics: ["invisible-harassment", "illusion-dash"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["invisible-harassment", "illusion-dash"]
         stats: {
             hp: 15,
             ac: 14,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 3,
         },
-        tactics: ["harass-disrupt"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["harass-disrupt"]
         stats: {
             hp: 31,
             ac: 14,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 2,
         },
-        tactics: ["charm-then-hide", "phase-through-trees"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["charm-then-hide", "phase-through-trees"]
         stats: {
             hp: 22,
             ac: 14,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 5,
         },
-        tactics: ["phase-through-trees", "vine-lash"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["phase-through-trees", "vine-lash"]
         stats: {
             hp: 36,
             ac: 15,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 9,
             courage: 5,
         },
-        tactics: ["kill-the-weak-first"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["kill-the-weak-first"]
         stats: {
             hp: 45,
             ac: 14,
@@ -156,7 +156,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 6,
         },
-        tactics: ["illusion-lure"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["illusion-lure"]
         stats: {
             hp: 62,
             ac: 14,
@@ -184,7 +184,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 7,
         },
-        tactics: ["lure-into-water", "shadow-ambush"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["lure-into-water", "shadow-ambush"]
         stats: {
             hp: 90,
             ac: 17,
@@ -212,7 +212,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 6,
         },
-        tactics: ["bright-flourish", "mist-step"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["bright-flourish", "mist-step"]
         stats: {
             hp: 70,
             ac: 16,
@@ -240,7 +240,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 7,
         },
-        tactics: ["sapping-sorrow", "charm-bloom"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["sapping-sorrow", "charm-bloom"]
         stats: {
             hp: 72,
             ac: 16,
@@ -268,7 +268,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 8,
         },
-        tactics: ["frost-step", "frozen-embrace"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["frost-step", "frozen-embrace"]
         stats: {
             hp: 88,
             ac: 17,
@@ -296,7 +296,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 10,
         },
-        tactics: ["blazing-step", "radiant-burst"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["blazing-step", "radiant-burst"]
         stats: {
             hp: 95,
             ac: 17,
@@ -324,7 +324,7 @@ export const MINIONS = [
             aggression: 6,
             courage: 12,
         },
-        tactics: ["mind-bend", "dream-binding", "phase-warp"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["mind-bend", "dream-binding", "phase-warp"]
         stats: {
             hp: 210,
             ac: 19,

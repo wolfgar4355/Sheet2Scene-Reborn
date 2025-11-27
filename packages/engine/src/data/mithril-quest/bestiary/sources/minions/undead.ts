@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 3,
     courage: 3,
   },
-  tactics: ["bone-from-cover"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["bone-from-cover"]
   stats: {
     hp: 13,
     ac: 13,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6+2 shortsword",
     speed: "30 ft",
   },
-  loot: ["bone-shards"],
-  abilities: ["Damage Resistance: Piercing"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["bone-shards"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Damage Resistance: Piercing"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 3,
   },
-  tactics: ["mindless-charge"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["mindless-charge"]
   stats: {
     hp: 18,
     ac: 8,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d6+2",
     speed: "20 ft",
   },
-  loot: ["rotting-flesh"],
-  abilities: ["Undead Fortitude"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["rotting-flesh"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Undead Fortitude"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 5,
   },
-  tactics: ["paralyzing-first"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["paralyzing-first"]
   stats: {
     hp: 22,
     ac: 12,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6+2",
     speed: "30 ft",
   },
-  loot: ["ghoul-fangs"],
-  abilities: ["Paralyzing Claw"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["ghoul-fangs"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Paralyzing Claw"],
 },
 
 /* ------------------------------------------------------------ */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 5,
   },
-  tactics: ["drain-to-weaken"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["drain-to-weaken"]
   stats: {
     hp: 45,
     ac: 14,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6+4 necrotic",
     speed: "30 ft",
   },
-  loot: ["dark-essence"],
-  abilities: ["Life Drain", "Command Undead"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["dark-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Life Drain", "Command Undead"],
 },
 
 /* ------------------------------------------------------------ */
@@ -135,7 +147,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 4,
   },
-  tactics: ["fear-then-slam"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["fear-then-slam"]
   stats: {
     hp: 58,
     ac: 11,
@@ -143,8 +156,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6+3 bludgeoning",
     speed: "20 ft",
   },
-  loot: ["ancient-bandages"],
-  abilities: ["Mummy Rot", "Dreadful Glare"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["ancient-bandages"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Mummy Rot", "Dreadful Glare"],
 },
 
 /* ------------------------------------------------------------ */
@@ -164,7 +179,8 @@ export const MINIONS: Minion[] = [
     aggression: 6,
     courage: 5,
   },
-  tactics: ["drift-through-walls"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["drift-through-walls"]
   stats: {
     hp: 85,
     ac: 13,
@@ -172,8 +188,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8 necrotic",
     speed: "0 ft, fly 60 ft",
   },
-  loot: ["soul-fragment"],
-  abilities: ["Incorporeal Movement", "Life Drain", "Horrifying Visage"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["soul-fragment"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Incorporeal Movement", "Life Drain", "Horrifying Visage"],
 },
 
 ];

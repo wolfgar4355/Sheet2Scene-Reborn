@@ -4,7 +4,7 @@ export const TYPE_SUMMONER = {
     stats: {
         hp: "Faibles à moyens",
         ac: "Faible",
-        damage: "Faible direct, élevé via invocations",
+        damage: { dice: "Faible direct, élevé via", type: "invocations" },
         mobility: "Moyenne",
     },
     traits: [

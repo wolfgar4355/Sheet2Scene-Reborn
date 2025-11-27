@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 2,
         },
-        tactics: ["hit-and-run"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["hit-and-run"]
         stats: {
             hp: 11,
             ac: 12,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 1,
             courage: 3,
         },
-        tactics: ["curse-first"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["curse-first"]
         stats: {
             hp: 15,
             ac: 12,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 4,
         },
-        tactics: ["berserk-charge"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["berserk-charge"]
         stats: {
             hp: 19,
             ac: 13,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 2,
             courage: 2,
         },
-        tactics: ["ranged-kite"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["ranged-kite"]
         stats: {
             hp: 16,
             ac: 13,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 4,
         },
-        tactics: ["alpha-strike"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["alpha-strike"]
         stats: {
             hp: 78,
             ac: 15,
@@ -156,7 +156,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: ["command-strike"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["command-strike"]
         stats: {
             hp: 148,
             ac: 17,

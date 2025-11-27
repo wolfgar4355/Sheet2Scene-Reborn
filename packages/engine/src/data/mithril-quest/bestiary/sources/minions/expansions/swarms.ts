@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 2,
   },
-  tactics: ["surround-and-sting"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["surround-and-sting"]
   stats: {
     hp: 22,
     ac: 12,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d4 piercing + poison",
     speed: "10 ft, fly 40 ft",
   },
-  loot: ["poison-sacs"],
-  abilities: ["Poison Cloud", "Scatter Movement"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["poison-sacs"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Poison Cloud", "Scatter Movement"],
 },
 
 /* ------------------------------------------------------------ */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 6,
     courage: 4,
   },
-  tactics: ["swarm-the-softest-target"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["swarm-the-softest-target"]
   stats: {
     hp: 36,
     ac: 14,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6 piercing",
     speed: "20 ft, burrow 10 ft",
   },
-  loot: ["scarab-carapace"],
-  abilities: ["Corpse Devour", "Sand Burrow"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["scarab-carapace"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Corpse Devour", "Sand Burrow"],
 },
 
 /* ------------------------------------------------------------ */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 3,
   },
-  tactics: ["web-then-overwhelm"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["web-then-overwhelm"]
   stats: {
     hp: 45,
     ac: 15,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6 piercing + poison",
     speed: "20 ft, climb 30 ft",
   },
-  loot: ["venom-gland"],
-  abilities: ["Web Spray", "Climb"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["venom-gland"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Web Spray", "Climb"],
 },
 
 /* ------------------------------------------------------------ */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 1,
     courage: 6,
   },
-  tactics: ["blinding-dazzle"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["blinding-dazzle"]
   stats: {
     hp: 50,
     ac: 16,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "1d4 radiant",
     speed: "10 ft, fly 50 ft",
   },
-  loot: ["glitter-dust"],
-  abilities: ["Dazzling Light", "Swarm Heal"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["glitter-dust"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Dazzling Light", "Swarm Heal"],
 },
 
 /* ------------------------------------------------------------ */
@@ -135,7 +147,8 @@ export const MINIONS: Minion[] = [
     aggression: 9,
     courage: 6,
   },
-  tactics: ["consume-everything"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["consume-everything"]
   stats: {
     hp: 90,
     ac: 16,
@@ -143,8 +156,10 @@ export const MINIONS: Minion[] = [
     dmg: "4d6 slashing",
     speed: "30 ft, fly 40 ft",
   },
-  loot: ["chitin-dust"],
-  abilities: ["Devouring Frenzy", "Sound of Doom"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["chitin-dust"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Devouring Frenzy", "Sound of Doom"],
 },
 
 /* ------------------------------------------------------------ */
@@ -164,7 +179,8 @@ export const MINIONS: Minion[] = [
     aggression: 7,
     courage: 6,
   },
-  tactics: ["strike-from-darkness"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["strike-from-darkness"]
   stats: {
     hp: 110,
     ac: 17,
@@ -172,8 +188,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d6 necrotic + poison",
     speed: "40 ft, fly 60 ft",
   },
-  loot: ["shadow-resin", "void-honey"],
-  abilities: ["Phase Sting", "Shadow Swarm", "Terror Buzz"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["shadow-resin", "void-honey"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Phase Sting", "Shadow Swarm", "Terror Buzz"],
 },
 
 ];

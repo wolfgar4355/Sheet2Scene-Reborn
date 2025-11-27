@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 6,
         },
-        tactics: ["crush-from-line"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["crush-from-line"]
         stats: {
             hp: 260,
             ac: 20,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 6,
         },
-        tactics: ["aoe-burst-then-hover"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["aoe-burst-then-hover"]
         stats: {
             hp: 295,
             ac: 21,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: ["lava-wave-then-burn-frontline"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["lava-wave-then-burn-frontline"]
         stats: {
             hp: 310,
             ac: 22,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 4,
             courage: 7,
         },
-        tactics: ["blinding-radiant-judgment"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["blinding-radiant-judgment"]
         stats: {
             hp: 340,
             ac: 23,

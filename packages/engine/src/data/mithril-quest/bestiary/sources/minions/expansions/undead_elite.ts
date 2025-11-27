@@ -16,7 +16,8 @@ export const MINIONS: Minion[] = [
   tags: ["dark-auras", "fire-magic", "unholy"],
   factions: ["Grave Sovereignty"],
   behavior: { aggression: 7, courage: 6 },
-  tactics: ["smite-then-burn"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["smite-then-burn"]
   stats: {
     hp: 165,
     ac: 18,
@@ -24,8 +25,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8+6 slashing + fire",
     speed: "25 ft",
   },
-  loot: ["hollowed-plate", "cursed-greatsword"],
-  abilities: ["Hellfire Burst", "Aura of Dread", "Dark Command"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["hollowed-plate", "cursed-greatsword"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Hellfire Burst", "Aura of Dread", "Dark Command"],
 },
 
 /* ------------------------------------------------------------ */
@@ -42,7 +45,8 @@ export const MINIONS: Minion[] = [
   tags: ["ethereal", "life-drain"],
   factions: ["Ebon Host"],
   behavior: { aggression: 6, courage: 5 },
-  tactics: ["phase-through-walls-then-drain"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["phase-through-walls-then-drain"]
   stats: {
     hp: 130,
     ac: 17,
@@ -50,8 +54,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d6 necrotic (life drain)",
     speed: "40 ft (hover)",
   },
-  loot: ["phantom-embers"],
-  abilities: ["Ethereal Shift", "Life Drain", "Wail of Dread"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["phantom-embers"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Ethereal Shift", "Life Drain", "Wail of Dread"],
 },
 
 /* ------------------------------------------------------------ */
@@ -68,7 +74,8 @@ export const MINIONS: Minion[] = [
   tags: ["multi-head", "poison", "necrotic"],
   factions: ["Corpseforge Dominion"],
   behavior: { aggression: 8, courage: 7 },
-  tactics: ["multi-head-breach-then-lash"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["multi-head-breach-then-lash"]
   stats: {
     hp: 170,
     ac: 16,
@@ -76,8 +83,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d8 necrotic or poison",
     speed: "30 ft, swim 25 ft",
   },
-  loot: ["hydra-skull", "black-ichor"],
-  abilities: ["Infectious Breath", "Reanimation Surge", "Severed Head Reform"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["hydra-skull", "black-ichor"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Infectious Breath", "Reanimation Surge", "Severed Head Reform"],
 },
 
 /* ------------------------------------------------------------ */
@@ -94,7 +103,8 @@ export const MINIONS: Minion[] = [
   tags: ["bone-giant", "grave-construct"],
   factions: ["Corpseforge Dominion"],
   behavior: { aggression: 9, courage: 8 },
-  tactics: ["slam-frontline-then-ground-pound"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["slam-frontline-then-ground-pound"]
   stats: {
     hp: 240,
     ac: 19,
@@ -102,8 +112,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d12+6 bludgeoning",
     speed: "30 ft",
   },
-  loot: ["bone-core", "giant-ribplate"],
-  abilities: ["Ground Pound", "Bone Storm", "Reinforced Skeleton"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["bone-core", "giant-ribplate"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Ground Pound", "Bone Storm", "Reinforced Skeleton"],
 },
 
 /* ------------------------------------------------------------ */
@@ -120,7 +132,8 @@ export const MINIONS: Minion[] = [
   tags: ["necromancy", "summoner", "ritualist"],
   factions: ["Grave Sovereignty"],
   behavior: { aggression: 5, courage: 7 },
-  tactics: ["summon-horde-then-cast-death"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["summon-horde-then-cast-death"]
   stats: {
     hp: 220,
     ac: 18,
@@ -128,8 +141,10 @@ export const MINIONS: Minion[] = [
     dmg: "3d10 necrotic",
     speed: "30 ft",
   },
-  loot: ["phylactery-fragment", "forbidden-grimoire"],
-  abilities: ["Mass Bind", "Death Nova", "Spirit Harvest", "Bone Shatter"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["phylactery-fragment", "forbidden-grimoire"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Mass Bind", "Death Nova", "Spirit Harvest", "Bone Shatter"],
 },
 
 ];

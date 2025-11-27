@@ -16,7 +16,7 @@ export const MINIONS = [
             aggression: 1,
             courage: 6,
         },
-        tactics: ["beam-light-and-aid-ally"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["beam-light-and-aid-ally"]
         stats: {
             hp: 18,
             ac: 14,
@@ -44,7 +44,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 8,
         },
-        tactics: ["stand-still-and-pierce-on-12"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["stand-still-and-pierce-on-12"]
         stats: {
             hp: 55,
             ac: 18,
@@ -72,7 +72,7 @@ export const MINIONS = [
             aggression: 5,
             courage: 9,
         },
-        tactics: ["dive-charge-from-above"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["dive-charge-from-above"]
         stats: {
             hp: 78,
             ac: 17,
@@ -100,7 +100,7 @@ export const MINIONS = [
             aggression: 3,
             courage: 10,
         },
-        tactics: ["frontline-then-radiant-burst"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["frontline-then-radiant-burst"]
         stats: {
             hp: 110,
             ac: 19,
@@ -128,7 +128,7 @@ export const MINIONS = [
             aggression: 7,
             courage: 10,
         },
-        tactics: ["smite-evil-with-powered-strike"],
+        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["smite-evil-with-powered-strike"]
         stats: {
             hp: 145,
             ac: 20,

@@ -19,7 +19,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 3,
   },
-  tactics: ["hit-and-drift"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["hit-and-drift"]
   stats: {
     hp: 90,
     ac: 15,
@@ -27,8 +28,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8 bludgeoning",
     speed: "fly 90 ft",
   },
-  loot: ["air-essence"],
-  abilities: ["Whirlwind", "Incorporeal Drift"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["air-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Whirlwind", "Incorporeal Drift"],
 },
 
 /* --------------------------------------------------------- */
@@ -48,7 +51,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 5,
   },
-  tactics: ["burrow-ambush"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["burrow-ambush"]
   stats: {
     hp: 126,
     ac: 17,
@@ -56,8 +60,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8+5 bludgeoning",
     speed: "30 ft, burrow 30 ft",
   },
-  loot: ["earth-essence"],
-  abilities: ["Earth Glide", "Ground Slam"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["earth-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Earth Glide", "Ground Slam"],
 },
 
 /* --------------------------------------------------------- */
@@ -77,7 +83,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 4,
   },
-  tactics: ["burn-through-lines"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["burn-through-lines"]
   stats: {
     hp: 102,
     ac: 14,
@@ -85,8 +92,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d6 fire",
     speed: "50 ft",
   },
-  loot: ["fire-essence"],
-  abilities: ["Flame Form", "Ignite", "Blazing Trail"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["fire-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Flame Form", "Ignite", "Blazing Trail"],
 },
 
 /* --------------------------------------------------------- */
@@ -106,7 +115,8 @@ export const MINIONS: Minion[] = [
     aggression: 3,
     courage: 4,
   },
-  tactics: ["engulf-and-drown"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["engulf-and-drown"]
   stats: {
     hp: 114,
     ac: 14,
@@ -114,8 +124,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d8+4 bludgeoning",
     speed: "30 ft, swim 90 ft",
   },
-  loot: ["water-essence"],
-  abilities: ["Engulf", "Liquid Form"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["water-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Engulf", "Liquid Form"],
 },
 
 /* --------------------------------------------------------- */
@@ -135,7 +147,8 @@ export const MINIONS: Minion[] = [
     aggression: 5,
     courage: 5,
   },
-  tactics: ["eruption-charge"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["eruption-charge"]
   stats: {
     hp: 130,
     ac: 16,
@@ -143,8 +156,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10+5 fire",
     speed: "30 ft",
   },
-  loot: ["magma-core"],
-  abilities: ["Lava Burst", "Molten Body", "Eruption Step"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["magma-core"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Lava Burst", "Molten Body", "Eruption Step"],
 },
 
 /* --------------------------------------------------------- */
@@ -164,7 +179,8 @@ export const MINIONS: Minion[] = [
     aggression: 4,
     courage: 6,
   },
-  tactics: ["aoe-burst-then-hover"],
+  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["aoe-burst-then-hover"]
   stats: {
     hp: 140,
     ac: 16,
@@ -172,8 +188,10 @@ export const MINIONS: Minion[] = [
     dmg: "2d10 lightning / thunder pulse 4d8",
     speed: "fly 90 ft",
   },
-  loot: ["storm-essence"],
-  abilities: ["Lightning Burst", "Thunder Pulse", "Storm Shield"],
+  // NOTE (fix-fantasy v2 auto-commented)
+loot: ["storm-essence"],
+  // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Lightning Burst", "Thunder Pulse", "Storm Shield"],
 },
 
 ];

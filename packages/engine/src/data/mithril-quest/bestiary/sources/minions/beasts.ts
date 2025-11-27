@@ -25,18 +25,20 @@ export const beasts: UniversalCreature[] = [
       {
         name: "Bite",
         bonus: +4,
-        damage: "2d4+2 piercing",
+        damage: { dice: "2d4+2", type: "piercing" },
       },
     ],
 
     behavior: {
-      aggression: "hunter",
+      aggression: "aggressive",
       confidence: "courage:4",
-      tactics: ["pack-attack"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["pack-attack"]
     },
 
     drops: ["wolf-pelt", "wolf-teeth"],
-    abilities: ["Keen Hearing", "Pack Tactics"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Keen Hearing", "Pack Tactics"],
 
     visuals: {
       icon: "wolf",
@@ -67,18 +69,20 @@ export const beasts: UniversalCreature[] = [
       {
         name: "Bite",
         bonus: +4,
-        damage: "1d4+2 piercing",
+        damage: { dice: "1d4+2", type: "piercing" },
       },
     ],
 
     behavior: {
       aggression: "scavenger",
       confidence: "coward",
-      tactics: ["harass"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["harass"]
     },
 
     drops: ["rat-tail"],
-    abilities: [],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: [],
 
     visuals: {
       icon: "rat",
@@ -109,18 +113,20 @@ export const beasts: UniversalCreature[] = [
       {
         name: "Multiattack",
         bonus: +5,
-        damage: "1d6+3 claw + 1d8+3 bite",
+        damage: { dice: "1d6+3 claw + 1d8+3", type: "bite" },
       },
     ],
 
     behavior: {
       aggression: "territorial",
       confidence: "courage:6",
-      tactics: ["rush-and-maul"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["rush-and-maul"]
     },
 
     drops: ["bear-pelt", "bear-meat"],
-    abilities: [],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: [],
 
     visuals: {
       icon: "bear",
@@ -151,23 +157,25 @@ export const beasts: UniversalCreature[] = [
       {
         name: "Bite",
         bonus: +4,
-        damage: "1d8+2 piercing + 2d8 poison",
+        damage: { dice: "1d8+2 piercing + 2d8", type: "poison" },
       },
       {
         name: "Web",
         bonus: +5,
-        damage: "Restrains target",
+        damage: { dice: "Restrains", type: "target" },
       },
     ],
 
     behavior: {
       aggression: "ambusher",
       confidence: "courage:3",
-      tactics: ["ambush"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["ambush"]
     },
 
     drops: ["spider-venom", "silk-thread"],
-    abilities: ["Web Shot", "Poison Bite"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Web Shot", "Poison Bite"],
 
     visuals: {
       icon: "spider",
@@ -198,18 +206,20 @@ export const beasts: UniversalCreature[] = [
       {
         name: "Bite",
         bonus: +5,
-        damage: "2d6+3 piercing",
+        damage: { dice: "2d6+3", type: "piercing" },
       },
     ],
 
     behavior: {
-      aggression: "hunter",
+      aggression: "aggressive",
       confidence: "courage:8",
-      tactics: ["alpha-pounce"],
+      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
+tactics: ["alpha-pounce"]
     },
 
     drops: ["thick-fur", "wolf-bone"],
-    abilities: ["Pack Tactics"],
+    // NOTE (fix-fantasy v2 auto-commented)
+abilities: ["Pack Tactics"],
 
     visuals: {
       icon: "dire-wolf",
