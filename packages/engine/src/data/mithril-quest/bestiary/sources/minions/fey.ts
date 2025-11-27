@@ -9,31 +9,38 @@ export const MINIONS: Minion[] = [
 {
   id: "pixie",
   name: "Pixie",
-  cr: 0.25,
+  c,
+r: 0.25,
   biomes: ["forest", "feywild"],
-  habitat: ["moonlit-glade", "mushroom-circle"],
+  h,
+abitat: ["moonlit-glade", "mushroom-circle"],
   category: "fey",
-  role: "controller",
-  factions: ["fey-court"],
+  r,
+ole: "controller",
+  f,
+actions: ["fey-court"],
   tags: ["invisible", "charming"],
-  behavior: {
-    aggression: 1,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["invisible-harassment", "illusion-dash"]
-  stats: {
-    hp: 15,
+  b,
+ehavior: {
+    a,
+ggression: 1,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["invisible-harassment", "illusion-dash"],
+s,
+tats: {
+      hp: 15,
     ac: 14,
     atk: 11,
     dmg: "1d4 magic dust",
-    speed: "fly 30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["pixie-dust"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Invisibility", "Dancing Lights"],
-},
+    s,
+peed: "fly 30 ft"},
+  loot: ["pixie-dust"],
+  a,
+bilities: ["Invisibility", "Dancing Lights"]},
 
 /* --------------------------------------------------------- */
 /*                     SATYR — CR 1                          */
@@ -42,31 +49,38 @@ abilities: ["Invisibility", "Dancing Lights"],
 {
   id: "satyr",
   name: "Satyr",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["forest", "hills", "feywild"],
-  habitat: ["fae-grove", "revelry-ring"],
+  h,
+abitat: ["fae-grove", "revelry-ring"],
   category: "fey",
-  role: "brute",
-  factions: ["fey-court"],
+  r,
+ole: "brute",
+  f,
+actions: ["fey-court"],
   tags: ["trickery", "charming"],
-  behavior: {
-    aggression: 2,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["harass-disrupt"]
-  stats: {
-    hp: 31,
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["harass-disrupt"],
+s,
+tats: {
+      hp: 31,
     ac: 14,
     atk: 13,
     dmg: "1d6+2 / 1d6+2 shortbow",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["fae-flute"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Pan Flute Magic", "Charm Person"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["fae-flute"],
+  a,
+bilities: ["Pan Flute Magic", "Charm Person"]},
 
 /* --------------------------------------------------------- */
 /*                     DRYAD — CR 1                          */
@@ -75,31 +89,38 @@ abilities: ["Pan Flute Magic", "Charm Person"],
 {
   id: "dryad",
   name: "Dryad",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["forest", "feywild"],
-  habitat: ["enchanted-tree", "ancient-grove"],
+  h,
+abitat: ["enchanted-tree", "ancient-grove"],
   category: "fey",
-  role: "controller",
-  factions: ["fey-court"],
+  r,
+ole: "controller",
+  f,
+actions: ["fey-court"],
   tags: ["nature", "charming"],
-  behavior: {
-    aggression: 2,
-    courage: 2,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["charm-then-hide", "phase-through-trees"]
-  stats: {
-    hp: 22,
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 2},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["charm-then-hide", "phase-through-trees"],
+s,
+tats: {
+      hp: 22,
     ac: 14,
     atk: 11,
     dmg: "1d4 staff",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["enchanted-bark"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Tree Stride", "Charm Person", "Entangle"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["enchanted-bark"],
+  a,
+bilities: ["Tree Stride", "Charm Person", "Entangle"]},
 
 /* --------------------------------------------------------- */
 /*                  FOREST SPIRIT — CR 2                     */
@@ -108,31 +129,38 @@ abilities: ["Tree Stride", "Charm Person", "Entangle"],
 {
   id: "forest-spirit",
   name: "Forest Spirit",
-  cr: 2,
+  c,
+r: 2,
   biomes: ["forest", "sacred-groves"],
-  habitat: ["spirit-clearing", "blossom-sanctum"],
+  h,
+abitat: ["spirit-clearing", "blossom-sanctum"],
   category: "fey",
-  role: "controller",
-  factions: ["nature-spirits"],
+  r,
+ole: "controller",
+  f,
+actions: ["nature-spirits"],
   tags: ["nature", "guardian"],
-  behavior: {
-    aggression: 3,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["phase-through-trees", "vine-lash"]
-  stats: {
-    hp: 36,
+  b,
+ehavior: {
+    a,
+ggression: 3,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["phase-through-trees", "vine-lash"],
+s,
+tats: {
+      hp: 36,
     ac: 15,
     atk: 15,
     dmg: "1d8+3 nature force",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["spirit-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Phase Step", "Vine Lash", "Nature’s Ward"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["spirit-essence"],
+  a,
+bilities: ["Phase Step", "Vine Lash", "Nature’s Ward"]},
 
 /* --------------------------------------------------------- */
 /*                     REDCAP — CR 3                         */
@@ -141,31 +169,38 @@ abilities: ["Phase Step", "Vine Lash", "Nature’s Ward"],
 {
   id: "redcap",
   name: "Redcap",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["forest", "bog", "darkwoods"],
-  habitat: ["murder-hollow", "blighted-thicket"],
+  h,
+abitat: ["murder-hollow", "blighted-thicket"],
   category: "fey",
-  role: "brute",
-  factions: ["blood-faith"],
+  r,
+ole: "brute",
+  f,
+actions: ["blood-faith"],
   tags: ["bloodlust"],
-  behavior: {
-    aggression: 9,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["kill-the-weak-first"]
-  stats: {
-    hp: 45,
+  b,
+ehavior: {
+    a,
+ggression: 9,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["kill-the-weak-first"],
+s,
+tats: {
+      hp: 45,
     ac: 14,
     atk: 16,
     dmg: "1d6+7 / 2d4+2 iron boots",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["blood-soaked-cap"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Iron Boot Stomp", "Dreadful Glare"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["blood-soaked-cap"],
+  a,
+bilities: ["Iron Boot Stomp", "Dreadful Glare"]},
 /* --------------------------------------------------------- */
 /*                 GREEN HAG — CR 3                          */
 /* --------------------------------------------------------- */
@@ -173,31 +208,38 @@ abilities: ["Iron Boot Stomp", "Dreadful Glare"],
 {
   id: "green-hag",
   name: "Green Hag",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["swamp", "forest", "ruins"],
-  habitat: ["witch-den", "rotting-marsh-hut"],
+  h,
+abitat: ["witch-den", "rotting-marsh-hut"],
   category: "fey",
-  role: "controller",
-  factions: ["coven"],
+  r,
+ole: "controller",
+  f,
+actions: ["coven"],
   tags: ["illusion", "coven"],
-  behavior: {
-    aggression: 4,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["illusion-lure"]
-  stats: {
-    hp: 62,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["illusion-lure"],
+s,
+tats: {
+      hp: 62,
     ac: 14,
     atk: 16,
     dmg: "1d6+3 claws",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["witch-teeth"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Illusory Appearance", "Mimicry", "Horrific Touch"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["witch-teeth"],
+  a,
+bilities: ["Illusory Appearance", "Mimicry", "Horrific Touch"]},
 
 /* --------------------------------------------------------- */
 /*                 SHADOW HAG — CR 5                         */
@@ -206,31 +248,38 @@ abilities: ["Illusory Appearance", "Mimicry", "Horrific Touch"],
 {
   id: "shadow-hag",
   name: "Shadow Hag",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["swamp", "feywild", "shadowlands"],
-  habitat: ["shadow-bog", "moonless-hollow"],
+  h,
+abitat: ["shadow-bog", "moonless-hollow"],
   category: "fey",
-  role: "controller",
-  factions: ["coven-shadow"],
+  r,
+ole: "controller",
+  f,
+actions: ["coven-shadow"],
   tags: ["shadow", "terror"],
-  behavior: {
-    aggression: 6,
-    courage: 7,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["lure-into-water", "shadow-ambush"]
-  stats: {
-    hp: 90,
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 7},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["lure-into-water", "shadow-ambush"],
+s,
+tats: {
+      hp: 90,
     ac: 17,
     atk: 18,
     dmg: "2d8 psychic",
-    speed: "30 ft, swim 20 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["other-sphere-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Shadow Form", "Dream Bind", "Illusionary Double"],
-},
+    s,
+peed: "30 ft, swim 20 ft"},
+  loot: ["other-sphere-essence"],
+  a,
+bilities: ["Shadow Form", "Dream Bind", "Illusionary Double"]},
 
 /* --------------------------------------------------------- */
 /*                 ELADRIN (SPRING) — CR 4                   */
@@ -239,31 +288,38 @@ abilities: ["Shadow Form", "Dream Bind", "Illusionary Double"],
 {
   id: "eladrin-spring",
   name: "Eladrin (Spring)",
-  cr: 4,
+  c,
+r: 4,
   biomes: ["feywild", "enchanted-gardens"],
-  habitat: ["spring-court", "flower-palace"],
+  h,
+abitat: ["spring-court", "flower-palace"],
   category: "fey",
-  role: "controller",
-  factions: ["eladrin-court"],
+  r,
+ole: "controller",
+  f,
+actions: ["eladrin-court"],
   tags: ["seasonal", "joy"],
-  behavior: {
-    aggression: 2,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["bright-flourish", "mist-step"]
-  stats: {
-    hp: 70,
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["bright-flourish", "mist-step"],
+s,
+tats: {
+      hp: 70,
     ac: 16,
     atk: 17,
     dmg: "2d6 radiant",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["spring-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Fey Step (Spring)", "Euphoria Burst"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["spring-essence"],
+  a,
+bilities: ["Fey Step (Spring)", "Euphoria Burst"]},
 
 /* --------------------------------------------------------- */
 /*                 ELADRIN (AUTUMN) — CR 4                   */
@@ -272,31 +328,38 @@ abilities: ["Fey Step (Spring)", "Euphoria Burst"],
 {
   id: "eladrin-autumn",
   name: "Eladrin (Autumn)",
-  cr: 4,
+  c,
+r: 4,
   biomes: ["feywild", "amber-woods"],
-  habitat: ["autumn-court", "harvest-palace"],
+  h,
+abitat: ["autumn-court", "harvest-palace"],
   category: "fey",
-  role: "controller",
-  factions: ["eladrin-court"],
+  r,
+ole: "controller",
+  f,
+actions: ["eladrin-court"],
   tags: ["seasonal", "melancholy"],
-  behavior: {
-    aggression: 3,
-    courage: 7,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["sapping-sorrow", "charm-bloom"]
-  stats: {
-    hp: 72,
+  b,
+ehavior: {
+    a,
+ggression: 3,
+    c,
+ourage: 7},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["sapping-sorrow", "charm-bloom"],
+s,
+tats: {
+      hp: 72,
     ac: 16,
     atk: 17,
     dmg: "2d6 psychic",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["autumn-leaf-charm"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Fey Step (Autumn)", "Sorrow Wave"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["autumn-leaf-charm"],
+  a,
+bilities: ["Fey Step (Autumn)", "Sorrow Wave"]},
 /* --------------------------------------------------------- */
 /*                 ELADRIN (WINTER) — CR 5                   */
 /* --------------------------------------------------------- */
@@ -304,31 +367,38 @@ abilities: ["Fey Step (Autumn)", "Sorrow Wave"],
 {
   id: "eladrin-winter",
   name: "Eladrin (Winter)",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["feywild", "frozen-glades"],
-  habitat: ["winter-court", "ice-palace"],
+  h,
+abitat: ["winter-court", "ice-palace"],
   category: "fey",
-  role: "controller",
-  factions: ["eladrin-court"],
+  r,
+ole: "controller",
+  f,
+actions: ["eladrin-court"],
   tags: ["seasonal", "cold"],
-  behavior: {
-    aggression: 4,
-    courage: 8,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["frost-step", "frozen-embrace"]
-  stats: {
-    hp: 88,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 8},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["frost-step", "frozen-embrace"],
+s,
+tats: {
+      hp: 88,
     ac: 17,
     atk: 18,
     dmg: "2d8 cold",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["winter-crystal"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Fey Step (Winter)", "Winter’s Grasp"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["winter-crystal"],
+  a,
+bilities: ["Fey Step (Winter)", "Winter’s Grasp"]},
 
 /* --------------------------------------------------------- */
 /*                 ELADRIN (SUMMER) — CR 5                   */
@@ -337,31 +407,38 @@ abilities: ["Fey Step (Winter)", "Winter’s Grasp"],
 {
   id: "eladrin-summer",
   name: "Eladrin (Summer)",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["feywild", "sun-bloom-fields"],
-  habitat: ["summer-court", "solar-meadow"],
+  h,
+abitat: ["summer-court", "solar-meadow"],
   category: "fey",
-  role: "controller",
-  factions: ["eladrin-court"],
+  r,
+ole: "controller",
+  f,
+actions: ["eladrin-court"],
   tags: ["seasonal", "fire"],
-  behavior: {
-    aggression: 7,
-    courage: 10,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["blazing-step", "radiant-burst"]
-  stats: {
-    hp: 95,
+  b,
+ehavior: {
+    a,
+ggression: 7,
+    c,
+ourage: 10},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["blazing-step", "radiant-burst"],
+s,
+tats: {
+      hp: 95,
     ac: 17,
     atk: 18,
     dmg: "2d8 fire",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["sun-fragment"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Fey Step (Summer)", "Radiant Flare"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["sun-fragment"],
+  a,
+bilities: ["Fey Step (Summer)", "Radiant Flare"]},
 
 /* --------------------------------------------------------- */
 /*                 ARCHFEY LORD — CR 12                      */
@@ -370,37 +447,41 @@ abilities: ["Fey Step (Summer)", "Radiant Flare"],
 {
   id: "archfey-lord",
   name: "Archfey Lord",
-  cr: 12,
+  c,
+r: 12,
   biomes: ["feywild", "enchanted-realms"],
-  habitat: ["crystal-palace", "dream-throne"],
+  h,
+abitat: ["crystal-palace", "dream-throne"],
   category: "fey",
-  role: "controller",
-  factions: ["archfey-court"],
+  r,
+ole: "controller",
+  f,
+actions: ["archfey-court"],
   tags: ["ancient", "illusion", "domination"],
-  behavior: {
-    aggression: 6,
-    courage: 12,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["mind-bend", "dream-binding", "phase-warp"]
-  stats: {
-    hp: 210,
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 12},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["mind-bend", "dream-binding", "phase-warp"],
+s,
+tats: {
+      hp: 210,
     ac: 19,
     atk: 22,
     dmg: "3d10 psychic",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["fey-heart-core", "archfey-sigil"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: [
+    s,
+peed: "40 ft"},
+  loot: ["fey-heart-core", "archfey-sigil"],
+  a,
+bilities: [
     "Master of Illusions",
     "Dream Realm Step",
     "Charm Domination",
-    "Reality Twist"
-  ],
-},
-
-]; // ← FIN DU TABLEAU FEY
+    "Reality Twist"]}]; // ← FIN DU TABLEAU FEY
 
 export default MINIONS;

@@ -8,44 +8,62 @@ export const aberrations: UniversalCreature[] = [
   {
     id: "grell",
     name: "Grell",
-    rarity: "elite",
-    type: "aberration",
-    categories: ["aberrations"],
+    r,
+arity: "elite",
+    t,
+ype: "aberration",
+    c,
+ategories: ["aberrations"],
     biomes: ["underdark", "dungeon", "caves"],
-    habitats: ["ceiling-nests", "flesh-lairs"],
-    factions: [],
-    tagsAAA: ["levitation", "tentacles", "paralysis"],
-    cr: 3,
+    h,
+abitats: ["ceiling-nests", "flesh-lairs"],
+    f,
+actions: [],
+    t,
+agsAAA: ["levitation", "tentacles", "paralysis"],
+    c,
+r: 3,
 
     // Combat
     hp: 55,
     ac: 14,
-    speed: ["fly:20"],
+    s,
+peed: ["f,
+ly:20"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Tentacle",
         bonus: +5,
-        damage: { dice: "1d10 piercing +", type: "paralysis" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "1d10 piercing +", t,
+ype: "paralysis" }}],
 
-    behavior: {
-      aggression: "defensive",
-      confidence: "coward",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["descend-silently-and-grapple"]
+    b,
+ehavior: {
+      a,
+ggression: "defensive",
+      c,
+onfidence: "coward",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["descend-silently-and-grapple"]
     },
 
-    drops: ["neural-tentacle"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Paralyzing Tentacles", "Silent Glide"],
+    d,
+rops: ["neural-tentacle"],
+    a,
+bilities: ["Paralyzing Tentacles", "Silent Glide"],
 
-    visuals: {
-      icon: "grell",
-      keywords: ["floating", "tentacles"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "grell",
+      k,
+eywords: ["floating", "tentacles"]}},
 
   //──────────────────────────────
   // GRICK — CR 2
@@ -53,43 +71,63 @@ abilities: ["Paralyzing Tentacles", "Silent Glide"],
   {
     id: "grick",
     name: "Grick",
-    rarity: "elite",
-    type: "aberration",
-    categories: ["aberrations"],
+    r,
+arity: "elite",
+    t,
+ype: "aberration",
+    c,
+ategories: ["aberrations"],
     biomes: ["forest", "underdark"],
-    habitats: ["stone-chasms", "narrow-passages"],
-    factions: [],
-    tagsAAA: ["ambush", "tentacle"],
-    cr: 2,
+    h,
+abitats: ["stone-chasms", "narrow-passages"],
+    f,
+actions: [],
+    t,
+agsAAA: ["ambush", "tentacle"],
+    c,
+r: 2,
 
     hp: 45,
     ac: 13,
-    speed: ["climb:20", "land:30"],
+    s,
+peed: ["c,
+limb:20", "l,
+and:30"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Bite",
         bonus: +4,
-        damage: { dice: "1d12", type: "slashing" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "1d12", t,
+ype: "slashing" }}],
 
-    behavior: {
-      aggression: "aggressive",
-      confidence: "courage:3",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["ambush-from-above"]
+    b,
+ehavior: {
+      a,
+ggression: "aggressive",
+      c,
+onfidence: "c,
+ourage:3",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["ambush-from-above"]
     },
 
-    drops: ["chitin-shard"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Stone Camouflage"],
+    d,
+rops: ["chitin-shard"],
+    a,
+bilities: ["Stone Camouflage"],
 
-    visuals: {
-      icon: "grick",
-      keywords: ["stone", "tentacle"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "grick",
+      k,
+eywords: ["stone", "tentacle"]}},
 
   //──────────────────────────────
   // MIND WORM — CR 1
@@ -97,43 +135,62 @@ abilities: ["Stone Camouflage"],
   {
     id: "mind-worm",
     name: "Mind Worm",
-    rarity: "common",
-    type: "aberration",
-    categories: ["aberrations"],
+    r,
+arity: "common",
+    t,
+ype: "aberration",
+    c,
+ategories: ["aberrations"],
     biomes: ["swamp", "underdark", "ancient-labs"],
-    habitats: ["dead-pools", "eldritch-creels"],
-    factions: [],
-    tagsAAA: ["psionic", "infection"],
-    cr: 1,
+    h,
+abitats: ["dead-pools", "eldritch-creels"],
+    f,
+actions: [],
+    t,
+agsAAA: ["psionic", "infection"],
+    c,
+r: 1,
 
     hp: 22,
     ac: 12,
-    speed: ["land:20", "swim:20"],
+    s,
+peed: ["l,
+and:20", "s,
+wim:20"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Mind Spike",
         bonus: +4,
-        damage: { dice: "1d8", type: "psychic" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "1d8", t,
+ype: "psychic" }}],
 
-    behavior: {
-      aggression: "instinct",
-      confidence: "coward",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["psionic-scream-and-hide"]
+    b,
+ehavior: {
+      a,
+ggression: "instinct",
+      c,
+onfidence: "coward",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["psionic-scream-and-hide"]
     },
 
-    drops: ["psionic-residue"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Mind Screech", "Neural Feedback"],
+    d,
+rops: ["psionic-residue"],
+    a,
+bilities: ["Mind Screech", "Neural Feedback"],
 
-    visuals: {
-      icon: "worm",
-      keywords: ["psionic", "worm"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "worm",
+      k,
+eywords: ["psionic", "worm"]}},
 
   //──────────────────────────────
   // GIBBERING MASS — CR 5
@@ -141,43 +198,61 @@ abilities: ["Mind Screech", "Neural Feedback"],
   {
     id: "gibbering-mass",
     name: "Gibbering Mass",
-    rarity: "rare",
-    type: "aberration",
-    categories: ["aberrations"],
+    r,
+arity: "rare",
+    t,
+ype: "aberration",
+    c,
+ategories: ["aberrations"],
     biomes: ["swamp", "corrupted"],
-    habitats: ["gurgling-pools", "madness-pits"],
-    factions: [],
-    tagsAAA: ["amorphous", "madness"],
-    cr: 5,
+    h,
+abitats: ["gurgling-pools", "madness-pits"],
+    f,
+actions: [],
+    t,
+agsAAA: ["amorphous", "madness"],
+    c,
+r: 5,
 
     hp: 140,
     ac: 9,
-    speed: ["land:20"],
+    s,
+peed: ["l,
+and:20"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Maw",
         bonus: +6,
-        damage: { dice: "4d6", type: "acid" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "4d6", t,
+ype: "acid" }}],
 
-    behavior: {
-      aggression: "obsession",
-      confidence: "fearless",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["suppress-all-sanity-with-aura"]
+    b,
+ehavior: {
+      a,
+ggression: "obsession",
+      c,
+onfidence: "fearless",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["suppress-all-sanity-with-aura"]
     },
 
-    drops: ["fractured-organ"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Gibbering Aura", "Amorphous Engulf"],
+    d,
+rops: ["fractured-organ"],
+    a,
+bilities: ["Gibbering Aura", "Amorphous Engulf"],
 
-    visuals: {
-      icon: "mass",
-      keywords: ["amorphous", "eyes"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "mass",
+      k,
+eywords: ["amorphous", "eyes"]}},
 
   //──────────────────────────────
   // INTELLECT DEVOURER — CR 2
@@ -185,43 +260,62 @@ abilities: ["Gibbering Aura", "Amorphous Engulf"],
   {
     id: "intellect-devourer",
     name: "Intellect Devourer",
-    rarity: "elite",
-    type: "aberration",
-    categories: ["aberrations"],
+    r,
+arity: "elite",
+    t,
+ype: "aberration",
+    c,
+ategories: ["aberrations"],
     biomes: ["ruins", "underdark"],
-    habitats: ["eldritch-chambers"],
-    factions: [],
-    tagsAAA: ["psionic", "brain-walker"],
-    cr: 2,
+    h,
+abitats: ["eldritch-chambers"],
+    f,
+actions: [],
+    t,
+agsAAA: ["psionic", "brain-walker"],
+    c,
+r: 2,
 
     hp: 35,
     ac: 14,
-    speed: ["land:40"],
+    s,
+peed: ["l,
+and:40"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Brain Rend",
         bonus: +5,
-        damage: { dice: "1d8", type: "psychic" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "1d8", t,
+ype: "psychic" }}],
 
-    behavior: {
-      aggression: "aggressive",
-      confidence: "courage:5",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["assail-brain-then-pursue"]
+    b,
+ehavior: {
+      a,
+ggression: "aggressive",
+      c,
+onfidence: "c,
+ourage:5",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["assail-brain-then-pursue"]
     },
 
-    drops: ["horror-residue"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Horror Instinct", "Body Thief"],
+    d,
+rops: ["horror-residue"],
+    a,
+bilities: ["Horror Instinct", "Body Thief"],
 
-    visuals: {
-      icon: "brain",
-      keywords: ["brain", "psionic"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "brain",
+      k,
+eywords: ["brain", "psionic"]}},
 
   //──────────────────────────────
   // VOID EYE — CR 6
@@ -229,41 +323,58 @@ abilities: ["Horror Instinct", "Body Thief"],
   {
     id: "void-eye",
     name: "Void Eye",
-    rarity: "legendary",
-    type: "aberration",
-    categories: ["aberrations"],
+    r,
+arity: "legendary",
+    t,
+ype: "aberration",
+    c,
+ategories: ["aberrations"],
     biomes: ["wastelands", "shadowlands"],
-    habitats: ["void-rifts", "anti-magic-reaches"],
-    factions: [],
-    tagsAAA: ["null-magic", "beam"],
-    cr: 6,
+    h,
+abitats: ["void-rifts", "anti-magic-reaches"],
+    f,
+actions: [],
+    t,
+agsAAA: ["null-magic", "beam"],
+    c,
+r: 6,
 
     hp: 160,
     ac: 16,
-    speed: ["fly:40"],
+    s,
+peed: ["f,
+ly:40"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Void Lance",
         bonus: +8,
-        damage: { dice: "3d10", type: "force" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "3d10", t,
+ype: "force" }}],
 
-    behavior: {
-      aggression: "berserk",
-      confidence: "fearless",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["float-at-range-and-swap-space"]
+    b,
+ehavior: {
+      a,
+ggression: "berserk",
+      c,
+onfidence: "fearless",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["float-at-range-and-swap-space"]
     },
 
-    drops: ["void-core"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Null Aura", "Void Beam", "Levitation"],
+    d,
+rops: ["void-core"],
+    a,
+bilities: ["Null Aura", "Void Beam", "Levitation"],
 
-    visuals: {
-      icon: "eye",
-      keywords: ["void", "beam"],
-    },
-  },
-];
+    v,
+isuals: {
+      i,
+con: "eye",
+      k,
+eywords: ["void", "beam"]}}];

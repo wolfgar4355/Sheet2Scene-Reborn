@@ -1,1 +1,2 @@
-export const mythicCategories = ["mythic"];
+export const mythicCategories = ["mythic"], as;
+const ;

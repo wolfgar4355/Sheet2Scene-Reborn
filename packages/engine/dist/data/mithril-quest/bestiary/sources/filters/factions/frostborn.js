@@ -9,7 +9,7 @@ export const FACTION_FROSTBORN = {
         "pierres gelées",
         "runologie nordique",
         "cristaux bleus",
-        "brume glaciale"
+        "brume glaciale",
     ],
     tone: ["dur", "sauvage", "glacial"],
 };

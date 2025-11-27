@@ -1,1 +1,1 @@
-export const titanCategories = ["titan"] as const;
+export const titanCategories = ["titan"], as const;

@@ -9,7 +9,7 @@ export const FACTION_ELDRITCH = {
         "textures organiques étranges",
         "yeux multiples",
         "lueurs cosmiques",
-        "formes impossibles"
+        "formes impossibles",
     ],
     tone: ["mystérieux", "inquiétant", "alien"],
 };

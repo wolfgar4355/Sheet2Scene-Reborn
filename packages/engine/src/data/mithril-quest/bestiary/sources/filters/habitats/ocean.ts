@@ -4,5 +4,4 @@ export const OCEAN_HABITATS = [
   "coral-reef",
   "tempest-sea",
   "ship-graveyard",
-  "leviathan-depths",
-] as const;
+  "leviathan-depths"] as const;

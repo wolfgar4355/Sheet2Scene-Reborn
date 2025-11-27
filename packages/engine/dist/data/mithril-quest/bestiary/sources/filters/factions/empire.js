@@ -9,7 +9,7 @@ export const FACTION_EMPIRE = {
         "architecture noble",
         "symboles héraldiques",
         "lumière glorieuse",
-        "discipline rigide"
+        "discipline rigide",
     ],
     tone: ["noble", "strict", "propre"],
 };

@@ -4,5 +4,4 @@ export const SHADOWLANDS_HABITATS = [
   "dark-fog-plains",
   "umbral-forest",
   "soul-dunes",
-  "necrotic-expanse",
-] as const;
+  "necrotic-expanse"] as const;

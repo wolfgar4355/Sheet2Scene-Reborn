@@ -5,5 +5,4 @@ export const FEYWILD_HABITATS = [
   "feywild-crystal-meadows",
   "feywild-fae-forest",       // 👈 ajouté ici
   "feywild-fae-courts",
-  "feywild-dream-thickets",
-] as const;
+  "feywild-dream-thickets"] as const;

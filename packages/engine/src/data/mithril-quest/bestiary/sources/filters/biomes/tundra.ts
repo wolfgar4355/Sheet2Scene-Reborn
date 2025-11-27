@@ -1,1 +1,1 @@
-export const tundraBiomes = ["tundra"] as const;
+export const tundraBiomes = ["tundra"], as const;

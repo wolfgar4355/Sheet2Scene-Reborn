@@ -4,5 +4,4 @@ export const SWAMP_HABITATS = [
   "rotting-marsh",
   "necrotic-swamp",
   "misty-mire",
-  "serpent-bog",
-] as const;
+  "serpent-bog"] as const;

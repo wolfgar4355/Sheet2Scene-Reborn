@@ -20,8 +20,7 @@ const ENCOUNTER_FILTER_TABLES: Record<string, MonsterDefinition[]> = {
   raids: RAIDS,
   "boss-arenas": BOSS_ARENAS,
   "dungeon-rooms": DUNGEON_ROOMS,
-  "corrupted-zones": CORRUPTED,
-};
+  "corrupted-zones": CORRUPTED};
 
 // API
 export function loadEncounterFilters(name: string): MonsterDefinition[] {

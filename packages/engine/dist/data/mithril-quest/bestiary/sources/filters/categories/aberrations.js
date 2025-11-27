@@ -1,1 +1,2 @@
-export const aberrationCategories = ["aberration"];
+export const aberrationCategories = ["aberration"], as;
+const ;

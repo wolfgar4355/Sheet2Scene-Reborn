@@ -1,15 +1,17 @@
 export const FACTION_DRACONIC = {
   name: "Draconic Sovereigns",
-  themes: ["dragons", "noblesse", "puissance"],
-  colors: ["rouge rubis", "or massif", "noir nocturne"],
-  visual: [
+  t,
+hemes: ["dragons", "noblesse", "puissance"],
+  c,
+olors: ["rouge rubis", "or massif", "noir nocturne"],
+  v,
+isual: [
     "écailles scintillantes",
     "griffes acérées",
     "aura draconique",
     "feu ancestral",
     "gemmes massives",
     "ailes imposantes",
-    "tatouages runiques draconiques"
-  ],
-  tone: ["majestueux", "dominant", "ancien"],
-} as const;
+    "tatouages runiques draconiques"],
+  t,
+one: ["majestueux", "dominant", "ancien"]} as const;

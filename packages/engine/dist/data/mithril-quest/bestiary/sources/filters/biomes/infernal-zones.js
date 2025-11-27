@@ -1,1 +1,2 @@
-export const infernalBiomes = ["infernal-zones"];
+export const infernalBiomes = ["infernal-zones"], as;
+const ;

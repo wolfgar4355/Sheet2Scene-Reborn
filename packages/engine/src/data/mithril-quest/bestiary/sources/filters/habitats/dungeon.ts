@@ -5,5 +5,4 @@ export const DUNGEON_HABITATS = [
   "sealed-crypts",
   "arcane-prisons",
   "beast-hold",
-  "ancient-vaults",
-] as const;
+  "ancient-vaults"] as const;

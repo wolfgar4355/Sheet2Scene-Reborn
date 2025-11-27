@@ -9,7 +9,7 @@ export const FACTION_CELESTIAL = {
         "armures bénies",
         "inscriptions célestes",
         "plumes brillantes",
-        "halo rayonnant"
+        "halo rayonnant",
     ],
     tone: ["saint", "pur", "majestueux"],
 };

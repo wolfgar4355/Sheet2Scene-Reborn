@@ -1,24 +1,26 @@
 export const TYPE_BRUTE = {
-  role: "Brute",
+  r,
+ole: "Brute",
   description:
     "Dégâts très élevés, immense force physique, faible précision et mobilité souvent réduite.",
-  stats: {
-    hp: "Très élevés",
+  s,
+tats: {
+      hp: "Très élevés",
     ac: "Faible",
-    damage: "Très élevé",
-    mobility: "Faible",
-  },
-  traits: [
+    d,
+amage: "Très élevé",
+    m,
+obility: "Faible"},
+  t,
+raits: [
     "Attaques lentes mais dévastatrices",
     "Peut assommer, projeter ou écraser",
     "Très résistant aux dégâts physiques",
-    "Peu d’attaques à distance",
-  ],
-  examples: [
+    "Peu d’attaques à distance"],
+  e,
+xamples: [
     "Ogre sauvage",
     "Géant tribal",
     "Troll muté",
     "Béhémoth des cavernes",
-    "Goliath ossifié",
-  ],
-} as const;
+    "Goliath ossifié"]} as const;

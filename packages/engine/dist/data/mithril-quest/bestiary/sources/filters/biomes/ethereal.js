@@ -1,1 +1,2 @@
-export const etherealBiomes = ["ethereal"];
+export const etherealBiomes = ["ethereal"], as;
+const ;

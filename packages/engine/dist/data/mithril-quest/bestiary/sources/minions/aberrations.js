@@ -27,9 +27,11 @@ export const aberrations = [
         behavior: {
             aggression: "defensive",
             confidence: "coward",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["descend-silently-and-grapple"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["descend-silently-and-grapple"]
         },
         drops: ["neural-tentacle"],
+        // auto-commented
         abilities: ["Paralyzing Tentacles", "Silent Glide"],
         visuals: {
             icon: "grell",
@@ -63,9 +65,11 @@ export const aberrations = [
         behavior: {
             aggression: "aggressive",
             confidence: "courage:3",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["ambush-from-above"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["ambush-from-above"]
         },
         drops: ["chitin-shard"],
+        // auto-commented
         abilities: ["Stone Camouflage"],
         visuals: {
             icon: "grick",
@@ -99,9 +103,11 @@ export const aberrations = [
         behavior: {
             aggression: "instinct",
             confidence: "coward",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["psionic-scream-and-hide"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["psionic-scream-and-hide"]
         },
         drops: ["psionic-residue"],
+        // auto-commented
         abilities: ["Mind Screech", "Neural Feedback"],
         visuals: {
             icon: "worm",
@@ -135,9 +141,11 @@ export const aberrations = [
         behavior: {
             aggression: "obsession",
             confidence: "fearless",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["suppress-all-sanity-with-aura"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["suppress-all-sanity-with-aura"]
         },
         drops: ["fractured-organ"],
+        // auto-commented
         abilities: ["Gibbering Aura", "Amorphous Engulf"],
         visuals: {
             icon: "mass",
@@ -171,9 +179,11 @@ export const aberrations = [
         behavior: {
             aggression: "aggressive",
             confidence: "courage:5",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["assail-brain-then-pursue"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["assail-brain-then-pursue"]
         },
         drops: ["horror-residue"],
+        // auto-commented
         abilities: ["Horror Instinct", "Body Thief"],
         visuals: {
             icon: "brain",
@@ -207,9 +217,11 @@ export const aberrations = [
         behavior: {
             aggression: "berserk",
             confidence: "fearless",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["float-at-range-and-swap-space"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["float-at-range-and-swap-space"]
         },
         drops: ["void-core"],
+        // auto-commented
         abilities: ["Null Aura", "Void Beam", "Levitation"],
         visuals: {
             icon: "eye",

@@ -24,7 +24,6 @@ export const MYTHIC_BOSSES = [
   SERAPHIEL,
   KRONTHAL,
   ORAKAI,
-  NAHMIRYTH,
-];
+  NAHMIRYTH];
 
 export default MYTHIC_BOSSES;

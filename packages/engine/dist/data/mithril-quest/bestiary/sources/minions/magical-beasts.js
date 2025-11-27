@@ -16,7 +16,8 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["fly-by-attack"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["fly-by-attack"],
         stats: {
             hp: 52,
             ac: 13,
@@ -24,7 +25,9 @@ export const MINIONS = [
             dmg: "1d8 + 2d6",
             speed: "40 ft, fly 80 ft",
         },
+        // auto-commented
         loot: ["griffon-feather", "beak-fragment"],
+        // auto-commented
         abilities: ["Talon Swipe", "Dive Attack"],
     },
     /* ------------------------------------------------------------ */
@@ -44,7 +47,8 @@ export const MINIONS = [
             aggression: 2,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["charge"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["charge"],
         stats: {
             hp: 68,
             ac: 15,
@@ -52,7 +56,9 @@ export const MINIONS = [
             dmg: "1d8 radiant / horn",
             speed: "50 ft",
         },
+        // auto-commented
         loot: ["unicorn-horn", "forest-horn-shard"],
+        // auto-commented
         abilities: ["Healing Touch", "Teleport", "Magic Assistance"],
     },
     /* ------------------------------------------------------------ */
@@ -72,7 +78,8 @@ export const MINIONS = [
             aggression: 5,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["spike-volley"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["spike-volley"],
         stats: {
             hp: 56,
             ac: 14,
@@ -80,7 +87,9 @@ export const MINIONS = [
             dmg: "1d8 / spike-volley (1d8+3)",
             speed: "40 ft, fly 50 ft",
         },
+        // auto-commented
         loot: ["manticore-spike", "manticore-hide"],
+        // auto-commented
         abilities: ["Spike Volley", "Lion's Fury"],
     },
     /* ------------------------------------------------------------ */
@@ -100,7 +109,8 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["petrifying-gaze"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["petrifying-gaze"],
         stats: {
             hp: 85,
             ac: 15,
@@ -108,7 +118,9 @@ export const MINIONS = [
             dmg: "1d10 + 4",
             speed: "30 ft",
         },
+        // auto-commented
         loot: ["basilisk-eye", "stone-scale"],
+        // auto-commented
         abilities: ["Petrifying Gaze"],
     },
     /* ------------------------------------------------------------ */
@@ -128,7 +140,8 @@ export const MINIONS = [
             aggression: 6,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["bite-claw-maul"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["bite-claw-maul"],
         stats: {
             hp: 114,
             ac: 14,
@@ -136,7 +149,9 @@ export const MINIONS = [
             dmg: "1d10+4 / 2d6 / fire breath 20ft",
             speed: "40 ft, fly 60 ft",
         },
+        // auto-commented
         loot: ["lion-horn", "dragon-scale", "goat-horn"],
+        // auto-commented
         abilities: ["Fire Breath", "Multiattack"],
     },
 ];

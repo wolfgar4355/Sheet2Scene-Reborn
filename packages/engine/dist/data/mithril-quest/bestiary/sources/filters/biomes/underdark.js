@@ -1,1 +1,2 @@
-export const underdarkBiomes = ["underdark"];
+export const underdarkBiomes = ["underdark"], as;
+const ;

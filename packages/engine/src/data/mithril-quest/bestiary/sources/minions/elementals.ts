@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "air-elemental",
   name: "Air Elemental",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["sky", "desert", "mountains"],
-  habitat: ["storm-clouds", "wind-temple"],
+  h,
+abitat: ["storm-clouds", "wind-temple"],
   category: "elemental",
-  role: "skirmisher",
-  factions: ["tempest-court"],
+  r,
+ole: "skirmisher",
+  f,
+actions: ["tempest-court"],
   tags: ["flying", "wind"],
-  behavior: {
-    aggression: 4,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["hit-and-drift"]
-  stats: {
-    hp: 90,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["hit-and-drift"],
+s,
+tats: {
+      hp: 90,
     ac: 15,
     atk: 14,
     dmg: "2d8 bludgeoning",
-    speed: "fly 90 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["air-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Whirlwind", "Incorporeal Drift"],
-},
+    s,
+peed: "fly 90 ft"},
+  loot: ["air-essence"],
+  a,
+bilities: ["Whirlwind", "Incorporeal Drift"]},
 
 /* --------------------------------------------------------- */
 /*                    EARTH ELEMENTAL — CR 5                 */
@@ -40,31 +47,38 @@ abilities: ["Whirlwind", "Incorporeal Drift"],
 {
   id: "earth-elemental",
   name: "Earth Elemental",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["caves", "mountains", "underground"],
-  habitat: ["deep-caverns", "geomantic-core"],
+  h,
+abitat: ["deep-caverns", "geomantic-core"],
   category: "elemental",
-  role: "brute",
-  factions: ["stonewardens"],
+  r,
+ole: "brute",
+  f,
+actions: ["stonewardens"],
   tags: ["burrower", "stone"],
-  behavior: {
-    aggression: 5,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["burrow-ambush"]
-  stats: {
-    hp: 126,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["burrow-ambush"],
+s,
+tats: {
+      hp: 126,
     ac: 17,
     atk: 15,
     dmg: "2d8+5 bludgeoning",
-    speed: "30 ft, burrow 30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["earth-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Earth Glide", "Ground Slam"],
-},
+    s,
+peed: "30 ft, burrow 30 ft"},
+  loot: ["earth-essence"],
+  a,
+bilities: ["Earth Glide", "Ground Slam"]},
 
 /* --------------------------------------------------------- */
 /*                    FIRE ELEMENTAL — CR 5                  */
@@ -72,31 +86,38 @@ abilities: ["Earth Glide", "Ground Slam"],
 {
   id: "fire-elemental",
   name: "Fire Elemental",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["volcano", "desert", "forge"],
-  habitat: ["lava-pools", "blazing-furnace"],
+  h,
+abitat: ["lava-pools", "blazing-furnace"],
   category: "elemental",
-  role: "controller",
-  factions: ["inferno-kin"],
+  r,
+ole: "controller",
+  f,
+actions: ["inferno-kin"],
   tags: ["ignite", "flame"],
-  behavior: {
-    aggression: 5,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["burn-through-lines"]
-  stats: {
-    hp: 102,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["burn-through-lines"],
+s,
+tats: {
+      hp: 102,
     ac: 14,
     atk: 15,
     dmg: "2d6 fire",
-    speed: "50 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["fire-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Flame Form", "Ignite", "Blazing Trail"],
-},
+    s,
+peed: "50 ft"},
+  loot: ["fire-essence"],
+  a,
+bilities: ["Flame Form", "Ignite", "Blazing Trail"]},
 
 /* --------------------------------------------------------- */
 /*                    WATER ELEMENTAL — CR 5                 */
@@ -104,31 +125,38 @@ abilities: ["Flame Form", "Ignite", "Blazing Trail"],
 {
   id: "water-elemental",
   name: "Water Elemental",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["coast", "river", "lake", "swamp"],
-  habitat: ["whirlpools", "deep-lagoons"],
+  h,
+abitat: ["whirlpools", "deep-lagoons"],
   category: "elemental",
-  role: "controller",
-  factions: ["tideborn"],
+  r,
+ole: "controller",
+  f,
+actions: ["tideborn"],
   tags: ["water", "tidal"],
-  behavior: {
-    aggression: 3,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["engulf-and-drown"]
-  stats: {
-    hp: 114,
+  b,
+ehavior: {
+    a,
+ggression: 3,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["engulf-and-drown"],
+s,
+tats: {
+      hp: 114,
     ac: 14,
     atk: 14,
     dmg: "2d8+4 bludgeoning",
-    speed: "30 ft, swim 90 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["water-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Engulf", "Liquid Form"],
-},
+    s,
+peed: "30 ft, swim 90 ft"},
+  loot: ["water-essence"],
+  a,
+bilities: ["Engulf", "Liquid Form"]},
 
 /* --------------------------------------------------------- */
 /*                    MAGMA ELEMENTAL — CR 6                 */
@@ -136,31 +164,38 @@ abilities: ["Engulf", "Liquid Form"],
 {
   id: "magma-elemental",
   name: "Magma Elemental",
-  cr: 6,
+  c,
+r: 6,
   biomes: ["volcano", "infernal-zones"],
-  habitat: ["magma-chambers", "molten-fissure"],
+  h,
+abitat: ["magma-chambers", "molten-fissure"],
   category: "elemental",
-  role: "brute",
-  factions: ["inferno-kin"],
+  r,
+ole: "brute",
+  f,
+actions: ["inferno-kin"],
   tags: ["firecore", "lava"],
-  behavior: {
-    aggression: 5,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["eruption-charge"]
-  stats: {
-    hp: 130,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["eruption-charge"],
+s,
+tats: {
+      hp: 130,
     ac: 16,
     atk: 16,
     dmg: "2d10+5 fire",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["magma-core"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Lava Burst", "Molten Body", "Eruption Step"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["magma-core"],
+  a,
+bilities: ["Lava Burst", "Molten Body", "Eruption Step"]},
 
 /* --------------------------------------------------------- */
 /*                    STORM ELEMENTAL — CR 7                 */
@@ -168,32 +203,37 @@ abilities: ["Lava Burst", "Molten Body", "Eruption Step"],
 {
   id: "storm-elemental",
   name: "Storm Elemental",
-  cr: 7,
+  c,
+r: 7,
   biomes: ["thunderclouds", "coast", "sky"],
-  habitat: ["tempest-nexus", "storm-spire"],
+  h,
+abitat: ["tempest-nexus", "storm-spire"],
   category: "elemental",
-  role: "elite-controller",
-  factions: ["tempest-court"],
+  r,
+ole: "elite-controller",
+  f,
+actions: ["tempest-court"],
   tags: ["lightning", "thunder"],
-  behavior: {
-    aggression: 4,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["aoe-burst-then-hover"]
-  stats: {
-    hp: 140,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["aoe-burst-then-hover"],
+s,
+tats: {
+      hp: 140,
     ac: 16,
     atk: 17,
     dmg: "2d10 lightning / thunder pulse 4d8",
-    speed: "fly 90 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["storm-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Lightning Burst", "Thunder Pulse", "Storm Shield"],
-},
-
-];
+    s,
+peed: "fly 90 ft"},
+  loot: ["storm-essence"],
+  a,
+bilities: ["Lightning Burst", "Thunder Pulse", "Storm Shield"]}];
 
 export default MINIONS;

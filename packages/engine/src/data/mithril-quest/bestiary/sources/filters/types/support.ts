@@ -1,20 +1,22 @@
 export const TYPE_SUPPORT = {
-  role: "Support",
+  r,
+ole: "Support",
   description: "Améliore ses alliés, affaiblit les ennemis, soigne légèrement.",
-  stats: {
-    hp: "Faibles à moyens",
+  s,
+tats: {
+      hp: "Faibles à moyens",
     ac: "Faible",
-    damage: "Faible",
-    mobility: "Moyenne",
-  },
-  traits: [
+    d,
+amage: "Faible",
+    m,
+obility: "Moyenne"},
+  t,
+raits: [
     "Buffs et debuffs",
     "Soins légers ou régénération",
-    "Amélioration du groupe",
-  ],
-  examples: [
+    "Amélioration du groupe"],
+  e,
+xamples: [
     "Prêtre guérisseur",
     "Chaman tribal",
-    "Oracle luminescent",
-  ],
-} as const;
+    "Oracle luminescent"]} as const;

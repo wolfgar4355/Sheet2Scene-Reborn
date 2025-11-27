@@ -58,8 +58,7 @@ const BIOME_TABLES: Record<string, EncounterTableEntry[]> = {
   volcanic: VOLCANIC,
   astral: ASTRAL,
   arcane: ARCANE,
-  nexus: NEXUS,
-};
+  nexus: NEXUS};
 
 // API
 export function loadBiomeTable(biome: string): EncounterTableEntry[] {

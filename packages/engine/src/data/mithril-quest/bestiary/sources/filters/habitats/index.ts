@@ -93,8 +93,7 @@ export const HABITAT_GROUPS = {
   ruins: RUINS_HABITATS,
   shadowlands: SHADOWLANDS_HABITATS,
   swamps: SWAMP_HABITATS,
-  underdark: UNDERDARK_HABITATS,
-} as const;
+  underdark: UNDERDARK_HABITATS} as const;
 
 // ===============================
 // Derived types
@@ -162,5 +161,4 @@ export const ALL_HABITATS: readonly Habitat[] = [
   ...RUINS_HABITATS,
   ...SHADOWLANDS_HABITATS,
   ...SWAMP_HABITATS,
-  ...UNDERDARK_HABITATS,
-] as const;
+  ...UNDERDARK_HABITATS] as const;

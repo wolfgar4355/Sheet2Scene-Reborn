@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "wilting-snare",
   name: "Wilting Snare",
-  cr: 0.25,
+  c,
+r: 0.25,
   biomes: ["forest", "swamp"],
-  habitat: ["druid-groves"],
+  h,
+abitat: ["druid-groves"],
   category: "plant",
-  role: "skirmisher",
-  factions: ["thorn-kin"],
+  r,
+ole: "skirmisher",
+  f,
+actions: ["thorn-kin"],
   tags: ["vines", "ambush"],
-  behavior: {
-    aggression: 4,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["grip-from-undergrowth"]
-  stats: {
-    hp: 12,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["grip-from-undergrowth"],
+s,
+tats: {
+      hp: 12,
     ac: 12,
     atk: 3,
     dmg: "1d4 slashing",
-    speed: "5 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["druidic-sap"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Splintering Bind", "Creeping Cover"],
-},
+    s,
+peed: "5 ft"},
+  loot: ["druidic-sap"],
+  a,
+bilities: ["Splintering Bind", "Creeping Cover"]},
 
 /* ------------------------------------------------------------ */
 /* THORNED CREEPER — CR 1                                        */
@@ -40,31 +47,38 @@ abilities: ["Splintering Bind", "Creeping Cover"],
 {
   id: "thorned-creeper",
   name: "Thorned Creeper",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["forest", "swamp", "ruins"],
-  habitat: ["overgrowth", "ruins"],
+  h,
+abitat: ["overgrowth", "ruins"],
   category: "plant",
-  role: "brute",
-  factions: ["thorn-kin", "spore-collective"],
+  r,
+ole: "brute",
+  f,
+actions: ["thorn-kin", "spore-collective"],
   tags: ["thorns", "poison"],
-  behavior: {
-    aggression: 6,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["lash-closest-target"]
-  stats: {
-    hp: 28,
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["lash-closest-target"],
+s,
+tats: {
+      hp: 28,
     ac: 13,
     atk: 4,
     dmg: "1d6 + 2 piercing",
-    speed: "10 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["thorn-core", "alchemical-sap"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Barbed Vines", "Toxic Sap"],
-},
+    s,
+peed: "10 ft"},
+  loot: ["thorn-core", "alchemical-sap"],
+  a,
+bilities: ["Barbed Vines", "Toxic Sap"]},
 
 /* ------------------------------------------------------------ */
 /* VINE SNARER — CR 3                                           */
@@ -72,31 +86,38 @@ abilities: ["Barbed Vines", "Toxic Sap"],
 {
   id: "vine-snarer",
   name: "Vine Snarer",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["forest", "swamp", "jungle"],
-  habitat: ["dense-growth"],
+  h,
+abitat: ["dense-growth"],
   category: "plant",
-  role: "controller",
-  factions: ["verdant-coven", "ancient-grove"],
+  r,
+ole: "controller",
+  f,
+actions: ["verdant-coven", "ancient-grove"],
   tags: ["entangle", "terrain-control"],
-  behavior: {
-    aggression: 4,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["grab-stragglers-first"]
-  stats: {
-    hp: 60,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["grab-stragglers-first"],
+s,
+tats: {
+      hp: 60,
     ac: 14,
     atk: 6,
     dmg: "2d6 + 3 bludgeoning",
-    speed: "20 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["enchanted-vine", "druid-knot"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Grasping Vines", "Reel In Prey"],
-},
+    s,
+peed: "20 ft"},
+  loot: ["enchanted-vine", "druid-knot"],
+  a,
+bilities: ["Grasping Vines", "Reel In Prey"]},
 
 /* ------------------------------------------------------------ */
 /* BLOOMING DEVOURER — CR 5                                    */
@@ -104,31 +125,38 @@ abilities: ["Grasping Vines", "Reel In Prey"],
 {
   id: "blooming-devourer",
   name: "Blooming Devourer",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["swamp", "jungle", "ruins"],
-  habitat: ["overgrown-temples"],
+  h,
+abitat: ["overgrown-temples"],
   category: "plant",
-  role: "lurker",
-  factions: ["spore-collective"],
+  r,
+ole: "lurker",
+  f,
+actions: ["spore-collective"],
   tags: ["acid", "ambush"],
-  behavior: {
-    aggression: 7,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["swallow-isolated-targets"]
-  stats: {
-    hp: 85,
+  b,
+ehavior: {
+    a,
+ggression: 7,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["swallow-isolated-targets"],
+s,
+tats: {
+      hp: 85,
     ac: 15,
     atk: 8,
     dmg: "2d10 + 3 bludgeoning",
-    speed: "10 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["corrosive-pollen", "rare-seed-pod"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Engulfing Maw", "Acidic Nectar"],
-},
+    s,
+peed: "10 ft"},
+  loot: ["corrosive-pollen", "rare-seed-pod"],
+  a,
+bilities: ["Engulfing Maw", "Acidic Nectar"]},
 
 /* ------------------------------------------------------------ */
 /* GROVE HEART — CR 8 (ELITE PLANT)                             */
@@ -136,32 +164,37 @@ abilities: ["Engulfing Maw", "Acidic Nectar"],
 {
   id: "grove-heart",
   name: "Grove Heart",
-  cr: 8,
+  c,
+r: 8,
   biomes: ["forest"],
-  habitat: ["ancient-woods"],
+  h,
+abitat: ["ancient-woods"],
   category: "plant",
-  role: "support",
-  factions: ["ancient-grove", "druidbound"],
+  r,
+ole: "support",
+  f,
+actions: ["ancient-grove", "druidbound"],
   tags: ["support", "aura"],
-  behavior: {
-    aggression: 2,
-    courage: 9,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["buff-allies-and-root-intruders"]
-  stats: {
-    hp: 135,
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 9},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["buff-allies-and-root-intruders"],
+s,
+tats: {
+      hp: 135,
     ac: 16,
     atk: 10,
     dmg: "2d10 + 4 radiant+smash",
-    speed: "0 ft (rooted)",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["grove-shard", "lifebloom-petal"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Healing Canopy", "Entangling Roots", "Verdant Aura"],
-},
-
-];
+    s,
+peed: "0 ft (rooted)"},
+  loot: ["grove-shard", "lifebloom-petal"],
+  a,
+bilities: ["Healing Canopy", "Entangling Roots", "Verdant Aura"]}];
 
 export default MINIONS;

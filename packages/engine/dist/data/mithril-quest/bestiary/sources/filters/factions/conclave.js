@@ -9,7 +9,7 @@ export const FACTION_CONCLAVE = {
         "éclats lunaires",
         "manteaux d’ombre",
         "tatouages argentés",
-        "reflets bleutés"
+        "reflets bleutés",
     ],
     tone: ["secret", "élégant", "silencieux"],
 };

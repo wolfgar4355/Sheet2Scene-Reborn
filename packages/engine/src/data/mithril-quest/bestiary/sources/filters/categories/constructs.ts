@@ -1,1 +1,1 @@
-export const constructCategories = ["construct"] as const;
+export const constructCategories = ["construct"], as const;

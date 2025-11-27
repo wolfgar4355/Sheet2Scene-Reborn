@@ -1,7 +1,8 @@
 import { MonsterDefinition } from "../categories";
 
 export interface EncounterTableEntry {
-  roll: [number, number];
+  r,
+oll: [number, number];
   monsters: string[];
   habitat?: string;
   difficulty?: "easy" | "standard" | "hard" | "deadly";
@@ -11,73 +12,96 @@ export interface EncounterTableEntry {
 export const MOUNTAIN_ENCOUNTERS: EncounterTableEntry[] = [
   // 1–12 : Faune agressive
   {
-    roll: [1, 12],
-    monsters: ["mountain-goat", "rock-wolf"],
-    habitat: "cliffside",
-    difficulty: "easy",
-    description: "Des bêtes de montagne protègent leur territoire.",
-  },
+    r,
+oll: [1, 12],
+    m,
+onsters: ["mountain-goat", "rock-wolf"],
+    h,
+abitat: "cliffside",
+    d,
+ifficulty: "easy",
+    description: "Des bêtes de montagne protègent leur territoire."},
 
   // 13–25 : Bandits et pillards
   {
-    roll: [13, 25],
-    monsters: ["mountain-bandit", "bandit-archer"],
-    habitat: "mountain-pass",
-    difficulty: "standard",
-    description: "Des brigands embusqués profitent des hauteurs.",
-  },
+    r,
+oll: [13, 25],
+    m,
+onsters: ["mountain-bandit", "bandit-archer"],
+    h,
+abitat: "mountain-pass",
+    d,
+ifficulty: "standard",
+    description: "Des brigands embusqués profitent des hauteurs."},
 
   // 26–40 : Golems ou gardiens anciens
   {
-    roll: [26, 40],
-    monsters: ["stone-golem", "obsidian-guardian"],
-    habitat: "ancient-ruins",
-    difficulty: "standard",
-    description: "Des statues s’animent lorsque vous approchez.",
-  },
+    r,
+oll: [26, 40],
+    m,
+onsters: ["stone-golem", "obsidian-guardian"],
+    h,
+abitat: "ancient-ruins",
+    d,
+ifficulty: "standard",
+    description: "Des statues s’animent lorsque vous approchez."},
 
   // 41–55 : Harpies et créatures volantes
   {
-    roll: [41, 55],
-    monsters: ["harpy", "sky-harpy", "roc-young"],
-    habitat: "high-cliff",
-    difficulty: "hard",
-    description: "Des silhouettes volantes tournent au-dessus de vous.",
-  },
+    r,
+oll: [41, 55],
+    m,
+onsters: ["harpy", "sky-harpy", "roc-young"],
+    h,
+abitat: "high-cliff",
+    d,
+ifficulty: "hard",
+    description: "Des silhouettes volantes tournent au-dessus de vous."},
 
   // 56–70 : Titans mineurs / élémentaires
   {
-    roll: [56, 70],
-    monsters: ["minor-storm-elemental", "earth-shambler"],
-    habitat: "storm-peak",
-    difficulty: "hard",
-    description: "Les vents sifflent d’une façon presque vivante.",
-  },
+    r,
+oll: [56, 70],
+    m,
+onsters: ["minor-storm-elemental", "earth-shambler"],
+    h,
+abitat: "storm-peak",
+    d,
+ifficulty: "hard",
+    description: "Les vents sifflent d’une façon presque vivante."},
 
   // 71–85 : Créatures corrompues
   {
-    roll: [71, 85],
-    monsters: ["abyssal-goat", "void-harpy"],
-    habitat: "dark-peak",
-    difficulty: "deadly",
-    description: "Une corruption invisible altère la pierre elle-même.",
-  },
+    r,
+oll: [71, 85],
+    m,
+onsters: ["abyssal-goat", "void-harpy"],
+    h,
+abitat: "dark-peak",
+    d,
+ifficulty: "deadly",
+    description: "Une corruption invisible altère la pierre elle-même."},
 
   // 86–95 : GÉANTS
   {
-    roll: [86, 95],
-    monsters: ["hill-giant", "frost-giant-scout", "storm-giant-apprentice"],
-    habitat: "giant-territory",
-    difficulty: "deadly",
-    description: "Les pas lourds résonnent sur la montagne.",
-  },
+    r,
+oll: [86, 95],
+    m,
+onsters: ["hill-giant", "frost-giant-scout", "storm-giant-apprentice"],
+    h,
+abitat: "giant-territory",
+    d,
+ifficulty: "deadly",
+    description: "Les pas lourds résonnent sur la montagne."},
 
   // 96–100 : BOSS RARE
   {
-    roll: [96, 100],
-    monsters: ["mountain-colossus", "ancient-storm-titan"],
-    habitat: "mythic-throne",
-    difficulty: "deadly",
-    description: "Une puissance mythique règne depuis les hauteurs éternelles.",
-  },
-];
+    r,
+oll: [96, 100],
+    m,
+onsters: ["mountain-colossus", "ancient-storm-titan"],
+    h,
+abitat: "mythic-throne",
+    d,
+ifficulty: "deadly",
+    description: "Une puissance mythique règne depuis les hauteurs éternelles."}];

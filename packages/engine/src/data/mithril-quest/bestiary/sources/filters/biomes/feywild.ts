@@ -1,1 +1,1 @@
-export const feywildBiomes = ["feywild"] as const;
+export const feywildBiomes = ["feywild"], as const;

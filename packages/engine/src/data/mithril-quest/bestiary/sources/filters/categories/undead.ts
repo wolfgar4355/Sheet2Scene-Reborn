@@ -1,1 +1,1 @@
-export const undeadCategories = ["undead"] as const;
+export const undeadCategories = ["undead"], as const;

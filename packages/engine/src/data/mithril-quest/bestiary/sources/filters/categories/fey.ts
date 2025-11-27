@@ -1,1 +1,1 @@
-export const feyCategories = ["fey"] as const;
+export const feyCategories = ["fey"], as const;

@@ -1,23 +1,25 @@
 export const TYPE_ELITE = {
-  role: "Elite",
+  r,
+ole: "Elite",
   description:
     "Créature exceptionnelle, plus puissante que la moyenne : meilleure défense, attaques uniques, capacités spéciales ou résistance accrue.",
-  stats: {
-    hp: "Élevés",
+  s,
+tats: {
+      hp: "Élevés",
     ac: "Élevée",
-    damage: "Élevé",
-    mobility: "Variable",
-  },
-  traits: [
+    d,
+amage: "Élevé",
+    m,
+obility: "Variable"},
+  t,
+raits: [
     "Attaques spéciales ou capacités uniques",
     "Peut résister aux effets de contrôle",
     "Peut avoir une action légendaire ou une réaction améliorée",
-    "Plus dangereux et intelligent que les créatures standard",
-  ],
-  examples: [
+    "Plus dangereux et intelligent que les créatures standard"],
+  e,
+xamples: [
     "Champion draconique",
     "Sentinelle runique",
     "Chevalier spectral",
-    "Garde royal abyssal",
-  ],
-} as const;
+    "Garde royal abyssal"]} as const;

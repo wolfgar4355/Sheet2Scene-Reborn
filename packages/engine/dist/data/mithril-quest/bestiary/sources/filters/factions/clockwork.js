@@ -9,7 +9,7 @@ export const FACTION_CLOCKWORK = {
         "mécanismes complexes",
         "lumière bleue artificielle",
         "tubes d’énergie",
-        "fumerolles de vapeur"
+        "fumerolles de vapeur",
     ],
     tone: ["précis", "calculateur", "froid"],
 };

@@ -1,20 +1,22 @@
 export const TYPE_SOLDIER = {
-  role: "Soldier",
+  r,
+ole: "Soldier",
   description: "Combattant polyvalent, équilibré, fiable sur la ligne de front.",
-  stats: {
-    hp: "Moyens à élevés",
+  s,
+tats: {
+      hp: "Moyens à élevés",
     ac: "Bonne",
-    damage: "Modéré",
-    mobility: "Moyenne",
-  },
-  traits: [
+    d,
+amage: "Modéré",
+    m,
+obility: "Moyenne"},
+  t,
+raits: [
     "Polyvalent en mêlée",
     "Compétent en défense et attaque",
-    "Peut maintenir la pression sur la durée",
-  ],
-  examples: [
+    "Peut maintenir la pression sur la durée"],
+  e,
+xamples: [
     "Guerrier vétéran",
     "Sentinelle impériale",
-    "Champion tribal",
-  ],
-} as const;
+    "Champion tribal"]} as const;

@@ -6,5 +6,4 @@ export const GRAVEYARD_HABITATS = [
   "crypt-entrances",
   "broken-headstones",
   "spirit-burial-ground",
-  "undead-resting-places",
-] as const;
+  "undead-resting-places"] as const;

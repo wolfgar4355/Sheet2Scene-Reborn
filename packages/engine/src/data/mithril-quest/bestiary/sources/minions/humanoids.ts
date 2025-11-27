@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "bandit",
   name: "Bandit",
-  cr: 0.125,
+  c,
+r: 0.125,
   biomes: ["forest", "hills", "roads", "plains"],
-  habitat: ["roadside-ambush", "bandit-camp"],
+  h,
+abitat: ["roadside-ambush", "bandit-camp"],
   category: "humanoid",
-  role: "striker",
-  factions: ["red-knives"],
+  r,
+ole: "striker",
+  f,
+actions: ["red-knives"],
   tags: ["ambusher"],
-  behavior: {
-    aggression: 2,
-    courage: 2,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["hit-and-run"]
-  stats: {
-    hp: 11,
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 2},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["hit-and-run"],
+s,
+tats: {
+      hp: 11,
     ac: 12,
     atk: 10,
     dmg: "1d6 scimitar",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["tarnished-coin", "rusty-dagger"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Pack Tactics (variant)"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["tarnished-coin", "rusty-dagger"],
+  a,
+bilities: ["Pack Tactics (variant)"]},
 
 /* ------------------------------------------------------------ */
 /* CULTIST (CR 1/4)                                             */
@@ -40,31 +47,38 @@ abilities: ["Pack Tactics (variant)"],
 {
   id: "cultist",
   name: "Cultist",
-  cr: 0.25,
+  c,
+r: 0.25,
   biomes: ["ruins", "dungeon", "underdark"],
-  habitat: ["trance-temple", "void-shrine"],
+  h,
+abitat: ["trance-temple", "void-shrine"],
   category: "humanoid",
-  role: "controller",
-  factions: ["void-cult"],
+  r,
+ole: "controller",
+  f,
+actions: ["void-cult"],
   tags: ["dark-magic"],
-  behavior: {
-    aggression: 1,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["curse-first"]
-  stats: {
-    hp: 15,
+  b,
+ehavior: {
+    a,
+ggression: 1,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["curse-first"],
+s,
+tats: {
+      hp: 15,
     ac: 12,
     atk: 11,
     dmg: "1d6 scimitar",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["ritual-knife", "void-charm"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Dark Chant", "Curse Bolt"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["ritual-knife", "void-charm"],
+  a,
+bilities: ["Dark Chant", "Curse Bolt"]},
 
 /* ------------------------------------------------------------ */
 /* TRIBAL WARRIOR — CR 1/2                                      */
@@ -72,62 +86,76 @@ abilities: ["Dark Chant", "Curse Bolt"],
 {
   id: "tribal-warrior",
   name: "Tribal Warrior",
-  cr: 0.5,
+  c,
+r: 0.5,
   biomes: ["jungle", "savanna", "mountains"],
-  habitat: ["tribal-camp", "war-camp"],
+  h,
+abitat: ["tribal-camp", "war-camp"],
   category: "humanoid",
-  role: "bruiser",
-  factions: ["tribal-alliance"],
+  r,
+ole: "bruiser",
+  f,
+actions: ["tribal-alliance"],
   tags: ["feral"],
-  behavior: {
-    aggression: 4,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["berserk-charge"]
-  stats: {
-    hp: 19,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["berserk-charge"],
+s,
+tats: {
+      hp: 19,
     ac: 13,
     atk: 12,
     dmg: "1d8 spear",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["tribal-necklace"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Battle Cry"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["tribal-necklace"],
+  a,
+bilities: ["Battle Cry"]},
 /* ------------------------------------------------------------ */
 /* SCOUT — CR 1                                                 */
 /* ------------------------------------------------------------ */
 {
   id: "scout",
   name: "Scout",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["forest", "hills", "coast", "mountains"],
-  habitat: ["outpost", "border-fort"],
+  h,
+abitat: ["outpost", "border-fort"],
   category: "humanoid",
-  role: "skirmisher",
-  factions: ["frontier-clans"],
+  r,
+ole: "skirmisher",
+  f,
+actions: ["frontier-clans"],
   tags: ["ranged", "stealthy"],
-  behavior: {
-    aggression: 2,
-    courage: 2,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["ranged-kite"]
-  stats: {
-    hp: 16,
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 2},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["ranged-kite"],
+s,
+tats: {
+      hp: 16,
     ac: 13,
     atk: 14,
     dmg: "1d8 longbow",
-    speed: "35 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["arrow-bundle"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Keen Sight", "Hide"],
-},
+    s,
+peed: "35 ft"},
+  loot: ["arrow-bundle"],
+  a,
+bilities: ["Keen Sight", "Hide"]},
 
 /* ------------------------------------------------------------ */
 /* ASSASSIN — Elite (CR 5)                                      */
@@ -135,31 +163,38 @@ abilities: ["Keen Sight", "Hide"],
 {
   id: "assassin",
   name: "Assassin",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["city", "underdark", "shadowlands"],
-  habitat: ["rooftops", "shadow-alley"],
+  h,
+abitat: ["rooftops", "shadow-alley"],
   category: "humanoid",
-  role: "elite-striker",
-  factions: ["shadow-syndicate"],
+  r,
+ole: "elite-striker",
+  f,
+actions: ["shadow-syndicate"],
   tags: ["poison", "stealth"],
-  behavior: {
-    aggression: 3,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["alpha-strike"]
-  stats: {
-    hp: 78,
+  b,
+ehavior: {
+    a,
+ggression: 3,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["alpha-strike"],
+s,
+tats: {
+      hp: 78,
     ac: 15,
     atk: 18,
     dmg: "1d6+4 / 7d6 sneak attack",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["black-poison", "shadow-dagger"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Sneak Attack", "Poison Strike", "Shadow Step"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["black-poison", "shadow-dagger"],
+  a,
+bilities: ["Sneak Attack", "Poison Strike", "Shadow Step"]},
 
 /* ------------------------------------------------------------ */
 /* WARLORD — Boss-tier humanoid (CR 8)                          */
@@ -167,32 +202,37 @@ abilities: ["Sneak Attack", "Poison Strike", "Shadow Step"],
 {
   id: "warlord",
   name: "Warlord",
-  cr: 8,
+  c,
+r: 8,
   biomes: ["plains", "mountains", "battlefields"],
-  habitat: ["war-camp", "command-tent"],
+  h,
+abitat: ["war-camp", "command-tent"],
   category: "humanoid",
-  role: "leader",
-  factions: ["iron-legion", "frontier-clans"],
+  r,
+ole: "leader",
+  f,
+actions: ["iron-legion", "frontier-clans"],
   tags: ["tactician", "commander"],
-  behavior: {
-    aggression: 5,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["command-strike"]
-  stats: {
-    hp: 148,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["command-strike"],
+s,
+tats: {
+      hp: 148,
     ac: 17,
     atk: 19,
     dmg: "1d10+7 / 2d8 cleave",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["warlord-sigil", "battle-banner"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Command Ally", "War Cry", "Brutal Strike"],
-},
-
-];
+    s,
+peed: "30 ft"},
+  loot: ["warlord-sigil", "battle-banner"],
+  a,
+bilities: ["Command Ally", "War Cry", "Brutal Strike"]}];
 
 export default MINIONS;

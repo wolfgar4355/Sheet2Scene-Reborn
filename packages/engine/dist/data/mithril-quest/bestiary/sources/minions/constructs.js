@@ -25,9 +25,11 @@ export const constructs = [
         behavior: {
             aggression: 1,
             courage: 3,
+            // auto-commented
             tactics: ["ranged-focus", "keep-distance"]
         },
         drops: ["arcane-circuit", "mana-crystal"],
+        // auto-commented
         abilities: ["Overheat Burst", "Mana Surge"],
         visuals: ["floating-runes", "golem-joints", "arcane-glow"]
     },
@@ -54,9 +56,11 @@ export const constructs = [
         behavior: {
             aggression: 2,
             courage: 5,
+            // auto-commented
             tactics: ["block-path", "protect-zone"]
         },
         drops: ["living-stone-core", "granite-shard"],
+        // auto-commented
         abilities: ["Immovable Frame", "Energy Absorption"],
         visuals: ["cracked-stone", "glowing-sigils"]
     },
@@ -83,9 +87,11 @@ export const constructs = [
         behavior: {
             aggression: 3,
             courage: 4,
+            // auto-commented
             tactics: ["auto-parry", "advance-and-strike"]
         },
         drops: ["steel-spring", "clockwork-core"],
+        // auto-commented
         abilities: ["Auto-Counter", "Winding Surge"],
         visuals: ["whirring-gears", "steam-vents", "metal-plates"]
     },
@@ -112,9 +118,11 @@ export const constructs = [
         behavior: {
             aggression: 4,
             courage: 5,
+            // auto-commented
             tactics: ["magma-trail", "smash-frontline"]
         },
         drops: ["obsidian-fragment", "molten-heart"],
+        // auto-commented
         abilities: ["Molten Body", "Lava Burst"],
         visuals: ["cracked-magma-skin", "lava-veins"]
     },
@@ -141,9 +149,11 @@ export const constructs = [
         behavior: {
             aggression: 2,
             courage: 5,
+            // auto-commented
             tactics: ["zone-denial", "magic-suppression"]
         },
         drops: ["astral-shard", "null-core"],
+        // auto-commented
         abilities: ["Null Field", "Levitation", "Disrupt Magic"],
         visuals: ["floating-sphere", "glowing-runes", "gravity-distortion"]
     },

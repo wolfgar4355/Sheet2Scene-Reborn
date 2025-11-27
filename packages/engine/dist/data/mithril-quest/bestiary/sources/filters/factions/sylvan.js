@@ -9,7 +9,7 @@ export const FACTION_SYLVAN = {
         "feuilles lumineuses",
         "pierres couvertes de mousse",
         "faune éthérée",
-        "brume verdâtre magique"
+        "brume verdâtre magique",
     ],
     tone: ["calme", "harmonieux", "ancestral"],
 };

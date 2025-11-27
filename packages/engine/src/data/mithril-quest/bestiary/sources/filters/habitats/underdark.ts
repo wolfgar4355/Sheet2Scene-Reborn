@@ -4,5 +4,4 @@ export const UNDERDARK_HABITATS = [
   "obsidian-tunnels",
   "biolum-caverns",
   "chasm-bridges",
-  "ancient-burrows",
-] as const;
+  "ancient-burrows"] as const;

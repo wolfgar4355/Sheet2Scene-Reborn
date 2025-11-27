@@ -1,15 +1,17 @@
 export const FACTION_INFERNAL = {
   name: "Infernal Legion",
-  themes: ["démons", "souffre", "chaos"],
-  colors: ["rouge sang", "noir cendre", "orangé volcanique"],
-  visual: [
+  t,
+hemes: ["démons", "souffre", "chaos"],
+  c,
+olors: ["rouge sang", "noir cendre", "orangé volcanique"],
+  v,
+isual: [
     "flammes dansantes",
     "corruption brûlante",
     "sol fissuré et incandescent",
     "cornes et pointes",
     "magie de feu instable",
     "fumée épaisse",
-    "symboles démoniaques"
-  ],
-  tone: ["agressif", "chaotique", "menaçant"],
-} as const;
+    "symboles démoniaques"],
+  t,
+one: ["agressif", "chaotique", "menaçant"]} as const;

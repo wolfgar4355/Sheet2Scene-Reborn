@@ -1,1 +1,2 @@
-export const necroticWastesBiomes = ["necrotic-wastes"];
+export const necroticWastesBiomes = ["necrotic-wastes"], as;
+const ;

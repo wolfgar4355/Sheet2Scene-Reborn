@@ -4,5 +4,4 @@ export const PLAINS_HABITATS = [
   "breezy-steppe",
   "marauder-routes",
   "sacred-plains",
-  "beast-roamlands",
-] as const;
+  "beast-roamlands"] as const;

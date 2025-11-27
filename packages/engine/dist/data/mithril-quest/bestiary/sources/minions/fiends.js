@@ -16,7 +16,8 @@ export const MINIONS = [
             aggression: 2,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["poison-sting"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["poison-sting"],
         stats: {
             hp: 22,
             ac: 13,
@@ -24,7 +25,9 @@ export const MINIONS = [
             dmg: "1d4 piercing + poison",
             speed: "20 ft, fly 40 ft",
         },
+        // auto-commented
         loot: ["hellish-ichor"],
+        // auto-commented
         abilities: ["Invisibility", "Devil’s Sight", "Poison Sting"],
     },
     /* --------------------------------------------------------- */
@@ -44,7 +47,8 @@ export const MINIONS = [
             aggression: 3,
             courage: 2,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["fear-spike"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["fear-spike"],
         stats: {
             hp: 18,
             ac: 13,
@@ -52,7 +56,9 @@ export const MINIONS = [
             dmg: "1d6 claws",
             speed: "40 ft",
         },
+        // auto-commented
         loot: ["nether-dust"],
+        // auto-commented
         abilities: ["Scare", "Invisibility", "Shapechanger"],
     },
     /* --------------------------------------------------------- */
@@ -72,7 +78,8 @@ export const MINIONS = [
             aggression: 5,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["leap-and-maul"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["leap-and-maul"],
         stats: {
             hp: 56,
             ac: 14,
@@ -80,7 +87,9 @@ export const MINIONS = [
             dmg: "2d6+4",
             speed: "40 ft, climb 40 ft",
         },
+        // auto-commented
         loot: ["demonic-ichor"],
+        // auto-commented
         abilities: ["Frenzied Leap", "Reckless Assault"],
     },
     /* --------------------------------------------------------- */
@@ -100,7 +109,8 @@ export const MINIONS = [
             aggression: 4,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["barb-sprint", "spike-barrage"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["barb-sprint", "spike-barrage"],
         stats: {
             hp: 96,
             ac: 16,
@@ -108,7 +118,9 @@ export const MINIONS = [
             dmg: "2d6+4 (spike barrage)",
             speed: "40 ft",
         },
+        // auto-commented
         loot: ["infernal-spine"],
+        // auto-commented
         abilities: ["Hurl Flame", "Spined Body", "Magic Resistance"],
     },
     /* --------------------------------------------------------- */
@@ -128,7 +140,8 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["impale-and-bleed"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["impale-and-bleed"],
         stats: {
             hp: 120,
             ac: 17,
@@ -136,7 +149,9 @@ export const MINIONS = [
             dmg: "2d8+6 slashing + poison",
             speed: "40 ft",
         },
+        // auto-commented
         loot: ["bone-shard-of-hell"],
+        // auto-commented
         abilities: ["Paralyzing Tail", "Devil’s Sight", "Magic Resistance"],
     },
     /* --------------------------------------------------------- */
@@ -156,7 +171,8 @@ export const MINIONS = [
             aggression: 4,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["ambush-from-shadows"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["ambush-from-shadows"],
         stats: {
             hp: 112,
             ac: 15,
@@ -164,7 +180,9 @@ export const MINIONS = [
             dmg: "2d10 necrotic",
             speed: "40 ft, fly 60 ft",
         },
+        // auto-commented
         loot: ["ethereal-sulfurshard"],
+        // auto-commented
         abilities: ["Incorporeal Movement", "Shadow Stealth", "Horrifying Visage"],
     },
 ];

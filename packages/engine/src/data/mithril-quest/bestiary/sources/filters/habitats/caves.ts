@@ -4,5 +4,4 @@ export const CAVE_HABITATS = [
   "crystal-caves",
   "echo-hollows",
   "beast-lairs",
-  "buried-shrines",
-] as const;
+  "buried-shrines"] as const;

@@ -9,7 +9,7 @@ export const FACTION_DRACONIC = {
         "feu ancestral",
         "gemmes massives",
         "ailes imposantes",
-        "tatouages runiques draconiques"
+        "tatouages runiques draconiques",
     ],
     tone: ["majestueux", "dominant", "ancien"],
 };

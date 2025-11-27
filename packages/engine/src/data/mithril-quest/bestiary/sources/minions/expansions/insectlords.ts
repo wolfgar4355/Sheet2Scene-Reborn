@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "chitin-soldier",
   name: "Chitin Soldier",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["jungle", "swamp", "underdark"],
-  habitat: ["hive-tunnels", "nesting-logs"],
+  h,
+abitat: ["hive-tunnels", "nesting-logs"],
   category: "insectoid",
-  role: "fighter",
-  factions: ["hive-swarm"],
+  r,
+ole: "fighter",
+  f,
+actions: ["hive-swarm"],
   tags: ["chitin", "pheromones"],
-  behavior: {
-    aggression: 4,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["flank-and-slam"]
-  stats: {
-    hp: 18,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["flank-and-slam"],
+s,
+tats: {
+      hp: 18,
     ac: 14,
     atk: 4,
     dmg: "1d6+2 slashing",
-    speed: "40 ft, climb 30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["chitin-shard"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Pheromone Mark"],
-},
+    s,
+peed: "40 ft, climb 30 ft"},
+  loot: ["chitin-shard"],
+  a,
+bilities: ["Pheromone Mark"]},
 
 /* ------------------------------------------------------------ */
 /* DUNE STALKER BEETLE — CR 3                                   */
@@ -40,31 +47,38 @@ abilities: ["Pheromone Mark"],
 {
   id: "dune-stalker-beetle",
   name: "Dune Stalker Beetle",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["desert", "dunes", "canyons"],
-  habitat: ["sand-nests", "abandoned-oases"],
+  h,
+abitat: ["sand-nests", "abandoned-oases"],
   category: "insectoid",
-  role: "lurker",
-  factions: ["scarab-cult"],
+  r,
+ole: "lurker",
+  f,
+actions: ["scarab-cult"],
   tags: ["burrow", "charge"],
-  behavior: {
-    aggression: 5,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["burst-from-ground"]
-  stats: {
-    hp: 36,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["burst-from-ground"],
+s,
+tats: {
+      hp: 36,
     ac: 16,
     atk: 6,
     dmg: "2d8+3 piercing",
-    speed: "35 ft, burrow 30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["chitin-carapace"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Burrow Ambush", "Chitin Charge"],
-},
+    s,
+peed: "35 ft, burrow 30 ft"},
+  loot: ["chitin-carapace"],
+  a,
+bilities: ["Burrow Ambush", "Chitin Charge"]},
 
 /* ------------------------------------------------------------ */
 /* NECRO MANTIS — CR 5                                          */
@@ -72,31 +86,38 @@ abilities: ["Burrow Ambush", "Chitin Charge"],
 {
   id: "necro-mantis",
   name: "Necro Mantis",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["shadowlands", "swamp", "underdark"],
-  habitat: ["grave-forests", "ossuary-hives"],
+  h,
+abitat: ["grave-forests", "ossuary-hives"],
   category: "insectoid",
-  role: "controller",
-  factions: ["necrotic-hive"],
+  r,
+ole: "controller",
+  f,
+actions: ["necrotic-hive"],
   tags: ["undead", "venom"],
-  behavior: {
-    aggression: 6,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["stun-then-venom-slash"]
-  stats: {
-    hp: 68,
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["stun-then-venom-slash"],
+s,
+tats: {
+      hp: 68,
     ac: 16,
     atk: 8,
     dmg: "1d10 necrotic",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["mantis-fang"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Paralyzing Gaze", "Necrotic Lash"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["mantis-fang"],
+  a,
+bilities: ["Paralyzing Gaze", "Necrotic Lash"]},
 
 /* ------------------------------------------------------------ */
 /* SCARAB SWARM HOST — CR 7                                     */
@@ -104,31 +125,38 @@ abilities: ["Paralyzing Gaze", "Necrotic Lash"],
 {
   id: "scarab-swarm-host",
   name: "Scarab Swarm Host",
-  cr: 7,
+  c,
+r: 7,
   biomes: ["desert", "ruins", "crypts"],
-  habitat: ["scarab-pits", "tomb-hives"],
+  h,
+abitat: ["scarab-pits", "tomb-hives"],
   category: "insectoid",
-  role: "summoner",
-  factions: ["scarab-cult", "brood-mind"],
+  r,
+ole: "summoner",
+  f,
+actions: ["scarab-cult", "brood-mind"],
   tags: ["swarm", "summoner"],
-  behavior: {
-    aggression: 7,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["summon-minions-and-overwhelm"]
-  stats: {
-    hp: 110,
+  b,
+ehavior: {
+    a,
+ggression: 7,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["summon-minions-and-overwhelm"],
+s,
+tats: {
+      hp: 110,
     ac: 17,
     atk: 9,
     dmg: "2d10 slashing",
-    speed: "30 ft, burrow 10 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["scarab-gland"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Summon Scarabs", "Carapace Burst", "Fear Chitter"],
-},
+    s,
+peed: "30 ft, burrow 10 ft"},
+  loot: ["scarab-gland"],
+  a,
+bilities: ["Summon Scarabs", "Carapace Burst", "Fear Chitter"]},
 
 /* ------------------------------------------------------------ */
 /* CHITIN COLOSSUS — CR 11 (BOSS)                               */
@@ -136,37 +164,41 @@ abilities: ["Summon Scarabs", "Carapace Burst", "Fear Chitter"],
 {
   id: "chitin-colossus",
   name: "Chitin Colossus",
-  cr: 11,
+  c,
+r: 11,
   biomes: ["jungle", "underdark", "corrupted-zone"],
-  habitat: ["hive-citadels", "charr-pits"],
+  h,
+abitat: ["hive-citadels", "charr-pits"],
   category: "insectoid",
-  role: "boss",
-  factions: ["carapace-dominion"],
+  r,
+ole: "boss",
+  f,
+actions: ["carapace-dominion"],
   tags: ["massive", "charge", "stomp"],
-  behavior: {
-    aggression: 9,
-    courage: 10,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["stomp-frontline-then-gore"]
-  stats: {
-    hp: 240,
+  b,
+ehavior: {
+    a,
+ggression: 9,
+    c,
+ourage: 10},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["stomp-frontline-then-gore"],
+s,
+tats: {
+      hp: 240,
     ac: 20,
     atk: 14,
     dmg: "4d12 slashing",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["colossus-plate", "ancient-chitin-core"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: [
+    s,
+peed: "40 ft"},
+  loot: ["colossus-plate", "ancient-chitin-core"],
+  a,
+bilities: [
     "Massive Stomp",
     "Gore Rampage",
     "Hive Roar",
-    "Pheromone Domination"
-  ],
-},
-
-];
+    "Pheromone Domination"]}];
 
 export default MINIONS;

@@ -11,7 +11,7 @@ export const TYPE_MINION = {
         "Agit en essaim",
         "Mort rapide",
         "Amplification par nombre",
-        "Idéal pour combats massifs"
+        "Idéal pour combats massifs",
     ],
     examples: [
         "Squelettes faibles",

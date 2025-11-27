@@ -1,1 +1,2 @@
-export const fiendCategories = ["fiend"];
+export const fiendCategories = ["fiend"], as;
+const ;

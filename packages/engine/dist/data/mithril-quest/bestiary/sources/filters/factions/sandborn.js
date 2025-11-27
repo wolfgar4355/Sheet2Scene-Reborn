@@ -9,7 +9,7 @@ export const FACTION_SANDBORN = {
         "toiles désertiques",
         "pièces d’or anciennes",
         "masques rituels",
-        "magie du soleil et du vent"
+        "magie du soleil et du vent",
     ],
     tone: ["chaud", "ancien", "rituel"],
 };

@@ -8,43 +8,62 @@ export const beasts: UniversalCreature[] = [
   {
     id: "wolf",
     name: "Wolf",
-    rarity: "common",
-    type: "beast",
-    categories: ["beasts"],
+    r,
+arity: "common",
+    t,
+ype: "beast",
+    c,
+ategories: ["beasts"],
     biomes: ["forest", "hills", "tundra"],
-    habitats: ["forest", "deep-forest", "tundra"],
-    factions: [],
-    tagsAAA: ["pack", "tracker"],
-    cr: 0.25,
+    h,
+abitats: ["forest", "deep-forest", "tundra"],
+    f,
+actions: [],
+    t,
+agsAAA: ["pack", "tracker"],
+    c,
+r: 0.25,
 
     hp: 11,
     ac: 13,
-    speed: ["land:40"],
+    s,
+peed: ["l,
+and:40"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Bite",
         bonus: +4,
-        damage: { dice: "2d4+2", type: "piercing" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "2d4+2", t,
+ype: "piercing" }}],
 
-    behavior: {
-      aggression: "aggressive",
-      confidence: "courage:4",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["pack-attack"]
+    b,
+ehavior: {
+      a,
+ggression: "aggressive",
+      c,
+onfidence: "c,
+ourage:4",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["pack-attack"]
     },
 
-    drops: ["wolf-pelt", "wolf-teeth"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Keen Hearing", "Pack Tactics"],
+    d,
+rops: ["wolf-pelt", "wolf-teeth"],
+    a,
+bilities: ["Keen Hearing", "Pack Tactics"],
 
-    visuals: {
-      icon: "wolf",
-      keywords: ["fur", "quadruped"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "wolf",
+      k,
+eywords: ["fur", "quadruped"]}},
 
   //──────────────────────────────
   // GIANT RAT — CR 0.125
@@ -52,43 +71,61 @@ abilities: ["Keen Hearing", "Pack Tactics"],
   {
     id: "giant-rat",
     name: "Giant Rat",
-    rarity: "common",
-    type: "beast",
-    categories: ["beasts"],
+    r,
+arity: "common",
+    t,
+ype: "beast",
+    c,
+ategories: ["beasts"],
     biomes: ["urban", "ruins", "sewers"],
-    habitats: ["tunnels", "ruins"],
-    factions: [],
-    tagsAAA: ["swarm", "vermin"],
-    cr: 0.125,
+    h,
+abitats: ["tunnels", "ruins"],
+    f,
+actions: [],
+    t,
+agsAAA: ["swarm", "vermin"],
+    c,
+r: 0.125,
 
     hp: 7,
     ac: 12,
-    speed: ["land:30"],
+    s,
+peed: ["l,
+and:30"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Bite",
         bonus: +4,
-        damage: { dice: "1d4+2", type: "piercing" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "1d4+2", t,
+ype: "piercing" }}],
 
-    behavior: {
-      aggression: "scavenger",
-      confidence: "coward",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["harass"]
+    b,
+ehavior: {
+      a,
+ggression: "scavenger",
+      c,
+onfidence: "coward",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["harass"]
     },
 
-    drops: ["rat-tail"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: [],
+    d,
+rops: ["rat-tail"],
+    a,
+bilities: [],
 
-    visuals: {
-      icon: "rat",
-      keywords: ["rodent"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "rat",
+      k,
+eywords: ["rodent"]}},
 
   //──────────────────────────────
   // BLACK BEAR — CR 1
@@ -96,43 +133,63 @@ abilities: [],
   {
     id: "black-bear",
     name: "Black Bear",
-    rarity: "common",
-    type: "beast",
-    categories: ["beasts"],
+    r,
+arity: "common",
+    t,
+ype: "beast",
+    c,
+ategories: ["beasts"],
     biomes: ["forest", "mountains"],
-    habitats: ["forest", "hill-forest", "mountain-base"],
-    factions: [],
-    tagsAAA: ["brute"],
-    cr: 1,
+    h,
+abitats: ["forest", "hill-forest", "mountain-base"],
+    f,
+actions: [],
+    t,
+agsAAA: ["brute"],
+    c,
+r: 1,
 
     hp: 34,
     ac: 11,
-    speed: ["land:40", "climb:30"],
+    s,
+peed: ["l,
+and:40", "c,
+limb:30"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Multiattack",
         bonus: +5,
-        damage: { dice: "1d6+3 claw + 1d8+3", type: "bite" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "1d6+3 claw + 1d8+3", t,
+ype: "bite" }}],
 
-    behavior: {
-      aggression: "territorial",
-      confidence: "courage:6",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["rush-and-maul"]
+    b,
+ehavior: {
+      a,
+ggression: "territorial",
+      c,
+onfidence: "c,
+ourage:6",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["rush-and-maul"]
     },
 
-    drops: ["bear-pelt", "bear-meat"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: [],
+    d,
+rops: ["bear-pelt", "bear-meat"],
+    a,
+bilities: [],
 
-    visuals: {
-      icon: "bear",
-      keywords: ["fur", "brute"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "bear",
+      k,
+eywords: ["fur", "brute"]}},
 
   //──────────────────────────────
   // GIANT SPIDER — CR 1
@@ -140,48 +197,70 @@ abilities: [],
   {
     id: "giant-spider",
     name: "Giant Spider",
-    rarity: "uncommon",
-    type: "beast",
-    categories: ["beasts"],
+    r,
+arity: "uncommon",
+    t,
+ype: "beast",
+    c,
+ategories: ["beasts"],
     biomes: ["forest", "swamp", "caves"],
-    habitats: ["web-lairs", "deep-forest", "swamp", "caves"],
-    factions: [],
-    tagsAAA: ["poison", "web"],
-    cr: 1,
+    h,
+abitats: ["web-lairs", "deep-forest", "swamp", "caves"],
+    f,
+actions: [],
+    t,
+agsAAA: ["poison", "web"],
+    c,
+r: 1,
 
     hp: 26,
     ac: 14,
-    speed: ["land:40", "climb:40"],
+    s,
+peed: ["l,
+and:40", "c,
+limb:40"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Bite",
         bonus: +4,
-        damage: { dice: "1d8+2 piercing + 2d8", type: "poison" },
-      },
+        d,
+amage: { d,
+ice: "1d8+2 piercing + 2d8", t,
+ype: "poison" }},
       {
         name: "Web",
         bonus: +5,
-        damage: { dice: "Restrains", type: "target" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "Restrains", t,
+ype: "target" }}],
 
-    behavior: {
-      aggression: "ambusher",
-      confidence: "courage:3",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["ambush"]
+    b,
+ehavior: {
+      a,
+ggression: "ambusher",
+      c,
+onfidence: "c,
+ourage:3",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["ambush"]
     },
 
-    drops: ["spider-venom", "silk-thread"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Web Shot", "Poison Bite"],
+    d,
+rops: ["spider-venom", "silk-thread"],
+    a,
+bilities: ["Web Shot", "Poison Bite"],
 
-    visuals: {
-      icon: "spider",
-      keywords: ["legs", "web"],
-    },
-  },
+    v,
+isuals: {
+      i,
+con: "spider",
+      k,
+eywords: ["legs", "web"]}},
 
   //──────────────────────────────
   // DIRE WOLF — CR 1
@@ -189,41 +268,59 @@ abilities: ["Web Shot", "Poison Bite"],
   {
     id: "dire-wolf",
     name: "Dire Wolf",
-    rarity: "elite",
-    type: "beast",
-    categories: ["beasts"],
+    r,
+arity: "elite",
+    t,
+ype: "beast",
+    c,
+ategories: ["beasts"],
     biomes: ["forest", "hills", "tundra"],
-    habitats: ["forest", "deep-forest", "tundra"],
-    factions: [],
-    tagsAAA: ["pack", "alpha"],
-    cr: 1,
+    h,
+abitats: ["forest", "deep-forest", "tundra"],
+    f,
+actions: [],
+    t,
+agsAAA: ["pack", "alpha"],
+    c,
+r: 1,
 
     hp: 37,
     ac: 14,
-    speed: ["land:50"],
+    s,
+peed: ["l,
+and:50"],
 
-    attacks: [
+    a,
+ttacks: [
       {
         name: "Bite",
         bonus: +5,
-        damage: { dice: "2d6+3", type: "piercing" },
-      },
-    ],
+        d,
+amage: { d,
+ice: "2d6+3", t,
+ype: "piercing" }}],
 
-    behavior: {
-      aggression: "aggressive",
-      confidence: "courage:8",
-      tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["alpha-pounce"]
+    b,
+ehavior: {
+      a,
+ggression: "aggressive",
+      c,
+onfidence: "c,
+ourage:8",
+      t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["alpha-pounce"]
     },
 
-    drops: ["thick-fur", "wolf-bone"],
-    // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Pack Tactics"],
+    d,
+rops: ["thick-fur", "wolf-bone"],
+    a,
+bilities: ["Pack Tactics"],
 
-    visuals: {
-      icon: "dire-wolf",
-      keywords: ["large", "wolf"],
-    },
-  },
-];
+    v,
+isuals: {
+      i,
+con: "dire-wolf",
+      k,
+eywords: ["large", "wolf"]}}];

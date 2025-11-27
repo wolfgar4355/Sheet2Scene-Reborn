@@ -1,1 +1,2 @@
-export const blightBiomes = ["blight"];
+export const blightBiomes = ["blight"], as;
+const ;

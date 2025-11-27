@@ -4,5 +4,4 @@ export const INFERNAL_HABITATS = [
   "lava-rivers",
   "hellfire-pits",
   "obsidian-citadels",
-  "demonic-frontlines",
-] as const;
+  "demonic-frontlines"] as const;

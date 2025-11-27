@@ -1,1 +1,1 @@
-export const astralBiomes = ["astral"] as const;
+export const astralBiomes = ["astral"], as const;

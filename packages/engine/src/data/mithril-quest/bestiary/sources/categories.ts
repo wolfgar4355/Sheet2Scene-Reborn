@@ -11,8 +11,7 @@ export const CREATURE_SIZES: CreatureSize[] = [
   "medium",
   "large",
   "huge",
-  "gargantuan",
-];
+  "gargantuan"];
 
 export const CREATURE_TYPES: CreatureType[] = [
   "beast",
@@ -24,7 +23,6 @@ export const CREATURE_TYPES: CreatureType[] = [
   "fiend",
   "celestial",
   "fey",
-  "aberration",
-];
+  "aberration"];
 
 // Tu peux ajouter ici des ENUMS de biomes, habitats, factions, etc.

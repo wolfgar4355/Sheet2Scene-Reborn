@@ -1,1 +1,2 @@
-export const undeadCategories = ["undead"];
+export const undeadCategories = ["undead"], as;
+const ;

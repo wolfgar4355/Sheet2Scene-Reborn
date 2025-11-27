@@ -12,37 +12,53 @@ export const constructs: UniversalCreature[] = [
 {
   id: "arcane-automaton",
   name: "Arcane Automaton",
-  rarity: "uncommon",
+  r,
+arity: "uncommon",
 
-  type: ["construct"],
-  categories: ["sentinel", "arcane"],
+  t,
+ype: ["construct"],
+  c,
+ategories: ["sentinel", "arcane"],
   biomes: ["dungeon", "ruins", "arcane-labs"],
-  habitats: ["arcane-workshop", "golem-forges"],
-  factions: ["clockwork", "arcanum"],
+  h,
+abitats: ["arcane-workshop", "golem-forges"],
+  f,
+actions: ["clockwork", "arcanum"],
 
-  tagsAAA: ["arcane-core", "mana-reactor", "non-organic"],
-  cr: 1,
+  t,
+agsAAA: ["arcane-core", "mana-reactor", "non-organic"],
+  c,
+r: 1,
 
   hp: 18,
   ac: 14,
-  speed: "30 ft.",
+  s,
+peed: "30 ft.",
 
-  attacks: [
-    { name: "Arcane Bolt", toHit: 4, dmg: "1d8 force" }
+  a,
+ttacks: [
+    { name: "Arcane Bolt", t,
+oHit: 4, dmg: "1d8 force" }
   ],
 
-  behavior: {
-    aggression: 1,
-    courage: 3,
-    // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["ranged-focus", "keep-distance"]
+  b,
+ehavior: {
+    a,
+ggression: 1,
+    c,
+ourage: 3,
+    
+t,
+actics: ["ranged-focus", "keep-distance"]
   },
 
-  drops: ["arcane-circuit", "mana-crystal"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Overheat Burst", "Mana Surge"],
+  d,
+rops: ["arcane-circuit", "mana-crystal"],
+  a,
+bilities: ["Overheat Burst", "Mana Surge"],
 
-  visuals: ["floating-runes", "golem-joints", "arcane-glow"]
+  v,
+isuals: ["floating-runes", "golem-joints", "arcane-glow"]
 },
 
 /* =======================================================
@@ -51,37 +67,53 @@ abilities: ["Overheat Burst", "Mana Surge"],
 {
   id: "stone-sentinel",
   name: "Stone Sentinel",
-  rarity: "uncommon",
+  r,
+arity: "uncommon",
 
-  type: ["construct"],
-  categories: ["guardian"],
+  t,
+ype: ["construct"],
+  c,
+ategories: ["guardian"],
   biomes: ["ruins", "mountains"],
-  habitats: ["old-temples", "giant-statue-halls"],
-  factions: ["stonebound"],
+  h,
+abitats: ["old-temples", "giant-statue-halls"],
+  f,
+actions: ["stonebound"],
 
-  tagsAAA: ["heavy", "non-organic", "monolithic"],
-  cr: 2,
+  t,
+agsAAA: ["heavy", "non-organic", "monolithic"],
+  c,
+r: 2,
 
   hp: 32,
   ac: 16,
-  speed: "25 ft.",
+  s,
+peed: "25 ft.",
 
-  attacks: [
-    { name: "Stone Slam", toHit: 5, dmg: "2d6 bludgeoning" }
+  a,
+ttacks: [
+    { name: "Stone Slam", t,
+oHit: 5, dmg: "2d6 bludgeoning" }
   ],
 
-  behavior: {
-    aggression: 2,
-    courage: 5,
-    // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["block-path", "protect-zone"]
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 5,
+    
+t,
+actics: ["block-path", "protect-zone"]
   },
 
-  drops: ["living-stone-core", "granite-shard"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Immovable Frame", "Energy Absorption"],
+  d,
+rops: ["living-stone-core", "granite-shard"],
+  a,
+bilities: ["Immovable Frame", "Energy Absorption"],
 
-  visuals: ["cracked-stone", "glowing-sigils"]
+  v,
+isuals: ["cracked-stone", "glowing-sigils"]
 },
 
 /* =======================================================
@@ -90,37 +122,53 @@ abilities: ["Immovable Frame", "Energy Absorption"],
 {
   id: "clockwork-soldier",
   name: "Clockwork Soldier",
-  rarity: "rare",
+  r,
+arity: "rare",
 
-  type: ["construct"],
-  categories: ["soldier"],
+  t,
+ype: ["construct"],
+  c,
+ategories: ["soldier"],
   biomes: ["workshops", "ruins", "city"],
-  habitats: ["clockwork-factory", "steam-barracks"],
-  factions: ["clockwork"],
+  h,
+abitats: ["clockwork-factory", "steam-barracks"],
+  f,
+actions: ["clockwork"],
 
-  tagsAAA: ["mechanical", "precision-attack", "gears"],
-  cr: 3,
+  t,
+agsAAA: ["mechanical", "precision-attack", "gears"],
+  c,
+r: 3,
 
   hp: 45,
   ac: 17,
-  speed: "30 ft.",
+  s,
+peed: "30 ft.",
 
-  attacks: [
-    { name: "Gearblade Slash", toHit: 6, dmg: "1d10 slashing" }
+  a,
+ttacks: [
+    { name: "Gearblade Slash", t,
+oHit: 6, dmg: "1d10 slashing" }
   ],
 
-  behavior: {
-    aggression: 3,
-    courage: 4,
-    // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["auto-parry", "advance-and-strike"]
+  b,
+ehavior: {
+    a,
+ggression: 3,
+    c,
+ourage: 4,
+    
+t,
+actics: ["auto-parry", "advance-and-strike"]
   },
 
-  drops: ["steel-spring", "clockwork-core"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Auto-Counter", "Winding Surge"],
+  d,
+rops: ["steel-spring", "clockwork-core"],
+  a,
+bilities: ["Auto-Counter", "Winding Surge"],
 
-  visuals: ["whirring-gears", "steam-vents", "metal-plates"]
+  v,
+isuals: ["whirring-gears", "steam-vents", "metal-plates"]
 },
 
 /* =======================================================
@@ -129,37 +177,53 @@ abilities: ["Auto-Counter", "Winding Surge"],
 {
   id: "obsidian-golem",
   name: "Obsidian Golem",
-  rarity: "elite",
+  r,
+arity: "elite",
 
-  type: ["construct"],
-  categories: ["brute"],
+  t,
+ype: ["construct"],
+  c,
+ategories: ["brute"],
   biomes: ["lava-fields", "ruins", "infernal-zones"],
-  habitats: ["obsidian-forges", "demon-workshops"],
-  factions: ["infernal"],
+  h,
+abitats: ["obsidian-forges", "demon-workshops"],
+  f,
+actions: ["infernal"],
 
-  tagsAAA: ["superheated-body", "dark-core", "non-organic"],
-  cr: 5,
+  t,
+agsAAA: ["superheated-body", "dark-core", "non-organic"],
+  c,
+r: 5,
 
   hp: 102,
   ac: 18,
-  speed: "30 ft.",
+  s,
+peed: "30 ft.",
 
-  attacks: [
-    { name: "Obsidian Fist", toHit: 7, dmg: "2d10 fire + 2d6 bludgeoning" }
+  a,
+ttacks: [
+    { name: "Obsidian Fist", t,
+oHit: 7, dmg: "2d10 fire + 2d6 bludgeoning" }
   ],
 
-  behavior: {
-    aggression: 4,
-    courage: 5,
-    // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["magma-trail", "smash-frontline"]
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 5,
+    
+t,
+actics: ["magma-trail", "smash-frontline"]
   },
 
-  drops: ["obsidian-fragment", "molten-heart"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Molten Body", "Lava Burst"],
+  d,
+rops: ["obsidian-fragment", "molten-heart"],
+  a,
+bilities: ["Molten Body", "Lava Burst"],
 
-  visuals: ["cracked-magma-skin", "lava-veins"]
+  v,
+isuals: ["cracked-magma-skin", "lava-veins"]
 },
 
 /* =======================================================
@@ -168,39 +232,53 @@ abilities: ["Molten Body", "Lava Burst"],
 {
   id: "astral-watcher",
   name: "Astral Watcher",
-  rarity: "legendary",
+  r,
+arity: "legendary",
 
-  type: ["construct"],
-  categories: ["mystic", "sentinel"],
+  t,
+ype: ["construct"],
+  c,
+ategories: ["mystic", "sentinel"],
   biomes: ["astral", "void"],
-  habitats: ["astral-sanctuary", "null-zone"],
-  factions: ["arcanum"],
+  h,
+abitats: ["astral-sanctuary", "null-zone"],
+  f,
+actions: ["arcanum"],
 
-  tagsAAA: ["levitation", "void-shield", "anti-magic"],
-  cr: 7,
+  t,
+agsAAA: ["levitation", "void-shield", "anti-magic"],
+  c,
+r: 7,
 
   hp: 130,
   ac: 19,
-  speed: "Hover 30 ft.",
+  s,
+peed: "Hover 30 ft.",
 
-  attacks: [
-    { name: "Void Beam", toHit: 8, dmg: "3d10 force" }
+  a,
+ttacks: [
+    { name: "Void Beam", t,
+oHit: 8, dmg: "3d10 force" }
   ],
 
-  behavior: {
-    aggression: 2,
-    courage: 5,
-    // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["zone-denial", "magic-suppression"]
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 5,
+    
+t,
+actics: ["zone-denial", "magic-suppression"]
   },
 
-  drops: ["astral-shard", "null-core"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Null Field", "Levitation", "Disrupt Magic"],
+  d,
+rops: ["astral-shard", "null-core"],
+  a,
+bilities: ["Null Field", "Levitation", "Disrupt Magic"],
 
-  visuals: ["floating-sphere", "glowing-runes", "gravity-distortion"]
-},
-
-];
+  v,
+isuals: ["floating-sphere", "glowing-runes", "gravity-distortion"]
+}];
 
 export default constructs;

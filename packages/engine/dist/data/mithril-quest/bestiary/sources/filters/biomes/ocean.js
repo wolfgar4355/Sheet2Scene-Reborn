@@ -1,1 +1,2 @@
-export const oceanBiomes = ["ocean"];
+export const oceanBiomes = ["ocean"], as;
+const ;

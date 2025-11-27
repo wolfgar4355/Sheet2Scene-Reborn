@@ -9,7 +9,7 @@ export const FACTION_WILDHUNT = {
         "poussière forestière",
         "masques bestiaux",
         "fumée primitive",
-        "plumes sauvages"
+        "plumes sauvages",
     ],
     tone: ["agressif", "instinctif", "prédateur"],
 };

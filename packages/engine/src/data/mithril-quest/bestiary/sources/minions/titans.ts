@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "mountain-titan",
   name: "Mountain Titan",
-  cr: 12,
+  c,
+r: 12,
   biomes: ["mountains", "hills", "ancient-ruins"],
-  habitat: ["colossal-caves", "earth-thrones"],
+  h,
+abitat: ["colossal-caves", "earth-thrones"],
   category: "titan",
-  role: "siegebreaker",
-  factions: ["primordial-earth"],
+  r,
+ole: "siegebreaker",
+  f,
+actions: ["primordial-earth"],
   tags: ["colossal", "earth"],
-  behavior: {
-    aggression: 5,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["crush-from-line"]
-  stats: {
-    hp: 260,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["crush-from-line"],
+s,
+tats: {
+      hp: 260,
     ac: 20,
     atk: 23,
     dmg: "4d12 bludgeoning",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["titanbone", "mountain-heart"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Stone Form", "Boulder Throw", "Ground Splitter"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["titanbone", "mountain-heart"],
+  a,
+bilities: ["Stone Form", "Boulder Throw", "Ground Splitter"]},
 
 /* ------------------------------------------------------------ */
 /* TEMPEST TITAN — CR 14                                        */
@@ -40,31 +47,38 @@ abilities: ["Stone Form", "Boulder Throw", "Ground Splitter"],
 {
   id: "tempest-titan",
   name: "Tempest Titan",
-  cr: 14,
+  c,
+r: 14,
   biomes: ["coast", "sky", "stormlands"],
-  habitat: ["tempest-spires", "cloud-fortresses"],
+  h,
+abitat: ["tempest-spires", "cloud-fortresses"],
   category: "titan",
-  role: "elite-controller",
-  factions: ["primordial-storm"],
+  r,
+ole: "elite-controller",
+  f,
+actions: ["primordial-storm"],
   tags: ["lightning", "flying"],
-  behavior: {
-    aggression: 5,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["aoe-burst-then-hover"]
-  stats: {
-    hp: 295,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["aoe-burst-then-hover"],
+s,
+tats: {
+      hp: 295,
     ac: 21,
     atk: 25,
     dmg: "4d10 lightning",
-    speed: "35 ft, fly 70 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["tempest-crystal"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Chain Lightning Burst", "Thunderstep", "Storm Tempest Aura"],
-},
+    s,
+peed: "35 ft, fly 70 ft"},
+  loot: ["tempest-crystal"],
+  a,
+bilities: ["Chain Lightning Burst", "Thunderstep", "Storm Tempest Aura"]},
 
 /* ------------------------------------------------------------ */
 /* CRIMSON COLOSSUS — CR 15                                     */
@@ -72,31 +86,38 @@ abilities: ["Chain Lightning Burst", "Thunderstep", "Storm Tempest Aura"],
 {
   id: "crimson-colossus",
   name: "Crimson Colossus",
-  cr: 15,
+  c,
+r: 15,
   biomes: ["volcano", "infernal-zones"],
-  habitat: ["lava-seas", "fire-furnaces"],
+  h,
+abitat: ["lava-seas", "fire-furnaces"],
   category: "titan",
-  role: "firebrute",
-  factions: ["primordial-flame"],
+  r,
+ole: "firebrute",
+  f,
+actions: ["primordial-flame"],
   tags: ["fire", "lava"],
-  behavior: {
-    aggression: 5,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["lava-wave-then-burn-frontline"]
-  stats: {
-    hp: 310,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["lava-wave-then-burn-frontline"],
+s,
+tats: {
+      hp: 310,
     ac: 22,
     atk: 26,
     dmg: "4d10+10 fire",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["molten-core", "obsidian-plating"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Lava Burst", "Blazing Move", "Heat Aura"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["molten-core", "obsidian-plating"],
+  a,
+bilities: ["Lava Burst", "Blazing Move", "Heat Aura"]},
 
 /* ------------------------------------------------------------ */
 /* CELESTIAL COLOSSUS — CR 18                                   */
@@ -104,32 +125,37 @@ abilities: ["Lava Burst", "Blazing Move", "Heat Aura"],
 {
   id: "celestial-colossus",
   name: "Celestial Colossus",
-  cr: 18,
+  c,
+r: 18,
   biomes: ["celestial-realms", "sacred-peaks"],
-  habitat: ["star-altars", "radiant-thrones"],
+  h,
+abitat: ["star-altars", "radiant-thrones"],
   category: "titan",
-  role: "legendary-controller",
-  factions: ["astral-dominion"],
+  r,
+ole: "legendary-controller",
+  f,
+actions: ["astral-dominion"],
   tags: ["radiant", "ancient"],
-  behavior: {
-    aggression: 4,
-    courage: 7,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["blinding-radiant-judgment"]
-  stats: {
-    hp: 340,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 7},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["blinding-radiant-judgment"],
+s,
+tats: {
+      hp: 340,
     ac: 23,
     atk: 27,
     dmg: "4d12 radiant",
-    speed: "40 ft, fly 80 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["radiant-core", "celestial-shard"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Blinding Judgment", "Ascendant Smite", "Sanctified Aura"],
-},
-
-];
+    s,
+peed: "40 ft, fly 80 ft"},
+  loot: ["radiant-core", "celestial-shard"],
+  a,
+bilities: ["Blinding Judgment", "Ascendant Smite", "Sanctified Aura"]}];
 
 export default MINIONS;

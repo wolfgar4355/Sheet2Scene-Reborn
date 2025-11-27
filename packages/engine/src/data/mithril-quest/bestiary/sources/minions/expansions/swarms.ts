@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "stingfly-swarm",
   name: "Swarm of Stingflies",
-  cr: 0.5,
+  c,
+r: 0.5,
   biomes: ["forest", "swamp", "jungle"],
-  habitat: ["canopies", "rotting-logs"],
+  h,
+abitat: ["canopies", "rotting-logs"],
   category: "swarm",
-  role: "skirmisher",
+  r,
+ole: "skirmisher",
   tags: ["flying", "poison", "insects"],
-  factions: ["Swarmbrood"],
-  behavior: {
-    aggression: 5,
-    courage: 2,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["surround-and-sting"]
-  stats: {
-    hp: 22,
+  f,
+actions: ["Swarmbrood"],
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 2},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["surround-and-sting"],
+s,
+tats: {
+      hp: 22,
     ac: 12,
     atk: 12,
     dmg: "2d4 piercing + poison",
-    speed: "10 ft, fly 40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["poison-sacs"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Poison Cloud", "Scatter Movement"],
-},
+    s,
+peed: "10 ft, fly 40 ft"},
+  loot: ["poison-sacs"],
+  a,
+bilities: ["Poison Cloud", "Scatter Movement"]},
 
 /* ------------------------------------------------------------ */
 /* SCARAB SWARM — CR 1 */
@@ -40,31 +47,38 @@ abilities: ["Poison Cloud", "Scatter Movement"],
 {
   id: "scarab-swarm",
   name: "Scarab Swarm",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["desert", "ruins", "crypt"],
-  habitat: ["catacombs", "sand-burrows"],
+  h,
+abitat: ["catacombs", "sand-burrows"],
   category: "swarm",
-  role: "bruiser",
+  r,
+ole: "bruiser",
   tags: ["burrow", "devour"],
-  factions: ["Sandcoil Legion"],
-  behavior: {
-    aggression: 6,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["swarm-the-softest-target"]
-  stats: {
-    hp: 36,
+  f,
+actions: ["Sandcoil Legion"],
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["swarm-the-softest-target"],
+s,
+tats: {
+      hp: 36,
     ac: 14,
     atk: 15,
     dmg: "2d6 piercing",
-    speed: "20 ft, burrow 10 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["scarab-carapace"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Corpse Devour", "Sand Burrow"],
-},
+    s,
+peed: "20 ft, burrow 10 ft"},
+  loot: ["scarab-carapace"],
+  a,
+bilities: ["Corpse Devour", "Sand Burrow"]},
 
 /* ------------------------------------------------------------ */
 /* SPIDER SWARM — CR 2 */
@@ -72,31 +86,38 @@ abilities: ["Corpse Devour", "Sand Burrow"],
 {
   id: "spider-swarm",
   name: "Spider Swarm",
-  cr: 2,
+  c,
+r: 2,
   biomes: ["forest", "swamp", "underdark"],
-  habitat: ["web-pits", "dark-tunnels"],
+  h,
+abitat: ["web-pits", "dark-tunnels"],
   category: "swarm",
-  role: "controller",
+  r,
+ole: "controller",
   tags: ["poison", "webs"],
-  factions: ["Broodweavers"],
-  behavior: {
-    aggression: 4,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["web-then-overwhelm"]
-  stats: {
-    hp: 45,
+  f,
+actions: ["Broodweavers"],
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["web-then-overwhelm"],
+s,
+tats: {
+      hp: 45,
     ac: 15,
     atk: 14,
     dmg: "2d6 piercing + poison",
-    speed: "20 ft, climb 30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["venom-gland"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Web Spray", "Climb"],
-},
+    s,
+peed: "20 ft, climb 30 ft"},
+  loot: ["venom-gland"],
+  a,
+bilities: ["Web Spray", "Climb"]},
 
 /* ------------------------------------------------------------ */
 /* FIREFLY SWARM (LUMINOUS) — CR 3 */
@@ -104,31 +125,38 @@ abilities: ["Web Spray", "Climb"],
 {
   id: "firefly-swarm",
   name: "Luminous Firefly Swarm",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["forest", "meadow", "feywild"],
-  habitat: ["groves", "glades"],
+  h,
+abitat: ["groves", "glades"],
   category: "swarm",
-  role: "support",
+  r,
+ole: "support",
   tags: ["light", "vision", "fey"],
-  factions: ["Gleamhost"],
-  behavior: {
-    aggression: 1,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["blinding-dazzle"]
-  stats: {
-    hp: 50,
+  f,
+actions: ["Gleamhost"],
+  b,
+ehavior: {
+    a,
+ggression: 1,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["blinding-dazzle"],
+s,
+tats: {
+      hp: 50,
     ac: 16,
     atk: 12,
     dmg: "1d4 radiant",
-    speed: "10 ft, fly 50 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["glitter-dust"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Dazzling Light", "Swarm Heal"],
-},
+    s,
+peed: "10 ft, fly 50 ft"},
+  loot: ["glitter-dust"],
+  a,
+bilities: ["Dazzling Light", "Swarm Heal"]},
 
 /* ------------------------------------------------------------ */
 /* RAVENOUS LOCUST SWARM — CR 5 */
@@ -136,31 +164,38 @@ abilities: ["Dazzling Light", "Swarm Heal"],
 {
   id: "locust-swarm",
   name: "Ravenous Locust Swarm",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["plains", "desert", "savannah"],
-  habitat: ["dry-grasslands", "hive-fields"],
+  h,
+abitat: ["dry-grasslands", "hive-fields"],
   category: "swarm",
-  role: "bruiser",
+  r,
+ole: "bruiser",
   tags: ["devour", "flying", "fear"],
-  factions: ["Swarmbrood"],
-  behavior: {
-    aggression: 9,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["consume-everything"]
-  stats: {
-    hp: 90,
+  f,
+actions: ["Swarmbrood"],
+  b,
+ehavior: {
+    a,
+ggression: 9,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["consume-everything"],
+s,
+tats: {
+      hp: 90,
     ac: 16,
     atk: 18,
     dmg: "4d6 slashing",
-    speed: "30 ft, fly 40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["chitin-dust"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Devouring Frenzy", "Sound of Doom"],
-},
+    s,
+peed: "30 ft, fly 40 ft"},
+  loot: ["chitin-dust"],
+  a,
+bilities: ["Devouring Frenzy", "Sound of Doom"]},
 
 /* ------------------------------------------------------------ */
 /* SHADOW WASP SWARM — CR 7 (ELITE) */
@@ -168,32 +203,37 @@ abilities: ["Devouring Frenzy", "Sound of Doom"],
 {
   id: "shadow-wasp-swarm",
   name: "Shadow Wasp Swarm",
-  cr: 7,
+  c,
+r: 7,
   biomes: ["shadowlands", "underdark", "corrupted-zones"],
-  habitat: ["hives-of-gloom", "shadow-nests"],
+  h,
+abitat: ["hives-of-gloom", "shadow-nests"],
   category: "swarm",
-  role: "striker",
+  r,
+ole: "striker",
   tags: ["necrotic", "poison", "shadow"],
-  factions: ["Ebon Hive"],
-  behavior: {
-    aggression: 7,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["strike-from-darkness"]
-  stats: {
-    hp: 110,
+  f,
+actions: ["Ebon Hive"],
+  b,
+ehavior: {
+    a,
+ggression: 7,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["strike-from-darkness"],
+s,
+tats: {
+      hp: 110,
     ac: 17,
     atk: 20,
     dmg: "3d6 necrotic + poison",
-    speed: "40 ft, fly 60 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["shadow-resin", "void-honey"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Phase Sting", "Shadow Swarm", "Terror Buzz"],
-},
-
-];
+    s,
+peed: "40 ft, fly 60 ft"},
+  loot: ["shadow-resin", "void-honey"],
+  a,
+bilities: ["Phase Sting", "Shadow Swarm", "Terror Buzz"]}];
 
 export default MINIONS;

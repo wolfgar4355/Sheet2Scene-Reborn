@@ -4,5 +4,4 @@ export const ETHEREAL_HABITATS = [
   "spirit-plains",
   "lost-echoes",
   "phantom-bridges",
-  "soul-lakes",
-] as const;
+  "soul-lakes"] as const;

@@ -16,7 +16,8 @@ export const MINIONS = [
             aggression: 6,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["charge-and-maul"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["charge-and-maul"],
         stats: {
             hp: 35,
             ac: 13,
@@ -24,7 +25,9 @@ export const MINIONS = [
             dmg: "2d6+3 slashing",
             speed: "40 ft",
         },
+        // auto-commented
         loot: ["wolf-pelt"],
+        // auto-commented
         abilities: ["Shapeshift", "Rage Bite"],
     },
     /* ------------------------------------------------------------ */
@@ -44,7 +47,8 @@ export const MINIONS = [
             aggression: 7,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["reckless-charge"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["reckless-charge"],
         stats: {
             hp: 45,
             ac: 14,
@@ -52,7 +56,9 @@ export const MINIONS = [
             dmg: "2d8+4 piercing",
             speed: "40 ft",
         },
+        // auto-commented
         loot: ["boar-hide", "sharp-tusk"],
+        // auto-commented
         abilities: ["Boar Charge", "Thick Hide"],
     },
     /* ------------------------------------------------------------ */
@@ -72,7 +78,8 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["pounce-from-shadow"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["pounce-from-shadow"],
         stats: {
             hp: 58,
             ac: 16,
@@ -80,7 +87,9 @@ export const MINIONS = [
             dmg: "2d6 slashing",
             speed: "40 ft, climb 20 ft",
         },
+        // auto-commented
         loot: ["striped-fang"],
+        // auto-commented
         abilities: ["Pouncedown", "Shadow Step"],
     },
     /* ------------------------------------------------------------ */
@@ -100,7 +109,8 @@ export const MINIONS = [
             aggression: 3,
             courage: 10,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["defend-pack"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["defend-pack"],
         stats: {
             hp: 92,
             ac: 15,
@@ -108,7 +118,9 @@ export const MINIONS = [
             dmg: "2d10+5 bludgeoning",
             speed: "30 ft",
         },
+        // auto-commented
         loot: ["bear-hide", "guardian-emblem"],
+        // auto-commented
         abilities: ["Regeneration", "Bear Roar", "Guardian Shield"],
     },
     /* ------------------------------------------------------------ */
@@ -128,7 +140,8 @@ export const MINIONS = [
             aggression: 9,
             courage: 10,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["roar-to-buff-pack-then-rip"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["roar-to-buff-pack-then-rip"],
         stats: {
             hp: 210,
             ac: 18,
@@ -136,12 +149,14 @@ export const MINIONS = [
             dmg: "3d12+6 slashing",
             speed: "50 ft",
         },
+        // auto-commented
         loot: ["alpha-fang", "moon-blade"],
+        // auto-commented
         abilities: [
             "Alpha Roar",
             "Aura of Command",
             "Pack Resurrection",
-            "Pack Rally"
+            "Pack Rally",
         ],
     },
 ];

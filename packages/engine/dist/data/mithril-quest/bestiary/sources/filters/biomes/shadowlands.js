@@ -1,1 +1,2 @@
-export const shadowlandsBiomes = ["shadowlands"];
+export const shadowlandsBiomes = ["shadowlands"], as;
+const ;

@@ -1,1 +1,2 @@
-export const humanoidCategories = ["humanoid"];
+export const humanoidCategories = ["humanoid"], as;
+const ;

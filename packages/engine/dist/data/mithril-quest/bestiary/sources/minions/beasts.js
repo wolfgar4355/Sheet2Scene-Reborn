@@ -26,9 +26,11 @@ export const beasts = [
         behavior: {
             aggression: "aggressive",
             confidence: "courage:4",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["pack-attack"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["pack-attack"]
         },
         drops: ["wolf-pelt", "wolf-teeth"],
+        // auto-commented
         abilities: ["Keen Hearing", "Pack Tactics"],
         visuals: {
             icon: "wolf",
@@ -62,9 +64,11 @@ export const beasts = [
         behavior: {
             aggression: "scavenger",
             confidence: "coward",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["harass"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["harass"]
         },
         drops: ["rat-tail"],
+        // auto-commented
         abilities: [],
         visuals: {
             icon: "rat",
@@ -98,9 +102,11 @@ export const beasts = [
         behavior: {
             aggression: "territorial",
             confidence: "courage:6",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["rush-and-maul"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["rush-and-maul"]
         },
         drops: ["bear-pelt", "bear-meat"],
+        // auto-commented
         abilities: [],
         visuals: {
             icon: "bear",
@@ -139,9 +145,11 @@ export const beasts = [
         behavior: {
             aggression: "ambusher",
             confidence: "courage:3",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["ambush"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["ambush"]
         },
         drops: ["spider-venom", "silk-thread"],
+        // auto-commented
         abilities: ["Web Shot", "Poison Bite"],
         visuals: {
             icon: "spider",
@@ -175,9 +183,11 @@ export const beasts = [
         behavior: {
             aggression: "aggressive",
             confidence: "courage:8",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["alpha-pounce"]
+            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+            tactics: ["alpha-pounce"]
         },
         drops: ["thick-fur", "wolf-bone"],
+        // auto-commented
         abilities: ["Pack Tactics"],
         visuals: {
             icon: "dire-wolf",

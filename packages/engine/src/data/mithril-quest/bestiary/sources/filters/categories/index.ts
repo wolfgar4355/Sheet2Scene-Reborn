@@ -25,8 +25,7 @@ export const CATEGORIES = {
   magicalBeasts,
   mythic,
   titans,
-  undead,
-};
+  undead};
 
 export type CategoryRegistry = typeof CATEGORIES;
 export default CATEGORIES;

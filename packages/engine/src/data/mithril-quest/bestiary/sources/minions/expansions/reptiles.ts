@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "lizardfolk-spearhunter",
   name: "Lizardfolk Spearhunter",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["swamp", "jungle", "ruins"],
-  habitat: ["lizardfolk-village", "ancient-marsh-ruins"],
+  h,
+abitat: ["lizardfolk-village", "ancient-marsh-ruins"],
   category: "reptile",
-  role: "skirmisher",
+  r,
+ole: "skirmisher",
   tags: ["lizardfolk", "tribal", "scales"],
-  factions: ["Marsh Tribes", "Cold-Blood Clans"],
-  behavior: {
-    aggression: 4,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["stab-and-retreat", "net-snare"]
-  stats: {
-    hp: 26,
+  f,
+actions: ["Marsh Tribes", "Cold-Blood Clans"],
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["stab-and-retreat", "net-snare"],
+s,
+tats: {
+      hp: 26,
     ac: 14,
     atk: 12,
     dmg: "1d8 piercing",
-    speed: "30 ft, swim 30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["horn-spear", "wet-scales"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Blood Frenzy", "Reptile Instinct"],
-},
+    s,
+peed: "30 ft, swim 30 ft"},
+  loot: ["horn-spear", "wet-scales"],
+  a,
+bilities: ["Blood Frenzy", "Reptile Instinct"]},
 
 /* ------------------------------------------------------------ */
 /* GIANT SERPENT — CR 2 */
@@ -40,31 +47,38 @@ abilities: ["Blood Frenzy", "Reptile Instinct"],
 {
   id: "giant-serpent",
   name: "Giant Serpent",
-  cr: 2,
+  c,
+r: 2,
   biomes: ["jungle", "desert", "ruins"],
-  habitat: ["serpent-pits", "sunken-temples"],
+  h,
+abitat: ["serpent-pits", "sunken-temples"],
   category: "reptile",
-  role: "brute",
+  r,
+ole: "brute",
   tags: ["serpent", "venom", "scales"],
-  factions: ["Coil Brotherhood"],
-  behavior: {
-    aggression: 5,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["coil-and-strike"]
-  stats: {
-    hp: 45,
+  f,
+actions: ["Coil Brotherhood"],
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["coil-and-strike"],
+s,
+tats: {
+      hp: 45,
     ac: 13,
     atk: 14,
     dmg: "3d8 + poison",
-    speed: "40 ft, swim 30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["venom-gland"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Constriction", "Poison Fangs"],
-},
+    s,
+peed: "40 ft, swim 30 ft"},
+  loot: ["venom-gland"],
+  a,
+bilities: ["Constriction", "Poison Fangs"]},
 
 /* ------------------------------------------------------------ */
 /* CROCODILIAN DEVOURER — CR 1 */
@@ -72,31 +86,38 @@ abilities: ["Constriction", "Poison Fangs"],
 {
   id: "crocodilian-devourer",
   name: "Crocodilian Devourer",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["swamp", "river", "jungle"],
-  habitat: ["murky-marsh", "sunken-waters"],
+  h,
+abitat: ["murky-marsh", "sunken-waters"],
   category: "reptile",
-  role: "ambusher",
+  r,
+ole: "ambusher",
   tags: ["crocodile", "aquatic"],
-  factions: ["Marsh Predators"],
-  behavior: {
-    aggression: 5,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["surface-grab-and-drag"]
-  stats: {
-    hp: 30,
+  f,
+actions: ["Marsh Predators"],
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["surface-grab-and-drag"],
+s,
+tats: {
+      hp: 30,
     ac: 15,
     atk: 13,
     dmg: "2d6 piercing",
-    speed: "40 ft, swim 40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["thick-hide"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Death Roll", "Water Ambush"],
-},
+    s,
+peed: "40 ft, swim 40 ft"},
+  loot: ["thick-hide"],
+  a,
+bilities: ["Death Roll", "Water Ambush"]},
 
 /* ------------------------------------------------------------ */
 /* BASILISK VARIANT — CR 6 */
@@ -104,31 +125,38 @@ abilities: ["Death Roll", "Water Ambush"],
 {
   id: "basilisk-variant",
   name: "Basilisk Variant",
-  cr: 6,
+  c,
+r: 6,
   biomes: ["cavern", "ruins", "underground"],
-  habitat: ["stone-chambers", "fungal-depths"],
+  h,
+abitat: ["stone-chambers", "fungal-depths"],
   category: "reptile",
-  role: "controller",
+  r,
+ole: "controller",
   tags: ["basilisk", "venom", "stony"],
-  factions: ["Petrifier Brood"],
-  behavior: {
-    aggression: 4,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["gaze-first-then-bite"]
-  stats: {
-    hp: 95,
+  f,
+actions: ["Petrifier Brood"],
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["gaze-first-then-bite"],
+s,
+tats: {
+      hp: 95,
     ac: 16,
     atk: 18,
     dmg: "2d8 piercing",
-    speed: "35 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["petrified-skin-fragment"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Petrifying Gaze", "Venom Bite"],
-},
+    s,
+peed: "35 ft"},
+  loot: ["petrified-skin-fragment"],
+  a,
+bilities: ["Petrifying Gaze", "Venom Bite"]},
 
 /* ------------------------------------------------------------ */
 /* THUNDER LIZARD — CR 8 (ELITE DINOSAUR) */
@@ -136,32 +164,37 @@ abilities: ["Petrifying Gaze", "Venom Bite"],
 {
   id: "thunder-lizard",
   name: "Thunder Lizard",
-  cr: 8,
+  c,
+r: 8,
   biomes: ["jungle", "plains", "ancient-ruins"],
-  habitat: ["thunder-nests", "primeval-grounds"],
+  h,
+abitat: ["thunder-nests", "primeval-grounds"],
   category: "reptile",
-  role: "elite-controller",
+  r,
+ole: "elite-controller",
   tags: ["dinosaur", "thunder", "giant"],
-  factions: ["Primeval Titans"],
-  behavior: {
-    aggression: 6,
-    courage: 7,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["trample-then-roar"]
-  stats: {
-    hp: 186,
+  f,
+actions: ["Primeval Titans"],
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 7},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["trample-then-roar"],
+s,
+tats: {
+      hp: 186,
     ac: 17,
     atk: 20,
     dmg: "2d10 bludgeoning + lightning",
-    speed: "50 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["thunder-scale", "ancient-scales"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Thunder Roar", "Stampede", "Lightning Pulse"],
-},
-
-];
+    s,
+peed: "50 ft"},
+  loot: ["thunder-scale", "ancient-scales"],
+  a,
+bilities: ["Thunder Roar", "Stampede", "Lightning Pulse"]}];
 
 export default MINIONS;

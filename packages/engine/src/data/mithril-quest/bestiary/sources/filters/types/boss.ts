@@ -1,20 +1,22 @@
 export const TYPE_BOSS = {
-  role: "Boss",
+  r,
+ole: "Boss",
   description: "Créature majeure avec phases multiples, attaques puissantes et mécaniques uniques.",
-  stats: {
-    hp: "Très élevés",
+  s,
+tats: {
+      hp: "Très élevés",
     ac: "Bonne",
-    damage: "Très élevé",
-    mobility: "Variable",
-  },
-  traits: [
+    d,
+amage: "Très élevé",
+    m,
+obility: "Variable"},
+  t,
+raits: [
     "Mécaniques spéciales",
     "Phases évolutives",
-    "Résistance aux contrôles",
-  ],
-  examples: [
+    "Résistance aux contrôles"],
+  e,
+xamples: [
     "Roi-spectre du tombeau",
     "Géant runique des tempêtes",
-    "Hydre ancestrale",
-  ],
-} as const;
+    "Hydre ancestrale"]} as const;

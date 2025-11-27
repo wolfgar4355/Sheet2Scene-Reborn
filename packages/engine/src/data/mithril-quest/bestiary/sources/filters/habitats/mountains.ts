@@ -4,5 +4,4 @@ export const MOUNTAIN_HABITATS = [
   "frozen-ridge",
   "storm-cliffs",
   "dragon-aeries",
-  "crystal-crags",
-] as const;
+  "crystal-crags"] as const;

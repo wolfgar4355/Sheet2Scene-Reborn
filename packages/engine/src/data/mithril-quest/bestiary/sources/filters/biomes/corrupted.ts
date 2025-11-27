@@ -1,1 +1,1 @@
-export const corruptedBiomes = ["corrupted"] as const;
+export const corruptedBiomes = ["corrupted"], as const;

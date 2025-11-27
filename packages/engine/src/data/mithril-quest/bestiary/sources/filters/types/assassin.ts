@@ -1,20 +1,22 @@
 export const TYPE_ASSASSIN = {
-  role: "Assassin",
+  r,
+ole: "Assassin",
   description: "Frappe rapide, dégâts explosifs, élimine les cibles fragiles en priorité.",
-  stats: {
-    hp: "Faibles à moyens",
+  s,
+tats: {
+      hp: "Faibles à moyens",
     ac: "Moyenne",
-    damage: "Très élevé (burst)",
-    mobility: "Élevée",
-  },
-  traits: [
+    d,
+amage: "Très élevé (burst)",
+    m,
+obility: "Élevée"},
+  t,
+raits: [
     "Frappe critique",
     "Attaques surprises",
-    "Priorise les cibles faibles",
-  ],
-  examples: [
+    "Priorise les cibles faibles"],
+  e,
+xamples: [
     "Traqueur nocturne",
     "Assassin d’ombre",
-    "Panthère spectrale",
-  ],
-} as const;
+    "Panthère spectrale"]} as const;

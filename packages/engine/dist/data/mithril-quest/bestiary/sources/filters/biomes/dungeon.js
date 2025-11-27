@@ -1,1 +1,2 @@
-export const dungeonBiomes = ["dungeon"];
+export const dungeonBiomes = ["dungeon"], as;
+const ;

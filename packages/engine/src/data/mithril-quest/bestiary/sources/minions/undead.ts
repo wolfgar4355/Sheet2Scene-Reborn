@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "skeleton",
   name: "Skeleton",
-  cr: 0.25,
+  c,
+r: 0.25,
   biomes: ["ruins", "dungeon", "desert"],
-  habitat: ["crypt", "ancient-ruins", "catacombs"],
+  h,
+abitat: ["crypt", "ancient-ruins", "catacombs"],
   category: "undead",
-  role: "bruiser",
-  factions: ["necrotic-legion"],
+  r,
+ole: "bruiser",
+  f,
+actions: ["necrotic-legion"],
   tags: ["undead", "resistant"],
-  behavior: {
-    aggression: 3,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["bone-from-cover"]
-  stats: {
-    hp: 13,
+  b,
+ehavior: {
+    a,
+ggression: 3,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["bone-from-cover"],
+s,
+tats: {
+      hp: 13,
     ac: 13,
     atk: 12,
     dmg: "1d6+2 shortsword",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["bone-shards"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Damage Resistance: Piercing"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["bone-shards"],
+  a,
+bilities: ["Damage Resistance: Piercing"]},
 
 /* ------------------------------------------------------------ */
 /* ZOMBIE — CR 1/4                                               */
@@ -40,31 +47,38 @@ abilities: ["Damage Resistance: Piercing"],
 {
   id: "zombie",
   name: "Zombie",
-  cr: 0.25,
+  c,
+r: 0.25,
   biomes: ["graveyard", "swamp", "ruins", "crypt"],
-  habitat: ["burial-crypt", "swamp-graves"],
+  h,
+abitat: ["burial-crypt", "swamp-graves"],
   category: "undead",
-  role: "brute",
-  factions: ["rotting-coven"],
+  r,
+ole: "brute",
+  f,
+actions: ["rotting-coven"],
   tags: ["relentless"],
-  behavior: {
-    aggression: 4,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["mindless-charge"]
-  stats: {
-    hp: 18,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["mindless-charge"],
+s,
+tats: {
+      hp: 18,
     ac: 8,
     atk: 14,
     dmg: "1d6+2",
-    speed: "20 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["rotting-flesh"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Undead Fortitude"],
-},
+    s,
+peed: "20 ft"},
+  loot: ["rotting-flesh"],
+  a,
+bilities: ["Undead Fortitude"]},
 
 /* ------------------------------------------------------------ */
 /* GHOUL — CR 1                                                  */
@@ -72,31 +86,38 @@ abilities: ["Undead Fortitude"],
 {
   id: "ghoul",
   name: "Ghoul",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["graveyard", "ruins", "underdark"],
-  habitat: ["mass-graves", "ancient-ruins", "underdark-nest"],
+  h,
+abitat: ["mass-graves", "ancient-ruins", "underdark-nest"],
   category: "undead",
-  role: "skirmisher",
-  factions: ["void-feasters"],
+  r,
+ole: "skirmisher",
+  f,
+actions: ["void-feasters"],
   tags: ["paralysis", "ambush"],
-  behavior: {
-    aggression: 5,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["paralyzing-first"]
-  stats: {
-    hp: 22,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["paralyzing-first"],
+s,
+tats: {
+      hp: 22,
     ac: 12,
     atk: 15,
     dmg: "2d6+2",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["ghoul-fangs"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Paralyzing Claw"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["ghoul-fangs"],
+  a,
+bilities: ["Paralyzing Claw"]},
 
 /* ------------------------------------------------------------ */
 /* WIGHT — CR 3                                                  */
@@ -104,31 +125,38 @@ abilities: ["Paralyzing Claw"],
 {
   id: "wight",
   name: "Wight",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["shadowlands", "crypts", "underdark"],
-  habitat: ["shadow-crypt", "ancient-catacombs"],
+  h,
+abitat: ["shadow-crypt", "ancient-catacombs"],
   category: "undead",
-  role: "commander",
-  factions: ["death-knights"],
+  r,
+ole: "commander",
+  f,
+actions: ["death-knights"],
   tags: ["life-drain"],
-  behavior: {
-    aggression: 4,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["drain-to-weaken"]
-  stats: {
-    hp: 45,
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["drain-to-weaken"],
+s,
+tats: {
+      hp: 45,
     ac: 14,
     atk: 16,
     dmg: "2d6+4 necrotic",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["dark-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Life Drain", "Command Undead"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["dark-essence"],
+  a,
+bilities: ["Life Drain", "Command Undead"]},
 
 /* ------------------------------------------------------------ */
 /* MUMMY — CR 3                                                  */
@@ -136,31 +164,38 @@ abilities: ["Life Drain", "Command Undead"],
 {
   id: "mummy",
   name: "Mummy",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["desert", "tombs", "ruins"],
-  habitat: ["desert-temple", "burial-chamber"],
+  h,
+abitat: ["desert-temple", "burial-chamber"],
   category: "undead",
-  role: "brute",
-  factions: ["sun-cursed-pharaohs"],
+  r,
+ole: "brute",
+  f,
+actions: ["sun-cursed-pharaohs"],
   tags: ["rot", "fear"],
-  behavior: {
-    aggression: 5,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["fear-then-slam"]
-  stats: {
-    hp: 58,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["fear-then-slam"],
+s,
+tats: {
+      hp: 58,
     ac: 11,
     atk: 16,
     dmg: "2d6+3 bludgeoning",
-    speed: "20 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["ancient-bandages"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Mummy Rot", "Dreadful Glare"],
-},
+    s,
+peed: "20 ft"},
+  loot: ["ancient-bandages"],
+  a,
+bilities: ["Mummy Rot", "Dreadful Glare"]},
 
 /* ------------------------------------------------------------ */
 /* WRAITH — CR 5                                                 */
@@ -168,32 +203,37 @@ abilities: ["Mummy Rot", "Dreadful Glare"],
 {
   id: "wraith",
   name: "Wraith",
-  cr: 5,
+  c,
+r: 5,
   biomes: ["shadowlands", "ruins", "underdark"],
-  habitat: ["shadow-chamber", "forgotten-halls"],
+  h,
+abitat: ["shadow-chamber", "forgotten-halls"],
   category: "undead",
-  role: "controller",
-  factions: ["spectral-dominion"],
+  r,
+ole: "controller",
+  f,
+actions: ["spectral-dominion"],
   tags: ["incorporeal", "fear"],
-  behavior: {
-    aggression: 6,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["drift-through-walls"]
-  stats: {
-    hp: 85,
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["drift-through-walls"],
+s,
+tats: {
+      hp: 85,
     ac: 13,
     atk: 18,
     dmg: "2d8 necrotic",
-    speed: "0 ft, fly 60 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["soul-fragment"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Incorporeal Movement", "Life Drain", "Horrifying Visage"],
-},
-
-];
+    s,
+peed: "0 ft, fly 60 ft"},
+  loot: ["soul-fragment"],
+  a,
+bilities: ["Incorporeal Movement", "Life Drain", "Horrifying Visage"]}];
 
 export default MINIONS;

@@ -16,7 +16,8 @@ export const MINIONS = [
             aggression: 1,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["beam-light-and-aid-ally"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["beam-light-and-aid-ally"],
         stats: {
             hp: 18,
             ac: 14,
@@ -24,7 +25,9 @@ export const MINIONS = [
             dmg: "1d4 radiant",
             speed: "10 ft (hover)",
         },
+        // auto-commented
         loot: ["radiant-spark"],
+        // auto-commented
         abilities: ["Holy Glow", "Minor Heal", "Soothing Hymn"],
     },
     /* ------------------------------------------------------------ */
@@ -44,7 +47,8 @@ export const MINIONS = [
             aggression: 3,
             courage: 8,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["stand-still-and-pierce-on-12"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["stand-still-and-pierce-on-12"],
         stats: {
             hp: 55,
             ac: 18,
@@ -52,7 +56,9 @@ export const MINIONS = [
             dmg: "1d8+3 radiant",
             speed: "25 ft",
         },
+        // auto-commented
         loot: ["radiant-ingot"],
+        // auto-commented
         abilities: ["Radiant Smite", "Divine Ward"],
     },
     /* ------------------------------------------------------------ */
@@ -72,7 +78,8 @@ export const MINIONS = [
             aggression: 5,
             courage: 9,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["dive-charge-from-above"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["dive-charge-from-above"],
         stats: {
             hp: 78,
             ac: 17,
@@ -80,7 +87,9 @@ export const MINIONS = [
             dmg: "2d8+3 radiant (lance)",
             speed: "40 ft, fly 80 ft",
         },
+        // auto-commented
         loot: ["valkyrian-feather"],
+        // auto-commented
         abilities: ["Sky Charge", "Radiant Lance", "Wing Buffet"],
     },
     /* ------------------------------------------------------------ */
@@ -100,7 +109,8 @@ export const MINIONS = [
             aggression: 3,
             courage: 10,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["frontline-then-radiant-burst"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["frontline-then-radiant-burst"],
         stats: {
             hp: 110,
             ac: 19,
@@ -108,7 +118,9 @@ export const MINIONS = [
             dmg: "2d10+4 radiant",
             speed: "30 ft",
         },
+        // auto-commented
         loot: ["light-core"],
+        // auto-commented
         abilities: ["Radiant Pulse", "Aegis Shield", "Unbreakable Frame"],
     },
     /* ------------------------------------------------------------ */
@@ -128,7 +140,8 @@ export const MINIONS = [
             aggression: 7,
             courage: 10,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["smite-evil-with-powered-strike"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["smite-evil-with-powered-strike"],
         stats: {
             hp: 145,
             ac: 20,
@@ -136,7 +149,9 @@ export const MINIONS = [
             dmg: "2d10+6 radiant",
             speed: "40 ft, fly 80 ft",
         },
+        // auto-commented
         loot: ["seraphic-feather", "flame-sigil"],
+        // auto-commented
         abilities: [
             "Holy Smite",
             "Divine Wings",

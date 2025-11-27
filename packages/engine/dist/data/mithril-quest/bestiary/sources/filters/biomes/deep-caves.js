@@ -1,1 +1,2 @@
-export const deepCavesBiomes = ["deep-caves"];
+export const deepCavesBiomes = ["deep-caves"], as;
+const ;

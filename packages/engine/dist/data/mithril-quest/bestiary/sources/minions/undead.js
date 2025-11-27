@@ -16,7 +16,8 @@ export const MINIONS = [
             aggression: 3,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["bone-from-cover"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["bone-from-cover"],
         stats: {
             hp: 13,
             ac: 13,
@@ -24,7 +25,9 @@ export const MINIONS = [
             dmg: "1d6+2 shortsword",
             speed: "30 ft",
         },
+        // auto-commented
         loot: ["bone-shards"],
+        // auto-commented
         abilities: ["Damage Resistance: Piercing"],
     },
     /* ------------------------------------------------------------ */
@@ -44,7 +47,8 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["mindless-charge"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["mindless-charge"],
         stats: {
             hp: 18,
             ac: 8,
@@ -52,7 +56,9 @@ export const MINIONS = [
             dmg: "1d6+2",
             speed: "20 ft",
         },
+        // auto-commented
         loot: ["rotting-flesh"],
+        // auto-commented
         abilities: ["Undead Fortitude"],
     },
     /* ------------------------------------------------------------ */
@@ -72,7 +78,8 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["paralyzing-first"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["paralyzing-first"],
         stats: {
             hp: 22,
             ac: 12,
@@ -80,7 +87,9 @@ export const MINIONS = [
             dmg: "2d6+2",
             speed: "30 ft",
         },
+        // auto-commented
         loot: ["ghoul-fangs"],
+        // auto-commented
         abilities: ["Paralyzing Claw"],
     },
     /* ------------------------------------------------------------ */
@@ -100,7 +109,8 @@ export const MINIONS = [
             aggression: 4,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["drain-to-weaken"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["drain-to-weaken"],
         stats: {
             hp: 45,
             ac: 14,
@@ -108,7 +118,9 @@ export const MINIONS = [
             dmg: "2d6+4 necrotic",
             speed: "30 ft",
         },
+        // auto-commented
         loot: ["dark-essence"],
+        // auto-commented
         abilities: ["Life Drain", "Command Undead"],
     },
     /* ------------------------------------------------------------ */
@@ -128,7 +140,8 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["fear-then-slam"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["fear-then-slam"],
         stats: {
             hp: 58,
             ac: 11,
@@ -136,7 +149,9 @@ export const MINIONS = [
             dmg: "2d6+3 bludgeoning",
             speed: "20 ft",
         },
+        // auto-commented
         loot: ["ancient-bandages"],
+        // auto-commented
         abilities: ["Mummy Rot", "Dreadful Glare"],
     },
     /* ------------------------------------------------------------ */
@@ -156,7 +171,8 @@ export const MINIONS = [
             aggression: 6,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["drift-through-walls"]
+        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
+        tactics: ["drift-through-walls"],
         stats: {
             hp: 85,
             ac: 13,
@@ -164,7 +180,9 @@ export const MINIONS = [
             dmg: "2d8 necrotic",
             speed: "0 ft, fly 60 ft",
         },
+        // auto-commented
         loot: ["soul-fragment"],
+        // auto-commented
         abilities: ["Incorporeal Movement", "Life Drain", "Horrifying Visage"],
     },
 ];

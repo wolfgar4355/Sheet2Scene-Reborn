@@ -9,7 +9,7 @@ export const FACTION_INFERNAL = {
         "cornes et pointes",
         "magie de feu instable",
         "fumée épaisse",
-        "symboles démoniaques"
+        "symboles démoniaques",
     ],
     tone: ["agressif", "chaotique", "menaçant"],
 };

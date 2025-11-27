@@ -1,23 +1,25 @@
 export const TYPE_MINION = {
-  role: "Minion",
+  r,
+ole: "Minion",
   description:
     "Très faible individuellement mais dangereux en groupe. Conçus pour submerger les héros ou créer de la pression.",
-  stats: {
-    hp: "Très faibles",
+  s,
+tats: {
+      hp: "Très faibles",
     ac: "Faible",
-    damage: "Faible",
-    mobility: "Variable",
-  },
-  traits: [
+    d,
+amage: "Faible",
+    m,
+obility: "Variable"},
+  t,
+raits: [
     "Agit en essaim",
     "Mort rapide",
     "Amplification par nombre",
-    "Idéal pour combats massifs"
-  ],
-  examples: [
+    "Idéal pour combats massifs"],
+  e,
+xamples: [
     "Squelettes faibles",
     "Gobelins peureux",
     "Serviteurs corrompus",
-    "Vermines invoquées",
-  ],
-} as const;
+    "Vermines invoquées"]} as const;

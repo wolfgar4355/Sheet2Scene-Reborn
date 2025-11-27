@@ -1,24 +1,28 @@
 export const TYPE_CONTROLLER = {
-  role: "Controller",
+  r,
+ole: "Controller",
   description:
     "Manipule le rythme du combat : entrave, pièges, illusions, contrôle mental ou altérations d’état.",
-  stats: {
-    hp: "Moyens",
+  s,
+tats: {
+      hp: "Moyens",
     ac: "Moyenne",
-    damage: { dice: "Faible à", type: "moyen" },
-    mobility: "Faible à moyenne",
-  },
-  traits: [
+    d,
+amage: { d,
+ice: "Faible à", t,
+ype: "moyen" },
+    m,
+obility: "Faible à moyenne"},
+  t,
+raits: [
     "Immobilisation ou entrave",
     "Télékinésie ou manipulation",
     "Illusions, malédictions ou contrôle mental",
-    "Perturbe ou isole des ennemis",
-  ],
-  examples: [
+    "Perturbe ou isole des ennemis"],
+  e,
+xamples: [
     "Enchanteur spectral",
     "Dryade ancestrale",
     "Esprit manipulateur",
     "Tisseur d’illusions",
-    "Marionnettiste occulte",
-  ],
-} as const;
+    "Marionnettiste occulte"]} as const;

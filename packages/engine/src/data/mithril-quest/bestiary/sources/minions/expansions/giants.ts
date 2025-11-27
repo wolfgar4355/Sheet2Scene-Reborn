@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "ogre-brute",
   name: "Ogre Brute",
-  cr: 2,
+  c,
+r: 2,
   biomes: ["hills", "forest", "swamp"],
-  habitat: ["cave-groves", "bandit-strongholds"],
+  h,
+abitat: ["cave-groves", "bandit-strongholds"],
   category: "giant",
-  role: "brute",
-  factions: ["wildgrowth"],
+  r,
+ole: "brute",
+  f,
+actions: ["wildgrowth"],
   tags: ["tribal", "reckless"],
-  behavior: {
-    aggression: 7,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["rush-frontline"]
-  stats: {
-    hp: 55,
+  b,
+ehavior: {
+    a,
+ggression: 7,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["rush-frontline"],
+s,
+tats: {
+      hp: 55,
     ac: 11,
     atk: 16,
     dmg: "2d8+4 bludgeoning",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["club-chunk", "ogre-hide"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Reckless Swing"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["club-chunk", "ogre-hide"],
+  a,
+bilities: ["Reckless Swing"]},
 
 /* ------------------------------------------------------------ */
 /* OGRE WAR DRUMMER — CR 3                                      */
@@ -40,31 +47,38 @@ abilities: ["Reckless Swing"],
 {
   id: "ogre-war-drummer",
   name: "Ogre War Drummer",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["hills", "forest"],
-  habitat: ["war-camps"],
+  h,
+abitat: ["war-camps"],
   category: "giant",
-  role: "support",
-  factions: ["tribal-horde"],
+  r,
+ole: "support",
+  f,
+actions: ["tribal-horde"],
   tags: ["drum", "war-boost"],
-  behavior: {
-    aggression: 3,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["buff-ogres"]
-  stats: {
-    hp: 65,
+  b,
+ehavior: {
+    a,
+ggression: 3,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["buff-ogres"],
+s,
+tats: {
+      hp: 65,
     ac: 12,
     atk: 14,
     dmg: "1d10 thunder",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["war-drum"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["War Rhythm", "Rage Pulse"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["war-drum"],
+  a,
+bilities: ["War Rhythm", "Rage Pulse"]},
 
 /* ------------------------------------------------------------ */
 /* STONE GIANT — CR 8                                           */
@@ -72,31 +86,38 @@ abilities: ["War Rhythm", "Rage Pulse"],
 {
   id: "stone-giant",
   name: "Stone Giant",
-  cr: 8,
+  c,
+r: 8,
   biomes: ["mountains", "caves", "cliffs"],
-  habitat: ["cavern-fortresses"],
+  h,
+abitat: ["cavern-fortresses"],
   category: "giant",
-  role: "striker",
-  factions: ["primordial-root"],
+  r,
+ole: "striker",
+  f,
+actions: ["primordial-root"],
   tags: ["boulder", "thrower"],
-  behavior: {
-    aggression: 6,
-    courage: 7,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["boulder-from-range"]
-  stats: {
-    hp: 130,
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 7},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["boulder-from-range"],
+s,
+tats: {
+      hp: 130,
     ac: 15,
     atk: 19,
     dmg: "3d10 bludgeoning (rock throw)",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["flint-tooth", "stone-shard"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Boulder Throw", "Stone Stance"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["flint-tooth", "stone-shard"],
+  a,
+bilities: ["Boulder Throw", "Stone Stance"]},
 
 /* ------------------------------------------------------------ */
 /* FROST GIANT — CR 8                                           */
@@ -104,31 +125,38 @@ abilities: ["Boulder Throw", "Stone Stance"],
 {
   id: "frost-giant",
   name: "Frost Giant",
-  cr: 8,
+  c,
+r: 8,
   biomes: ["tundra", "glacier", "snow-mountains"],
-  habitat: ["ice-fort", "frozen-caverns"],
+  h,
+abitat: ["ice-fort", "frozen-caverns"],
   category: "giant",
-  role: "brute",
-  factions: ["iceborn-clan"],
+  r,
+ole: "brute",
+  f,
+actions: ["iceborn-clan"],
   tags: ["frozen", "cold"],
-  behavior: {
-    aggression: 7,
-    courage: 6,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["charge-then-crush"]
-  stats: {
-    hp: 150,
+  b,
+ehavior: {
+    a,
+ggression: 7,
+    c,
+ourage: 6},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["charge-then-crush"],
+s,
+tats: {
+      hp: 150,
     ac: 15,
     atk: 20,
     dmg: "3d12 cold",
-    speed: "40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["frost-giant-blood", "ice-axe"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Cold Aura", "Frost Strike"],
-},
+    s,
+peed: "40 ft"},
+  loot: ["frost-giant-blood", "ice-axe"],
+  a,
+bilities: ["Cold Aura", "Frost Strike"]},
 
 /* ------------------------------------------------------------ */
 /* CLOUD GIANT — CR 10                                          */
@@ -136,31 +164,38 @@ abilities: ["Cold Aura", "Frost Strike"],
 {
   id: "cloud-giant",
   name: "Cloud Giant",
-  cr: 10,
+  c,
+r: 10,
   biomes: ["mountains", "sky", "floating-isles"],
-  habitat: ["sky-palaces"],
+  h,
+abitat: ["sky-palaces"],
   category: "giant",
-  role: "controller",
-  factions: ["stormcourt"],
+  r,
+ole: "controller",
+  f,
+actions: ["stormcourt"],
   tags: ["levitate", "thunder"],
-  behavior: {
-    aggression: 5,
-    courage: 8,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["disable-then-hurl"]
-  stats: {
-    hp: 185,
+  b,
+ehavior: {
+    a,
+ggression: 5,
+    c,
+ourage: 8},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["disable-then-hurl"],
+s,
+tats: {
+      hp: 185,
     ac: 16,
     atk: 20,
     dmg: "2d10 thunder",
-    speed: "40 ft, fly 10 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["sky-crystal"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Thunderclap", "Wind Burst", "Levitate Boulder"],
-},
+    s,
+peed: "40 ft, fly 10 ft"},
+  loot: ["sky-crystal"],
+  a,
+bilities: ["Thunderclap", "Wind Burst", "Levitate Boulder"]},
 
 /* ------------------------------------------------------------ */
 /* STORM GIANT KING — CR 12                                     */
@@ -168,32 +203,37 @@ abilities: ["Thunderclap", "Wind Burst", "Levitate Boulder"],
 {
   id: "storm-giant-king",
   name: "Storm Giant King",
-  cr: 12,
+  c,
+r: 12,
   biomes: ["coast", "stormlands", "high-mountains"],
-  habitat: ["storm-keep", "thunder-throne"],
+  h,
+abitat: ["storm-keep", "thunder-throne"],
   category: "giant",
-  role: "elite-controller",
-  factions: ["stormcourt", "giant-royal-seal"],
+  r,
+ole: "elite-controller",
+  f,
+actions: ["stormcourt", "giant-royal-seal"],
   tags: ["lightning", "storm"],
-  behavior: {
-    aggression: 7,
-    courage: 10,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["storm-then-mega-strike"]
-  stats: {
-    hp: 265,
+  b,
+ehavior: {
+    a,
+ggression: 7,
+    c,
+ourage: 10},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["storm-then-mega-strike"],
+s,
+tats: {
+      hp: 265,
     ac: 18,
     atk: 23,
     dmg: "3d10 lightning",
-    speed: "50 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["Storm Heart", "giant-royal-seal"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Stormshatter", "Lightning Aura", "Call Tempest"],
-},
-
-];
+    s,
+peed: "50 ft"},
+  loot: ["Storm Heart", "giant-royal-seal"],
+  a,
+bilities: ["Stormshatter", "Lightning Aura", "Call Tempest"]}];
 
 export default MINIONS;

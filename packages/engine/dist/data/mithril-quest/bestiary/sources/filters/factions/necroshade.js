@@ -9,7 +9,7 @@ export const FACTION_NECROSHADE = {
         "runes de mort",
         "torsions d’ombre",
         "chair en décomposition",
-        "éclats d’énergie nécrotique"
+        "éclats d’énergie nécrotique",
     ],
     tone: ["lugubre", "corrompu", "surnaturel"],
 };

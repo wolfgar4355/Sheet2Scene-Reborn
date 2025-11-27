@@ -8,31 +8,38 @@ export const MINIONS: Minion[] = [
 {
   id: "candle-spirit",
   name: "Candle Spirit",
-  cr: 1,
+  c,
+r: 1,
   biomes: ["dungeon", "crypt", "ruins"],
-  habitat: ["forgotten-altars", "burial-chambers"],
+  h,
+abitat: ["forgotten-altars", "burial-chambers"],
   category: "spirit",
-  role: "lurker",
+  r,
+ole: "lurker",
   tags: ["ghostly", "flicker", "undead-lite"],
-  factions: ["Spirit Wardens"],
-  behavior: {
-    aggression: 2,
-    courage: 4,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["flicker-near-targets"]
-  stats: {
-    hp: 18,
+  f,
+actions: ["Spirit Wardens"],
+  b,
+ehavior: {
+    a,
+ggression: 2,
+    c,
+ourage: 4},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["flicker-near-targets"],
+s,
+tats: {
+      hp: 18,
     ac: 10,
     atk: 10,
     dmg: "1d6 radiant",
-    speed: "10 ft, hover 30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["flicker-wax"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Flickering Glow", "Flicker Step"],
-},
+    s,
+peed: "10 ft, hover 30 ft"},
+  loot: ["flicker-wax"],
+  a,
+bilities: ["Flickering Glow", "Flicker Step"]},
 
 /* ------------------------------------------------------------ */
 /* WRAITHLING — CR 3 */
@@ -40,31 +47,38 @@ abilities: ["Flickering Glow", "Flicker Step"],
 {
   id: "wraithling",
   name: "Wraithling",
-  cr: 3,
+  c,
+r: 3,
   biomes: ["shadowlands", "crypts"],
-  habitat: ["grave-corridors", "sorrow-chasms"],
+  h,
+abitat: ["grave-corridors", "sorrow-chasms"],
   category: "spirit",
-  role: "skirmisher",
+  r,
+ole: "skirmisher",
   tags: ["shadow", "fear"],
-  factions: ["Nether Wraiths"],
-  behavior: {
-    aggression: 4,
-    courage: 3,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["hit-and-fade"]
-  stats: {
-    hp: 36,
+  f,
+actions: ["Nether Wraiths"],
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 3},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["hit-and-fade"],
+s,
+tats: {
+      hp: 36,
     ac: 14,
     atk: 14,
     dmg: "2d6 necrotic",
-    speed: "40 ft, hover 40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["cold-shards"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Shadow Touch", "Ethereal Drift"],
-},
+    s,
+peed: "40 ft, hover 40 ft"},
+  loot: ["cold-shards"],
+  a,
+bilities: ["Shadow Touch", "Ethereal Drift"]},
 
 /* ------------------------------------------------------------ */
 /* GRAVE WHISPERER — CR 4 */
@@ -72,31 +86,38 @@ abilities: ["Shadow Touch", "Ethereal Drift"],
 {
   id: "grave-whisperer",
   name: "Grave Whisperer",
-  cr: 4,
+  c,
+r: 4,
   biomes: ["graveyard", "crypt", "ruins"],
-  habitat: ["ossuary-halls", "mourning-niches"],
+  h,
+abitat: ["ossuary-halls", "mourning-niches"],
   category: "spirit",
-  role: "controller",
+  r,
+ole: "controller",
   tags: ["poltergeist", "possession"],
-  factions: ["Spirit Wardens"],
-  behavior: {
-    aggression: 3,
-    courage: 5,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["psychic-scream-then-possess"]
-  stats: {
-    hp: 52,
+  f,
+actions: ["Spirit Wardens"],
+  b,
+ehavior: {
+    a,
+ggression: 3,
+    c,
+ourage: 5},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["psychic-scream-then-possess"],
+s,
+tats: {
+      hp: 52,
     ac: 13,
     atk: 16,
     dmg: "2d8 psychic",
-    speed: "20 ft, hover 40 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["whispering-bone"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Mortifying Wail", "Mind Grip", "Possess Corpse"],
-},
+    s,
+peed: "20 ft, hover 40 ft"},
+  loot: ["whispering-bone"],
+  a,
+bilities: ["Mortifying Wail", "Mind Grip", "Possess Corpse"]},
 
 /* ------------------------------------------------------------ */
 /* ANCESTRAL GUARDIAN — CR 6 */
@@ -104,31 +125,38 @@ abilities: ["Mortifying Wail", "Mind Grip", "Possess Corpse"],
 {
   id: "ancestral-guardian",
   name: "Ancestral Guardian",
-  cr: 6,
+  c,
+r: 6,
   biomes: ["sacred-woods", "mountain-shrines"],
-  habitat: ["ancestral-groves", "ancestor-stones"],
+  h,
+abitat: ["ancestral-groves", "ancestor-stones"],
   category: "spirit",
-  role: "bruiser",
+  r,
+ole: "bruiser",
   tags: ["guardian", "ancient"],
-  factions: ["Ancestor Courts"],
-  behavior: {
-    aggression: 4,
-    courage: 7,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["protect-sacred-zone"]
-  stats: {
-    hp: 110,
+  f,
+actions: ["Ancestor Courts"],
+  b,
+ehavior: {
+    a,
+ggression: 4,
+    c,
+ourage: 7},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["protect-sacred-zone"],
+s,
+tats: {
+      hp: 110,
     ac: 17,
     atk: 18,
     dmg: "2d10 radiant",
-    speed: "35 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["ancestral-sigil"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Radiant Slam", "Guardian Shield", "Sanctified Light"],
-},
+    s,
+peed: "35 ft"},
+  loot: ["ancestral-sigil"],
+  a,
+bilities: ["Radiant Slam", "Guardian Shield", "Sanctified Light"]},
 
 /* ------------------------------------------------------------ */
 /* SOUL TEMPEST — CR 10 (ELITE SPIRIT BOSS) */
@@ -136,37 +164,41 @@ abilities: ["Radiant Slam", "Guardian Shield", "Sanctified Light"],
 {
   id: "soul-tempest",
   name: "Soul Tempest",
-  cr: 10,
+  c,
+r: 10,
   biomes: ["soulstorm-wastes", "temporal-zones"],
-  habitat: ["echo-nexus", "spirit-wells"],
+  h,
+abitat: ["echo-nexus", "spirit-wells"],
   category: "spirit",
-  role: "controller",
+  r,
+ole: "controller",
   tags: ["spectral", "storm", "soul", "aoe"],
-  factions: ["Echo Choirs"],
-  behavior: {
-    aggression: 6,
-    courage: 8,
-  },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["scatter-party-then-aoe-pulse"]
-  stats: {
-    hp: 180,
+  f,
+actions: ["Echo Choirs"],
+  b,
+ehavior: {
+    a,
+ggression: 6,
+    c,
+ourage: 8},
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["scatter-party-then-aoe-pulse"],
+s,
+tats: {
+      hp: 180,
     ac: 18,
     atk: 20,
     dmg: "3d10 psychic + soul drain",
-    speed: "hover 60 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["resonant-crystal", "tempest-essence"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: [
+    s,
+peed: "hover 60 ft"},
+  loot: ["resonant-crystal", "tempest-essence"],
+  a,
+bilities: [
     "Soul Screech",
     "Spirit Pulse",
     "Astral Sunder",
-    "Temporal Disruption",
-  ],
-},
-
-];
+    "Temporal Disruption"]}];
 
 export default MINIONS;

@@ -4,5 +4,4 @@ export const HILLS_HABITATS = [
   "boulder-fields",
   "titan-footprints",
   "ancient-mounds",
-  "beast-spines",
-] as const;
+  "beast-spines"] as const;

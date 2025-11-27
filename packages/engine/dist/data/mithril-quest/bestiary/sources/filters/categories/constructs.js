@@ -1,1 +1,2 @@
-export const constructCategories = ["construct"];
+export const constructCategories = ["construct"], as;
+const ;

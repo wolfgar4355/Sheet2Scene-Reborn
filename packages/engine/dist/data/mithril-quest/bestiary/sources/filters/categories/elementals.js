@@ -1,1 +1,2 @@
-export const elementalCategories = ["elemental"];
+export const elementalCategories = ["elemental"], as;
+const ;

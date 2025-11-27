@@ -8,28 +8,36 @@ export const MINIONS: Minion[] = [
 {
   id: "death-knight",
   name: "Death Knight",
-  cr: 7,
+  c,
+r: 7,
   biomes: ["fenland", "shadowlands", "crypt"],
-  habitat: ["cursed-halls", "forsaken-battlegrounds"],
+  h,
+abitat: ["cursed-halls", "forsaken-battlegrounds"],
   category: "undead",
-  role: "elite-bruiser",
+  r,
+ole: "elite-bruiser",
   tags: ["dark-auras", "fire-magic", "unholy"],
-  factions: ["Grave Sovereignty"],
-  behavior: { aggression: 7, courage: 6 },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["smite-then-burn"]
-  stats: {
-    hp: 165,
+  f,
+actions: ["Grave Sovereignty"],
+  b,
+ehavior: { a,
+ggression: 7, c,
+ourage: 6 },
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["smite-then-burn"],
+s,
+tats: {
+      hp: 165,
     ac: 18,
     atk: 16,
     dmg: "2d8+6 slashing + fire",
-    speed: "25 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["hollowed-plate", "cursed-greatsword"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Hellfire Burst", "Aura of Dread", "Dark Command"],
-},
+    s,
+peed: "25 ft"},
+  loot: ["hollowed-plate", "cursed-greatsword"],
+  a,
+bilities: ["Hellfire Burst", "Aura of Dread", "Dark Command"]},
 
 /* ------------------------------------------------------------ */
 /* DREAD WRAITH — CR 8 */
@@ -37,28 +45,36 @@ abilities: ["Hellfire Burst", "Aura of Dread", "Dark Command"],
 {
   id: "dread-wraith",
   name: "Dread Wraith",
-  cr: 8,
+  c,
+r: 8,
   biomes: ["shadowlands", "crypts", "underground"],
-  habitat: ["tomb-corridors", "dark-chasms"],
+  h,
+abitat: ["tomb-corridors", "dark-chasms"],
   category: "undead",
-  role: "lurker",
+  r,
+ole: "lurker",
   tags: ["ethereal", "life-drain"],
-  factions: ["Ebon Host"],
-  behavior: { aggression: 6, courage: 5 },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["phase-through-walls-then-drain"]
-  stats: {
-    hp: 130,
+  f,
+actions: ["Ebon Host"],
+  b,
+ehavior: { a,
+ggression: 6, c,
+ourage: 5 },
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["phase-through-walls-then-drain"],
+s,
+tats: {
+      hp: 130,
     ac: 17,
     atk: 18,
     dmg: "3d6 necrotic (life drain)",
-    speed: "40 ft (hover)",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["phantom-embers"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Ethereal Shift", "Life Drain", "Wail of Dread"],
-},
+    s,
+peed: "40 ft (hover)"},
+  loot: ["phantom-embers"],
+  a,
+bilities: ["Ethereal Shift", "Life Drain", "Wail of Dread"]},
 
 /* ------------------------------------------------------------ */
 /* NECRO HYDRA — CR 8 */
@@ -66,28 +82,36 @@ abilities: ["Ethereal Shift", "Life Drain", "Wail of Dread"],
 {
   id: "necro-hydra",
   name: "Necro Hydra",
-  cr: 8,
+  c,
+r: 8,
   biomes: ["swamp", "shadowlands", "underground"],
-  habitat: ["necromancer-lairs", "corpse-marsh"],
+  h,
+abitat: ["necromancer-lairs", "corpse-marsh"],
   category: "undead",
-  role: "brute",
+  r,
+ole: "brute",
   tags: ["multi-head", "poison", "necrotic"],
-  factions: ["Corpseforge Dominion"],
-  behavior: { aggression: 8, courage: 7 },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["multi-head-breach-then-lash"]
-  stats: {
-    hp: 170,
+  f,
+actions: ["Corpseforge Dominion"],
+  b,
+ehavior: { a,
+ggression: 8, c,
+ourage: 7 },
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["multi-head-breach-then-lash"],
+s,
+tats: {
+      hp: 170,
     ac: 16,
     atk: 17,
     dmg: "3d8 necrotic or poison",
-    speed: "30 ft, swim 25 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["hydra-skull", "black-ichor"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Infectious Breath", "Reanimation Surge", "Severed Head Reform"],
-},
+    s,
+peed: "30 ft, swim 25 ft"},
+  loot: ["hydra-skull", "black-ichor"],
+  a,
+bilities: ["Infectious Breath", "Reanimation Surge", "Severed Head Reform"]},
 
 /* ------------------------------------------------------------ */
 /* BONE COLOSSUS — CR 10 */
@@ -95,28 +119,36 @@ abilities: ["Infectious Breath", "Reanimation Surge", "Severed Head Reform"],
 {
   id: "bone-colossus",
   name: "Bone Colossus",
-  cr: 10,
+  c,
+r: 10,
   biomes: ["crypt", "ruins", "underground"],
-  habitat: ["resurrected-vaults"],
+  h,
+abitat: ["resurrected-vaults"],
   category: "undead",
-  role: "siegebreaker",
+  r,
+ole: "siegebreaker",
   tags: ["bone-giant", "grave-construct"],
-  factions: ["Corpseforge Dominion"],
-  behavior: { aggression: 9, courage: 8 },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["slam-frontline-then-ground-pound"]
-  stats: {
-    hp: 240,
+  f,
+actions: ["Corpseforge Dominion"],
+  b,
+ehavior: { a,
+ggression: 9, c,
+ourage: 8 },
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["slam-frontline-then-ground-pound"],
+s,
+tats: {
+      hp: 240,
     ac: 19,
     atk: 20,
     dmg: "3d12+6 bludgeoning",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["bone-core", "giant-ribplate"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Ground Pound", "Bone Storm", "Reinforced Skeleton"],
-},
+    s,
+peed: "30 ft"},
+  loot: ["bone-core", "giant-ribplate"],
+  a,
+bilities: ["Ground Pound", "Bone Storm", "Reinforced Skeleton"]},
 
 /* ------------------------------------------------------------ */
 /* ARCH-NECROLORD — CR 12 (MINI-BOSS) */
@@ -124,29 +156,35 @@ abilities: ["Ground Pound", "Bone Storm", "Reinforced Skeleton"],
 {
   id: "arch-necrolord",
   name: "Arch Necrolord",
-  cr: 12,
+  c,
+r: 12,
   biomes: ["shadowlands", "crypts", "ruins"],
-  habitat: ["necromancer-thrones", "ritual-chambers"],
+  h,
+abitat: ["necromancer-thrones", "ritual-chambers"],
   category: "undead",
-  role: "elite-controller",
+  r,
+ole: "elite-controller",
   tags: ["necromancy", "summoner", "ritualist"],
-  factions: ["Grave Sovereignty"],
-  behavior: { aggression: 5, courage: 7 },
-  tactics: { prefersAmbush: true }, // NOTE: anciennement // NOTE (fix-fantasy v2 auto-commented)
-tactics: ["summon-horde-then-cast-death"]
-  stats: {
-    hp: 220,
+  f,
+actions: ["Grave Sovereignty"],
+  b,
+ehavior: { a,
+ggression: 5, c,
+ourage: 7 },
+  t,
+actics: { prefersAmbush: true }, // NOTE: anciennement 
+t,
+actics: ["summon-horde-then-cast-death"],
+s,
+tats: {
+      hp: 220,
     ac: 18,
     atk: 19,
     dmg: "3d10 necrotic",
-    speed: "30 ft",
-  },
-  // NOTE (fix-fantasy v2 auto-commented)
-loot: ["phylactery-fragment", "forbidden-grimoire"],
-  // NOTE (fix-fantasy v2 auto-commented)
-abilities: ["Mass Bind", "Death Nova", "Spirit Harvest", "Bone Shatter"],
-},
-
-];
+    s,
+peed: "30 ft"},
+  loot: ["phylactery-fragment", "forbidden-grimoire"],
+  a,
+bilities: ["Mass Bind", "Death Nova", "Spirit Harvest", "Bone Shatter"]}];
 
 export default MINIONS;

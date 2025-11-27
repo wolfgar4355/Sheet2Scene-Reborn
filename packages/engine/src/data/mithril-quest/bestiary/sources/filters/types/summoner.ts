@@ -1,20 +1,24 @@
 export const TYPE_SUMMONER = {
-  role: "Summoner",
+  r,
+ole: "Summoner",
   description: "Invoque ou crée des créatures pour combattre à sa place.",
-  stats: {
-    hp: "Faibles à moyens",
+  s,
+tats: {
+      hp: "Faibles à moyens",
     ac: "Faible",
-    damage: { dice: "Faible direct, élevé via", type: "invocations" },
-    mobility: "Moyenne",
-  },
-  traits: [
+    d,
+amage: { d,
+ice: "Faible direct, élevé via", t,
+ype: "invocations" },
+    m,
+obility: "Moyenne"},
+  t,
+raits: [
     "Invoque des alliés",
     "Crée des minions ou familiers",
-    "Peut submerger l’adversaire par le nombre",
-  ],
-  examples: [
+    "Peut submerger l’adversaire par le nombre"],
+  e,
+xamples: [
     "Nécromancien des fosses",
     "Invocateur arcanique",
-    "Maître des familiers sauvages",
-  ],
-} as const;
+    "Maître des familiers sauvages"]} as const;

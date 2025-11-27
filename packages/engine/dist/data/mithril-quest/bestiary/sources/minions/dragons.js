@@ -13,7 +13,7 @@ export const MINIONS = [
         factions: ["chromatic-dragons"],
         tags: ["flying", "fire"],
         behavior: { aggression: 4, courage: 3 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["fly-by-breath"]
+        tactics: ["fly-by-breath"],
         stats: {
             hp: 52,
             ac: 16,
@@ -38,7 +38,7 @@ export const MINIONS = [
         factions: ["chromatic-dragons"],
         tags: ["cold", "flying"],
         behavior: { aggression: 3, courage: 3 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["freeze-then-bite"]
+        tactics: ["freeze-then-bite"],
         stats: {
             hp: 45,
             ac: 15,
@@ -63,7 +63,7 @@ export const MINIONS = [
         factions: ["primordial-dragons"],
         tags: ["earth", "burrow"],
         behavior: { aggression: 4, courage: 4 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["tunnel-ambush"]
+        tactics: ["tunnel-ambush"],
         stats: {
             hp: 136,
             ac: 18,
@@ -88,7 +88,7 @@ export const MINIONS = [
         factions: ["primordial-dragons"],
         tags: ["lightning", "flying"],
         behavior: { aggression: 4, courage: 5 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["aoe-burst-then-fly-high"]
+        tactics: ["aoe-burst-then-fly-high"],
         stats: {
             hp: 150,
             ac: 20,
@@ -113,7 +113,7 @@ export const MINIONS = [
         factions: ["umbral-flight"],
         tags: ["shadow", "fear"],
         behavior: { aggression: 5, courage: 5 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["darken-arena-then-devour"]
+        tactics: ["darken-arena-then-devour"],
         stats: {
             hp: 265,
             ac: 21,
@@ -138,7 +138,7 @@ export const MINIONS = [
         factions: ["astral-dragons"],
         tags: ["radiant", "flying", "legendary"],
         behavior: { aggression: 3, courage: 7 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement tactics: ["holy-awe-battle"]
+        tactics: ["holy-awe-battle"],
         stats: {
             hp: 330,
             ac: 23,
@@ -151,7 +151,7 @@ export const MINIONS = [
             "Radiant Breath",
             "Heavenly Transcendence",
             "Holy Restoration",
-            "Blinding Roar"
+            "Blinding Roar",
         ],
     },
 ];
