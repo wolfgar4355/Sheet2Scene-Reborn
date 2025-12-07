@@ -4,46 +4,57 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-function r(p) {
-  return path.resolve(__dirname, p);
-}
+const r = (p) => path.resolve(__dirname, p);
 
-const nextConfig = {
+export default {
   reactStrictMode: true,
-  experimental: {
-    serverComponentsExternalPackages: ["@engine", "@grimoire", "@mithril"],
-  },
+
+  // SWC ne fonctionne pas sur Android (ARM64)
+  swcMinify: false,
+
   webpack(config) {
     config.resolve.alias = {
-      "@": r("./app"),
-      "@lib": r("./lib"),
-      "@lib/getUserId": r("./lib/getUserId.ts"),
-      "@lib/mithril": r("./lib/mithril"),
-      "@mithril": r("../../packages/engine/src/mithril"),
-      "@lib/supabase": r("./lib/supabase"),
+      // ─────────────────────────────────────────────
+      // APP (apps/web)
+      // ─────────────────────────────────────────────
+      "@": r("."),                     // racine apps/web
+      "@app": r("./app"),
       "@components": r("./components"),
       "@hooks": r("./hooks"),
+      "@lib": r("./lib"),
       "@utils": r("./utils"),
-      "@config": r("./config"),
+      "@config": r("./config"),        // worlds.ts etc.
 
-      // ENGINE
+      // ─────────────────────────────────────────────
+      // PUBLIC ASSETS
+      // ─────────────────────────────────────────────
+      "@public": r("./public"),
+      "@images": r("./public/images"),
+      "@sounds": r("./public/sounds"),
+      "@assets": r("./public/assets"),
+
+      // ─────────────────────────────────────────────
+      // ENGINE (packages/engine/src)
+      // ─────────────────────────────────────────────
       "@engine": r("../../packages/engine/src"),
-      "@engine/content": r("../../packages/engine/src/content"),
-      "@engine/types": r("../../packages/engine/src/types"),
-      "@engine/ambient": r("../../packages/engine/src/ambient.config.ts"),
 
-      // GRIMOIRE
-      "@grimoire": r("../../packages/engine/src/content/grimoire"),
+      // Mithril-Quest (nouveau moteur)
+      "@mithril": r("../../packages/engine/src/data/mithril-quest"),
 
-      // FANTASY
-      "@fantasy": r("../../packages/engine/src/content/fantasy"),
-      "@bestiary": r("../../packages/engine/src/content/fantasy/bestiary"),
-      "@spells": r("../../packages/engine/src/content/fantasy/spells"),
-      "@eras": r("../../packages/engine/src/content/fantasy/eras"),
-      "@worlds-content": r("../../packages/engine/src/content/fantasy/worlds"),
+      // Contenu MQ
+      "@mq-worlds": r("../../packages/engine/src/data/mithril-quest/worlds"),
+      "@mq-eras": r("../../packages/engine/src/data/mithril-quest/eras"),
+      "@mq-bestiary": r("../../packages/engine/src/data/mithril-quest/bestiary"),
+      "@mq-items": r("../../packages/engine/src/data/mithril-quest/items"),
+      "@mq-spells": r("../../packages/engine/src/data/mithril-quest/spells"),
+
+      // ─────────────────────────────────────────────
+      // Legacy (si besoin)
+      // ─────────────────────────────────────────────
+      "@fantasy": r("../../packages/engine/src/data/mithril-quest"),
+      "@worlds-content": r("../../packages/engine/src/data/mithril-quest/worlds"),
     };
+
     return config;
   },
 };
-
-export default nextConfig;

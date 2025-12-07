@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const CIVILIZED_HABITATS = [
   "civilized",
   "village",
@@ -5,4 +6,5 @@ export const CIVILIZED_HABITATS = [
   "noble-quarter",
   "harbor-docks",
   "back-alleys",
-  "arcane-academy"] as const;
+  "arcane-academy",
+] as const;

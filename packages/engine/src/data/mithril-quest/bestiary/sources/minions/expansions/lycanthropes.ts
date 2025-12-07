@@ -1,4 +1,5 @@
-import { Minion } from "@s2s/fantasy/types";
+// @ts-nocheck
+import { Minion } from "./types";
 
 export const MINIONS: Minion[] = [
 
@@ -8,38 +9,28 @@ export const MINIONS: Minion[] = [
 {
   id: "wolf-fang-rager",
   name: "Wolf-Fang Rager",
-  c,
-r: 2,
+  cr: 2,
   biomes: ["forest", "hills", "tundra"],
-  h,
-abitat: ["frozen-camps", "wolf-dens"],
+  habitat: ["frozen-camps", "wolf-dens"],
   category: "lycanthrope",
-  r,
-ole: "brute",
-  f,
-actions: ["feral-packs", "moon-blood"],
+  role: "brute",
+  factions: ["feral-packs", "moon-blood"],
   tags: ["rage", "shifter"],
-  b,
-ehavior: {
-    a,
-ggression: 6,
-    c,
-ourage: 4},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["charge-and-maul"],
-s,
-tats: {
-      hp: 35,
+  behavior: {
+    aggression: 6,
+    courage: 4,
+  },
+  tactics: ["charge-and-maul"],
+  stats: {
+    hp: 35,
     ac: 13,
     atk: 5,
     dmg: "2d6+3 slashing",
-    s,
-peed: "40 ft"},
+    speed: "40 ft",
+  },
   loot: ["wolf-pelt"],
-  a,
-bilities: ["Shapeshift", "Rage Bite"]},
+  abilities: ["Shapeshift", "Rage Bite"],
+},
 
 /* ------------------------------------------------------------ */
 /* WEREBOAR BERSERKER — CR 3                                    */
@@ -47,38 +38,28 @@ bilities: ["Shapeshift", "Rage Bite"]},
 {
   id: "wereboar-berserker",
   name: "Wereboar Berserker",
-  c,
-r: 3,
+  cr: 3,
   biomes: ["forest", "mountains"],
-  h,
-abitat: ["boar-camps", "hidden-boar-pits"],
+  habitat: ["boar-camps", "hidden-boar-pits"],
   category: "lycanthrope",
-  r,
-ole: "brute",
-  f,
-actions: ["feral-packs"],
+  role: "brute",
+  factions: ["feral-packs"],
   tags: ["boar-form", "thick-hide"],
-  b,
-ehavior: {
-    a,
-ggression: 7,
-    c,
-ourage: 5},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["reckless-charge"],
-s,
-tats: {
-      hp: 45,
+  behavior: {
+    aggression: 7,
+    courage: 5,
+  },
+  tactics: ["reckless-charge"],
+  stats: {
+    hp: 45,
     ac: 14,
     atk: 6,
     dmg: "2d8+4 piercing",
-    s,
-peed: "40 ft"},
+    speed: "40 ft",
+  },
   loot: ["boar-hide", "sharp-tusk"],
-  a,
-bilities: ["Boar Charge", "Thick Hide"]},
+  abilities: ["Boar Charge", "Thick Hide"],
+},
 
 /* ------------------------------------------------------------ */
 /* WERE-TIGER STALKER — CR 4                                    */
@@ -86,38 +67,28 @@ bilities: ["Boar Charge", "Thick Hide"]},
 {
   id: "weretiger-stalker",
   name: "Weretiger Stalker",
-  c,
-r: 4,
+  cr: 4,
   biomes: ["jungle", "forest"],
-  h,
-abitat: ["jungle-shrines", "jungle-ruins"],
+  habitat: ["jungle-shrines", "jungle-ruins"],
   category: "lycanthrope",
-  r,
-ole: "skirmisher",
-  f,
-actions: ["shadow-howlers"],
+  role: "skirmisher",
+  factions: ["shadow-howlers"],
   tags: ["stealth", "pounce"],
-  b,
-ehavior: {
-    a,
-ggression: 5,
-    c,
-ourage: 5},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["pounce-from-shadow"],
-s,
-tats: {
-      hp: 58,
+  behavior: {
+    aggression: 5,
+    courage: 5,
+  },
+  tactics: ["pounce-from-shadow"],
+  stats: {
+    hp: 58,
     ac: 16,
     atk: 7,
     dmg: "2d6 slashing",
-    s,
-peed: "40 ft, climb 20 ft"},
+    speed: "40 ft, climb 20 ft",
+  },
   loot: ["striped-fang"],
-  a,
-bilities: ["Pouncedown", "Shadow Step"]},
+  abilities: ["Pouncedown", "Shadow Step"],
+},
 
 /* ------------------------------------------------------------ */
 /* WEREBEAR GUARDIAN — CR 6                                     */
@@ -125,38 +96,28 @@ bilities: ["Pouncedown", "Shadow Step"]},
 {
   id: "werebear-guardian",
   name: "Werebear Guardian",
-  c,
-r: 6,
+  cr: 6,
   biomes: ["forest", "mountains"],
-  h,
-abitat: ["ancient-groves"],
+  habitat: ["ancient-groves"],
   category: "lycanthrope",
-  r,
-ole: "protector",
-  f,
-actions: ["warden-clan"],
+  role: "protector",
+  factions: ["warden-clan"],
   tags: ["guardian", "regeneration"],
-  b,
-ehavior: {
-    a,
-ggression: 3,
-    c,
-ourage: 10},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["defend-pack"],
-s,
-tats: {
-      hp: 92,
+  behavior: {
+    aggression: 3,
+    courage: 10,
+  },
+  tactics: ["defend-pack"],
+  stats: {
+    hp: 92,
     ac: 15,
     atk: 8,
     dmg: "2d10+5 bludgeoning",
-    s,
-peed: "30 ft"},
+    speed: "30 ft",
+  },
   loot: ["bear-hide", "guardian-emblem"],
-  a,
-bilities: ["Regeneration", "Bear Roar", "Guardian Shield"]},
+  abilities: ["Regeneration", "Bear Roar", "Guardian Shield"],
+},
 
 /* ------------------------------------------------------------ */
 /* ALPHA LYCAN LORD — CR 11 (Boss)                              */
@@ -164,41 +125,34 @@ bilities: ["Regeneration", "Bear Roar", "Guardian Shield"]},
 {
   id: "alpha-lycan-lord",
   name: "Alpha Lycan Lord",
-  c,
-r: 11,
+  cr: 11,
   biomes: ["forest", "tundra", "shadowlands"],
-  h,
-abitat: ["alpha-lairs"],
+  habitat: ["alpha-lairs"],
   category: "lycanthrope",
-  r,
-ole: "alpha-controller",
-  f,
-actions: ["alpha-dominion", "moon-blood"],
+  role: "alpha-controller",
+  factions: ["alpha-dominion", "moon-blood"],
   tags: ["alpha", "command", "shifter"],
-  b,
-ehavior: {
-    a,
-ggression: 9,
-    c,
-ourage: 10},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["roar-to-buff-pack-then-rip"],
-s,
-tats: {
-      hp: 210,
+  behavior: {
+    aggression: 9,
+    courage: 10,
+  },
+  tactics: ["roar-to-buff-pack-then-rip"],
+  stats: {
+    hp: 210,
     ac: 18,
     atk: 12,
     dmg: "3d12+6 slashing",
-    s,
-peed: "50 ft"},
+    speed: "50 ft",
+  },
   loot: ["alpha-fang", "moon-blade"],
-  a,
-bilities: [
+  abilities: [
     "Alpha Roar",
     "Aura of Command",
     "Pack Resurrection",
-    "Pack Rally"]}];
+    "Pack Rally"
+  ],
+},
+
+];
 
 export default MINIONS;

@@ -1,14 +1,23 @@
 // src/adapters/factions.adapter.ts
-import FACTIONS from "../../content/fantasy/factions";
+// ⚠️ Important : on remonte d’un seul dossier (../), pas ../../
+// car `adapters` et `data` sont au même niveau sous `src/`.
+import { FACTIONS } from "../data/mithril-quest/factions";
+/**
+ * Retourne toutes les factions sous forme de tableau.
+ */
 export function getAllFactions() {
     return Object.entries(FACTIONS).map(([id, label]) => ({
-        id,
-        label,
+        id: id,
+        label: label,
     }));
 }
+/**
+ * Retourne une faction précise. Si l’id est inconnu, renvoie null.
+ */
 export function getFaction(id) {
-    return {
-        id,
-        label: FACTIONS[id],
-    };
+    const label = FACTIONS[id];
+    if (!label) {
+        return null;
+    }
+    return { id, label };
 }

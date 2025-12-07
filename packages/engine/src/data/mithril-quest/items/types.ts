@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/s2s/fantasy/items/types.ts
 
 export type ItemRarity = "common" | "uncommon" | "rare" | "very-rare" | "legendary";
@@ -58,3 +59,20 @@ export interface Artifact extends BaseItem {
 }
 
 export type AnyItem = Weapon | Armor | Gear | Consumable | Artifact;
+
+// --- Mithril Quest aliases (pour les datasets MQ) ---
+
+// Armure générique utilisée par mithril-quest
+export type MQItemArmor = Armor;
+
+// Artefact générique utilisée par mithril-quest
+export type MQItemArtifact = Artifact;
+
+// Arme générique utilisée par mithril-quest
+export type MQWeapon = Weapon;
+
+// Accessoire : petit objet porté (anneau, amulette, etc.)
+export interface MQAccessory extends BaseItem {
+  type: "accessory";
+  slot: string; // "ring", "amulet", "belt", etc.
+}

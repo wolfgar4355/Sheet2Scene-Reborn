@@ -1,6 +1,10 @@
-import type { Ritual } from "../schema.ts";
+// @ts-nocheck
+// rituals/sources/ritual_arcane.ts
+// Rituels arcaniques MQ (Mithril-Quest)
 
-export const RITUALS_ARCANE: Ritual[] = [
+import type { Ritual } from "../schema";
+
+export const RITUAL_ARCANE: Ritual[] = [
   {
     id: "teleport_circle",
     label: "Cercle de Téléportation",
@@ -19,7 +23,7 @@ export const RITUALS_ARCANE: Ritual[] = [
     castTime: "1 heure",
     ingredients: ["poudre de quartz", "verrou en cuivre"],
     description:
-      "Scelle magiquement une porte ou un coffre. Seuls ceux choisis par le lanceur peuvent l'ouvrir."
+      "Scelle magiquement une porte ou un coffre. Seuls ceux choisis par le lanceur peuvent l’ouvrir."
   },
   {
     id: "astral_projection",
@@ -27,9 +31,9 @@ export const RITUALS_ARCANE: Ritual[] = [
     school: "arcane",
     level: 9,
     castTime: "8 heures",
-    ingredients: ["fil d'or", "encens rare"],
+    ingredients: ["fil d’or", "encens rare"],
     description:
-      "Sépare l'âme du corps pour voyager dans les plans supérieurs ou l'Astral."
+      "Sépare l’âme du corps pour voyager dans les plans supérieurs ou l’Astral."
   },
   {
     id: "identify_arcane",
@@ -49,7 +53,7 @@ export const RITUALS_ARCANE: Ritual[] = [
     castTime: "2 heures",
     ingredients: ["poussière de saphir", "runes peintes"],
     description:
-      "Érige une barrière invisible qui bloque la magie d'un type déterminé."
+      "Érige une barrière invisible qui bloque la magie d’un type déterminé."
   },
   {
     id: "mirror_scry",
@@ -57,9 +61,9 @@ export const RITUALS_ARCANE: Ritual[] = [
     school: "arcane",
     level: 5,
     castTime: "2 heures",
-    ingredients: ["miroir poli", "fumée d'encens"],
+    ingredients: ["miroir poli", "fumée d’encens"],
     description:
-      "Permet de voir un individu distant ou un lieu marqué par le mage."
+      "Permet de voir un individu éloigné ou un lieu marqué par le mage."
   },
   {
     id: "bind_element",

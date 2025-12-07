@@ -1,13 +1,12 @@
-// ALL_CLASSES.ts
-// -----------------------------------------------------------------------------
-// ⚠️ FICHIER GÉNÉRÉ AUTOMATIQUEMENT — NE PAS MODIFIER
-// -----------------------------------------------------------------------------
+// @ts-nocheck
+// AUTO-GÉNÉRÉ — NE PAS MODIFIER À LA MAIN
+// Généré par generate-all-classes.ts
 
-export const ALL_FANTASY_CLASSES = [
+export const ALL_CLASSES = [
   {
     "key": "alchemist",
     "label": "Alchimiste",
-    "description": "Mélange explosifs, toxines et potions expérimentales.",
+    "description": "Spécialiste des mélanges instables, toxines raffinées, explosifs et mutations alchimiques.",
     "hitdice": "d8",
     "primaryAbility": "Intelligence",
     "archetypes": [
@@ -19,7 +18,7 @@ export const ALL_FANTASY_CLASSES = [
   {
     "key": "artificer",
     "label": "Artificier",
-    "description": "Inventeur arcanique créant gadgets, armes magiques et mécanismes.",
+    "description": "Inventeur arcanique créant gadgets, armes magiques et mécanismes complexes.",
     "hitdice": "d8",
     "primaryAbility": "Intelligence",
     "archetypes": [
@@ -43,13 +42,25 @@ export const ALL_FANTASY_CLASSES = [
   {
     "key": "bard",
     "label": "Barde",
-    "description": "Artiste et conteur inspirant, guérisseur, trompeur ou déstabilisateur.",
+    "description": "Artiste et conteur inspirant, guérisseur, manipulateur ou déstabilisateur. Le barde canalise la magie par la musique, la poésie et les récits.",
     "hitdice": "d8",
     "primaryAbility": "Charisme",
     "archetypes": [
       "Éminent Illusionniste",
       "Ménestrel Somptueux",
       "Chanteur de Légendes"
+    ]
+  },
+  {
+    "key": "battlemage",
+    "label": "Mage de Bataille",
+    "description": "Combattant arcanique renforçant armes et armures de magie offensive. Maîtrise les runes martiales et les enchantements de guerre.",
+    "hitdice": "d8",
+    "primaryAbility": "Intelligence",
+    "archetypes": [
+      "Lame Runique",
+      "Déferlement Arcanique",
+      "Épée des Tempêtes"
     ]
   },
   {
@@ -65,50 +76,15 @@ export const ALL_FANTASY_CLASSES = [
     ]
   },
   {
-    "key": "shaman",
-    "label": "Chaman",
-    "description": "Pont entre le monde des esprits et celui des mortels. Manipule totems, malédictions et bénédictions ancestrales.",
-    "hitdice": "d8",
-    "primaryAbility": "Sagesse",
+    "key": "bloodmage",
+    "label": "Mage de Sang",
+    "description": "Canalise sa propre vitalité pour alimenter des sorts plus puissants, au prix de sévères contrecoups.",
+    "hitdice": "d6",
+    "primaryAbility": "Intelligence",
     "archetypes": [
-      "Guide des Esprits",
-      "Marcheur du Voile"
-    ]
-  },
-  {
-    "key": "hunter",
-    "label": "Chasseur",
-    "description": "Domestiqueur de monstres, dresseur de bêtes et expert en terrains sauvages.",
-    "hitdice": "d10",
-    "primaryAbility": "Dextérité",
-    "archetypes": [
-      "Traqueur de Piste",
-      "Maître des Bêtes",
-      "Œil du Frelon"
-    ]
-  },
-  {
-    "key": "witch_hunter",
-    "label": "Chasseur de sorcières",
-    "description": "Traqueur de mages occultes et d’esprits corrupteurs. Mélange d’armes bénies et d’anti-magie.",
-    "hitdice": "d10",
-    "primaryAbility": "Force ou Sagesse",
-    "archetypes": [
-      "Inquisiteur Sacré",
-      "Brûleur du Péché",
-      "Veilleur du Bûcher"
-    ]
-  },
-  {
-    "key": "knight",
-    "label": "Chevalier",
-    "description": "Soldat en armure lourde, lié par un code d’honneur et des serments de loyauté.",
-    "hitdice": "d10",
-    "primaryAbility": "Force",
-    "archetypes": [
-      "Ordre du Lion",
-      "Garde Rose",
-      "Sentinelle du Sanctuaire"
+      "Rituel Écarlate",
+      "Sang d’Obsidienne",
+      "Cœur Rouge"
     ]
   },
   {
@@ -138,25 +114,13 @@ export const ALL_FANTASY_CLASSES = [
   {
     "key": "duelist",
     "label": "Duelliste",
-    "description": "Maître des lames fines, esquives et attaques précises.",
+    "description": "Maître des lames fines, expert en esquives, contre-attaques et techniques de précision.",
     "hitdice": "d8",
     "primaryAbility": "Dextérité",
     "archetypes": [
       "Danseur de Lame",
       "Fine Lame",
       "École du Couteau"
-    ]
-  },
-  {
-    "key": "sorcerer",
-    "label": "Ensorceleur",
-    "description": "Magicien dont les sorts découlent d’un sang draconique, féerique ou abyssal.",
-    "hitdice": "d6",
-    "primaryAbility": "Charisme",
-    "archetypes": [
-      "Lignée Draconique",
-      "Lignée des Ombres",
-      "Lignée Féerique"
     ]
   },
   {
@@ -172,6 +136,18 @@ export const ALL_FANTASY_CLASSES = [
     ]
   },
   {
+    "key": "hunter",
+    "label": "Chasseur",
+    "description": "Domestiqueur de monstres, dresseur de bêtes et expert en terrains sauvages.",
+    "hitdice": "d10",
+    "primaryAbility": "Dextérité",
+    "archetypes": [
+      "Traqueur de Piste",
+      "Maître des Bêtes",
+      "Œil du Frelon"
+    ]
+  },
+  {
     "key": "inquisitor",
     "label": "Inquisiteur",
     "description": "Chasseur implacable d’hérétiques, démonistes et hérétiques. Mélange foi, armes bénies et magie interdite.",
@@ -184,6 +160,18 @@ export const ALL_FANTASY_CLASSES = [
     ]
   },
   {
+    "key": "knight",
+    "label": "Chevalier",
+    "description": "Soldat en armure lourde, lié par un code d’honneur et des serments de loyauté.",
+    "hitdice": "d10",
+    "primaryAbility": "Force",
+    "archetypes": [
+      "Ordre du Lion",
+      "Garde Rose",
+      "Sentinelle du Sanctuaire"
+    ]
+  },
+  {
     "key": "mage",
     "label": "Mage",
     "description": "Maître absolu de la magie. Capable de manipuler les forces arcaniques les plus dangereuses.",
@@ -193,30 +181,6 @@ export const ALL_FANTASY_CLASSES = [
       "Savant Arcaniste",
       "Maître des Énergies Primordiales",
       "Chronomancien"
-    ]
-  },
-  {
-    "key": "battlemage",
-    "label": "Mage de Bataille",
-    "description": "Combattant arcanique renforçant armes et armures de magie offensive.",
-    "hitdice": "d8",
-    "primaryAbility": "Intelligence",
-    "archetypes": [
-      "Lame Runique",
-      "Déferlement Arcanique",
-      "Épée des Tempêtes"
-    ]
-  },
-  {
-    "key": "bloodmage",
-    "label": "Mage de Sang",
-    "description": "Utilise sa propre vitalité pour des sorts plus puissants.",
-    "hitdice": "d6",
-    "primaryAbility": "Intelligence",
-    "archetypes": [
-      "Rituel Écarlate",
-      "Sang d’Obsidienne",
-      "Cœur Rouge"
     ]
   },
   {
@@ -246,25 +210,13 @@ export const ALL_FANTASY_CLASSES = [
   {
     "key": "necromancer",
     "label": "Nécromancien",
-    "description": "Dompteur des morts, des esprits et de la désolation.",
+    "description": "Domteur des morts, des esprits et de la désolation.",
     "hitdice": "d6",
     "primaryAbility": "Intelligence",
     "archetypes": [
       "Signeur des Ossements",
       "Voie du Liche",
-      "Alchemiste de la Purification"
-    ]
-  },
-  {
-    "key": "warlock",
-    "label": "Occultiste",
-    "description": "Mage lié à des pactes mystiques. Mauditations, ombres, esprits interdits.",
-    "hitdice": "d8",
-    "primaryAbility": "Charisme",
-    "archetypes": [
-      "Pacte de l’Abyme",
-      "Pacte du Cœur Noir",
-      "Pacte de l’Ancien"
+      "Alchimiste de la Purification"
     ]
   },
   {
@@ -277,18 +229,6 @@ export const ALL_FANTASY_CLASSES = [
       "Serment du Soleil",
       "Serment des Brumes",
       "Serment du Jugement"
-    ]
-  },
-  {
-    "key": "warpriest",
-    "label": "Prêtre de Guerre",
-    "description": "Guerrier saint qui bénit ses alliés et frappe au nom de sa foi.",
-    "hitdice": "d10",
-    "primaryAbility": "Force",
-    "archetypes": [
-      "Lame Sacrée",
-      "Croisé Bénissant",
-      "Main de Solaria"
     ]
   },
   {
@@ -322,7 +262,7 @@ export const ALL_FANTASY_CLASSES = [
     "hitdice": "d8",
     "primaryAbility": "Dextérité",
     "archetypes": [
-      "Voleur de Coule",
+      "Voleur de Guilde",
       "Brise-Serrures",
       "Lame des Ténèbres"
     ]
@@ -330,13 +270,36 @@ export const ALL_FANTASY_CLASSES = [
   {
     "key": "runeguard",
     "label": "Runegarde",
-    "description": "Spécialiste des glyphes de protection et renforcements.",
+    "description": "Spécialiste des glyphes de protection et de renforcement.",
     "hitdice": "d10",
     "primaryAbility": "Sagesse",
     "archetypes": [
       "Gardien Runique",
       "Sentinelle Gravée",
       "Bouclier des Pierres"
+    ]
+  },
+  {
+    "key": "shaman",
+    "label": "Chaman",
+    "description": "Pont entre le monde des esprits et celui des mortels. Manipule totems, malédictions et bénédictions ancestrales.",
+    "hitdice": "d8",
+    "primaryAbility": "Sagesse",
+    "archetypes": [
+      "Guide des Esprits",
+      "Marcheur du Voile"
+    ]
+  },
+  {
+    "key": "sorcerer",
+    "label": "Ensorceleur",
+    "description": "Magicien dont les sorts découlent d’un sang draconique, féerique ou abyssal.",
+    "hitdice": "d6",
+    "primaryAbility": "Charisme",
+    "archetypes": [
+      "Lignée Draconique",
+      "Lignée des Ombres",
+      "Lignée Féerique"
     ]
   },
   {
@@ -350,7 +313,43 @@ export const ALL_FANTASY_CLASSES = [
       "Marteau Runique",
       "Passeur d’Âmes"
     ]
+  },
+  {
+    "key": "warlock",
+    "label": "Occultiste",
+    "description": "Mage lié à des pactes mystiques. Malédictions, ombres et esprits interdits.",
+    "hitdice": "d8",
+    "primaryAbility": "Charisme",
+    "archetypes": [
+      "Pacte de l’Abyme",
+      "Pacte du Cœur Noir",
+      "Pacte de l’Ancien"
+    ]
+  },
+  {
+    "key": "warpriest",
+    "label": "Prêtre de Guerre",
+    "description": "Guerrier saint qui bénit ses alliés et frappe au nom de sa foi.",
+    "hitdice": "d10",
+    "primaryAbility": "Force",
+    "archetypes": [
+      "Lame Sacrée",
+      "Croisé Bénissant",
+      "Main de Solaria"
+    ]
+  },
+  {
+    "key": "witch_hunter",
+    "label": "Chasseur de Sorcières",
+    "description": "Traqueur de mages occultes et d’esprits corrupteurs. Mélange d’armes bénies et d’anti-magie.",
+    "hitdice": "d10",
+    "primaryAbility": "Force ou Sagesse",
+    "archetypes": [
+      "Inquisiteur Sacré",
+      "Brûleur du Péché",
+      "Veilleur du Bûcher"
+    ]
   }
 ] as const;
 
-export type FantasyClass = typeof ALL_FANTASY_CLASSES[number];
+export type MQClass = (typeof ALL_CLASSES)[number];

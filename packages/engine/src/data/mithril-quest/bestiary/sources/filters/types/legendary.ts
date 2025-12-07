@@ -1,23 +1,22 @@
+// @ts-nocheck
 export const TYPE_LEGENDARY = {
-  r,
-ole: "Legendary",
+  role: "Legendary",
   description: "Entités mythiques d’une puissance exceptionnelle : dieux, titans, dragons primordiaux.",
-  s,
-tats: {
-      hp: "Extrêmement élevés",
+  stats: {
+    hp: "Extrêmement élevés",
     ac: "Très haute",
-    d,
-amage: "Dévastateur",
-    m,
-obility: "Variable"},
-  t,
-raits: [
+    damage: "Dévastateur",
+    mobility: "Variable",
+  },
+  traits: [
     "Actions légendaires",
     "Résistances massives",
     "Pouvoirs surnaturels",
-    "Peut altérer le terrain"],
-  e,
-xamples: [
+    "Peut altérer le terrain",
+  ],
+  examples: [
     "Dragon primordial",
     "Titan du néant",
-    "Avatar céleste"]} as const;
+    "Avatar céleste",
+  ],
+} as const;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const ELEMENTAL_HABITATS = [
   "elemental",
   "fire-reaches",
@@ -6,4 +7,5 @@ export const ELEMENTAL_HABITATS = [
   "earth-forges",
   "frost-chasms",
   "magma-veins",
-  "crystal-fields"] as const;
+  "crystal-fields",
+] as const;

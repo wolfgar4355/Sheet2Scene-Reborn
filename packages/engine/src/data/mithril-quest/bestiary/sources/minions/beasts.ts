@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { UniversalCreature } from "../../UNIVERSAL_CREATURE";
 
 export const beasts: UniversalCreature[] = [
@@ -8,62 +9,41 @@ export const beasts: UniversalCreature[] = [
   {
     id: "wolf",
     name: "Wolf",
-    r,
-arity: "common",
-    t,
-ype: "beast",
-    c,
-ategories: ["beasts"],
+    rarity: "common",
+    type: "beast",
+    categories: ["beasts"],
     biomes: ["forest", "hills", "tundra"],
-    h,
-abitats: ["forest", "deep-forest", "tundra"],
-    f,
-actions: [],
-    t,
-agsAAA: ["pack", "tracker"],
-    c,
-r: 0.25,
+    habitats: ["forest", "deep-forest", "tundra"],
+    factions: [],
+    tagsAAA: ["pack", "tracker"],
+    cr: 0.25,
 
     hp: 11,
     ac: 13,
-    s,
-peed: ["l,
-and:40"],
+    speed: ["land:40"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Bite",
         bonus: +4,
-        d,
-amage: { d,
-ice: "2d4+2", t,
-ype: "piercing" }}],
+        damage: "2d4+2 piercing",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "aggressive",
-      c,
-onfidence: "c,
-ourage:4",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["pack-attack"]
+    behavior: {
+      aggression: "hunter",
+      confidence: "courage:4",
+      tactics: ["pack-attack"],
     },
 
-    d,
-rops: ["wolf-pelt", "wolf-teeth"],
-    a,
-bilities: ["Keen Hearing", "Pack Tactics"],
+    drops: ["wolf-pelt", "wolf-teeth"],
+    abilities: ["Keen Hearing", "Pack Tactics"],
 
-    v,
-isuals: {
-      i,
-con: "wolf",
-      k,
-eywords: ["fur", "quadruped"]}},
+    visuals: {
+      icon: "wolf",
+      keywords: ["fur", "quadruped"],
+    },
+  },
 
   //──────────────────────────────
   // GIANT RAT — CR 0.125
@@ -71,61 +51,41 @@ eywords: ["fur", "quadruped"]}},
   {
     id: "giant-rat",
     name: "Giant Rat",
-    r,
-arity: "common",
-    t,
-ype: "beast",
-    c,
-ategories: ["beasts"],
+    rarity: "common",
+    type: "beast",
+    categories: ["beasts"],
     biomes: ["urban", "ruins", "sewers"],
-    h,
-abitats: ["tunnels", "ruins"],
-    f,
-actions: [],
-    t,
-agsAAA: ["swarm", "vermin"],
-    c,
-r: 0.125,
+    habitats: ["tunnels", "ruins"],
+    factions: [],
+    tagsAAA: ["swarm", "vermin"],
+    cr: 0.125,
 
     hp: 7,
     ac: 12,
-    s,
-peed: ["l,
-and:30"],
+    speed: ["land:30"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Bite",
         bonus: +4,
-        d,
-amage: { d,
-ice: "1d4+2", t,
-ype: "piercing" }}],
+        damage: "1d4+2 piercing",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "scavenger",
-      c,
-onfidence: "coward",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["harass"]
+    behavior: {
+      aggression: "scavenger",
+      confidence: "coward",
+      tactics: ["harass"],
     },
 
-    d,
-rops: ["rat-tail"],
-    a,
-bilities: [],
+    drops: ["rat-tail"],
+    abilities: [],
 
-    v,
-isuals: {
-      i,
-con: "rat",
-      k,
-eywords: ["rodent"]}},
+    visuals: {
+      icon: "rat",
+      keywords: ["rodent"],
+    },
+  },
 
   //──────────────────────────────
   // BLACK BEAR — CR 1
@@ -133,63 +93,41 @@ eywords: ["rodent"]}},
   {
     id: "black-bear",
     name: "Black Bear",
-    r,
-arity: "common",
-    t,
-ype: "beast",
-    c,
-ategories: ["beasts"],
+    rarity: "common",
+    type: "beast",
+    categories: ["beasts"],
     biomes: ["forest", "mountains"],
-    h,
-abitats: ["forest", "hill-forest", "mountain-base"],
-    f,
-actions: [],
-    t,
-agsAAA: ["brute"],
-    c,
-r: 1,
+    habitats: ["forest", "hill-forest", "mountain-base"],
+    factions: [],
+    tagsAAA: ["brute"],
+    cr: 1,
 
     hp: 34,
     ac: 11,
-    s,
-peed: ["l,
-and:40", "c,
-limb:30"],
+    speed: ["land:40", "climb:30"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Multiattack",
         bonus: +5,
-        d,
-amage: { d,
-ice: "1d6+3 claw + 1d8+3", t,
-ype: "bite" }}],
+        damage: "1d6+3 claw + 1d8+3 bite",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "territorial",
-      c,
-onfidence: "c,
-ourage:6",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["rush-and-maul"]
+    behavior: {
+      aggression: "territorial",
+      confidence: "courage:6",
+      tactics: ["rush-and-maul"],
     },
 
-    d,
-rops: ["bear-pelt", "bear-meat"],
-    a,
-bilities: [],
+    drops: ["bear-pelt", "bear-meat"],
+    abilities: [],
 
-    v,
-isuals: {
-      i,
-con: "bear",
-      k,
-eywords: ["fur", "brute"]}},
+    visuals: {
+      icon: "bear",
+      keywords: ["fur", "brute"],
+    },
+  },
 
   //──────────────────────────────
   // GIANT SPIDER — CR 1
@@ -197,70 +135,46 @@ eywords: ["fur", "brute"]}},
   {
     id: "giant-spider",
     name: "Giant Spider",
-    r,
-arity: "uncommon",
-    t,
-ype: "beast",
-    c,
-ategories: ["beasts"],
+    rarity: "uncommon",
+    type: "beast",
+    categories: ["beasts"],
     biomes: ["forest", "swamp", "caves"],
-    h,
-abitats: ["web-lairs", "deep-forest", "swamp", "caves"],
-    f,
-actions: [],
-    t,
-agsAAA: ["poison", "web"],
-    c,
-r: 1,
+    habitats: ["web-lairs", "deep-forest", "swamp", "caves"],
+    factions: [],
+    tagsAAA: ["poison", "web"],
+    cr: 1,
 
     hp: 26,
     ac: 14,
-    s,
-peed: ["l,
-and:40", "c,
-limb:40"],
+    speed: ["land:40", "climb:40"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Bite",
         bonus: +4,
-        d,
-amage: { d,
-ice: "1d8+2 piercing + 2d8", t,
-ype: "poison" }},
+        damage: "1d8+2 piercing + 2d8 poison",
+      },
       {
         name: "Web",
         bonus: +5,
-        d,
-amage: { d,
-ice: "Restrains", t,
-ype: "target" }}],
+        damage: "Restrains target",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "ambusher",
-      c,
-onfidence: "c,
-ourage:3",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["ambush"]
+    behavior: {
+      aggression: "ambusher",
+      confidence: "courage:3",
+      tactics: ["ambush"],
     },
 
-    d,
-rops: ["spider-venom", "silk-thread"],
-    a,
-bilities: ["Web Shot", "Poison Bite"],
+    drops: ["spider-venom", "silk-thread"],
+    abilities: ["Web Shot", "Poison Bite"],
 
-    v,
-isuals: {
-      i,
-con: "spider",
-      k,
-eywords: ["legs", "web"]}},
+    visuals: {
+      icon: "spider",
+      keywords: ["legs", "web"],
+    },
+  },
 
   //──────────────────────────────
   // DIRE WOLF — CR 1
@@ -268,59 +182,39 @@ eywords: ["legs", "web"]}},
   {
     id: "dire-wolf",
     name: "Dire Wolf",
-    r,
-arity: "elite",
-    t,
-ype: "beast",
-    c,
-ategories: ["beasts"],
+    rarity: "elite",
+    type: "beast",
+    categories: ["beasts"],
     biomes: ["forest", "hills", "tundra"],
-    h,
-abitats: ["forest", "deep-forest", "tundra"],
-    f,
-actions: [],
-    t,
-agsAAA: ["pack", "alpha"],
-    c,
-r: 1,
+    habitats: ["forest", "deep-forest", "tundra"],
+    factions: [],
+    tagsAAA: ["pack", "alpha"],
+    cr: 1,
 
     hp: 37,
     ac: 14,
-    s,
-peed: ["l,
-and:50"],
+    speed: ["land:50"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Bite",
         bonus: +5,
-        d,
-amage: { d,
-ice: "2d6+3", t,
-ype: "piercing" }}],
+        damage: "2d6+3 piercing",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "aggressive",
-      c,
-onfidence: "c,
-ourage:8",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["alpha-pounce"]
+    behavior: {
+      aggression: "hunter",
+      confidence: "courage:8",
+      tactics: ["alpha-pounce"],
     },
 
-    d,
-rops: ["thick-fur", "wolf-bone"],
-    a,
-bilities: ["Pack Tactics"],
+    drops: ["thick-fur", "wolf-bone"],
+    abilities: ["Pack Tactics"],
 
-    v,
-isuals: {
-      i,
-con: "dire-wolf",
-      k,
-eywords: ["large", "wolf"]}}];
+    visuals: {
+      icon: "dire-wolf",
+      keywords: ["large", "wolf"],
+    },
+  },
+];

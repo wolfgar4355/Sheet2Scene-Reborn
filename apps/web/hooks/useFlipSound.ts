@@ -1,15 +1,23 @@
 "use client";
+import { useCallback, useMemo } from "react";
 
-import { useCallback } from "react";
-// Si tu n'utilises pas l'alias "@", remplace par: "../utils/bookSounds"
-import bookAudio from "@utils/bookSounds";
-
-/**
- * Retourne un callback qui joue le son de "page flip"
- * @param volume 0..1 (défaut 0.35)
- */
 export default function useFlipSound(volume = 0.35) {
-  return useCallback(() => {
-    bookAudio.flip(volume).catch(() => {});
+  const audio = useMemo(() => {
+    if (typeof window === "undefined") return null;
+    const a = new Audio("/assets/sounds/page-flip.mp3");
+    a.volume = volume;
+    return a;
   }, [volume]);
+
+  const playFlipSound = useCallback(() => {
+    if (!audio) return;
+    try {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    } catch (e) {
+      console.warn("Flip sound failed:", e);
+    }
+  }, [audio]);
+
+  return playFlipSound;
 }

@@ -1,131 +1,328 @@
-// potions.ts — Potions de soins, buffs, résistances, transformations & mythiques
+// @ts-nocheck
+// ============================================================================
+// MQ ITEMS — POTIONS (Ultra MQ Engine Format)
+// ============================================================================
+// Structure avancée (Option C) :
+// - stats (heal, mana, buff, resist…)
+// - alchemy (tier, reagent, difficulty, duration)
+// - metadata (rarity, value, weight, tags)
+// - flavor + description
+// ============================================================================
 
-export const POTIONS = [
-  //
-  // ────────────────────────────────────────
-  //  A — POTIONS DE SOINS
-  // ────────────────────────────────────────
-  //
+export interface MQPotion {
+  key: string;
+  label: string;
+  flavor?: string;
+  description: string;
+  type: "consumable";
+  category: "potion";
+
+  stats?: {
+    heal?: string | number;       // ex: "2d4+2"
+    mana?: string | number;       // ex: "1d4"
+    buff?: string[];              // ex: ["speed+10"]
+    resist?: string[];            // ex: ["fire", "cold"]
+    special?: string;             // pour effets uniques
+  };
+
+  alchemy?: {
+    tier: 1 | 2 | 3 | 4 | 5;
+    school: string;               // "vitalité" | "élémentaire" | etc.
+    duration?: string;            // ex: "1 min", "10 min", "instantané"
+    difficulty?: "easy" | "medium" | "hard" | "master";
+    reagents?: string[];
+  };
+
+  metadata: {
+    rarity: "common" | "uncommon" | "rare" | "very-rare" | "legendary" | "mythic";
+    value: number;
+    weight: number;
+    tags?: string[];
+  };
+}
+
+// ============================================================================
+// 📦 LISTE OFFICIELLE DES POTIONS MQ
+// ============================================================================
+
+export const MQ_POTIONS: MQPotion[] = [
+
+  // ----------------------------------------------------
+  // A — POTIONS DE SOINS
+  // ----------------------------------------------------
   {
     key: "healing_minor",
     label: "Potion de Soin Mineure",
-    rarity: "common",
-    value: 25,
-    healing: "2d4+2",
-    effects: ["Restaure des PV"],
-    eras: ["age-of-heroes"],
-    description: "Une petite fiole rougeâtre guérissant légèrement les blessures."
+    flavor: "Un liquide rouge rosé légèrement pétillant.",
+    description: "Restaure légèrement les blessures.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { heal: "1d4+1" },
+
+    alchemy: {
+      tier: 1,
+      school: "vitalité",
+      duration: "instantané",
+      difficulty: "easy",
+      reagents: ["baies rouges", "poudre claire"]
+    },
+
+    metadata: {
+      rarity: "common",
+      value: 25,
+      weight: 0.5,
+      tags: ["healing"]
+    }
   },
 
   {
     key: "healing_standard",
     label: "Potion de Soin",
-    rarity: "common",
-    value: 50,
-    healing: "2d8+4",
-    effects: ["Restaure des PV modérés"],
-    eras: ["high-kingdoms"],
-    description: "Une potion standard utilisée par la plupart des aventuriers."
+    flavor: "Un liquide rouge profond qui chauffe légèrement la fiole.",
+    description: "Restaure une quantité modérée de vitalité.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { heal: "2d4+2" },
+
+    alchemy: {
+      tier: 2,
+      school: "vitalité",
+      duration: "instantané",
+      difficulty: "medium",
+      reagents: ["herbes curatives", "essence de vie"]
+    },
+
+    metadata: {
+      rarity: "common",
+      value: 50,
+      weight: 0.5,
+      tags: ["healing"]
+    }
   },
 
   {
     key: "healing_greater",
     label: "Potion de Soin Supérieure",
-    rarity: "uncommon",
-    value: 150,
-    healing: "4d8+8",
-    effects: ["Soins importants"],
-    eras: ["high-kingdoms"],
-    description: "Un mélange alchimique puissant augmentant la régénération."
+    flavor: "La fiole contient un liquide rouge scintillant qui pulse légèrement.",
+    description: "Restaure une grande quantité de vitalité.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { heal: "4d4+4" },
+
+    alchemy: {
+      tier: 3,
+      school: "vitalité",
+      duration: "instantané",
+      difficulty: "medium",
+      reagents: ["essence de vie concentrée", "pétale d’or"]
+    },
+
+    metadata: {
+      rarity: "uncommon",
+      value: 150,
+      weight: 0.5,
+      tags: ["healing"]
+    }
   },
 
-  //
-  // ────────────────────────────────────────
-  //  B — POTIONS DE BOOST
-  // ────────────────────────────────────────
-  //
+  // ----------------------------------------------------
+  // B — POTIONS DE BOOST TEMPORAIRE
+  // ----------------------------------------------------
   {
     key: "potion_strength",
     label: "Potion de Force",
-    rarity: "uncommon",
-    value: 120,
-    effects: ["+2 Force pendant 1h"],
-    eras: ["age-of-heroes"],
-    description: "Une potion virile donnant une force accrue temporaire."
+    flavor: "Un mélange épais rouge sombre avec des éclats dorés.",
+    description: "Augmente temporairement la force physique.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { buff: ["strength+2"] },
+
+    alchemy: {
+      tier: 2,
+      school: "boost",
+      duration: "10 minutes",
+      difficulty: "medium",
+      reagents: ["sang de bœuf alchimique", "racine ferreuse"]
+    },
+
+    metadata: {
+      rarity: "uncommon",
+      value: 200,
+      weight: 0.5,
+      tags: ["buff", "strength"]
+    }
   },
 
   {
     key: "potion_speed",
     label: "Potion de Rapidité",
-    rarity: "rare",
-    value: 220,
-    effects: ["Double vitesse", "Avantage DEX"],
-    eras: ["high-kingdoms"],
-    description: "Une potion fulgurante offrant rapidité et réflexes améliorés."
+    flavor: "Un liquide argenté vibrant qui semble bouger seul.",
+    description: "Accroît la vitesse et les réflexes.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { buff: ["speed+10"] },
+
+    alchemy: {
+      tier: 3,
+      school: "boost",
+      duration: "1 minute",
+      difficulty: "hard",
+      reagents: ["poudre d’éclair", "eau vive"]
+    },
+
+    metadata: {
+      rarity: "rare",
+      value: 700,
+      weight: 0.5,
+      tags: ["buff", "speed"]
+    }
   },
 
-  //
-  // ────────────────────────────────────────
-  //  C — RÉSISTANCES ÉLÉMENTAIRES
-  // ────────────────────────────────────────
-  //
+  // ----------------------------------------------------
+  // C — RÉSISTANCES ÉLÉMENTAIRES
+  // ----------------------------------------------------
   {
     key: "resist_fire",
     label: "Potion de Résistance au Feu",
-    rarity: "uncommon",
-    value: 90,
-    effects: ["Résistance Feu"],
-    eras: ["high-kingdoms"],
-    description: "Une potion chaude protégeant contre les brûlures."
+    flavor: "Épaisse et rougeoyante comme de la lave refroidie.",
+    description: "Protège temporairement contre les brûlures.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { resist: ["fire"] },
+
+    alchemy: {
+      tier: 2,
+      school: "élémentaire",
+      duration: "10 minutes",
+      difficulty: "medium",
+      reagents: ["cendre vive", "écaille de salamandre"]
+    },
+
+    metadata: {
+      rarity: "uncommon",
+      value: 90,
+      weight: 0.5,
+      tags: ["resist", "fire"]
+    }
   },
 
   {
     key: "resist_frost",
     label: "Potion de Résistance au Froid",
-    rarity: "uncommon",
-    value: 90,
-    effects: ["Résistance Froid"],
-    eras: ["high-kingdoms"],
-    description: "Une fiole glacée empêchant les engelures sévères."
+    flavor: "Claire avec des fragments de givre flottants.",
+    description: "Protège contre les températures glaciales.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { resist: ["cold"] },
+
+    alchemy: {
+      tier: 2,
+      school: "élémentaire",
+      duration: "10 minutes",
+      difficulty: "medium",
+      reagents: ["givre pur", "poussière lunaire"]
+    },
+
+    metadata: {
+      rarity: "uncommon",
+      value: 90,
+      weight: 0.5,
+      tags: ["resist", "cold"]
+    }
   },
 
-  //
-  // ────────────────────────────────────────
-  //  D — POTIONS SPÉCIALES
-  // ────────────────────────────────────────
-  //
+  // ----------------------------------------------------
+  // D — POTIONS SPÉCIALES
+  // ----------------------------------------------------
   {
     key: "potion_invisibility",
     label: "Potion d’Invisibilité",
-    rarity: "rare",
-    value: 300,
-    effects: ["Invisibilité 1h ou jusqu’à action offensive"],
-    eras: ["arcane-renaissance"],
-    description: "Une fiole transparente qui rend son buveur invisible."
+    flavor: "Un liquide totalement transparent.",
+    description: "Rend le buveur invisible jusqu'à attaque ou dissipation.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { special: "invisibility" },
+
+    alchemy: {
+      tier: 4,
+      school: "spéciale",
+      duration: "1 minute",
+      difficulty: "hard",
+      reagents: ["essence d’ombre", "larmes de spectre"]
+    },
+
+    metadata: {
+      rarity: "rare",
+      value: 800,
+      weight: 0.5,
+      tags: ["stealth", "magic"]
+    }
   },
 
   {
-    key: "potion_giant_strength",
-    label: "Force du Géant",
-    rarity: "legendary",
-    value: 1200,
-    effects: ["Force = 25", "Dégâts +50%"],
-    eras: ["mythic-age"],
-    description: "Une potion mythique insufflant le pouvoir des géants anciens."
+    key: "giant_strength",
+    label: "Potion de Force de Géant",
+    flavor: "Un liquide épais doré, presque métallique.",
+    description: "Octroie la puissance d’un géant ancestral.",
+    type: "consumable",
+    category: "potion",
+
+    stats: { buff: ["strength+5"] },
+
+    alchemy: {
+      tier: 5,
+      school: "mythique",
+      duration: "1 minute",
+      difficulty: "master",
+      reagents: ["moelle de géant", "poussière astrale"]
+    },
+
+    metadata: {
+      rarity: "legendary",
+      value: 2500,
+      weight: 0.5,
+      tags: ["buff", "legendary"]
+    }
   },
 
-  //
-  // ────────────────────────────────────────
-  //  E — POTIONS MYTHIQUES
-  // ────────────────────────────────────────
-  //
+  // ----------------------------------------------------
+  // E — POTIONS MYTHIQUES
+  // ----------------------------------------------------
   {
     key: "potion_astral",
     label: "Potion Astrale",
-    rarity: "mythic",
-    value: 2500,
-    effects: ["Marche-plan", "Résistance Force", "+2 AC"],
-    eras: ["mythic-age"],
-    description: "Une potion lumineuse connectée au Plan Astral."
-  }
-] as const;
+    flavor: "Un liquide lumineux aux reflets cosmiques.",
+    description: "Connecte brièvement le buveur au Plan Astral.",
+    type: "consumable",
+    category: "potion",
+
+    stats: {
+      special: "astral-projection",
+      resist: ["psychic"]
+    },
+
+    alchemy: {
+      tier: 5,
+      school: "astral",
+      duration: "30 secondes",
+      difficulty: "master",
+      reagents: ["fragment astral", "essence stellaire"]
+    },
+
+    metadata: {
+      rarity: "mythic",
+      value: 5000,
+      weight: 0.5,
+      tags: ["mythic", "astral"]
+    }
+  },
+
+];

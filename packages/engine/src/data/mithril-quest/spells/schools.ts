@@ -1,48 +1,52 @@
-// schools.ts — Écoles de magie S2S (Fantasy & base pour les autres mondes)
+// @ts-nocheck
+// spells/schools.ts — Écoles de magie Mithril-Quest
 
-import type { SpellSchoolId } from "./schema";
+import type { SpellSchoolId } from "./types";
 
 export interface SpellSchool {
   id: SpellSchoolId;
   label: string;
-  colorHint: string;      // hint pour l’UI (pas obligé d’être utilisé tout de suite)
-  iconHint: string;       // hint pour icône (emoji ou nom interne)
-  themes: string[];       // thèmes principaux
-  typicalCasters: string[]; // classes / archétypes typiques
-  description: string;
+  colorHint: string;      // Couleur thématique (UI)
+  iconHint: string;       // Emoji ou identifiant d’icône
+  themes: string[];       // Mots-clés narratifs
+  typicalCasters: string[]; // Classes ou archétypes
+  description: string;    // Description complète
 }
 
-export const SPELL_SCHOOLS: SpellSchool[] = [
+export const SPELL_SCHOOLS: readonly SpellSchool[] = [
   {
     id: "pyromancy",
     label: "Pyromancie",
     colorHint: "#ff6b3a",
     iconHint: "🔥",
-    themes: ["feu", "explosions", "brûlures", "lumière"],
-    typicalCasters: ["sorciers du feu", "mages de bataille", "prêtres du soleil"],
+    themes: ["feu", "explosions", "chaleur", "lumière"],
+    typicalCasters: ["mages du feu", "mages de bataille", "prêtres du soleil"],
     description:
       "La magie des flammes, de la chaleur et de la lumière destructrice."
   },
+
   {
     id: "frostbinding",
     label: "Cryomancie",
     colorHint: "#7fd0ff",
     iconHint: "❄️",
-    themes: ["glace", "ralentissement", "contrôle de terrain"],
+    themes: ["glace", "givre", "ralentissement", "barrières"],
     typicalCasters: ["mystiques du givre", "gardiens du nord"],
     description:
-      "La magie du froid mordant, des barrières de glace et du contrôle du mouvement."
+      "La magie du froid mordant, des murs de glace et du contrôle de terrain."
   },
+
   {
     id: "stormcalling",
     label: "Invocation des Tempêtes",
     colorHint: "#c6f0ff",
     iconHint: "⚡",
-    themes: ["tonnerre", "éclairs", "vents violents"],
+    themes: ["tonnerre", "éclairs", "vents", "tempêtes"],
     typicalCasters: ["chamans tempétueux", "mages orageux"],
     description:
-      "Le pouvoir des orages, de l’électricité et des bourrasques destructrices."
+      "Le pouvoir des orages, des fulgurances électriques et des bourrasques violentes."
   },
+
   {
     id: "terraforge",
     label: "Terraforgie",
@@ -51,8 +55,9 @@ export const SPELL_SCHOOLS: SpellSchool[] = [
     themes: ["terre", "pierre", "métal", "structure"],
     typicalCasters: ["géomanciens", "forgerons mystiques", "druides rocheux"],
     description:
-      "La manipulation de la terre, de la pierre et des métaux pour défendre ou écraser."
+      "La manipulation de la terre, de la roche et des métaux pour défendre ou écraser."
   },
+
   {
     id: "aethercraft",
     label: "Éthérurgie",
@@ -61,28 +66,31 @@ export const SPELL_SCHOOLS: SpellSchool[] = [
     themes: ["énergie pure", "force", "gravité", "magie brute"],
     typicalCasters: ["arcanistes", "savants mystiques"],
     description:
-      "La magie de l’énergie pure, des champs de force et des distorsions magiques."
+      "La magie de l’énergie pure, des boucliers de force et des distorsions arcanes."
   },
+
   {
     id: "vitae",
     label: "Vitaemancie",
     colorHint: "#7fff8a",
     iconHint: "💚",
-    themes: ["soin", "renforcement", "aura protectrice"],
+    themes: ["soin", "aura", "protection", "vitalité"],
     typicalCasters: ["clercs", "paladins sacrés", "druides guérisseurs"],
     description:
-      "La magie de la vie, de la guérison et de la protection des alliés."
+      "La magie de la vie, de la guérison et des bénédictions protectrices."
   },
+
   {
     id: "umbramancy",
     label: "Umbramancie",
     colorHint: "#4a365f",
     iconHint: "🕯️",
     themes: ["ombre", "ténèbres", "nécrotique", "malédictions"],
-    typicalCasters: ["nécromants", "sorciers des ombres", "prêtres de la nuit"],
+    typicalCasters: ["nécromants", "sorciers des ombres", "prêtres nocturnes"],
     description:
-      "La manipulation des ténèbres, de l’énergie nécrotique et des malédictions."
+      "La manipulation des ténèbres, des énergies nécrotiques et des malédictions occultes."
   },
+
   {
     id: "mindweave",
     label: "Tissage Mental",
@@ -91,26 +99,30 @@ export const SPELL_SCHOOLS: SpellSchool[] = [
     themes: ["mental", "illusions", "contrôle", "émotions"],
     typicalCasters: ["illusionnistes", "psioniques", "enchanteurs"],
     description:
-      "La magie qui altère perceptions, pensées et émotions des créatures."
+      "La magie des illusions, de la manipulation de l’esprit et du contrôle émotionnel."
   },
+
   {
     id: "spiritbond",
     label: "Lien Spirituel",
     colorHint: "#ffd66b",
     iconHint: "🕊️",
-    themes: ["esprits", "divin", "ancêtres", "oaths"],
+    themes: ["esprits", "divin", "ancêtres", "serments"],
     typicalCasters: ["prêtres", "shamans", "paladins", "médiums"],
     description:
-      "La magie des esprits, des divinités et des serments sacrés."
+      "La magie des esprits, des divinités et des serments sacrés ancestraux."
   },
+
   {
     id: "wildgrowth",
     label: "Croissance Sauvage",
     colorHint: "#6adf7b",
     iconHint: "🌿",
-    themes: ["plantes", "animaux", "météo", "saisons"],
+    themes: ["nature", "plantes", "animaux", "saisons"],
     typicalCasters: ["druides", "rôdeurs", "mystiques sylvestres"],
     description:
-      "La magie du monde vivant, des forêts, des bêtes et des saisons changeantes."
+      "La magie du monde vivant : forêts, bêtes, croissance végétale et cycles des saisons."
   }
-];
+] as const;
+
+export default SPELL_SCHOOLS;

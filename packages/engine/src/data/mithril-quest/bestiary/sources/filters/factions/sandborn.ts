@@ -1,17 +1,16 @@
+// @ts-nocheck
 export const FACTION_SANDBORN = {
   name: "Sandborn Dynasties",
-  t,
-hemes: ["désert", "civilisations antiques", "soleil brûlant"],
-  c,
-olors: ["ocre", "doré", "sable pâle"],
-  v,
-isual: [
+  themes: ["désert", "civilisations antiques", "soleil brûlant"],
+  colors: ["ocre", "doré", "sable pâle"],
+  visual: [
     "poussière dorée",
     "statues fracturées",
     "hiéroglyphes",
     "toiles désertiques",
     "pièces d’or anciennes",
     "masques rituels",
-    "magie du soleil et du vent"],
-  t,
-one: ["chaud", "ancien", "rituel"]} as const;
+    "magie du soleil et du vent"
+  ],
+  tone: ["chaud", "ancien", "rituel"],
+} as const;

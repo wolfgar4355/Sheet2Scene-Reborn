@@ -1,170 +1,159 @@
-// ==========================================================================
-// FANTASY — Character Types
-// ==========================================================================
+// @ts-nocheck
+// ============================================================================
+// 🪄 MITHRIL-QUEST — TYPES DE BASE (SPELL SYSTEM)
+// ============================================================================
 
-import type { FantasyRace } from "../races";
-import type { FantasyClass } from "../classes";
-import type { FantasyEra } from "../eras";
+// Monde unique du système MQ
+export type WorldId = "mithril-quest";
 
-// keys dérivés
-export type FantasyRaceKey = FantasyRace["key"];
-export type FantasyClassKey = FantasyClass["key"];
-export type FantasyEraKey = FantasyEra["key"];
+// Ères officielles du monde Mithril-Quest
+export type EraId =
+  | "ancient-age"
+  | "age-of-heroes"
+  | "dark-age"
+  | "high-kingdoms"
+  | "arcane-renaissance"
+  | "mythic-age";
 
-// --------------------------------------------------------------------------
-// ATTRIBUTS
-// --------------------------------------------------------------------------
-export interface FantasyAttributes {
-  strength: number;
-  dexterity: number;
-  constitution: number;
-  intelligence: number;
-  wisdom: number;
-  charisma: number;
+// ---------------------------------------------------------------------------
+// TIERS
+// ---------------------------------------------------------------------------
+
+export type SpellTier =
+  | "cantrip"
+  | "tier1"
+  | "tier2"
+  | "tier3"
+  | "tier4"
+  | "tier5"
+  | "tier6"
+  | "tier7"
+  | "tier8"
+  | "tier9";
+
+// ---------------------------------------------------------------------------
+// COMPOSANTS
+// ---------------------------------------------------------------------------
+
+export interface SpellComponents {
+  verbal: boolean;
+  somatic: boolean;
+  material?: string;
 }
 
-// --------------------------------------------------------------------------
-// SKILLS
-// --------------------------------------------------------------------------
-export interface FantasySkills {
-  combat: number;
-  survival: number;
-  magic: number;
-  diplomacy: number;
-  stealth: number;
-  crafting: number;
+// ---------------------------------------------------------------------------
+// CASTING TIME
+// ---------------------------------------------------------------------------
+
+export type CastingTimeId =
+  | "action"
+  | "bonus-action"
+  | "reaction"
+  | "minute"
+  | "ten-minutes"
+  | "hour"
+  | "ritual";
+
+// ---------------------------------------------------------------------------
+// RANGE
+// ---------------------------------------------------------------------------
+
+export type SpellRangeType =
+  | "self"
+  | "touch"
+  | "cone"
+  | "line"
+  | "sphere"
+  | "cube"
+  | "radius"
+  | "special";
+
+export interface SpellRange {
+  type: SpellRangeType;
+  value: string;      // ex: "9m", "18m", "cône 9m"
 }
 
-// --------------------------------------------------------------------------
-// INVENTORY ITEM
-// --------------------------------------------------------------------------
-export interface FantasyInventoryItem {
-  id: string;
+// ---------------------------------------------------------------------------
+// SCALING
+// ---------------------------------------------------------------------------
+
+export interface SpellScaling {
+  upcastText?: string;                                 // texte libre
+  tierNotes?: Record<SpellTier, string | undefined>;   // notes par tier
+}
+
+// ---------------------------------------------------------------------------
+// TAGS
+// ---------------------------------------------------------------------------
+
+export type SpellTagId =
+  | "damage"
+  | "damage-fire"
+  | "damage-cold"
+  | "damage-lightning"
+  | "damage-radiant"
+  | "damage-necrotic"
+  | "heal"
+  | "buff-offense"
+  | "buff-defense"
+  | "buff-utility"
+  | "control"
+  | "summon"
+  | "movement"
+  | "teleport"
+  | "vision"
+  | "debuff"
+  | "charm"
+  | "fear"
+  | "ritual"
+  | "area-large"
+  | "single-target"
+  | "multi-target";
+
+// ---------------------------------------------------------------------------
+// ÉCOLES OFFICIELLES MITHRIL-QUEST
+// ---------------------------------------------------------------------------
+
+export type SpellSchoolId =
+  | "pyromancy"
+  | "frostbinding"
+  | "stormcalling"
+  | "terraforge"
+  | "aethercraft"
+  | "vitae"
+  | "umbramancy"
+  | "mindweave"
+  | "spiritbond"
+  | "wildgrowth";
+
+// ---------------------------------------------------------------------------
+// STRUCTURE COMPLETE D’UN SORT MITHRIL-QUEST
+// ---------------------------------------------------------------------------
+
+export interface Spell {
+  key: string;
   name: string;
-  qty: number;
-  description?: string;
-}
 
-// --------------------------------------------------------------------------
-// BACKGROUND
-// --------------------------------------------------------------------------
-export interface FantasyBackground {
-  origin: string;          // village, cité, tribu
-  occupation: string;      // métier
-  faction?: string;        // ordre / guilde
-  personalGoal?: string;
-  flaw?: string;
-  trait?: string;
-  notes?: string;
-}
+  world: WorldId;               // toujours "mithril-quest"
 
-// --------------------------------------------------------------------------
-// IDENTITY
-// --------------------------------------------------------------------------
-export interface FantasyIdentity {
-  name: string;
-  age: number | null;
-  gender: string;
-  race: FantasyRaceKey | "";
-  subrace?: string;
-  class: FantasyClassKey | "";
-  archetype?: string;
-  era: FantasyEraKey | "";
-  subworld?: string; // ex : skyshard-empires
-}
+  tier: SpellTier;
+  school: SpellSchoolId;
 
-// --------------------------------------------------------------------------
-// MAGIC
-// --------------------------------------------------------------------------
-export interface FantasyMagic {
-  school: string;
-  focus: string;
-  spells: string[];
-  rituals: string[];
-}
+  castingTime: CastingTimeId;
+  range: SpellRange;
 
-// --------------------------------------------------------------------------
-// CHARACTER SHEET
-// --------------------------------------------------------------------------
-export interface FantasyCharacterSheet {
-  id: string;
-  world: "fantasy";
-  variant: "core";
-  identity: FantasyIdentity;
-  attributes: FantasyAttributes;
-  skills: FantasySkills;
-  inventory: FantasyInventoryItem[];
-  background: FantasyBackground;
-  magic: FantasyMagic;
-  portraitUrl?: string;
-  createdAt: string;
-  updatedAt: string;
-}
+  duration: string;
+  concentration: boolean;
 
-// --------------------------------------------------------------------------
-// DEFAULT SHEET
-// --------------------------------------------------------------------------
-export const DEFAULT_FANTASY_SHEET: FantasyCharacterSheet = {
-  id: "",
-  world: "fantasy",
-  variant: "core",
-  identity: {
-    name: "",
-    age: null,
-    gender: "",
-    race: "",
-    subrace: "",
-    class: "",
-    archetype: "",
-    era: "",
-    subworld: "",
-  },
-  attributes: {
-    strength: 10,
-    dexterity: 10,
-    constitution: 10,
-    intelligence: 10,
-    wisdom: 10,
-    charisma: 10,
-  },
-  skills: {
-    combat: 0,
-    survival: 0,
-    magic: 0,
-    diplomacy: 0,
-    stealth: 0,
-    crafting: 0,
-  },
-  inventory: [],
-  background: {
-    origin: "",
-    occupation: "",
-    faction: "",
-    personalGoal: "",
-    flaw: "",
-    trait: "",
-    notes: "",
-  },
-  magic: {
-    school: "",
-    focus: "",
-    spells: [],
-    rituals: [],
-  },
-  portraitUrl: "",
-  createdAt: new Date().toISOString(),
-  updatedAt: new Date().toISOString(),
-};
+  components: SpellComponents;
+  tags: SpellTagId[];
+  availableInEras: EraId[];
 
-// --------------------------------------------------------------------------
-// FACTORY — crée une nouvelle fiche vide
-// --------------------------------------------------------------------------
-export function createEmptyFantasySheet(id: string): FantasyCharacterSheet {
-  const now = new Date().toISOString();
-  return {
-    ...DEFAULT_FANTASY_SHEET,
-    id,
-    createdAt: now,
-    updatedAt: now,
-  };
+  shortSummary: string;
+  description: string;
+  scaling?: SpellScaling;
+
+  // Options visuelles / SFX
+  visualCue?: string;
+  sfxCue?: string;
 }

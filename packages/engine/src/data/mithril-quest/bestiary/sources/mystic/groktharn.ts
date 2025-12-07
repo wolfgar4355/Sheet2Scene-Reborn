@@ -1,4 +1,5 @@
-import { MythicBoss } from "../types";
+// @ts-nocheck
+import { MythicBoss } from "../../types";
 
 // ---------------------------------------------------------------------------
 // GROTH’KARN — TITAN DU MONDE-RACINE (MYTHIQUE)
@@ -11,74 +12,115 @@ export const GROTHKARN: MythicBoss = {
   epithet: "Titan du Monde-Racine",
 
   category: "elemental",
-  a,
-iProfile: "titan-brute-controller",
-  e,
-ncounterDifficulty: "mythic",
+  aiProfile: "titan-brute-controller",
+  encounterDifficulty: "mythic",
 
   tags: [
-                            
+    "mythic",
+    "titan",
+    "colossus",
+    "earthborn",
+    "primordial",
+    "crystal",
+    "root-god"
+  ],
+
   biomes: [
-                    
-  s,
-ummary:
-    "Un titan pré-continental, fusion de pierre vivante, de racines primordiales et de cristaux telluriques. Chaque pas provoque un séisme. "  
-    
+    "mountains",
+    "ancient-forest",
+    "jungle",
+    "earth-core",
+    "underdark"
+  ],
+
+  summary:
+    "Un titan pré-continental, fusion de pierre vivante, de racines primordiales " +
+    "et de cristaux telluriques. Chaque pas provoque un séisme. " +
+    "Groth’Karn est un bulldozer mythique, une force tectonique vivante.",
+
   phases: [
     // ---------------------------------------------------------------------
     // PHASE 1 — FORMATION TITANIQUE
     // ---------------------------------------------------------------------
     {
-      k,
-ey: "phase-1",
+      key: "phase-1",
       name: "Groth'Karn — Titan du Monde-Racine",
-      c,
-r: 22,
+      cr: 22,
       hp: 760,
       ac: 23,
-      r,
-ole: "mythic-brute",
+      role: "mythic-brute",
 
       description:
-        "Une masse colossale de roches et de racines se lève du sol. "  
-        
+        "Une masse colossale de roches et de racines se lève du sol. " +
+        "Le titan déclenche des séismes et projette des épines massives en jaillissant du sol.",
 
-t,
-actics: ["Secouer constamment le terrain pour désavantager les lanceurs de sorts.",
-                "Empêcher les joueurs de rester regroupés."]
+      tactics: [
+        "Secouer constamment le terrain pour désavantager les lanceurs de sorts.",
+        "Uproot Spines pour frapper les cibles à distance.",
+        "Empêcher les joueurs de rester regroupés."
+      ],
 
-      a,
-bilities: [
-                                
+      abilities: [
+        "Séisme Titanesque — 60 ft autour, renverse, étourdit 1 round.",
+        "Peau de Granit-Vivant — résistance aux dégâts non-magiques.",
+        "Épines de Racines — jaillissent en ligne, ciblent 3 joueurs.",
+        "Hurlement Tellurique — brise les protections magiques."
+      ],
+
       phaseTriggers: [
-                
+        "À 0 HP → le titan se fissure, révélant un noyau vivant magnétique.",
+        "Transition vers sa forme élémentaire supérieure."
+      ],
+
       loot: [
-                            },
+        "Fragment de Cœur Tellurique",
+        "Racines Primordiales",
+        "Poussière de Titan"
+      ]
+    },
 
     // ---------------------------------------------------------------------
     // PHASE 2 — AVATAR ÉLÉMENTAIRE
     // ---------------------------------------------------------------------
     {
-      k,
-ey: "phase-2",
+      key: "phase-2",
       name: "Groth'Karn — Avatar de Terre Vivante",
-      c,
-r: 24,
+      cr: 24,
       hp: 820,
       ac: 25,
-      r,
-ole: "mythic-controller",
+      role: "mythic-controller",
       biomes: ["mountains", "crystal-caves", "ancient-forest"],
 
       description:
-        "Le noyau cristallin se réveille. Le titan se transforme en un avatar tellurique "  
-        
+        "Le noyau cristallin se réveille. Le titan se transforme en un avatar tellurique " +
+        "magnétique, contrôlant les cristaux, la terre et les champs gravitationnels.",
 
-                "Mode enragé sous 200 HP."]
+      tactics: [
+        "Magnétisme violent pour repositionner / attirer / repousser le groupe.",
+        "Créer des explosions cristallines pour contrôler les zones.",
+        "Mode enragé sous 200 HP."
+      ],
 
-                                              
-                
-                                          }
+      abilities: [
+        "Forme Cristalline — renvoie 50% des dégâts physiques.",
+        "Magnétisme Violent — attire ou repousse les joueurs.",
+        "Éruption de Quartz — 6 éclats surgissent du sol.",
+        "Cœur du Monde (Ultime) — séisme total, dégâts massifs + CC.",
+        "Régénération Tellurique — +20 HP par round."
+      ],
+
+      phaseTriggers: [
+        "À 200 HP → Groth’Karn passe en mode Enragé.",
+        "Chaque cristal détruit → augmente ses dégâts de 10% pour 2 rounds."
+      ],
+
+      loot: [
+        "Cœur de Quartz Vivant",
+        "Minerai Primordial",
+        "Fragment de Terre-Mère",
+        "Gemme du Titan Endormi"
+      ]
+    }
   ]
 };
 

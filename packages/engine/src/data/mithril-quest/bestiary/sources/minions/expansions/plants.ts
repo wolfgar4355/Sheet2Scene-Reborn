@@ -1,4 +1,5 @@
-import { Minion } from "@s2s/fantasy/types";
+// @ts-nocheck
+import { Minion } from "./types";
 
 export const MINIONS: Minion[] = [
 
@@ -8,38 +9,28 @@ export const MINIONS: Minion[] = [
 {
   id: "wilting-snare",
   name: "Wilting Snare",
-  c,
-r: 0.25,
+  cr: 0.25,
   biomes: ["forest", "swamp"],
-  h,
-abitat: ["druid-groves"],
+  habitat: ["druid-groves"],
   category: "plant",
-  r,
-ole: "skirmisher",
-  f,
-actions: ["thorn-kin"],
+  role: "skirmisher",
+  factions: ["thorn-kin"],
   tags: ["vines", "ambush"],
-  b,
-ehavior: {
-    a,
-ggression: 4,
-    c,
-ourage: 3},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["grip-from-undergrowth"],
-s,
-tats: {
-      hp: 12,
+  behavior: {
+    aggression: 4,
+    courage: 3,
+  },
+  tactics: ["grip-from-undergrowth"],
+  stats: {
+    hp: 12,
     ac: 12,
     atk: 3,
     dmg: "1d4 slashing",
-    s,
-peed: "5 ft"},
+    speed: "5 ft",
+  },
   loot: ["druidic-sap"],
-  a,
-bilities: ["Splintering Bind", "Creeping Cover"]},
+  abilities: ["Splintering Bind", "Creeping Cover"],
+},
 
 /* ------------------------------------------------------------ */
 /* THORNED CREEPER — CR 1                                        */
@@ -47,38 +38,28 @@ bilities: ["Splintering Bind", "Creeping Cover"]},
 {
   id: "thorned-creeper",
   name: "Thorned Creeper",
-  c,
-r: 1,
+  cr: 1,
   biomes: ["forest", "swamp", "ruins"],
-  h,
-abitat: ["overgrowth", "ruins"],
+  habitat: ["overgrowth", "ruins"],
   category: "plant",
-  r,
-ole: "brute",
-  f,
-actions: ["thorn-kin", "spore-collective"],
+  role: "brute",
+  factions: ["thorn-kin", "spore-collective"],
   tags: ["thorns", "poison"],
-  b,
-ehavior: {
-    a,
-ggression: 6,
-    c,
-ourage: 4},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["lash-closest-target"],
-s,
-tats: {
-      hp: 28,
+  behavior: {
+    aggression: 6,
+    courage: 4,
+  },
+  tactics: ["lash-closest-target"],
+  stats: {
+    hp: 28,
     ac: 13,
     atk: 4,
     dmg: "1d6 + 2 piercing",
-    s,
-peed: "10 ft"},
+    speed: "10 ft",
+  },
   loot: ["thorn-core", "alchemical-sap"],
-  a,
-bilities: ["Barbed Vines", "Toxic Sap"]},
+  abilities: ["Barbed Vines", "Toxic Sap"],
+},
 
 /* ------------------------------------------------------------ */
 /* VINE SNARER — CR 3                                           */
@@ -86,38 +67,28 @@ bilities: ["Barbed Vines", "Toxic Sap"]},
 {
   id: "vine-snarer",
   name: "Vine Snarer",
-  c,
-r: 3,
+  cr: 3,
   biomes: ["forest", "swamp", "jungle"],
-  h,
-abitat: ["dense-growth"],
+  habitat: ["dense-growth"],
   category: "plant",
-  r,
-ole: "controller",
-  f,
-actions: ["verdant-coven", "ancient-grove"],
+  role: "controller",
+  factions: ["verdant-coven", "ancient-grove"],
   tags: ["entangle", "terrain-control"],
-  b,
-ehavior: {
-    a,
-ggression: 4,
-    c,
-ourage: 5},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["grab-stragglers-first"],
-s,
-tats: {
-      hp: 60,
+  behavior: {
+    aggression: 4,
+    courage: 5,
+  },
+  tactics: ["grab-stragglers-first"],
+  stats: {
+    hp: 60,
     ac: 14,
     atk: 6,
     dmg: "2d6 + 3 bludgeoning",
-    s,
-peed: "20 ft"},
+    speed: "20 ft",
+  },
   loot: ["enchanted-vine", "druid-knot"],
-  a,
-bilities: ["Grasping Vines", "Reel In Prey"]},
+  abilities: ["Grasping Vines", "Reel In Prey"],
+},
 
 /* ------------------------------------------------------------ */
 /* BLOOMING DEVOURER — CR 5                                    */
@@ -125,38 +96,28 @@ bilities: ["Grasping Vines", "Reel In Prey"]},
 {
   id: "blooming-devourer",
   name: "Blooming Devourer",
-  c,
-r: 5,
+  cr: 5,
   biomes: ["swamp", "jungle", "ruins"],
-  h,
-abitat: ["overgrown-temples"],
+  habitat: ["overgrown-temples"],
   category: "plant",
-  r,
-ole: "lurker",
-  f,
-actions: ["spore-collective"],
+  role: "lurker",
+  factions: ["spore-collective"],
   tags: ["acid", "ambush"],
-  b,
-ehavior: {
-    a,
-ggression: 7,
-    c,
-ourage: 4},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["swallow-isolated-targets"],
-s,
-tats: {
-      hp: 85,
+  behavior: {
+    aggression: 7,
+    courage: 4,
+  },
+  tactics: ["swallow-isolated-targets"],
+  stats: {
+    hp: 85,
     ac: 15,
     atk: 8,
     dmg: "2d10 + 3 bludgeoning",
-    s,
-peed: "10 ft"},
+    speed: "10 ft",
+  },
   loot: ["corrosive-pollen", "rare-seed-pod"],
-  a,
-bilities: ["Engulfing Maw", "Acidic Nectar"]},
+  abilities: ["Engulfing Maw", "Acidic Nectar"],
+},
 
 /* ------------------------------------------------------------ */
 /* GROVE HEART — CR 8 (ELITE PLANT)                             */
@@ -164,37 +125,29 @@ bilities: ["Engulfing Maw", "Acidic Nectar"]},
 {
   id: "grove-heart",
   name: "Grove Heart",
-  c,
-r: 8,
+  cr: 8,
   biomes: ["forest"],
-  h,
-abitat: ["ancient-woods"],
+  habitat: ["ancient-woods"],
   category: "plant",
-  r,
-ole: "support",
-  f,
-actions: ["ancient-grove", "druidbound"],
+  role: "support",
+  factions: ["ancient-grove", "druidbound"],
   tags: ["support", "aura"],
-  b,
-ehavior: {
-    a,
-ggression: 2,
-    c,
-ourage: 9},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["buff-allies-and-root-intruders"],
-s,
-tats: {
-      hp: 135,
+  behavior: {
+    aggression: 2,
+    courage: 9,
+  },
+  tactics: ["buff-allies-and-root-intruders"],
+  stats: {
+    hp: 135,
     ac: 16,
     atk: 10,
     dmg: "2d10 + 4 radiant+smash",
-    s,
-peed: "0 ft (rooted)"},
+    speed: "0 ft (rooted)",
+  },
   loot: ["grove-shard", "lifebloom-petal"],
-  a,
-bilities: ["Healing Canopy", "Entangling Roots", "Verdant Aura"]}];
+  abilities: ["Healing Canopy", "Entangling Roots", "Verdant Aura"],
+},
+
+];
 
 export default MINIONS;

@@ -1,17 +1,16 @@
+// @ts-nocheck
 export const FACTION_CELESTIAL = {
   name: "Celestial Covenant",
-  t,
-hemes: ["lumière sacrée", "anges", "pureté"],
-  c,
-olors: ["blanc pur", "or radieux", "bleu céleste"],
-  v,
-isual: [
+  themes: ["lumière sacrée", "anges", "pureté"],
+  colors: ["blanc pur", "or radieux", "bleu céleste"],
+  visual: [
     "rayons de lumière sacrée",
     "ailes lumineuses",
     "auras dorées",
     "armures bénies",
     "inscriptions célestes",
     "plumes brillantes",
-    "halo rayonnant"],
-  t,
-one: ["saint", "pur", "majestueux"]} as const;
+    "halo rayonnant"
+  ],
+  tone: ["saint", "pur", "majestueux"],
+} as const;

@@ -1,0 +1,56 @@
+// -----------------------------------------------------------------------------
+// Global Adapter Loader — Mithril Engine v1
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// Imports ESM centralisés
+// -----------------------------------------------------------------------------
+import { getAllBestiary } from "./bestiary.adapter";
+import { getAllSpells } from "./spells.adapter";
+import { getAllItems } from "./items.adapter";
+import { getAllClasses } from "./classes.adapter";
+import { getAllRaces } from "./races.adapter";
+import { getAllEras } from "./eras.adapter";
+import { getAllRoles } from "./roles.adapter";
+import { getAllFactions } from "./factions.adapter";
+import { getAllHabitats } from "./habitats.adapter";
+import { getAllRituals } from "./rituals.adapter";
+import { getGMData } from "./gm.adapter";
+import { getCharacterDefinitions } from "./character.adapter";
+// -----------------------------------------------------------------------------
+// Adapters centralisés
+// -----------------------------------------------------------------------------
+const ADAPTERS = {
+    bestiary: () => getAllBestiary(),
+    spells: () => getAllSpells(),
+    items: () => getAllItems(),
+    classes: () => getAllClasses(),
+    races: () => getAllRaces(),
+    eras: () => getAllEras(),
+    roles: () => getAllRoles(),
+    factions: () => getAllFactions(),
+    habitats: () => getAllHabitats(),
+    rituals: () => getAllRituals(),
+    gm: () => getGMData(),
+    character: () => getCharacterDefinitions(),
+};
+// -----------------------------------------------------------------------------
+// API publique
+// -----------------------------------------------------------------------------
+/**
+ * Charge un dataset spécifique
+ * ex : engine.load("bestiary")
+ */
+export function loadAdapter(key) {
+    const fn = ADAPTERS[key];
+    if (!fn)
+        throw new Error(`❌ Adapter "${key}" introuvable.`);
+    return fn();
+}
+/**
+ * Charge *toutes* les données du moteur
+ * ex: engine.loadAll()
+ */
+export function loadAllAdapters() {
+    const keys = Object.keys(ADAPTERS);
+    return Object.fromEntries(keys.map((k) => [k, ADAPTERS[k]()]));
+}

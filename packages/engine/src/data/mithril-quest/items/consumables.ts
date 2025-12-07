@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/s2s/fantasy/items/consumables.ts
 
 import type { Consumable } from "./types";

@@ -1,58 +1,61 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React, {
   createContext,
   useContext,
-  useState,
   useEffect,
+  useState,
   type ReactNode,
+  type Dispatch,
+  type SetStateAction,
 } from "react";
 
-import AudioBoot from './AudioBoot';
-import useSeason, {
-  getSeason,
-  getDayPhase,
-  getWeather,
-  getAmbientColor
-} from './hooks/useSeason';
+import AudioBoot from "./AudioBoot";
+import useSeason, { type SeasonData } from "./hooks/useSeason";
 
 interface MithrilContextType {
-  season: string;
-  setSeason: (s: string) => void;
+  season: SeasonData;
+  setSeason: Dispatch<SetStateAction<SeasonData>>;
   flip: () => void;
   isFlipping: boolean;
 }
 
 const MithrilContext = createContext<MithrilContextType | null>(null);
 
-export function useMithril() {
+export function useMithril(): MithrilContextType {
   const ctx = useContext(MithrilContext);
-  if (!ctx) throw new Error("useMithril must be used inside <MithrilProvider>");
+  if (!ctx) {
+    throw new Error("useMithril must be used inside <GrimoireFrame>");
+  }
   return ctx;
 }
 
-/** --------------------------------------------------------------------------
- * 🎨 GrimoireFrame v2 – Layout global du grimoire
- * Gestion flip, saison, ambiance, pages UI
- * -------------------------------------------------------------------------- */
-
-export default function GrimoireFrame({
-  children,
-}: {
+type GrimoireFrameProps = {
   children: ReactNode;
-}) {
-  const seasonHook = useSeason();
-  const [season, setSeason] = useState(seasonHook);
+};
+
+/**
+ * 🧙‍♂️ GrimoireFrame — layout global du grimoire
+ * Gestion du flip de page, saison, ambiance, etc.
+ */
+export default function GrimoireFrame({ children }: GrimoireFrameProps) {
+  const initialSeason = useSeason();
+  const [season, setSeason] = useState<SeasonData>(initialSeason);
   const [isFlipping, setFlipping] = useState(false);
+
+  // Si le hook recalcule la saison (changement d’heure / de mois), on synchronise l’état
+  useEffect(() => {
+    setSeason(initialSeason);
+  }, [initialSeason]);
 
   const flip = () => {
     setFlipping(true);
     setTimeout(() => setFlipping(false), 800);
   };
 
-  const bg = `/images/bg_hall.png`;
-  const parchment = `/images/parchment.png`;
+  const bg = "/images/bg_hall.png";
+  const parchment = "/images/parchment.png";
 
   return (
     <MithrilContext.Provider value={{ season, setSeason, flip, isFlipping }}>
@@ -69,12 +72,12 @@ export default function GrimoireFrame({
           style={{ backgroundImage: `url(${parchment})` }}
         />
 
-        {/* Animation Flip */}
+        {/* Animation de flip des pages */}
         <AnimatePresence mode="wait">
           <motion.div
             key={isFlipping ? "flip" : "idle"}
             initial={{ rotateY: 0, opacity: 1 }}
-            animate={{ rotateY: isFlipping ? 180 : 0 }}
+            animate={{ rotateY: isFlipping ? 180 : 0, opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
             className="relative w-full h-full"
@@ -83,6 +86,7 @@ export default function GrimoireFrame({
           </motion.div>
         </AnimatePresence>
 
+        {/* Boot audio / ambiances */}
         <AudioBoot />
       </main>
     </MithrilContext.Provider>

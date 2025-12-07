@@ -1,32 +1,56 @@
-// -------------------------------------------------------
-// 🔮 Global Adapter Loader — Mithril Engine v1
-// -------------------------------------------------------
-// Tous tes adapters centralisés ici
+// -----------------------------------------------------------------------------
+// Global Adapter Loader — Mithril Engine v1
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// Imports ESM centralisés
+// -----------------------------------------------------------------------------
+import { getAllBestiary } from "./bestiary.adapter";
+import { getAllSpells } from "./spells.adapter";
+import { getAllItems } from "./items.adapter";
+import { getAllClasses } from "./classes.adapter";
+import { getAllRaces } from "./races.adapter";
+import { getAllEras } from "./eras.adapter";
+import { getAllRoles } from "./roles.adapter";
+import { getAllFactions } from "./factions.adapter";
+import { getAllHabitats } from "./habitats.adapter";
+import { getAllRituals } from "./rituals.adapter";
+import { getAllGMData } from "./gm.adapter";
+import { getCharacterDefinitions } from "./character.adapter";
+// -----------------------------------------------------------------------------
+// Adapters centralisés
+// -----------------------------------------------------------------------------
 const ADAPTERS = {
-    bestiary: () => require("./bestiary.adapter").getAllBestiary(),
-    spells: () => require("./spells.adapter").getAllSpells(),
-    items: () => require("./items.adapter").getAllItems(),
-    classes: () => require("./classes.adapter").getAllClasses(),
-    races: () => require("./races.adapter").getAllRaces(),
-    eras: () => require("./eras.adapter").getAllEras(),
-    roles: () => require("./roles.adapter").getAllRoles(),
-    factions: () => require("./factions.adapter").getAllFactions(),
-    habitats: () => require("./habitats.adapter").getAllHabitats(),
-    rituals: () => require("./rituals.adapter").getAllRituals(),
-    gm: () => require("./gm.adapter").getGMData(),
-    character: () => require("./character.adapter").getCharacterDefinitions(),
+    bestiary: () => getAllBestiary(),
+    spells: () => getAllSpells(),
+    items: () => getAllItems(),
+    classes: () => getAllClasses(),
+    races: () => getAllRaces(),
+    eras: () => getAllEras(),
+    roles: () => getAllRoles(),
+    factions: () => getAllFactions(),
+    habitats: () => getAllHabitats(),
+    rituals: () => getAllRituals(),
+    gm: () => getAllGMData(),
+    character: () => getCharacterDefinitions(),
 };
-// -------------------------------------------------------
+// -----------------------------------------------------------------------------
 // API publique
-// -------------------------------------------------------
-// Charger un dataset : engine.load("bestiary")
+// -----------------------------------------------------------------------------
+/**
+ * Charge un dataset spécifique
+ * ex : engine.load("bestiary")
+ */
 export function loadAdapter(key) {
-    if (!ADAPTERS[key]) {
-        throw new Error(`Adapter "${key}" non trouvé.`);
-    }
-    return ADAPTERS[key]();
+    const fn = ADAPTERS[key];
+    if (!fn)
+        throw new Error(`❌ Adapter "${key}" introuvable.`);
+    return fn();
 }
-// Charger tout : engine.loadAll()
+/**
+ * Charge *toutes* les données du moteur
+ * ex: engine.loadAll()
+ */
 export function loadAllAdapters() {
-    return Object.fromEntries(Object.keys(ADAPTERS).map((k) => [k, ADAPTERS[k]()]));
+    const keys = Object.keys(ADAPTERS);
+    return Object.fromEntries(keys.map((k) => [k, ADAPTERS[k]()]));
 }

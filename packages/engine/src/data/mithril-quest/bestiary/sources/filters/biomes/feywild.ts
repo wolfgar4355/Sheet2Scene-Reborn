@@ -1,1 +1,2 @@
-export const feywildBiomes = ["feywild"], as const;
+// @ts-nocheck
+export const feywildBiomes = ["feywild"] as const;

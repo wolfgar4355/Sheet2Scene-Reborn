@@ -1,61 +1,63 @@
-// ---------------------------------------------------------
+// =========================================================
 // Types du moteur GME (GodinVerse Monster Engine)
 // Contrats généraux utilisés par tous les mondes
-// ---------------------------------------------------------
+// =========================================================
 
+// Difficulté d’une rencontre
 export type EncounterDifficulty =
   | "easy"
   | "medium"
   | "hard"
   | "deadly";
 
-// ---------------------------------------------------------
-// Requête envoyée au moteur pour générer une rencontre
-// ---------------------------------------------------------
+// =========================================================
+// Requête envoyée au moteur GME pour générer une rencontre
+// =========================================================
 export interface EncounterRequest {
-  world: string;              // ex: "fantasy", "scifi", "postapoc"
-  partyLevel: number;         // niveau moyen du groupe
-  partySize: number;          // nombre de joueurs
+  world: string;          // ex: "mithril-quest"
+  partyLevel: number;     // niveau moyen du groupe
+  partySize: number;      // nombre de joueurs
   difficulty: EncounterDifficulty;
 
   // Filtres CR
-  minCR?: number;             // CR minimum
-  maxCR?: number;             // CR maximum
+  minCR?: number;         // CR minimum
+  maxCR?: number;         // CR maximum
 
   // Filtres environnementaux
-  biome?: string;             // ex: "forest", "swamp", "tundra"
-  habitat?: string;           // ex: "deep-forest", "underdark", "ruins"
+  biome?: string;         // ex: "forest", "swamp", "tundra"
+  habitat?: string;       // ex: "deep-forest", "underdark", "ruins"
 
-  // Filtres de tags/influences (catégories supplémentaires)
-  tags?: string[];            // ex: ["undead", "elite", "boss"]
+  // Tags additionnels (catégorie, traits, atmosphère)
+  tags?: string[];        // ex: ["undead", "elite", "boss"]
 }
 
-// ---------------------------------------------------------
-// Définition interne du moteur GME
-// Chaque monstre est transformé dans ce format
-// ---------------------------------------------------------
+// =========================================================
+// Format interne d’un monstre utilisé par le moteur GME
+// Ce format est obtenu via les adapters.
+// =========================================================
 export interface GmeMonster {
-  id: string;                 // ID unique (clé interne)
-  name: string;               // Nom lisible
-  world: string;              // Monde d'origine
+  id: string;                 // identifiant interne unique
+  name: string;               // nom lisible
+  world: string;              // monde d’origine
   cr: number;                 // Challenge Rating
 
-  category?: string;          // humanoid, undead, dragon, etc.
-  biomeTags?: string[];       // types de biomes où il peut apparaître
-  habitatTags?: string[];     // variantes plus fines d’habitat
+  category?: string;          // humanoid, undead, beast, etc.
+  biomeTags?: string[];       // biomes compatibles
+  habitatTags?: string[];     // habitats précis
 
-  ref?: {                     // Référence vers le fichier source
-    source: string;           // ex: "fantasy-bestiary"
-    key: string;              // ex: "zombie"
+  // Référence vers les données d’origine
+  ref?: {
+    source: string;           // ex: "mithril-bestiary"
+    key: string;              // ex: "wolf_alpha"
   };
 }
 
-// ---------------------------------------------------------
-// Réponse principale du moteur
-// ---------------------------------------------------------
+// =========================================================
+// Réponse finale générée par le moteur GME
+// =========================================================
 export interface GeneratedEncounter {
-  monsters: GmeMonster[];         // Liste finale
-  totalCR: number;                // CR combiné
+  monsters: GmeMonster[];        // liste des monstres choisis
+  totalCR: number;               // CR total combiné
   difficulty: EncounterDifficulty;
-  request: EncounterRequest;      // la requête originale (avec filtres)
+  request: EncounterRequest;     // la requête originale
 }

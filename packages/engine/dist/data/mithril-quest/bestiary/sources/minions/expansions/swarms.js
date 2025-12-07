@@ -16,7 +16,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 2,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["surround-and-sting"],
         stats: {
             hp: 22,
@@ -25,9 +24,7 @@ export const MINIONS = [
             dmg: "2d4 piercing + poison",
             speed: "10 ft, fly 40 ft",
         },
-        // auto-commented
         loot: ["poison-sacs"],
-        // auto-commented
         abilities: ["Poison Cloud", "Scatter Movement"],
     },
     /* ------------------------------------------------------------ */
@@ -47,7 +44,6 @@ export const MINIONS = [
             aggression: 6,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["swarm-the-softest-target"],
         stats: {
             hp: 36,
@@ -56,9 +52,7 @@ export const MINIONS = [
             dmg: "2d6 piercing",
             speed: "20 ft, burrow 10 ft",
         },
-        // auto-commented
         loot: ["scarab-carapace"],
-        // auto-commented
         abilities: ["Corpse Devour", "Sand Burrow"],
     },
     /* ------------------------------------------------------------ */
@@ -78,7 +72,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["web-then-overwhelm"],
         stats: {
             hp: 45,
@@ -87,9 +80,7 @@ export const MINIONS = [
             dmg: "2d6 piercing + poison",
             speed: "20 ft, climb 30 ft",
         },
-        // auto-commented
         loot: ["venom-gland"],
-        // auto-commented
         abilities: ["Web Spray", "Climb"],
     },
     /* ------------------------------------------------------------ */
@@ -109,7 +100,6 @@ export const MINIONS = [
             aggression: 1,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["blinding-dazzle"],
         stats: {
             hp: 50,
@@ -118,9 +108,7 @@ export const MINIONS = [
             dmg: "1d4 radiant",
             speed: "10 ft, fly 50 ft",
         },
-        // auto-commented
         loot: ["glitter-dust"],
-        // auto-commented
         abilities: ["Dazzling Light", "Swarm Heal"],
     },
     /* ------------------------------------------------------------ */
@@ -140,7 +128,6 @@ export const MINIONS = [
             aggression: 9,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["consume-everything"],
         stats: {
             hp: 90,
@@ -149,9 +136,7 @@ export const MINIONS = [
             dmg: "4d6 slashing",
             speed: "30 ft, fly 40 ft",
         },
-        // auto-commented
         loot: ["chitin-dust"],
-        // auto-commented
         abilities: ["Devouring Frenzy", "Sound of Doom"],
     },
     /* ------------------------------------------------------------ */
@@ -171,7 +156,6 @@ export const MINIONS = [
             aggression: 7,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["strike-from-darkness"],
         stats: {
             hp: 110,
@@ -180,9 +164,7 @@ export const MINIONS = [
             dmg: "3d6 necrotic + poison",
             speed: "40 ft, fly 60 ft",
         },
-        // auto-commented
         loot: ["shadow-resin", "void-honey"],
-        // auto-commented
         abilities: ["Phase Sting", "Shadow Swarm", "Terror Buzz"],
     },
 ];

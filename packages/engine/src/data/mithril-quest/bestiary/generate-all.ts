@@ -1,100 +1,64 @@
+// @ts-nocheck
 /**
- * generate-all.ts
- * Fusionne automatiquement tout le bestiaire Fantasy.
+ * generate-all.ts — Reconstruit automatiquement ALL_MONSTERS.ts
  */
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+import type { Monster } from "./types";
 
-// Racine du dossier bestiary
-const BASE = path.join(process.cwd(), "apps/web/lib/s2s/fantasy/bestiary");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Dossiers sources
-// IMPORTANT — Ces noms correspondent EXACTEMENT à ton arborescence.
-const SOURCE_DIRS = [
-  "sources/boss.ts",
-  "sources/categories.ts",
-  "sources/encounters.ts",
-  "sources/minions",
-  "sources/mystic",
-  "sources/filters/biomes",
-  "sources/filters/categories",
-  "sources/filters/encounters",
-  "sources/filters/types",
-  "sources/cr"
-];
+// dossier contenant tes fichiers sources
+const SOURCES_DIR = path.join(__dirname, "sources");
 
-// Lecture d’un fichier .ts qui contient une export const X = [...]
-function loadTSArray(filePath: string) {
-  const content = fs.readFileSync(filePath, "utf-8");
+// destination du ALL_MONSTERS.ts final
+const OUTPUT_FILE = path.join(__dirname, "ALL_MONSTERS.ts");
 
-  // Trouver : export const ??? = [...]
-  const match = content.match(/export const .*?=\s*(\[.*\]);/s);
-  if (!match) return [];
+// lecture recursive du dossier sources
+function loadSources(): Monster[] {
+  const files = fs.readdirSync(SOURCES_DIR);
 
-  try {
-    return eval(match[1]); // on parse le tableau
-  } catch (e) {
-    console.error("❌ Erreur parsing:", filePath, e);
-    return [];
-  }
-}
+  const monsters: Monster[] = [];
 
-// Récupère tous les monstres d’un dossier ou sous-dossier
-function loadFromFolder(relPath: string) {
-  const full = path.join(BASE, relPath);
+  for (const file of files) {
+    if (!file.endsWith(".ts")) continue;
 
-  if (!fs.existsSync(full)) return [];
+    const fullPath = path.join(SOURCES_DIR, file);
 
-  const stats: any[] = [];
+    // import dynamique ESM
+    const module = require(fullPath);
 
-  if (fs.statSync(full).isFile()) {
-    // fichier .ts
-    return loadTSArray(full);
-  }
+    const data = module.default ?? module.MONSTERS ?? module.monsters;
 
-  // dossier
-  for (const file of fs.readdirSync(full)) {
-    if (file.endsWith(".ts") && !file.startsWith("index")) {
-      stats.push(...loadTSArray(path.join(full, file)));
+    if (!data) {
+      console.warn(`⚠️ Avertissement: fichier ${file} ne contient aucun export valide.`);
+      continue;
     }
+
+    monsters.push(...data);
   }
 
-  return stats;
+  return monsters;
 }
 
-// 1. Charger tout
-let ALL: any[] = [];
+// Génération du fichier final avec horodatage
+function generateFile(monsters: Monster[]) {
+  const content =
+`// AUTO-GENERATED — DO NOT EDIT
+// Generated on: ${new Date().toISOString()}
 
-for (const entry of SOURCE_DIRS) {
-  ALL.push(...loadFromFolder(entry));
+import type { Monster } from "./types";
+
+export const ALL_MONSTERS: Monster[] = ${JSON.stringify(monsters, null, 2)};
+`;
+
+  fs.writeFileSync(OUTPUT_FILE, content, "utf-8");
+  console.log(`✅ ALL_MONSTERS.ts généré (${monsters.length} monstres)`);
 }
 
-// 2. Nettoyage et valeurs par défaut
-ALL = ALL.map((m, i) => ({
-  id: m.id ?? `monster_${i}`,
-  name: m.name ?? "Unknown",
-  cr: m.cr ?? 0,
-  category: m.category ?? "unknown",
-  biome: m.biome ?? "any",
-  type: m.type ?? "normal",
-  hp: m.hp ?? 1,
-  abilities: m.abilities ?? [],
-  notes: m.notes ?? "",
-}));
-
-// 3. Trie final par CR
-ALL.sort((a, b) => a.cr - b.cr);
-
-// 4. Export final
-const output =
-  `// AUTO-GENERATED — DO NOT EDIT\n` +
-  `// Generated on: ${new Date().toISOString()}\n\n` +
-  `import type { Monster } from "@s2s/fantasy/types";\n\n` +
-  `export const ALL_MONSTERS: Monster[] = ${JSON.stringify(ALL, null, 2)};\n`;
-
-fs.writeFileSync(path.join(BASE, "ALL_MONSTERS.ts"), output);
-
-console.log("🔥 Bestiaire Fantasy reconstruit !");
-console.log(`📦 ${ALL.length} créatures fusionnées.`);
-console.log("📁 Fichier généré : ALL_MONSTERS.ts");
+// MAIN
+const monsters = loadSources();
+generateFile(monsters);

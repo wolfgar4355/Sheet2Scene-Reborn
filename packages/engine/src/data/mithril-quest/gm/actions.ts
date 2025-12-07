@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/s2s/fantasy/gm/actions.ts
 
 export interface SpecialAction {

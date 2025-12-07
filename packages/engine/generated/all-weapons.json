@@ -1,0 +1,432 @@
+{
+  "blades": [
+    {
+      "key": "shortsword",
+      "style": "clean steel, simple adventurer gear, MQ clarity",
+      "prompt": "\nÉpée courte simple. Lame droite acier mat, poignée cuir usé.\nDesign réaliste, style fantasy propre sans surcharge.\nFond parchemin grimoire.\n    "
+    },
+    {
+      "key": "longsword",
+      "style": "heroic blade, knightly steel, refined engraving",
+      "prompt": "\nÉpée longue élégante. Garde croisée classique, lame solide.\nGravures subtiles, reflet métallique propre.\nAmbiance chevaleresque MQ.\n    "
+    },
+    {
+      "key": "greatsword",
+      "style": "brutal heavy blade, dark steel, MMO fantasy vibe",
+      "prompt": "\nEspadon massif à deux mains.\nLame large, pointe lourde, style imposant.\nTextures d’acier foncé, usure réaliste.\nFond parchemin épais.\n    "
+    },
+    {
+      "key": "scimitar",
+      "style": "curved blade, desert wanderer aesthetic",
+      "prompt": "\nCimeterre courbe, garde travaillée, métal poli.\nLignes élancées, motifs légers sur la lame.\nAmbiance aventurier exotique.\n    "
+    },
+    {
+      "key": "katana",
+      "style": "crafted steel, folded metal, subtle glow",
+      "prompt": "\nKatana à la finition raffinée.\nLame courbe, hamon léger, poignée tressée sombre.\nEsthétique élégante et disciplinée MQ.\n    "
+    },
+    {
+      "key": "dual_blades",
+      "style": "twin weapons, mirrored shapes, agility aesthetic",
+      "prompt": "\nDeux lames jumelles symétriques.\nDesign léger et précis, adapté aux combattants rapides.\nLueur métallique froide.\n    "
+    },
+    {
+      "key": "runic_blade",
+      "style": "magic runes, glowing lines, enchanted weapon",
+      "prompt": "\nLame runique gravée de glyphes lumineux.\nMétal argent-vif, puissance ancienne.\nAura magique contrôlée, style MQ mythic.\n    "
+    }
+  ],
+  "bows": [
+    {
+      "key": "shortbow",
+      "style": "hand-painted fantasy illustration, parchment shading, MQ aesthetic",
+      "prompt": "\nArc court artisanal. Bois simple, usé, style aventurier débutant.\nCouleurs naturelles, textures boisées visibles, corde légèrement relâchée.\nFond neutre parchemin, éclairage doux ambiance grimoire.\n    "
+    },
+    {
+      "key": "longbow",
+      "style": "high-fidelity fantasy engraving, medieval archer vibe",
+      "prompt": "\nArc long élégant et puissant. Forme légèrement courbée, bois sombre renforcé.\nDétails gravés, style sérieux et militaire.\nÉclairage dramatique, rendu clair sur fond parchemin.\n    "
+    },
+    {
+      "key": "elven_longbow",
+      "style": "ethereal elven craftsmanship, glowing lines, MQ enchanted",
+      "prompt": "\nArc elfique fin aux lignes lumineuses. Courbure fluide, décorations organiques.\nCouleurs vert-émeraude ou argentées, légères lueurs magiques.\nFond parchemin doré légèrement texturé.\n    "
+    },
+    {
+      "key": "composite_bow",
+      "style": "detailed composite design, leather bindings, realistic wood-grain",
+      "prompt": "\nArc composite renforcé, double courbure.\nBois clair + renforts d’os ou de corne, ligatures de cuir.\nAspect robuste mais compact.\nStyle MQ peinture propre, rendu professionnel.\n    "
+    },
+    {
+      "key": "storm_bow",
+      "style": "storm energy, crackling arcs, MQ magic effects",
+      "prompt": "\nArc Tempête imprégné d’énergie orageuse.\nLueurs électriques autour des branches, motifs runiques discrets.\nCouleurs bleu-argent, aura puissante.\nArme légendaire MQ, magie modérée mais visible.\n    "
+    },
+    {
+      "key": "shadowbow",
+      "style": "shadow magic, dark smoke effects, MQ occult aesthetic",
+      "prompt": "\nArc d’Ombre sculpté dans un bois noir obsidienne.\nFumée sombre subtile autour des branches.\nAccents violet foncé ou gris anthracite.\nFond parchemin assombri, contraste élevé.\n    "
+    },
+    {
+      "key": "sunflare_bow",
+      "style": "radiant light magic, holy glow, MQ mythic aesthetic",
+      "prompt": "\nArc Flamme-Solaire brillant d’énergie radiante.\nTons dorés, lueurs solaires dans la poignée.\nDécorations délicates, aspect sacré.\nFond parchemin doré avec halo léger.\n    "
+    },
+    {
+      "key": "astral_longbow",
+      "style": "cosmic energy, astral runes, mythic celestial feel",
+      "prompt": "\nArc Astral en énergie condensée.\nForme semi-matérielle, lignes d’énergie bleu-clair ou violet cosmique.\nRunes célestes flottantes, atmosphère mythique MQ.\nFond étoilé léger fusionné avec parchemin.\n    "
+    }
+  ],
+  "daggers": [
+    {
+      "key": "simple_dagger",
+      "style": "basic gear, beginner adventurer, grounded design",
+      "prompt": "\nDague simple en acier poli.\nPoignée en cuir, lame courte triangulaire.\nAspect utilitaire, zéro magic, style MQ propre.\n    "
+    },
+    {
+      "key": "steel_knife",
+      "style": "kitchen-combat hybrid, worn metal",
+      "prompt": "\nCouteau d’acier robuste.\nLame fine et pratique, reflet métallique.\nAmbiance artisanale simple.\n    "
+    },
+    {
+      "key": "throwing_dagger",
+      "style": "balanced blade, aerodynamic design",
+      "prompt": "\nDague de jet légère.\nLignes épurées, lame fine équilibrée pour lancer.\nFond parchemin minimaliste MQ.\n    "
+    },
+    {
+      "key": "assassin_stiletto",
+      "style": "thin stiletto blade, assassination aesthetic",
+      "prompt": "\nStiletto assassin.\nLame longue et étroite.\nReflets métalliques froids.\n    "
+    },
+    {
+      "key": "ceremonial_knife",
+      "style": "ornamental blade, ritual motifs",
+      "prompt": "\nCouteau cérémonial décoré de symboles.\nCouleurs or/rouge ou noir/or.\nAmbiance ésotérique MQ.\n    "
+    },
+    {
+      "key": "shadowfang",
+      "style": "dark smoke, stealth magic aesthetic",
+      "prompt": "\nCroche-Ombre. Métal noirâtre absorbant la lumière.\nAccent violet foncé, petite lueur magique.\nDague rare MQ.\n    "
+    },
+    {
+      "key": "runic_dirk",
+      "style": "old runes, subtle glow, magical engravings",
+      "prompt": "\nDague runique avec glyphes gravés.\nEffets magiques doux bleutés.\nAmbiance ancestrale MQ.\n    "
+    },
+    {
+      "key": "poisoner_blade",
+      "style": "hollow tube blade, toxin-ready design",
+      "prompt": "\nLame du Toxineux.\nCanal interne pour toxines.\nDétails acérés, métal sombre.\nStyle dangereux mais élégant MQ.\n    "
+    },
+    {
+      "key": "moonsteel_knife",
+      "style": "radiant glow, lunar magic, mythic purity",
+      "prompt": "\nCouteau en Lune-Argent.\nMétal clair lumineux.\nLueur blanche sacrée.\n    "
+    },
+    {
+      "key": "void_stinger",
+      "style": "ethereal void stinger, soul energy aesthetic",
+      "prompt": "\nAiguillon du Vide. Lame d’ombre pure.\nLignes d’énergie, déformation subtile.\nArme mythique MQ.\n    "
+    }
+  ],
+  "crossbows": [
+    {
+      "key": "light_crossbow",
+      "style": "wood+steel simple craftsmanship, MQ parchment aesthetic",
+      "prompt": "\nArbalète légère en bois clair avec mécanisme simple.\nCordage tendu, textures bois réalistes.\nStyle aventurier débutant. Fond parchemin, éclairage doux.\n    "
+    },
+    {
+      "key": "heavy_crossbow",
+      "style": "heavy steel limbs, realistic shadows, medieval discipline",
+      "prompt": "\nArbalète lourde massive, branches en acier sombre.\nAspect lent mais puissant. Détails mécaniques visibles.\nAmbiance soldat MQ, rendu sérieux.\n    "
+    },
+    {
+      "key": "hand_crossbow",
+      "style": "compact stealth gear, assassin vibe",
+      "prompt": "\nPetite arbalète de poing compacte.\nBois noir ou acajou, mécanisme précis.\nStyle discret MQ, éclairage contrasté.\n    "
+    },
+    {
+      "key": "siege_slinger",
+      "style": "giant siege weapon, brutal engineering",
+      "prompt": "\nArbalète de Siège massive, tirs très lourds.\nBras renforcés, métal brut.\nFond parchemin sombre, ambiance guerre médiévale MQ.\n    "
+    },
+    {
+      "key": "tribal_boltbow",
+      "style": "primitive carved wood, tribal patterns",
+      "prompt": "\nArbalète tribale primitive en bois brut.\nDécorations de plumes, motifs rituels.\nAmbiance ancienne tribu MQ, teintes ocres.\n    "
+    },
+    {
+      "key": "precision_crossbow",
+      "style": "sharpened engineering, sniper vibe, fantasy elite",
+      "prompt": "\nArbalète de Précision aux lignes fines.\nMécanisme optimisé, gravures légères, métal poli.\nAmbiance tireur d’élite MQ.\n    "
+    },
+    {
+      "key": "arcane_repeatbow",
+      "style": "glowing arcane components, magic tech mix",
+      "prompt": "\nArbalète Arcanique à répétition.\nComposants lumineux bleu/violet, chambre à énergie.\nStyle technomagique MQ maîtrisé.\n    "
+    },
+    {
+      "key": "abyssal_crossbow",
+      "style": "shadow magic, dark aura, cursed aesthetic",
+      "prompt": "\nArbalète Abyssale noire, formes fines et inquiétantes.\nNéant subtil, lueurs nécrotiques très légères.\nArme légendaire MQ sombre.\n    "
+    },
+    {
+      "key": "solar_boltcaster",
+      "style": "radiant holy glow, celestial craftsmanship",
+      "prompt": "\nLance-Carreau Solaire brillant d’énergie dorée.\nMétal sacré, motifs sacrés.\nAmbiance divine MQ.\n    "
+    },
+    {
+      "key": "astral_arbalest",
+      "style": "cosmic energy bow, floating runes, mythic",
+      "prompt": "\nArbalète Astrale en énergie condensée.\nForme semi-éthérée, runes stellaires.\nStyle mythique MQ, fond étoilé léger mixé parchemin.\n    "
+    }
+  ],
+  "firearms": [
+    {
+      "key": "flintlock_pistol",
+      "style": "antique pistol, wood+steel mix, powder-age",
+      "prompt": "\nPistolet à silex ancien.\nBois foncé, mécanisme à pierre.\nAmbiance âge de la poudre MQ.\n    "
+    },
+    {
+      "key": "flintlock_dual",
+      "style": "paired pistols, duelist vibe",
+      "prompt": "\nDeux pistolets à silex assortis.\nDécorations subtiles, bois poli.\nAmbiance pirate/duelliste MQ (0 IP).\n    "
+    },
+    {
+      "key": "arquebus",
+      "style": "primitive heavy firearm, black powder authenticity",
+      "prompt": "\nArquebuse longue et lourde.\nCanon large, bois brut.\nEffet d’ère médiéval tardif MQ.\n    "
+    },
+    {
+      "key": "musket",
+      "style": "refined powder-age craftsmanship",
+      "prompt": "\nMousquet long et précis.\nBois brun poli, métal clair.\nAmbiance armée disciplinée MQ.\n    "
+    },
+    {
+      "key": "blunderbuss",
+      "style": "wide flared barrel, brutal close-range",
+      "prompt": "\nTromblon à large canon évasé.\nAspect destructeur à courte portée.\nStyle MQ poudre noire.\n    "
+    },
+    {
+      "key": "gnome_hand_cannon",
+      "style": "gnomish tech, arcane sparks, fantasy engineering",
+      "prompt": "\nCanon de Paume Gnome compact.\nMétal brillant + cristaux tech.\nAmbiance technomagique MQ.\n    "
+    },
+    {
+      "key": "arcane_rifle",
+      "style": "sleek energy rifle, crystal emitter",
+      "prompt": "\nFusil arcanique avec chambre à cristaux.\nLumière bleue/violette.\nSilhouette futuriste mais fantasy MQ.\n    "
+    },
+    {
+      "key": "runic_musket",
+      "style": "engraved runes, holy energy",
+      "prompt": "\nMousquet Runique aux glyphes radieuses.\nMétal argenté, lueurs sacrées subtiles.\nArme légendaire MQ sacrée.\n    "
+    },
+    {
+      "key": "infernal_rifle",
+      "style": "flaming demonic metal, cursed aura",
+      "prompt": "\nFusil Infernal forgé démoniaque.\nMétal rougeoyé, teintes de chaleur.\nAmbiance abyssale MQ.\n    "
+    },
+    {
+      "key": "astral_longrifle",
+      "style": "cosmic beam weapon, stellar runes",
+      "prompt": "\nLongrifle Astral fait d’énergie étoilée.\nSilhouette semi-éthérée, lignes cosmiques.\nArme mythique MQ.\n    "
+    }
+  ],
+  "exotic": [
+    {
+      "key": "whip",
+      "style": "leather braid, dynamic curve, adventurer gear",
+      "prompt": "\nFouet simple en cuir tressé.\nCourbe dynamique, texture détaillée.\nStyle aventurier MQ, fond parchemin.\n    "
+    },
+    {
+      "key": "chain_whip",
+      "style": "segmented chain, metallic spikes, danger aesthetic",
+      "prompt": "\nFouet à chaînes segmentées.\nPointes métalliques, mouvement capturé.\nAmbiance agressive MQ.\n    "
+    },
+    {
+      "key": "spiked_chain",
+      "style": "heavy brutal chain, thick spikes",
+      "prompt": "\nChaîne épineuse lourde.\nGros maillons + pointes solides.\nStyle MQ brutal, ambiance sombre.\n    "
+    },
+    {
+      "key": "kusarigama",
+      "style": "scythe + chain hybrid, martial discipline",
+      "prompt": "\nKusarigama avec faucille affûtée et chaîne.\nEsthétique équilibrée et élégante.\nÉclairage doux, fond parchemin MQ.\n    "
+    },
+    {
+      "key": "gnome_buzzblade",
+      "style": "mechanical spinning blade, gnomish tech",
+      "prompt": "\nTranchlame Gnome : disque rotatif muni d’engrenages.\nÉnergie bleue technomagique.\nAmbiance gnome MQ inventive.\n    "
+    },
+    {
+      "key": "monk_bo",
+      "style": "smooth wood staff, disciplined stance",
+      "prompt": "\nBâton de Moine (Bo).\nHampe bois simple, poli.\nEsthétique martial MQ propre et neutre.\n    "
+    },
+    {
+      "key": "nunchaku",
+      "style": "dual sticks, simple rope, motion blur subtle",
+      "prompt": "\nNunchaku équilibré, deux bâtons reliés.\nTexture bois naturel, chaîne ou corde.\nStyle MQ arts martiaux sans dériver vers IP.\n    "
+    },
+    {
+      "key": "double_blade",
+      "style": "dual-ended blade, fantasy agility",
+      "prompt": "\nÉpée Double, lame à deux extrémités.\nAmbiance fantasy MQ agile.\nMétal clair, proportion fluide.\n    "
+    },
+    {
+      "key": "cultist_martial_blade",
+      "style": "dark ritualistic carvings, necrotic aura",
+      "prompt": "\nLame du Rituel du Culte.\nRunes occultes, reflets nécrotiques.\nAmbiance noire MQ.\n    "
+    },
+    {
+      "key": "infernal_chain",
+      "style": "burning demonic metal, fiery glow",
+      "prompt": "\nChaîne Infernale incandescente.\nMétal rougeoyant, flammes internes.\nArme légendaire MQ infernale.\n    "
+    },
+    {
+      "key": "stellar_blade",
+      "style": "cosmic steel, star-runes, radiant edges",
+      "prompt": "\nLame Stellaire brillante d’énergie cosmique.\nRunes stellaires, métal clair et lisse.\nStyle mythique MQ cosmique.\n    "
+    }
+  ],
+  "elemental": [
+    {
+      "key": "flame_blade",
+      "style": "embers, warm glow, enchanted fire",
+      "prompt": "\nLame de Flamme : métal chauffé, lueurs rouge-orange.\nEffet feu magique contenu.\nStyle MQ élémentaire feu."
+    },
+    {
+      "key": "frost_axe",
+      "style": "icy crystalline edge, cold mist",
+      "prompt": "\nHache de Givre.\nLame cristalline bleutée, brume froide subtile.\nAmbiance MQ hivernale."
+    },
+    {
+      "key": "storm_mace",
+      "style": "lightning veins, storm core",
+      "prompt": "\nMasse Tempête avec veines d'électricité.\nCœur énergétique bleu.\nArme MQ élément tonnerre."
+    },
+    {
+      "key": "earthbreaker",
+      "style": "stone+metal fusion, grounded rugged look",
+      "prompt": "\nFracasse-Terre massif, mélange pierre/métal.\nTextures rocheuses détaillées.\nAmbiance MQ tellurique."
+    },
+    {
+      "key": "tidal_spear",
+      "style": "water flow motif, smooth turquoise shimmer",
+      "prompt": "\nLance Marée.\nMotifs fluides aqua, reflets turquoise.\nArme MQ eau, élégance douce."
+    },
+    {
+      "key": "radiant_blade",
+      "style": "holy bright edges, runic light",
+      "prompt": "\nÉpée Radiante.\nLumière sacrée douce, runes lumineuses.\nStyle MQ sacré."
+    }
+  ],
+  "cosmic": [
+    {
+      "key": "astral_sword",
+      "style": "cosmic blade, shimmering edges, nebula colors",
+      "prompt": "\nÉpée Astrale semi-éthérée.\nLueurs stellaires, couleurs nébuleuses discrètes.\nStyle mythique MQ cosmique.\n    "
+    },
+    {
+      "key": "void_sting",
+      "style": "thin dark blade, void energy crackles",
+      "prompt": "\nAiguillon du Néant, lame très fine.\nÉnergie du vide violette sombre.\nAura inquiétante mais sobre MQ.\n    "
+    },
+    {
+      "key": "starbreaker",
+      "style": "heavy cosmic hammer, meteor-metal",
+      "prompt": "\nMarteau Brise-Étoiles forgé dans un métal météoritique.\nRunes stellaires, silhouette massive.\nAmbiance MQ céleste.\n    "
+    },
+    {
+      "key": "comet_lance",
+      "style": "long sleek spear, icy cosmic trail",
+      "prompt": "\nLance-Comète, hampe claire, pointe glacée.\nEffet de traînée cosmique contrôlé.\nArme MQ mythique espace.\n    "
+    },
+    {
+      "key": "eclipse_blade",
+      "style": "dark crescent blade, solar-lunar contrast",
+      "prompt": "\nLame Éclipse en forme de croissant sombre.\nContraste lumière/ombre subtil.\nAmbiance mythique MQ astrologique.\n    "
+    }
+  ],
+  "polearms": [
+    {
+      "key": "spear",
+      "style": "simple wood shaft, primitive metal tip, grounded realism",
+      "prompt": "\nLance simple. Hampe bois, pointe métal basique.\nLook ancien, utilitaire. Fond parchemin clair MQ.\n    "
+    },
+    {
+      "key": "pike",
+      "style": "long disciplined weapon, army formation feel",
+      "prompt": "\nPique très longue, silhouette militaire.\nPointe acérée, hampe sombre.\nAmbiance rangées de soldats MQ.\n    "
+    },
+    {
+      "key": "halberd",
+      "style": "multi-purpose blade, medieval iconic polearm",
+      "prompt": "\nHallebarde avec lame, pique et crochet.\nForme robuste, métal poli ou sombre.\nStyle bataille MQ héroïque.\n    "
+    },
+    {
+      "key": "glaive",
+      "style": "curved blade elegance, fantasy warrior",
+      "prompt": "\nGlaive longue courbe.\nEsthétique équilibrée et élégante.\nLame acérée MQ, ambiance sobre.\n    "
+    },
+    {
+      "key": "bardiche",
+      "style": "large brutal blade, heavy infantry",
+      "prompt": "\nBardiche massive, large tête de hache.\nLook brutal, acier lourd.\nAmbiance unité lourde MQ.\n    "
+    },
+    {
+      "key": "fauchard",
+      "style": "hooked blade, exotic medieval look",
+      "prompt": "\nFauchard avec lame courbe et crochet discret.\nStyle élancé, détail précis.\nDesign MQ propre sans surcharge.\n    "
+    },
+    {
+      "key": "naginata",
+      "style": "long curved blade, refined martial discipline",
+      "prompt": "\nNaginata élégante, lame longue et fine.\nPoignée tressée, ambiance discrète.\nStyle arts martiaux MQ, 0 IP.\n    "
+    },
+    {
+      "key": "storm_spear",
+      "style": "thunder energy, crackling aura",
+      "prompt": "\nLance-Tempête. Énergie orageuse dans la lame.\nTeintes bleu-gris, lueur magique modérée.\nArme combattant des tempêtes MQ.\n    "
+    },
+    {
+      "key": "celestial_halberd",
+      "style": "radiant divine weapon, bright engravings",
+      "prompt": "\nHallebarde Céleste rayonnante.\nMétal clair, motifs sacrés dorés.\nArme légendaire MQ lumineuse.\n    "
+    },
+    {
+      "key": "titan_spike",
+      "style": "colossal scale, thick metal, mythic brute force",
+      "prompt": "\nPointe-Titan gigantesque.\nMétal ancien lourd, proportions démesurées.\nStyle mythique MQ, aura puissante.\n    "
+    }
+  ],
+  "voidtech": [
+    {
+      "key": "void_knife",
+      "style": "shadow-forged steel, dim purple edges",
+      "prompt": "\nCouteau du Vide : lame noire absorbant la lumière.\nÉclat violet léger.\nArme MQ ombragée.\n    "
+    },
+    {
+      "key": "entropy_glaive",
+      "style": "fractured geometry, entropy distortions",
+      "prompt": "\nGlaive Entropique.\nLame asymétrique, petites distorsions visuelles.\nAmbiance MQ néant instable.\n    "
+    },
+    {
+      "key": "null_pistol",
+      "style": "anti-energy firearm, void core chamber",
+      "prompt": "\nPistolet de Nullification.\nChambre centrale absorbant la lumière.\nAesthetic MQ voidtech sans SF moderne pur.\n    "
+    },
+    {
+      "key": "phase_scythe",
+      "style": "ghost-phase blade, thin ethereal curve",
+      "prompt": "\nFaux de Phase semi-éthérée.\nLame translucide, contour spectral.\nStyle MQ ombre/éther.\n    "
+    },
+    {
+      "key": "singularity_staff",
+      "style": "orb of micro-gravity, bending light subtly",
+      "prompt": "\nBâton Singularité avec sphère sombre au sommet.\nDéviation légère de lumière autour.\nTotem MQ du Vide.\n    "
+    }
+  ]
+}

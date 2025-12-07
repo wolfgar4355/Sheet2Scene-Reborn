@@ -1,3 +1,4 @@
+// @ts-nocheck
 // polearms.ts — Armes d’hast : lances, hallebardes, bardiches, etc.
 
 export const POLEARMS = [

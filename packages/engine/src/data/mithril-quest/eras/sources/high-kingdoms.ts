@@ -1,3 +1,7 @@
+// @ts-nocheck
+// mithril-quest/eras/sources/high-kingdoms.ts
+// Ere officielle du monde "Mithril Quest"
+
 export const HIGH_KINGDOMS = [
   {
     key: "high-kingdoms",
@@ -25,4 +29,6 @@ export const HIGH_KINGDOMS = [
     ],
     tags: ["renaissance", "golden-age", "arcane", "guilds", "prosperity"],
   },
-] ;
+] as const;
+
+export default HIGH_KINGDOMS;

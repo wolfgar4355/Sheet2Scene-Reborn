@@ -21,17 +21,15 @@ export const aberrations = [
             {
                 name: "Tentacle",
                 bonus: +5,
-                damage: { dice: "1d10 piercing +", type: "paralysis" },
+                damage: "1d10 piercing + paralysis",
             },
         ],
         behavior: {
-            aggression: "defensive",
+            aggression: "lurker",
             confidence: "coward",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["descend-silently-and-grapple"]
+            tactics: ["descend-silently-and-grapple"],
         },
         drops: ["neural-tentacle"],
-        // auto-commented
         abilities: ["Paralyzing Tentacles", "Silent Glide"],
         visuals: {
             icon: "grell",
@@ -59,17 +57,15 @@ export const aberrations = [
             {
                 name: "Bite",
                 bonus: +4,
-                damage: { dice: "1d12", type: "slashing" },
+                damage: "1d12 slashing",
             },
         ],
         behavior: {
-            aggression: "aggressive",
+            aggression: "predator",
             confidence: "courage:3",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["ambush-from-above"]
+            tactics: ["ambush-from-above"],
         },
         drops: ["chitin-shard"],
-        // auto-commented
         abilities: ["Stone Camouflage"],
         visuals: {
             icon: "grick",
@@ -97,17 +93,15 @@ export const aberrations = [
             {
                 name: "Mind Spike",
                 bonus: +4,
-                damage: { dice: "1d8", type: "psychic" },
+                damage: "1d8 psychic",
             },
         ],
         behavior: {
             aggression: "instinct",
             confidence: "coward",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["psionic-scream-and-hide"]
+            tactics: ["psionic-scream-and-hide"],
         },
         drops: ["psionic-residue"],
-        // auto-commented
         abilities: ["Mind Screech", "Neural Feedback"],
         visuals: {
             icon: "worm",
@@ -135,17 +129,15 @@ export const aberrations = [
             {
                 name: "Maw",
                 bonus: +6,
-                damage: { dice: "4d6", type: "acid" },
+                damage: "4d6 acid",
             },
         ],
         behavior: {
             aggression: "obsession",
             confidence: "fearless",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["suppress-all-sanity-with-aura"]
+            tactics: ["suppress-all-sanity-with-aura"],
         },
         drops: ["fractured-organ"],
-        // auto-commented
         abilities: ["Gibbering Aura", "Amorphous Engulf"],
         visuals: {
             icon: "mass",
@@ -173,17 +165,15 @@ export const aberrations = [
             {
                 name: "Brain Rend",
                 bonus: +5,
-                damage: { dice: "1d8", type: "psychic" },
+                damage: "1d8 psychic",
             },
         ],
         behavior: {
-            aggression: "aggressive",
+            aggression: "hunter",
             confidence: "courage:5",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["assail-brain-then-pursue"]
+            tactics: ["assail-brain-then-pursue"],
         },
         drops: ["horror-residue"],
-        // auto-commented
         abilities: ["Horror Instinct", "Body Thief"],
         visuals: {
             icon: "brain",
@@ -211,17 +201,15 @@ export const aberrations = [
             {
                 name: "Void Lance",
                 bonus: +8,
-                damage: { dice: "3d10", type: "force" },
+                damage: "3d10 force",
             },
         ],
         behavior: {
-            aggression: "berserk",
+            aggression: "annihilation",
             confidence: "fearless",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["float-at-range-and-swap-space"]
+            tactics: ["float-at-range-and-swap-space"],
         },
         drops: ["void-core"],
-        // auto-commented
         abilities: ["Null Aura", "Void Beam", "Levitation"],
         visuals: {
             icon: "eye",

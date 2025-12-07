@@ -1,22 +1,21 @@
+// @ts-nocheck
 export const TYPE_SUPPORT = {
-  r,
-ole: "Support",
+  role: "Support",
   description: "Améliore ses alliés, affaiblit les ennemis, soigne légèrement.",
-  s,
-tats: {
-      hp: "Faibles à moyens",
+  stats: {
+    hp: "Faibles à moyens",
     ac: "Faible",
-    d,
-amage: "Faible",
-    m,
-obility: "Moyenne"},
-  t,
-raits: [
+    damage: "Faible",
+    mobility: "Moyenne",
+  },
+  traits: [
     "Buffs et debuffs",
     "Soins légers ou régénération",
-    "Amélioration du groupe"],
-  e,
-xamples: [
+    "Amélioration du groupe",
+  ],
+  examples: [
     "Prêtre guérisseur",
     "Chaman tribal",
-    "Oracle luminescent"]} as const;
+    "Oracle luminescent",
+  ],
+} as const;

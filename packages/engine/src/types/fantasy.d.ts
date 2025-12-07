@@ -1,11 +1,14 @@
-// Rend tout le contenu Fantasy typé en "any"
-declare type Monster = any;
-declare type Minion = any;
-declare type EncounterTableEntry = any;
-declare type Creature = any;
-declare type Era = any;
-declare type FantasyClass = any;
-declare type Spell = any;
-declare type Ritual = any;
-declare type Item = any;
-declare type PlayerChoice = any;
+// Déclarations minimales pour compatibilité avec l'ancien moteur Fantasy.
+// Permet d'éviter les erreurs TypeScript lors de la transition vers Mithril-Quest.
+// Ces types resteront génériques et non bloquants.
+
+declare type Monster = unknown;
+declare type Minion = unknown;
+declare type EncounterTableEntry = unknown;
+declare type Creature = unknown;
+declare type Era = unknown;
+declare type FantasyClass = unknown;
+declare type Spell = unknown;
+declare type Ritual = unknown;
+declare type Item = unknown;
+declare type PlayerChoice = unknown;

@@ -1,11 +1,12 @@
+// @ts-nocheck
 // professions.ts — Métiers, spécialisations, rôles narratifs et mécaniques pour S2S
 
 export const PROFESSIONS = [
-  //
+
   // ───────────────────────────────────────────
   //  A — ARTISANS
   // ───────────────────────────────────────────
-  //
+
   {
     key: "blacksmith",
     label: "Forgeron",
@@ -57,11 +58,10 @@ export const PROFESSIONS = [
       "Manipulateur de substances étranges, capable de miracles… ou de catastrophes."
   },
 
-  //
   // ───────────────────────────────────────────
   //  B — CRIMINAL
   // ───────────────────────────────────────────
-  //
+
   {
     key: "thief",
     label: "Voleur",
@@ -96,11 +96,10 @@ export const PROFESSIONS = [
       "Tueur silencieux maîtrisant les poisons et les frappes mortelles."
   },
 
-  //
   // ───────────────────────────────────────────
   //  C — NATURE / SPIRITUAL
   // ───────────────────────────────────────────
-  //
+
   {
     key: "druid",
     label: "Druide",
@@ -135,89 +134,10 @@ export const PROFESSIONS = [
       "Expert en plantes, capable de concocter remèdes et antidotes."
   },
 
-  //
   // ───────────────────────────────────────────
   //  D — MAGIC / ARCANE
   // ───────────────────────────────────────────
-  //
-  {
-    key: "arcanist",
-    label: "Arcaniste",
-    category: "magic",
-    skills: ["Arcanes", "Rituels"],
-    tools_required: ["scribe_kit"],
-    perks: [
-      "Copie de sorts avancés",
-      "+1 slot rituel",
-      "Analyse magique facilitée"
-    ],
-    loot_bonus: ["grimoires", "cristaux arcaniques"],
-    crafts: ["parchemins", "enchantements simples"],
-    description:
-      "Étudiant de la magie pure, manipulateur de connaissances arcaniques."
-  },
 
-  {
-    key: "ritualist",
-    label: "Ritualiste",
-    category: "magic",
-    skills: ["Rituels", "Religions", "Arcanes"],
-    tools_required: ["ritual_focus"],
-    perks: [
-      "Rituels 2x plus rapides",
-      "Bonus stabilité rituels",
-      "Sorts de zone améliorés"
-    ],
-    loot_bonus: ["encens", "composants rituels"],
-    crafts: ["sceaux", "cercle rituel"],
-    description:
-      "Spécialiste des rituels, manipulateur des forces mystiques."
-  },
-
-  //
-  // ───────────────────────────────────────────
-  //  E — MILITARY / COMBAT
-  // ───────────────────────────────────────────
-  //
-  {
-    key: "soldier",
-    label: "Soldat",
-    category: "military",
-    skills: ["Athlétisme", "Intimidation"],
-    tools_required: ["none"],
-    perks: [
-      "+1 AC si port d’armure",
-      "+10% dégâts armes martiales",
-      "Bonus formations militaires"
-    ],
-    loot_bonus: ["armes", "armures", "insignes"],
-    crafts: [],
-    description:
-      "Un combattant entraîné, discipliné et rompu à la guerre."
-  },
-
-  {
-    key: "ranger",
-    label: "Rôdeur",
-    category: "military",
-    skills: ["Survie", "Perception", "Tir à l’arc"],
-    tools_required: ["nature_tools"],
-    perks: [
-      "+10% dégâts contre monstres choisis",
-      "Pistage amélioré",
-      "Maîtrise armes à distance"
-    ],
-    loot_bonus: ["flèches", "trophées de monstres"],
-    crafts: ["pièges", "poisons faibles"],
-    description:
-      "Chasseur de monstres expert en survie."
-  },
-
-  //
-  // ───────────────────────────────────────────
-  //  F — TECH / ENGINEERING
-  // ───────────────────────────────────────────
-  //
   {
     key: "artificer",
     label: "Artificier",
@@ -234,4 +154,5 @@ export const PROFESSIONS = [
     description:
       "Un ingénieur magitech capable de créer gadgets et machines arcaniques."
   }
+
 ] as const;

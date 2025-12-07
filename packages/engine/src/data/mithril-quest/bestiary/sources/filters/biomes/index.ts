@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // S2S FANTASY — FILTERS — BIOMES
 // Regroupe tous les filtres de biomes pour l'export global

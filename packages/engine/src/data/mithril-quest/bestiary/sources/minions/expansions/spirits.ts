@@ -1,4 +1,5 @@
-import { Minion } from "@s2s/fantasy/types";
+// @ts-nocheck
+import { Minion } from "./types";
 
 export const MINIONS: Minion[] = [
 
@@ -8,38 +9,28 @@ export const MINIONS: Minion[] = [
 {
   id: "candle-spirit",
   name: "Candle Spirit",
-  c,
-r: 1,
+  cr: 1,
   biomes: ["dungeon", "crypt", "ruins"],
-  h,
-abitat: ["forgotten-altars", "burial-chambers"],
+  habitat: ["forgotten-altars", "burial-chambers"],
   category: "spirit",
-  r,
-ole: "lurker",
+  role: "lurker",
   tags: ["ghostly", "flicker", "undead-lite"],
-  f,
-actions: ["Spirit Wardens"],
-  b,
-ehavior: {
-    a,
-ggression: 2,
-    c,
-ourage: 4},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["flicker-near-targets"],
-s,
-tats: {
-      hp: 18,
+  factions: ["Spirit Wardens"],
+  behavior: {
+    aggression: 2,
+    courage: 4,
+  },
+  tactics: ["flicker-near-targets"],
+  stats: {
+    hp: 18,
     ac: 10,
     atk: 10,
     dmg: "1d6 radiant",
-    s,
-peed: "10 ft, hover 30 ft"},
+    speed: "10 ft, hover 30 ft",
+  },
   loot: ["flicker-wax"],
-  a,
-bilities: ["Flickering Glow", "Flicker Step"]},
+  abilities: ["Flickering Glow", "Flicker Step"],
+},
 
 /* ------------------------------------------------------------ */
 /* WRAITHLING — CR 3 */
@@ -47,38 +38,28 @@ bilities: ["Flickering Glow", "Flicker Step"]},
 {
   id: "wraithling",
   name: "Wraithling",
-  c,
-r: 3,
+  cr: 3,
   biomes: ["shadowlands", "crypts"],
-  h,
-abitat: ["grave-corridors", "sorrow-chasms"],
+  habitat: ["grave-corridors", "sorrow-chasms"],
   category: "spirit",
-  r,
-ole: "skirmisher",
+  role: "skirmisher",
   tags: ["shadow", "fear"],
-  f,
-actions: ["Nether Wraiths"],
-  b,
-ehavior: {
-    a,
-ggression: 4,
-    c,
-ourage: 3},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["hit-and-fade"],
-s,
-tats: {
-      hp: 36,
+  factions: ["Nether Wraiths"],
+  behavior: {
+    aggression: 4,
+    courage: 3,
+  },
+  tactics: ["hit-and-fade"],
+  stats: {
+    hp: 36,
     ac: 14,
     atk: 14,
     dmg: "2d6 necrotic",
-    s,
-peed: "40 ft, hover 40 ft"},
+    speed: "40 ft, hover 40 ft",
+  },
   loot: ["cold-shards"],
-  a,
-bilities: ["Shadow Touch", "Ethereal Drift"]},
+  abilities: ["Shadow Touch", "Ethereal Drift"],
+},
 
 /* ------------------------------------------------------------ */
 /* GRAVE WHISPERER — CR 4 */
@@ -86,38 +67,28 @@ bilities: ["Shadow Touch", "Ethereal Drift"]},
 {
   id: "grave-whisperer",
   name: "Grave Whisperer",
-  c,
-r: 4,
+  cr: 4,
   biomes: ["graveyard", "crypt", "ruins"],
-  h,
-abitat: ["ossuary-halls", "mourning-niches"],
+  habitat: ["ossuary-halls", "mourning-niches"],
   category: "spirit",
-  r,
-ole: "controller",
+  role: "controller",
   tags: ["poltergeist", "possession"],
-  f,
-actions: ["Spirit Wardens"],
-  b,
-ehavior: {
-    a,
-ggression: 3,
-    c,
-ourage: 5},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["psychic-scream-then-possess"],
-s,
-tats: {
-      hp: 52,
+  factions: ["Spirit Wardens"],
+  behavior: {
+    aggression: 3,
+    courage: 5,
+  },
+  tactics: ["psychic-scream-then-possess"],
+  stats: {
+    hp: 52,
     ac: 13,
     atk: 16,
     dmg: "2d8 psychic",
-    s,
-peed: "20 ft, hover 40 ft"},
+    speed: "20 ft, hover 40 ft",
+  },
   loot: ["whispering-bone"],
-  a,
-bilities: ["Mortifying Wail", "Mind Grip", "Possess Corpse"]},
+  abilities: ["Mortifying Wail", "Mind Grip", "Possess Corpse"],
+},
 
 /* ------------------------------------------------------------ */
 /* ANCESTRAL GUARDIAN — CR 6 */
@@ -125,38 +96,28 @@ bilities: ["Mortifying Wail", "Mind Grip", "Possess Corpse"]},
 {
   id: "ancestral-guardian",
   name: "Ancestral Guardian",
-  c,
-r: 6,
+  cr: 6,
   biomes: ["sacred-woods", "mountain-shrines"],
-  h,
-abitat: ["ancestral-groves", "ancestor-stones"],
+  habitat: ["ancestral-groves", "ancestor-stones"],
   category: "spirit",
-  r,
-ole: "bruiser",
+  role: "bruiser",
   tags: ["guardian", "ancient"],
-  f,
-actions: ["Ancestor Courts"],
-  b,
-ehavior: {
-    a,
-ggression: 4,
-    c,
-ourage: 7},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["protect-sacred-zone"],
-s,
-tats: {
-      hp: 110,
+  factions: ["Ancestor Courts"],
+  behavior: {
+    aggression: 4,
+    courage: 7,
+  },
+  tactics: ["protect-sacred-zone"],
+  stats: {
+    hp: 110,
     ac: 17,
     atk: 18,
     dmg: "2d10 radiant",
-    s,
-peed: "35 ft"},
+    speed: "35 ft",
+  },
   loot: ["ancestral-sigil"],
-  a,
-bilities: ["Radiant Slam", "Guardian Shield", "Sanctified Light"]},
+  abilities: ["Radiant Slam", "Guardian Shield", "Sanctified Light"],
+},
 
 /* ------------------------------------------------------------ */
 /* SOUL TEMPEST — CR 10 (ELITE SPIRIT BOSS) */
@@ -164,41 +125,34 @@ bilities: ["Radiant Slam", "Guardian Shield", "Sanctified Light"]},
 {
   id: "soul-tempest",
   name: "Soul Tempest",
-  c,
-r: 10,
+  cr: 10,
   biomes: ["soulstorm-wastes", "temporal-zones"],
-  h,
-abitat: ["echo-nexus", "spirit-wells"],
+  habitat: ["echo-nexus", "spirit-wells"],
   category: "spirit",
-  r,
-ole: "controller",
+  role: "controller",
   tags: ["spectral", "storm", "soul", "aoe"],
-  f,
-actions: ["Echo Choirs"],
-  b,
-ehavior: {
-    a,
-ggression: 6,
-    c,
-ourage: 8},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["scatter-party-then-aoe-pulse"],
-s,
-tats: {
-      hp: 180,
+  factions: ["Echo Choirs"],
+  behavior: {
+    aggression: 6,
+    courage: 8,
+  },
+  tactics: ["scatter-party-then-aoe-pulse"],
+  stats: {
+    hp: 180,
     ac: 18,
     atk: 20,
     dmg: "3d10 psychic + soul drain",
-    s,
-peed: "hover 60 ft"},
+    speed: "hover 60 ft",
+  },
   loot: ["resonant-crystal", "tempest-essence"],
-  a,
-bilities: [
+  abilities: [
     "Soul Screech",
     "Spirit Pulse",
     "Astral Sunder",
-    "Temporal Disruption"]}];
+    "Temporal Disruption",
+  ],
+},
+
+];
 
 export default MINIONS;

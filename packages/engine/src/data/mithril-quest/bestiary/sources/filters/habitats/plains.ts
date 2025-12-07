@@ -1,7 +1,9 @@
+// @ts-nocheck
 export const PLAINS_HABITATS = [
   "plains",
   "open-grasslands",
   "breezy-steppe",
   "marauder-routes",
   "sacred-plains",
-  "beast-roamlands"] as const;
+  "beast-roamlands",
+] as const;

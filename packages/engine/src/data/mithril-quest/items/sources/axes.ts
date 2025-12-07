@@ -1,31 +1,57 @@
-// axes.ts — Armes : haches simples, doubles, tribales, runiques, mythiques
+// @ts-nocheck
+// axes.ts — Haches MQ Engine : simples, martiales, tribales, runiques & mythiques
 
-export const AXES = [
+import type { MQWeapon } from "../types";
+
+export const MQ_AXES: MQWeapon[] = [
+  // ───────────────────────────────
+  //  A — AXES SIMPLES
+  // ───────────────────────────────
   {
     key: "handaxe",
     label: "Hachette",
-    damage: "1d6",
-    type: "simple",
-    style: "axe",
+    damage: { dice: "1d6", type: "slashing" },
+    weapon_type: "simple",
+    weapon_style: "axe",
     rarity: "common",
     value: 5,
     weight: 2,
-    properties: ["light", "thrown (20/60)"],
+    properties: ["light", "thrown"],
+    thrown_range: "20/60",
     eras: ["ancient-age", "age-of-heroes", "dark-age", "high-kingdoms"],
     description:
       "Une petite hache maniable, utilisée autant comme outil que comme arme."
   },
 
   {
+    key: "tribal_bone_axe",
+    label: "Hache Tribale en Os",
+    damage: { dice: "1d8", type: "slashing" },
+    weapon_type: "simple",
+    weapon_style: "axe",
+    rarity: "uncommon",
+    value: 8,
+    weight: 5,
+    properties: [],
+    eras: ["ancient-age"],
+    description:
+      "Une hache primitive façonnée à partir d’os massifs et décorée de symboles rituels."
+  },
+
+  // ───────────────────────────────
+  //  B — AXES MARTIALES
+  // ───────────────────────────────
+  {
     key: "battleaxe",
     label: "Hache de Bataille",
-    damage: "1d8",
-    type: "martial",
-    style: "axe",
+    damage: { dice: "1d8", type: "slashing" },
+    weapon_type: "martial",
+    weapon_style: "axe",
     rarity: "common",
     value: 10,
     weight: 4,
-    properties: ["versatile (1d10)"],
+    properties: ["versatile"],
+    versatile_damage: "1d10",
     eras: ["age-of-heroes", "dark-age", "high-kingdoms"],
     description:
       "L’arme favorite des guerriers nains, robuste et capable de couper métal et os."
@@ -34,9 +60,9 @@ export const AXES = [
   {
     key: "great_axe",
     label: "Grande Hache",
-    damage: "1d12",
-    type: "martial",
-    style: "axe",
+    damage: { dice: "1d12", type: "slashing" },
+    weapon_type: "martial",
+    weapon_style: "axe",
     rarity: "common",
     value: 30,
     weight: 7,
@@ -49,13 +75,13 @@ export const AXES = [
   {
     key: "double_axe",
     label: "Hache Double",
-    damage: "1d10",
-    type: "martial",
-    style: "axe",
+    damage: { dice: "1d10", type: "slashing" },
+    weapon_type: "martial",
+    weapon_style: "axe",
     rarity: "uncommon",
     value: 45,
     weight: 6,
-    properties: ["heavy", "two-handed"],
+    properties: ["two-handed", "heavy"],
     eras: ["age-of-heroes", "high-kingdoms"],
     description:
       "Deux lames opposées pour des attaques circulaires dévastatrices."
@@ -64,9 +90,9 @@ export const AXES = [
   {
     key: "barbarian_cleaver",
     label: "Coupe-Guerre Barbare",
-    damage: "1d10",
-    type: "martial",
-    style: "axe",
+    damage: { dice: "1d10", type: "slashing" },
+    weapon_type: "martial",
+    weapon_style: "axe",
     rarity: "uncommon",
     value: 35,
     weight: 6,
@@ -77,41 +103,30 @@ export const AXES = [
   },
 
   {
-    key: "tribal_bone_axe",
-    label: "Hache Tribale en Os",
-    damage: "1d8",
-    type: "simple",
-    style: "axe",
-    rarity: "uncommon",
-    value: 8,
-    weight: 5,
-    properties: [],
-    eras: ["ancient-age"],
-    description:
-      "Une hache primitive façonnée à partir d’os massifs et décorée de symboles rituels."
-  },
-
-  {
     key: "dwarven_waraxe",
     label: "Hache Guerrière Naine",
-    damage: "1d10",
-    type: "martial",
-    style: "axe",
+    damage: { dice: "1d10", type: "slashing" },
+    weapon_type: "martial",
+    weapon_style: "axe",
     rarity: "rare",
     value: 60,
     weight: 6,
-    properties: ["versatile (1d12)"],
+    properties: ["versatile"],
+    versatile_damage: "1d12",
     eras: ["high-kingdoms", "arcane-renaissance"],
     description:
       "Chef-d'œuvre de forge naine, parfaitement équilibrée et décorée de motifs anciens."
   },
 
+  // ───────────────────────────────
+  //  C — AXES MAGIQUES
+  // ───────────────────────────────
   {
     key: "frostbite_axe",
     label: "Hache Morsure-de-Givre",
-    damage: "1d10",
-    type: "martial",
-    style: "axe",
+    damage: { dice: "1d10", type: "slashing" },
+    weapon_type: "martial",
+    weapon_style: "axe",
     rarity: "rare",
     value: 120,
     weight: 6,
@@ -124,9 +139,9 @@ export const AXES = [
   {
     key: "inferno_cleaver",
     label: "Fendoir Infernal",
-    damage: "1d12",
-    type: "martial",
-    style: "axe",
+    damage: { dice: "1d12", type: "slashing" },
+    weapon_type: "martial",
+    weapon_style: "axe",
     rarity: "legendary",
     value: 750,
     weight: 7,
@@ -136,12 +151,15 @@ export const AXES = [
       "Une arme consumée par des flammes démoniaques, brûlant tout sur son passage."
   },
 
+  // ───────────────────────────────
+  //  D — AXES MYTHIQUES
+  // ───────────────────────────────
   {
     key: "titanbreaker",
     label: "Brise-Titan",
-    damage: "2d8",
-    type: "martial",
-    style: "axe",
+    damage: { dice: "2d8", type: "slashing" },
+    weapon_type: "martial",
+    weapon_style: "axe",
     rarity: "mythic",
     value: 2000,
     weight: 12,

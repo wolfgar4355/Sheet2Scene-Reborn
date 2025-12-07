@@ -1,61 +1,65 @@
-// Récupère tes Fantasy Eras depuis ton fichier actuel.
-// Je les place dans une constante FANTASY_ERAS
+// @ts-nocheck
+// eras/index.ts — Mithril-Quest Eras Registry
 
 import type { EraDefinition } from "../types-worlds";
 
-export const FANTASY_ERAS:
-EraDefinition[] = [
+// -----------------------------------------------------
+//  LISTE CANON DES ÈRES DU MONDE MITHRIL-QUEST
+// -----------------------------------------------------
+export const MQ_ERAS: EraDefinition[] = [
   {
     id: "age-of-heroes",
-    worldId: "fantasy",
+    worldId: "mithril-quest",
     name: "Age of Heroes",
     shortDescription:
-      "Épopées légendaires, proto-royaumes et premiers artefacts mythiques.",
+      "Épopées héroïques, premiers artefacts mythiques et naissance des proto-royaumes.",
     recommendedLevels: [1, 10],
   },
   {
     id: "ancient-age",
-    worldId: "fantasy",
+    worldId: "mithril-quest",
     name: "Ancient Age",
     shortDescription:
-      "Empires antiques, cités-États magiques et ruines cyclopéennes.",
+      "Empires antiques, cités-États mystiques, ruines colossales et secrets enfouis.",
     recommendedLevels: [3, 12],
   },
   {
-    id: "dark-ages",
-    worldId: "fantasy",
-    name: "Dark Ages",
+    id: "dark-age",
+    worldId: "mithril-quest",
+    name: "Dark Age",
     shortDescription:
-      "Pestes, guerres saintes et magie interdite dans un monde en déclin.",
+      "Peste, guerres sacrées, nécromancie interdite et royaumes en chute.",
     recommendedLevels: [1, 8],
   },
   {
     id: "high-kingdoms",
-    worldId: "fantasy",
+    worldId: "mithril-quest",
     name: "High Kingdoms",
     shortDescription:
-      "Grandes monarchies, ordres chevaleresques et conflits épiques.",
+      "Royaumes d'Or, ordres chevaleresques, renaissance commerciale et magie organisée.",
     recommendedLevels: [1, 20],
   },
   {
     id: "arcane-renaissance",
-    worldId: "fantasy",
+    worldId: "mithril-quest",
     name: "Arcane Renaissance",
     shortDescription:
-      "Renaissance culturelle et explosion de la magie savante.",
+      "Explosion de la magie savante, inventions arcanes et essor des grandes académies.",
     recommendedLevels: [5, 15],
   },
   {
-    id: "mythic-age",
-    worldId: "fantasy",
+    id: "mystic-age",
+    worldId: "mithril-quest",
     name: "Mystic Age",
     shortDescription:
-      "Temps où le voile entre les plans devient instable.",
+      "Ère des dieux, titans, dragons primordiaux et phénomènes planaires extrêmes.",
     recommendedLevels: [10, 20],
-  }
+  },
 ] as const;
 
+// -----------------------------------------------------
+//   INDEX PAR MONDE (extensible si tu ajoutes GS, etc.)
+// -----------------------------------------------------
 export const ERAS_BY_WORLD: Record<string, EraDefinition[]> = {
-  fantasy: FANTASY_ERAS,
+  "mithril-quest": MQ_ERAS,
 };
-

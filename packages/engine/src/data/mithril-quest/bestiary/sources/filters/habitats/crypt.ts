@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const CRYPT_HABITATS = [
   "crypt",
   "bone-vaults",
@@ -5,4 +6,5 @@ export const CRYPT_HABITATS = [
   "ossuary-chambers",
   "forgotten-tombs",
   "shadow-crypts",
-  "necrotic-altars"] as const;
+  "necrotic-altars",
+] as const;

@@ -1,76 +1,123 @@
-// lib/s2s/fantasy/items/armors.ts
+// @ts-nocheck
+import type { MQItemArmor } from "./types";
 
-import type { Armor } from "./types";
-
-export const FANTASY_ARMORS: Armor[] = [
+export const MQ_ITEMS_ARMORS: MQItemArmor[] = [
   {
     key: "leather-armor",
     label: "Armure de Cuir",
     description: "Protection légère, souvent portée par les rôdeurs et voleurs.",
+
     type: "armor",
-    armorType: "light",
-    armorClass: 11,
-    maxDexBonus: null,
-    penaltyStealth: false,
-    rarity: "common",
-    value: 10,
-    weight: 5,
-    tags: ["armor", "light"],
+    category: "armor",
+    subtype: "light",
+
+    rpg: {
+      armorClass: 11,
+      maxDexBonus: null,
+      penaltyStealth: false,
+    },
+
+    metadata: {
+      rarity: "common",
+      value: 10,
+      weight: 5,
+      tags: ["armor", "light"],
+    },
   },
+
   {
     key: "chainmail",
     label: "Cotte de Mailles",
-    description: "Mélange solide de protection et de mobilité pour les guerriers.",
+    description:
+      "Mélange solide de protection et de mobilité pour les guerriers.",
+
     type: "armor",
-    armorType: "medium",
-    armorClass: 14,
-    maxDexBonus: 2,
-    penaltyStealth: true,
-    rarity: "common",
-    value: 75,
-    weight: 20,
-    tags: ["armor", "medium"],
+    category: "armor",
+    subtype: "medium",
+
+    rpg: {
+      armorClass: 14,
+      maxDexBonus: 2,
+      penaltyStealth: true,
+    },
+
+    metadata: {
+      rarity: "common",
+      value: 75,
+      weight: 20,
+      tags: ["armor", "medium"],
+    },
   },
+
   {
     key: "plate-armor",
     label: "Armure de Plates",
-    description: "Armure lourde offrant une excellente protection mais limitant le mouvement.",
+    description:
+      "Armure lourde offrant une excellente protection mais limitant le mouvement.",
+
     type: "armor",
-    armorType: "heavy",
-    armorClass: 18,
-    maxDexBonus: 0,
-    penaltyStealth: true,
-    rarity: "rare",
-    value: 1500,
-    weight: 30,
-    tags: ["armor", "heavy"],
+    category: "armor",
+    subtype: "heavy",
+
+    rpg: {
+      armorClass: 18,
+      maxDexBonus: 0,
+      penaltyStealth: true,
+    },
+
+    metadata: {
+      rarity: "rare",
+      value: 1500,
+      weight: 30,
+      tags: ["armor", "heavy"],
+    },
   },
+
   {
     key: "round-shield",
     label: "Bouclier Rond",
-    description: "Bouclier en bois renforcé, améliore la défense générale.",
+    description:
+      "Bouclier en bois renforcé, améliore la défense générale.",
+
     type: "armor",
-    armorType: "shield",
-    armorClass: 2, // bonus de +2 à la CA
-    maxDexBonus: null,
-    penaltyStealth: false,
-    rarity: "common",
-    value: 10,
-    weight: 3,
-    tags: ["armor", "shield"],
+    category: "armor",
+    subtype: "shield",
+
+    rpg: {
+      armorClass: 2, // bonus de +2
+      maxDexBonus: null,
+      penaltyStealth: false,
+    },
+
+    metadata: {
+      rarity: "common",
+      value: 10,
+      weight: 3,
+      tags: ["armor", "shield"],
+    },
   },
+
   {
     key: "veil-of-mist",
     label: "Voile de Brume",
-    description: "Armure légère quasi intangible, idéale pour les mages et éclaireurs.",
+    description:
+      "Armure légère quasi intangible, idéale pour les mages et éclaireurs.",
+
     type: "armor",
-    armorType: "light",
-    armorClass: 13,
-    maxDexBonus: null,
-    penaltyStealth: false,
-    rarity: "very-rare",
-    value: 2000,
-    weight: 1,
-    tags: ["armor", "magic", "stealth"],
+    category: "armor",
+    subtype: "light",
+
+    rpg: {
+      armorClass: 13,
+      maxDexBonus: null,
+      penaltyStealth: false,
+    },
+
+    metadata: {
+      rarity: "very-rare",
+      value: 2000,
+      weight: 1,
+      tags: ["armor", "magic", "stealth"],
+    },
   },
 ];

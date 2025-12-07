@@ -11,9 +11,13 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "prepack": "npm run build",
-    "fix": "node ./scripts/fix-fantasy.cjs"
+    "mq:copy-cr": "node scripts/mq-copy-cr.cjs"
   },
   "dependencies": {
     "ts-morph": "^27.0.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }

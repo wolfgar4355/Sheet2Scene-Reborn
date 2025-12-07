@@ -16,7 +16,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["grip-from-undergrowth"],
         stats: {
             hp: 12,
@@ -25,9 +24,7 @@ export const MINIONS = [
             dmg: "1d4 slashing",
             speed: "5 ft",
         },
-        // auto-commented
         loot: ["druidic-sap"],
-        // auto-commented
         abilities: ["Splintering Bind", "Creeping Cover"],
     },
     /* ------------------------------------------------------------ */
@@ -47,7 +44,6 @@ export const MINIONS = [
             aggression: 6,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["lash-closest-target"],
         stats: {
             hp: 28,
@@ -56,9 +52,7 @@ export const MINIONS = [
             dmg: "1d6 + 2 piercing",
             speed: "10 ft",
         },
-        // auto-commented
         loot: ["thorn-core", "alchemical-sap"],
-        // auto-commented
         abilities: ["Barbed Vines", "Toxic Sap"],
     },
     /* ------------------------------------------------------------ */
@@ -78,7 +72,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["grab-stragglers-first"],
         stats: {
             hp: 60,
@@ -87,9 +80,7 @@ export const MINIONS = [
             dmg: "2d6 + 3 bludgeoning",
             speed: "20 ft",
         },
-        // auto-commented
         loot: ["enchanted-vine", "druid-knot"],
-        // auto-commented
         abilities: ["Grasping Vines", "Reel In Prey"],
     },
     /* ------------------------------------------------------------ */
@@ -109,7 +100,6 @@ export const MINIONS = [
             aggression: 7,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["swallow-isolated-targets"],
         stats: {
             hp: 85,
@@ -118,9 +108,7 @@ export const MINIONS = [
             dmg: "2d10 + 3 bludgeoning",
             speed: "10 ft",
         },
-        // auto-commented
         loot: ["corrosive-pollen", "rare-seed-pod"],
-        // auto-commented
         abilities: ["Engulfing Maw", "Acidic Nectar"],
     },
     /* ------------------------------------------------------------ */
@@ -140,7 +128,6 @@ export const MINIONS = [
             aggression: 2,
             courage: 9,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["buff-allies-and-root-intruders"],
         stats: {
             hp: 135,
@@ -149,9 +136,7 @@ export const MINIONS = [
             dmg: "2d10 + 4 radiant+smash",
             speed: "0 ft (rooted)",
         },
-        // auto-commented
         loot: ["grove-shard", "lifebloom-petal"],
-        // auto-commented
         abilities: ["Healing Canopy", "Entangling Roots", "Verdant Aura"],
     },
 ];

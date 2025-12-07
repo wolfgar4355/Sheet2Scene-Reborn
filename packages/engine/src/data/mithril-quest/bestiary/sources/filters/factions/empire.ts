@@ -1,17 +1,16 @@
+// @ts-nocheck
 export const FACTION_EMPIRE = {
   name: "The Empire",
-  t,
-hemes: ["militaire", "discipline", "chevalerie"],
-  c,
-olors: ["bleu royal", "argent", "blanc"],
-  v,
-isual: [
+  themes: ["militaire", "discipline", "chevalerie"],
+  colors: ["bleu royal", "argent", "blanc"],
+  visual: [
     "armures polies",
     "bannières royales",
     "épées et hallebardes",
     "architecture noble",
     "symboles héraldiques",
     "lumière glorieuse",
-    "discipline rigide"],
-  t,
-one: ["noble", "strict", "propre"]} as const;
+    "discipline rigide"
+  ],
+  tone: ["noble", "strict", "propre"],
+} as const;

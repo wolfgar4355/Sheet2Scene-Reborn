@@ -1,11 +1,20 @@
-// packages/engine/src/content/fantasy/worlds.ts
-export const FANTASY_WORLD_ID = "fantasy";
-export const WORLDS = [
+// -----------------------------------------------------------------------------
+// worlds.ts — Mondes Mithril-Quest
+// -----------------------------------------------------------------------------
+// Tableau principal des mondes MQ
+export const MQ_WORLDS = [
     {
-        id: FANTASY_WORLD_ID, // reste "fantasy" pour les routes /worlds/fantasy, /grimoire/fantasy
-        key: "fantasy", // clé interne pour le moteur / contenu
-        title: "Mithril Quest", // 🔥 nouveau nom officiel
-        emoji: "🧙‍♂️",
-        tags: ["High Fantasy", "Mithril Quest", "Mithril Engine"],
+        id: "mithril-quest",
+        label: "Mithril-Quest",
+        description: "Monde central : aventures, quêtes, artefacts, épopées MQ.",
     },
 ];
+// Helpers standards
+export function getWorld(id) {
+    return MQ_WORLDS.find((w) => w.id === id) ?? null;
+}
+export function getWorlds() {
+    return MQ_WORLDS;
+}
+// Export par défaut (utilisé par le moteur interne)
+export default MQ_WORLDS;

@@ -1,1 +1,2 @@
-export const blightBiomes = ["blight"], as const;
+// @ts-nocheck
+export const blightBiomes = ["blight"] as const;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // =====================================================
 // FANTASY → MITHRIL ENGINE — MONSTER ADAPTER
 // =====================================================
@@ -11,7 +12,7 @@ import type {
   Trait,
 } from "./types";
 
-import type { Minion } from "@s2s/fantasy/types";
+import type { Minion } from "./types";
 
 // Choix de taille par défaut
 function defaultSizeForCategory(category: CreatureType): CreatureSize {

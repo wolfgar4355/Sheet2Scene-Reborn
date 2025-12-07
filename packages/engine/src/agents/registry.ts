@@ -1,14 +1,18 @@
 export const runtime = "nodejs";
 // app/api/agents/registry.ts
 
+// --- MQ Items prompt datasets ---------------------------------------------
+import { MQ_ACCESSORY_PROMPT_DATASET } from "../prompts/items/generate-all-accessories-prompts";
+import { MQ_ARMOR_PROMPT_DATASET } from "../prompts/items/armor_prompts";
+
 // ---- Types ---------------------------------------------------------------
 export type Agent = {
-  id: string;          // identifiant court (stable)
-  name: string;        // joli nom
-  role: string;        // fonction
-  locale?: string;     // valeur générique; l’adaptation se fait au runtime
-  model?: string;      // override modèle si besoin
-  system?: string;     // persona / règles
+  id: string;      // identifiant court (stable)
+  name: string;    // joli nom
+  role: string;    // fonction
+  locale?: string; // valeur générique; l’adaptation se fait au runtime
+  model?: string;  // override modèle si besoin
+  system?: string; // persona / règles
 };
 
 // Règle d’adaptation de langue commune à tous les agents (Option B)
@@ -19,7 +23,7 @@ const ADAPT_FR =
 
 // ---- Registre des agents -------------------------------------------------
 export const AGENTS: Record<string, Agent> = {
-// ⚙️ Superviseur central (auto-fix & routage)
+  // ⚙️ Superviseur central (auto-fix & routage)
   odin: {
     id: "odin",
     name: "Odin-Core",
@@ -52,90 +56,88 @@ Règles :
 - Tu privilégies toujours la stabilité du build : rollback > nouvelle feature si doute.
 - Tu gardes une trace textuelle de la cause, du plan et de l’agent choisi (pour les changelogs).`,
   },
+
   // 🧭 Direction & Design
-  "joeffry": {
+  joefry: {
     id: "joeffry",
     name: "Joeffry — DA",
     role: "Direction artistique, tokens WCAG AA",
     locale: "fr",
-    system:
-      `${ADAPT_FR} Zéro IP tierce. Décisions traçables (tokens, changelogs).`
+    system: `${ADAPT_FR} Zéro IP tierce. Décisions traçables (tokens, changelogs).`,
   },
-  "victor": {
+  victor: {
     id: "victor",
     name: "Victor — Frontend Lead",
     role: "Intégration Tailwind/Framer Motion, transitions grimoire",
     locale: "fr",
-    system:
-      `${ADAPT_FR} Donne des diffs précis, checklists, et liens de code.`
+    system: `${ADAPT_FR} Donne des diffs précis, checklists, et liens de code.`,
   },
-  "willy": {
+  willy: {
     id: "willy",
     name: "Willy — Designer/Illustrator AI",
     role: "Illustrations IA, style parchemin nocturne (100% dé-novo)",
     locale: "fr",
-    system:
-      `${ADAPT_FR} Pas d’IP externe. Propose prompts + paramètres reproductibles.`
+    system: `${ADAPT_FR} Pas d’IP externe. Propose prompts + paramètres reproductibles.`,
   },
   "ava-motion": {
     id: "ava-motion",
     name: "Ava — Motion",
     role: "Animations grimoire, Lottie/Framer",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
 
   // 💻 Tech / IA
-  "priya": {
+  priya: {
     id: "priya",
     name: "Priya — MLOps",
     role: "Déploiement GPU, Docker compose, pipelines",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
   "perf-minjun": {
     id: "perf-minjun",
     name: "Min-jun — Perf",
     role: "Optimisation CPU/GPU, latence et cache HTTP",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
-  "elin": {
+  elin: {
     id: "elin",
     name: "Elin — Game Content",
     role: "Systèmes de quêtes/loot, mondes & équilibrage",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
 
   // 🔒 Sécurité / Légal
-  "logan": {
+  logan: {
     id: "logan",
     name: "Logan — Legal/Notary (BC)",
     role: "Contrats, IP, conformité",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
-  "maya": {
+  maya: {
     id: "maya",
     name: "Maya — Privacy Ops",
     role: "Loi 25/RGPD, registre ROPA, purge SQL/S3",
     locale: "fr",
-    system: `${ADAPT_FR} Devise: “Map first, automate second.”`
+    system: `${ADAPT_FR} Devise: “Map first, automate second.”`,
   },
-  "aoife": {
+  aoife: {
     id: "aoife",
     name: "Aoife — DPO",
     role: "DSR et conformité internationale",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
-  "eitan": {
+  eitan: {
     id: "eitan",
     name: "Eitan — T&S",
     role: "Modération & sécurité IA",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
 
   // ⚙️ Ops / Finance
@@ -144,70 +146,149 @@ Règles :
     name: "Ava — Program/Release",
     role: "Planification livrables, release notes, coordination",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
-  "daniel": {
+  daniel: {
     id: "daniel",
     name: "Daniel — RevOps/Finance",
     role: "Analyses financières et prévisions (CAD/USD)",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
-  "rebecca": {
+  rebecca: {
     id: "rebecca",
     name: "Rebecca — CPA",
     role: "Comptabilité & fiscalité",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
 
   // 🌍 Localisation & Communauté
-  "klara": {
+  klara: {
     id: "klara",
     name: "Klara — L10n QA",
     role: "Validation FR/DE/IT/ES packs i18n EU",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
-  "camille": {
+  camille: {
     id: "camille",
     name: "Camille — Community (QC)",
     role: "Modération Discord/Reddit, rapports hebdos",
     locale: "fr",
-    system:
-      `${ADAPT_FR} Applique une politique IP neutre.`
+    system: `${ADAPT_FR} Applique une politique IP neutre.`,
   },
-  "weiming": {
+  weiming: {
     id: "weiming",
     name: "Wei-Ming — Community (APAC)",
     role: "Modération fuseau asiatique, traduction",
     locale: "fr",
-    system: ADAPT_FR
+    system: ADAPT_FR,
   },
 
   // 🧩 QA humains (gardés pour routage / mentions)
-  "jf": {
+  jf: {
     id: "jf",
     name: "Jean-François — QA",
     role: "Testeur humain",
     locale: "fr",
-    system: "Agent humain (pas d’inférence IA)."
+    system: "Agent humain (pas d’inférence IA).",
   },
-  "seb": {
+  seb: {
     id: "seb",
     name: "Sébastien — QA",
     role: "Testeur humain",
     locale: "fr",
-    system: "Agent humain (pas d’inférence IA)."
-  }
+    system: "Agent humain (pas d’inférence IA).",
+  },
 };
 
 // ---- Groupes (pour broadcasts/routage) -----------------------------------
 export const AGENT_GROUPS: Record<string, string[]> = {
-  Direction:   ["joeffry", "victor", "ava-motion", "willy"],
+  Direction: ["joeffry", "victor", "ava-motion", "willy"],
   TechCouncil: ["victor", "priya", "perf-minjun", "elin"],
-  SecPrivacy:  ["logan", "maya", "aoife", "eitan"],
-  Ops:         ["ava-pm", "daniel", "rebecca"],
-  Community:   ["camille", "weiming", "klara"],
+  SecPrivacy: ["logan", "maya", "aoife", "eitan"],
+  Ops: ["ava-pm", "daniel", "rebecca"],
+  Community: ["camille", "weiming", "klara"],
   // Les testeurs humains sont exclus des groupes “IA”
 };
+
+// --- Types utilitaires MQ items -------------------------------------------
+// On part du type réel des datasets...
+type BaseAccessoryPrompt = (typeof MQ_ACCESSORY_PROMPT_DATASET)[number];
+type BaseArmorPrompt = (typeof MQ_ARMOR_PROMPT_DATASET)[number];
+
+// ...et on l'étend avec un champ `theme` optionnel, utilisé par les helpers.
+type AccessoryPrompt = BaseAccessoryPrompt & {
+  theme?: string;
+};
+
+type ArmorPrompt = BaseArmorPrompt & {
+  theme?: string;
+};
+
+// --- MQ Items Prompt Registry ---------------------------------------------
+export const MQ_ITEMS = {
+  accessories: {
+    dataset: MQ_ACCESSORY_PROMPT_DATASET,
+    count: MQ_ACCESSORY_PROMPT_DATASET.length,
+
+    getRandom() {
+      return MQ_ACCESSORY_PROMPT_DATASET[
+        Math.floor(Math.random() * MQ_ACCESSORY_PROMPT_DATASET.length)
+      ];
+    },
+
+    getByCategory(category: string) {
+      return MQ_ACCESSORY_PROMPT_DATASET.filter(
+        (p: AccessoryPrompt) => p.category === category
+      );
+    },
+
+    get(category: string, style: string, theme: string, palette: string) {
+      return MQ_ACCESSORY_PROMPT_DATASET.find(
+        (p: AccessoryPrompt) =>
+          p.category === category &&
+          p.style === style &&
+          p.theme === theme &&
+          p.palette === palette
+      );
+    },
+  },
+
+  armors: {
+    dataset: MQ_ARMOR_PROMPT_DATASET,
+    count: MQ_ARMOR_PROMPT_DATASET.length,
+
+    getRandom() {
+      return MQ_ARMOR_PROMPT_DATASET[
+        Math.floor(Math.random() * MQ_ARMOR_PROMPT_DATASET.length)
+      ];
+    },
+
+    getByCategory(category: string) {
+      return MQ_ARMOR_PROMPT_DATASET.filter(
+        (p: ArmorPrompt) => p.category === category
+      );
+    },
+
+    get(category: string, style: string, theme: string, palette: string) {
+      return MQ_ARMOR_PROMPT_DATASET.find(
+        (p: ArmorPrompt) =>
+          p.category === category &&
+          p.style === style &&
+          p.theme === theme &&
+          p.palette === palette
+      );
+    },
+  },
+};
+
+// --- Export global --------------------------------------------------------
+export const registry = {
+  AGENTS,
+  AGENT_GROUPS,
+  MQ_ITEMS,
+};
+
+export default registry;

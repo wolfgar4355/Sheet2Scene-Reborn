@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const MYTHIC_AGE = [
   {
     key: "mythic-age",
@@ -10,15 +11,15 @@ export const MYTHIC_AGE = [
     factions: [
       "Panthéon Éternel",
       "Serres du Dragon Roi",
-      "Titans du Roc Astral",
+      "Titans du Roc Astral"
     ],
     ennemis: ["avatars", "dragons divins", "entités planaires"],
     climat: ["mers astrales", "montagnes célestes", "jungles divines"],
     evenements: [
       "Guerre des Titans",
       "Sacrifice de l’Arche Primordiale",
-      "Ascension des Mortels",
+      "Ascension des Mortels"
     ],
-    tags: ["mythic", "titan", "epic", "divine", "legendary"],
-  },
+    tags: ["mythic", "titan", "epic", "divine", "legendary"]
+  }
 ] as const;

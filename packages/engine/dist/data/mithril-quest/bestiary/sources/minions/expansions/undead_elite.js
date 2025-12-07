@@ -13,7 +13,6 @@ export const MINIONS = [
         tags: ["dark-auras", "fire-magic", "unholy"],
         factions: ["Grave Sovereignty"],
         behavior: { aggression: 7, courage: 6 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["smite-then-burn"],
         stats: {
             hp: 165,
@@ -22,9 +21,7 @@ export const MINIONS = [
             dmg: "2d8+6 slashing + fire",
             speed: "25 ft",
         },
-        // auto-commented
         loot: ["hollowed-plate", "cursed-greatsword"],
-        // auto-commented
         abilities: ["Hellfire Burst", "Aura of Dread", "Dark Command"],
     },
     /* ------------------------------------------------------------ */
@@ -41,7 +38,6 @@ export const MINIONS = [
         tags: ["ethereal", "life-drain"],
         factions: ["Ebon Host"],
         behavior: { aggression: 6, courage: 5 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["phase-through-walls-then-drain"],
         stats: {
             hp: 130,
@@ -50,9 +46,7 @@ export const MINIONS = [
             dmg: "3d6 necrotic (life drain)",
             speed: "40 ft (hover)",
         },
-        // auto-commented
         loot: ["phantom-embers"],
-        // auto-commented
         abilities: ["Ethereal Shift", "Life Drain", "Wail of Dread"],
     },
     /* ------------------------------------------------------------ */
@@ -69,7 +63,6 @@ export const MINIONS = [
         tags: ["multi-head", "poison", "necrotic"],
         factions: ["Corpseforge Dominion"],
         behavior: { aggression: 8, courage: 7 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["multi-head-breach-then-lash"],
         stats: {
             hp: 170,
@@ -78,9 +71,7 @@ export const MINIONS = [
             dmg: "3d8 necrotic or poison",
             speed: "30 ft, swim 25 ft",
         },
-        // auto-commented
         loot: ["hydra-skull", "black-ichor"],
-        // auto-commented
         abilities: ["Infectious Breath", "Reanimation Surge", "Severed Head Reform"],
     },
     /* ------------------------------------------------------------ */
@@ -97,7 +88,6 @@ export const MINIONS = [
         tags: ["bone-giant", "grave-construct"],
         factions: ["Corpseforge Dominion"],
         behavior: { aggression: 9, courage: 8 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["slam-frontline-then-ground-pound"],
         stats: {
             hp: 240,
@@ -106,9 +96,7 @@ export const MINIONS = [
             dmg: "3d12+6 bludgeoning",
             speed: "30 ft",
         },
-        // auto-commented
         loot: ["bone-core", "giant-ribplate"],
-        // auto-commented
         abilities: ["Ground Pound", "Bone Storm", "Reinforced Skeleton"],
     },
     /* ------------------------------------------------------------ */
@@ -125,7 +113,6 @@ export const MINIONS = [
         tags: ["necromancy", "summoner", "ritualist"],
         factions: ["Grave Sovereignty"],
         behavior: { aggression: 5, courage: 7 },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["summon-horde-then-cast-death"],
         stats: {
             hp: 220,
@@ -134,9 +121,7 @@ export const MINIONS = [
             dmg: "3d10 necrotic",
             speed: "30 ft",
         },
-        // auto-commented
         loot: ["phylactery-fragment", "forbidden-grimoire"],
-        // auto-commented
         abilities: ["Mass Bind", "Death Nova", "Spirit Harvest", "Bone Shatter"],
     },
 ];

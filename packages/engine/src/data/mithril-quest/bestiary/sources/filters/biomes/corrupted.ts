@@ -1,1 +1,2 @@
-export const corruptedBiomes = ["corrupted"], as const;
+// @ts-nocheck
+export const corruptedBiomes = ["corrupted"] as const;

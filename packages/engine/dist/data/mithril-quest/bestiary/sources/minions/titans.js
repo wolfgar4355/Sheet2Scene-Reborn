@@ -16,7 +16,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["crush-from-line"],
         stats: {
             hp: 260,
@@ -25,9 +24,7 @@ export const MINIONS = [
             dmg: "4d12 bludgeoning",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["titanbone", "mountain-heart"],
-        // auto-commented
         abilities: ["Stone Form", "Boulder Throw", "Ground Splitter"],
     },
     /* ------------------------------------------------------------ */
@@ -47,7 +44,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["aoe-burst-then-hover"],
         stats: {
             hp: 295,
@@ -56,9 +52,7 @@ export const MINIONS = [
             dmg: "4d10 lightning",
             speed: "35 ft, fly 70 ft",
         },
-        // auto-commented
         loot: ["tempest-crystal"],
-        // auto-commented
         abilities: ["Chain Lightning Burst", "Thunderstep", "Storm Tempest Aura"],
     },
     /* ------------------------------------------------------------ */
@@ -78,7 +72,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["lava-wave-then-burn-frontline"],
         stats: {
             hp: 310,
@@ -87,9 +80,7 @@ export const MINIONS = [
             dmg: "4d10+10 fire",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["molten-core", "obsidian-plating"],
-        // auto-commented
         abilities: ["Lava Burst", "Blazing Move", "Heat Aura"],
     },
     /* ------------------------------------------------------------ */
@@ -109,7 +100,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 7,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["blinding-radiant-judgment"],
         stats: {
             hp: 340,
@@ -118,9 +108,7 @@ export const MINIONS = [
             dmg: "4d12 radiant",
             speed: "40 ft, fly 80 ft",
         },
-        // auto-commented
         loot: ["radiant-core", "celestial-shard"],
-        // auto-commented
         abilities: ["Blinding Judgment", "Ascendant Smite", "Sanctified Aura"],
     },
 ];

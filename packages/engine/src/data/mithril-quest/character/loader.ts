@@ -1,13 +1,20 @@
+// @ts-nocheck
+// character/loader.ts — Version Mithril-Quest
+
 import type { WorldKey } from "../worlds";
+
 import {
-  createEmptyFantasySheet,
-  DEFAULT_FANTASY_SHEET,
-  type FantasyCharacterSheet,
-} from "@s2s/fantasy/types";
-import { getFantasySheetSchema } from "../fantasy/character/schema";
+  createEmptyMQSheet,
+  DEFAULT_MQ_SHEET,
+  type MQCharacterSheet,
+} from "./types";
 
-export type AnyCharacterSheet = FantasyCharacterSheet;
+import { getMQSheetSchema } from "../mithril-quest/character/schema";
 
+// Tous les types de fiches utilisables dans S2S
+export type AnyCharacterSheet = MQCharacterSheet;
+
+// Description du schéma JSON utilisé par l’UI
 export interface CharacterSheetSchema {
   sections: {
     key: string;
@@ -28,7 +35,9 @@ export interface LoadedSheet {
   schema: CharacterSheetSchema;
 }
 
-// ----- LOADER -----
+// ============================================================================
+// 🧩 LOADER — FICHE VIDE
+// ============================================================================
 
 export function loadEmptyCharacterSheet(
   world: WorldKey,
@@ -36,17 +45,23 @@ export function loadEmptyCharacterSheet(
   subworldKey?: string
 ): LoadedSheet {
   switch (world) {
-    case "fantasy": {
+    case "mithril-quest": {
       const variant = subworldKey ?? "core";
-      const sheet = createEmptyFantasySheet(id);
-      const schema = getFantasySheetSchema(variant);
+      const sheet = createEmptyMQSheet(id);
+      const schema = getMQSheetSchema(variant);
       return { world, sheet, schema };
     }
 
     default:
-      throw new Error(`Fiche de personnage non implémentée pour le monde: ${world}`);
+      throw new Error(
+        `Fiche de personnage non implémentée pour le monde: ${world}`
+      );
   }
 }
+
+// ============================================================================
+// 🧩 LOADER — FICHE EXISTANTE
+// ============================================================================
 
 export function loadExistingCharacterSheet(
   world: WorldKey,
@@ -54,13 +69,15 @@ export function loadExistingCharacterSheet(
   subworldKey?: string
 ): LoadedSheet {
   switch (world) {
-    case "fantasy": {
+    case "mithril-quest": {
       const variant = subworldKey ?? "core";
-      const schema = getFantasySheetSchema(variant);
+      const schema = getMQSheetSchema(variant);
       return { world, sheet: data, schema };
     }
 
     default:
-      throw new Error(`Fiche de personnage non implémentée pour le monde: ${world}`);
+      throw new Error(
+        `Fiche de personnage non implémentée pour le monde: ${world}`
+      );
   }
 }

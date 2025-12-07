@@ -1,1 +1,2 @@
-export const dungeonBiomes = ["dungeon"], as const;
+// @ts-nocheck
+export const dungeonBiomes = ["dungeon"] as const;

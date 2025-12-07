@@ -20,17 +20,15 @@ export const beasts = [
             {
                 name: "Bite",
                 bonus: +4,
-                damage: { dice: "2d4+2", type: "piercing" },
+                damage: "2d4+2 piercing",
             },
         ],
         behavior: {
-            aggression: "aggressive",
+            aggression: "hunter",
             confidence: "courage:4",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["pack-attack"]
+            tactics: ["pack-attack"],
         },
         drops: ["wolf-pelt", "wolf-teeth"],
-        // auto-commented
         abilities: ["Keen Hearing", "Pack Tactics"],
         visuals: {
             icon: "wolf",
@@ -58,17 +56,15 @@ export const beasts = [
             {
                 name: "Bite",
                 bonus: +4,
-                damage: { dice: "1d4+2", type: "piercing" },
+                damage: "1d4+2 piercing",
             },
         ],
         behavior: {
             aggression: "scavenger",
             confidence: "coward",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["harass"]
+            tactics: ["harass"],
         },
         drops: ["rat-tail"],
-        // auto-commented
         abilities: [],
         visuals: {
             icon: "rat",
@@ -96,17 +92,15 @@ export const beasts = [
             {
                 name: "Multiattack",
                 bonus: +5,
-                damage: { dice: "1d6+3 claw + 1d8+3", type: "bite" },
+                damage: "1d6+3 claw + 1d8+3 bite",
             },
         ],
         behavior: {
             aggression: "territorial",
             confidence: "courage:6",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["rush-and-maul"]
+            tactics: ["rush-and-maul"],
         },
         drops: ["bear-pelt", "bear-meat"],
-        // auto-commented
         abilities: [],
         visuals: {
             icon: "bear",
@@ -134,22 +128,20 @@ export const beasts = [
             {
                 name: "Bite",
                 bonus: +4,
-                damage: { dice: "1d8+2 piercing + 2d8", type: "poison" },
+                damage: "1d8+2 piercing + 2d8 poison",
             },
             {
                 name: "Web",
                 bonus: +5,
-                damage: { dice: "Restrains", type: "target" },
+                damage: "Restrains target",
             },
         ],
         behavior: {
             aggression: "ambusher",
             confidence: "courage:3",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["ambush"]
+            tactics: ["ambush"],
         },
         drops: ["spider-venom", "silk-thread"],
-        // auto-commented
         abilities: ["Web Shot", "Poison Bite"],
         visuals: {
             icon: "spider",
@@ -177,17 +169,15 @@ export const beasts = [
             {
                 name: "Bite",
                 bonus: +5,
-                damage: { dice: "2d6+3", type: "piercing" },
+                damage: "2d6+3 piercing",
             },
         ],
         behavior: {
-            aggression: "aggressive",
+            aggression: "hunter",
             confidence: "courage:8",
-            tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
-            tactics: ["alpha-pounce"]
+            tactics: ["alpha-pounce"],
         },
         drops: ["thick-fur", "wolf-bone"],
-        // auto-commented
         abilities: ["Pack Tactics"],
         visuals: {
             icon: "dire-wolf",

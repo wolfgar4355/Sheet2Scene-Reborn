@@ -16,7 +16,6 @@ export const MINIONS = [
             aggression: 7,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["rush-frontline"],
         stats: {
             hp: 55,
@@ -25,9 +24,7 @@ export const MINIONS = [
             dmg: "2d8+4 bludgeoning",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["club-chunk", "ogre-hide"],
-        // auto-commented
         abilities: ["Reckless Swing"],
     },
     /* ------------------------------------------------------------ */
@@ -47,7 +44,6 @@ export const MINIONS = [
             aggression: 3,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["buff-ogres"],
         stats: {
             hp: 65,
@@ -56,9 +52,7 @@ export const MINIONS = [
             dmg: "1d10 thunder",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["war-drum"],
-        // auto-commented
         abilities: ["War Rhythm", "Rage Pulse"],
     },
     /* ------------------------------------------------------------ */
@@ -78,7 +72,6 @@ export const MINIONS = [
             aggression: 6,
             courage: 7,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["boulder-from-range"],
         stats: {
             hp: 130,
@@ -87,9 +80,7 @@ export const MINIONS = [
             dmg: "3d10 bludgeoning (rock throw)",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["flint-tooth", "stone-shard"],
-        // auto-commented
         abilities: ["Boulder Throw", "Stone Stance"],
     },
     /* ------------------------------------------------------------ */
@@ -109,7 +100,6 @@ export const MINIONS = [
             aggression: 7,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["charge-then-crush"],
         stats: {
             hp: 150,
@@ -118,9 +108,7 @@ export const MINIONS = [
             dmg: "3d12 cold",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["frost-giant-blood", "ice-axe"],
-        // auto-commented
         abilities: ["Cold Aura", "Frost Strike"],
     },
     /* ------------------------------------------------------------ */
@@ -140,7 +128,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 8,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["disable-then-hurl"],
         stats: {
             hp: 185,
@@ -149,9 +136,7 @@ export const MINIONS = [
             dmg: "2d10 thunder",
             speed: "40 ft, fly 10 ft",
         },
-        // auto-commented
         loot: ["sky-crystal"],
-        // auto-commented
         abilities: ["Thunderclap", "Wind Burst", "Levitate Boulder"],
     },
     /* ------------------------------------------------------------ */
@@ -171,7 +156,6 @@ export const MINIONS = [
             aggression: 7,
             courage: 10,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["storm-then-mega-strike"],
         stats: {
             hp: 265,
@@ -180,9 +164,7 @@ export const MINIONS = [
             dmg: "3d10 lightning",
             speed: "50 ft",
         },
-        // auto-commented
         loot: ["Storm Heart", "giant-royal-seal"],
-        // auto-commented
         abilities: ["Stormshatter", "Lightning Aura", "Call Tempest"],
     },
 ];

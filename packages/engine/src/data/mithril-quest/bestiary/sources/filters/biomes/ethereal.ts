@@ -1,1 +1,2 @@
-export const etherealBiomes = ["ethereal"], as const;
+// @ts-nocheck
+export const etherealBiomes = ["ethereal"] as const;

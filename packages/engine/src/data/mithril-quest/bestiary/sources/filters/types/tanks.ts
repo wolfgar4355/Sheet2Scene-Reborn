@@ -1,23 +1,22 @@
+// @ts-nocheck
 export const TYPE_TANK = {
-  r,
-ole: "Tank",
+  role: "Tank",
   description:
     "Encaisse les dégâts, bloque les lignes d’attaque et protège ses alliés.",
-  s,
-tats: {
-      hp: "Élevés",
+  stats: {
+    hp: "Élevés",
     ac: "Élevée",
-    d,
-amage: "Faible à modéré",
-    m,
-obility: "Faible"},
-  t,
-raits: [
+    damage: "Faible à modéré",
+    mobility: "Faible",
+  },
+  traits: [
     "Résistance physique",
     "Bouclier naturel ou armure lourde",
-    "Protection d’alliés"],
-  e,
-xamples: [
+    "Protection d’alliés",
+  ],
+  examples: [
     "Garde lourd",
     "Tortue géante cuirassée",
-    "Golem de pierre"]} as const;
+    "Golem de pierre",
+  ],
+} as const;

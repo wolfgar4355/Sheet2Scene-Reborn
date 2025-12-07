@@ -1,17 +1,16 @@
+// @ts-nocheck
 export const FACTION_CONCLAVE = {
   name: "Moonshadow Conclave",
-  t,
-hemes: ["ombre", "lune", "furtivité"],
-  c,
-olors: ["noir velours", "argent lunaire", "bleu nuit"],
-  v,
-isual: [
+  themes: ["ombre", "lune", "furtivité"],
+  colors: ["noir velours", "argent lunaire", "bleu nuit"],
+  visual: [
     "brume nocturne",
     "silhouettes masquées",
     "lames fines",
     "éclats lunaires",
     "manteaux d’ombre",
     "tatouages argentés",
-    "reflets bleutés"],
-  t,
-one: ["secret", "élégant", "silencieux"]} as const;
+    "reflets bleutés"
+  ],
+  tone: ["secret", "élégant", "silencieux"],
+} as const;

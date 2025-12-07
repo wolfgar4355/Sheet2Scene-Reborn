@@ -1,48 +1,59 @@
 // src/adapters/items.adapter.ts
-// ✔ PROD READY
-// ✔ 0 alias
-// ✔ Compatible avec toute ta structure Fantasy/items/
+// ------------------------------------------------------
+// Mithril-Quest Items Adapter
+// - Compatible avec toute la structure MQ/items
+// - Version clean & stable
+// ------------------------------------------------------
 
-import * as ARMORS from "../content/fantasy/items/armors";
-import * as ARTIFACTS from "../content/fantasy/items/artifacts";
-import * as CONSUMABLES from "../content/fantasy/items/consumables";
-import * as GEAR from "../content/fantasy/items/gear";
-import * as INGREDIENTS from "../content/fantasy/items/ingredients";
-import * as LOOT_TABLES from "../content/fantasy/items/loot-tables";
-import * as WEAPONS from "../content/fantasy/items/weapons";
+import * as ARMORS from "../data/mithril-quest/items/armors";
+import * as ARTIFACTS from "../data/mithril-quest/items/artifacts";
+import * as CONSUMABLES from "../data/mithril-quest/items/consumables";
+import * as GEAR from "../data/mithril-quest/items/gear";
+import * as INGREDIENTS from "../data/mithril-quest/items/ingredients";
+import * as LOOT_TABLES from "../data/mithril-quest/items/loot-tables";
+import * as WEAPONS from "../data/mithril-quest/items/weapons";
 
-// SOURCES
-import * as SRC_ACCESSORIES from "../content/fantasy/items/sources/accessories";
-import * as SRC_ARMORS from "../content/fantasy/items/sources/armors";
-import * as SRC_AXES from "../content/fantasy/items/sources/axes";
-import * as SRC_BLADES from "../content/fantasy/items/sources/blades";
-import * as SRC_BOWS from "../content/fantasy/items/sources/bows";
-import * as SRC_CROSSBOWS from "../content/fantasy/items/sources/crossbows";
-import * as SRC_DAGGERS from "../content/fantasy/items/sources/daggers";
-import * as SRC_EXOTIC from "../content/fantasy/items/sources/exotic";
-import * as SRC_FIREARMS from "../content/fantasy/items/sources/firearms";
-import * as SRC_POLEARMS from "../content/fantasy/items/sources/polearms";
-import * as SRC_PROFESSIONS from "../content/fantasy/items/sources/professions";
-import * as SRC_SHIELDS from "../content/fantasy/items/sources/shields";
-import * as SRC_THROWN from "../content/fantasy/items/sources/thrown";
-import * as SRC_TOOLS from "../content/fantasy/items/sources/tools";
+// -----------------------------
+// Sources (armes + équipements)
+// -----------------------------
+import * as SRC_ACCESSORIES from "../data/mithril-quest/items/sources/accessories";
+import * as SRC_ARMORS from "../data/mithril-quest/items/sources/armors";
+import * as SRC_AXES from "../data/mithril-quest/items/sources/axes";
+import * as SRC_BLADES from "../data/mithril-quest/items/sources/blades";
+import * as SRC_BOWS from "../data/mithril-quest/items/sources/bows";
+import * as SRC_CROSSBOWS from "../data/mithril-quest/items/sources/crossbows";
+import * as SRC_DAGGERS from "../data/mithril-quest/items/sources/daggers";
+import * as SRC_EXOTIC from "../data/mithril-quest/items/sources/exotic";
+import * as SRC_FIREARMS from "../data/mithril-quest/items/sources/firearms";
+import * as SRC_POLEARMS from "../data/mithril-quest/items/sources/polearms";
+import * as SRC_PROFESSIONS from "../data/mithril-quest/items/sources/professions";
+import * as SRC_SHIELDS from "../data/mithril-quest/items/sources/shields";
+import * as SRC_THROWN from "../data/mithril-quest/items/sources/thrown";
+import * as SRC_TOOLS from "../data/mithril-quest/items/sources/tools";
 
-// Le type générique Item
-type Item = {
+// ------------------------------------------------------
+// Type générique Item (Mithril-Quest)
+// ------------------------------------------------------
+export interface Item {
   id: string;
   name: string;
   type: string;
   rarity?: string;
   cost?: number;
   [key: string]: any;
-};
-
-function normalize(module: any): Item[] {
-  return Object.values(module) as Item[];
 }
 
+// Convertit n'importe quel module MQ en tableau strictement typé Item[]
+function normalize(module: unknown): Item[] {
+  return Object.values(module || {}) as Item[];
+}
+
+// ------------------------------------------------------
+// API : retourne TOUS les items du monde Mithril-Quest
+// ------------------------------------------------------
 export function getAllItems(): Item[] {
   return [
+    // Familles principales
     ...normalize(ARMORS),
     ...normalize(ARTIFACTS),
     ...normalize(CONSUMABLES),
@@ -51,7 +62,7 @@ export function getAllItems(): Item[] {
     ...normalize(LOOT_TABLES),
     ...normalize(WEAPONS),
 
-    // Sources
+    // Sources détaillées
     ...normalize(SRC_ACCESSORIES),
     ...normalize(SRC_ARMORS),
     ...normalize(SRC_AXES),

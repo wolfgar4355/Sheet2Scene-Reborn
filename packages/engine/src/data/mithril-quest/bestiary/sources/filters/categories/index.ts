@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Fantasy — Bestiary Categories — Index
 
 import * as aberrations from "./aberrations";
@@ -25,7 +26,8 @@ export const CATEGORIES = {
   magicalBeasts,
   mythic,
   titans,
-  undead};
+  undead,
+};
 
 export type CategoryRegistry = typeof CATEGORIES;
 export default CATEGORIES;

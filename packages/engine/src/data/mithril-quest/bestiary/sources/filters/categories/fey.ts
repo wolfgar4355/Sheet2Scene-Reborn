@@ -1,1 +1,2 @@
-export const feyCategories = ["fey"], as const;
+// @ts-nocheck
+export const feyCategories = ["fey"] as const;

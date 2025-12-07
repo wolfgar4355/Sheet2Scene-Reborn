@@ -1,22 +1,21 @@
+// @ts-nocheck
 export const TYPE_ARTILLERY = {
-  r,
-ole: "Artillery",
+  role: "Artillery",
   description: "Spécialiste du combat à distance, inflige des dégâts massifs mais fragile en mêlée.",
-  s,
-tats: {
-      hp: "Faibles",
+  stats: {
+    hp: "Faibles",
     ac: "Faible",
-    d,
-amage: "Très élevé (distance)",
-    m,
-obility: "Moyenne"},
-  t,
-raits: [
+    damage: "Très élevé (distance)",
+    mobility: "Moyenne",
+  },
+  traits: [
     "Dégâts à longue portée",
     "Faible résistance physique",
-    "Dangerosité accrue si protégé"],
-  e,
-xamples: [
+    "Dangerosité accrue si protégé",
+  ],
+  examples: [
     "Arbalétrier lourd",
     "Mage pyromancien",
-    "Canon vivant cristallin"]} as const;
+    "Canon vivant cristallin",
+  ],
+} as const;

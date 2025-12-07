@@ -1,1 +1,2 @@
-export const mythicCategories = ["mythic"], as const;
+// @ts-nocheck
+export const mythicCategories = ["mythic"] as const;

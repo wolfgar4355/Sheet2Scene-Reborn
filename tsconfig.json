@@ -14,20 +14,33 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["./app/*"],
+      "@app/*": ["./apps/*"],
       "@lib/*": ["./lib/*"],
-      "@lib/supabase": ["./lib/supabase"],
       "@components/*": ["./components/*"],
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
       "@config/*": ["./config/*"]
     }
   },
-
-  "include": ["src/**/*", "next-env.d.ts"],
+  "include": ["apps/web/**/*", "next-env.d.ts"],
   "exclude": [
     "node_modules",
+
+    // ❌ exclure tout l’ancien engine
     "packages/engine/src/content/**/*",
-    "packages/engine/dist/**/*"
+    "packages/engine/src/content",
+
+    // ❌ exclure backups et vieux imports
+    "**/_fantasy_old/**/*",
+    "**/_fantasy_old",
+    "**/fantasy-import/**/*",
+    "**/fantasy-import",
+
+    // TS tests
+    "**/*.test.ts",
+    "**/*.spec.ts"
   ]
 }
+"references": [
+  { "path": "./packages/engine" }
+]

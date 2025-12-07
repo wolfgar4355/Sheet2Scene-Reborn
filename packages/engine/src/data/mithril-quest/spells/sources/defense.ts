@@ -1,267 +1,224 @@
-// defense.ts — Sorts défensifs, de soins, résistances et bénédictions S2S Fantasy
+// @ts-nocheck
+// defense.ts – Sorts défensifs, résistances et bénédictions MQ (Mithril-Quest)
 
-import type { Spell } from "../schema";
+import type { Spell } from "./schema";
 
 export const DEFENSE_SPELLS: Spell[] = [
-
-  // ───────────────────────────────────────────────
-  // TIER 0 — Cantrips utilitaires/défensifs
-  // ───────────────────────────────────────────────
-
+  //
+  // TIER 0 — Cantrips utilitaires / défensifs
+  //
   {
     key: "ward_spark",
     name: "Étincelle de Protection",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "cantrip",
     school: "aethercraft",
     castingTime: "action",
-    range: { type: "self", value: "—" },
+    range: { type: "self", value: "rayon 1,5 m" },
     duration: "1 tour",
     concentration: false,
-    components: { verbal: false, somatic: true },
+    components: { verbal: true, somatic: true },
     tags: ["buff-defense"],
     availableInEras: ["ancient-age", "high-kingdoms"],
     shortSummary: "Une mini-barrière absorbe une faible attaque.",
     description:
-      "Une étincelle de force entoure le lanceur, réduisant légèrement les dégâts du prochain coup.",
+      "Une étincelle de force pure entoure le lanceur, réduisant légèrement "
+      + "les dégâts de la prochaine attaque qui le touche avant la fin du tour."
   },
-
   {
     key: "minor_mending",
     name: "Rétablissement Mineur",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "cantrip",
     school: "vitae",
     castingTime: "action",
-    range: { type: "touch", value: "touch" },
+    range: { type: "touch", value: "contact" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["heal"],
+    components: { verbal: true },
+    tags: ["heal", "single-target"],
     availableInEras: ["ancient-age", "age-of-heroes"],
-    shortSummary: "Soigne de très petites blessures.",
+    shortSummary:
+      "Soigne de très petites blessures et écorchures.",
     description:
-      "Ferme une coupure légère, apaise une contusion ou stabilise un saignement faible.",
+      "Une lueur douce referme les petites entailles, écorchures et bleus. "
+      + "Ce sort ne peut pas restaurer une créature à plus de la moitié de ses points de vie maximum."
   },
 
-  // ───────────────────────────────────────────────
+  //
   // TIER 1 — Défense légère & soins basiques
-  // ───────────────────────────────────────────────
-
+  //
   {
     key: "aegis_shell",
-    name: "Coquille d'Égide",
-    world: "fantasy",
+    name: "Coquille d’Égide",
+    world: "mithril-quest",
     tier: "tier1",
     school: "aethercraft",
     castingTime: "action",
-    range: { type: "self", value: "—" },
+    range: { type: "self", value: "rayon 3 m" },
     duration: "10 minutes",
     concentration: true,
     components: { verbal: true, somatic: true },
     tags: ["buff-defense"],
-    availableInEras: ["age-of-heroes"],
-    shortSummary: "Bouclier d’énergie réduisant les dégâts physiques.",
+    availableInEras: ["age-of-heroes", "high-kingdoms"],
+    shortSummary:
+      "Un bouclier d’énergie réduit les dégâts physiques.",
     description:
-      "Une coquille translucide entoure le lanceur, diminuant l’impact des attaques directes.",
+      "Une coquille translucide enveloppe le lanceur. Tant que le sort dure, "
+      + "les attaques physiques qui le touchent infligent légèrement moins de dégâts, "
+      + "comme si une partie de la force était absorbée par l’aura."
   },
-
   {
     key: "healing_touch",
     name: "Toucher Guérisseur",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier1",
     school: "vitae",
     castingTime: "action",
-    range: { type: "touch", value: "touch" },
+    range: { type: "touch", value: "contact" },
     duration: "instantané",
     concentration: false,
     components: { verbal: true, somatic: true },
     tags: ["heal", "single-target"],
     availableInEras: ["ancient-age", "high-kingdoms"],
-    shortSummary: "Un soin faible à modéré.",
+    shortSummary:
+      "Transfère une énergie curative dans la cible.",
     description:
-      "Le lanceur transfère une énergie curative dans la cible, réparant brièvement tissus et os.",
+      "Une énergie chaude circule du lanceur vers la créature touchée, refermant plaies simples, "
+      + "contusions et fractures légères. Le sort est surtout utilisé entre deux combats ou par "
+      + "les novices de la foi."
   },
 
-  {
-    key: "resist_fire_minor",
-    name: "Résistance Mineure au Feu",
-    world: "fantasy",
-    tier: "tier1",
-    school: "pyromancy",
-    castingTime: "action",
-    range: { type: "touch", value: "touch" },
-    duration: "1h",
-    concentration: true,
-    components: { verbal: true, somatic: true },
-    tags: ["buff-defense", "damage-fire"],
-    availableInEras: ["age-of-heroes"],
-    shortSummary: "Protection limitée contre la chaleur.",
-    description:
-      "Une couche d’énergie rougeâtre protège légèrement la cible du feu.",
-  },
-
-  // ───────────────────────────────────────────────
+  //
   // TIER 2 — Boucliers sérieux / soins moyens
-  // ───────────────────────────────────────────────
-
+  //
   {
     key: "mana_barrier",
     name: "Barrière de Mana",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier2",
     school: "aethercraft",
     castingTime: "action",
-    range: { type: "self", value: "—" },
+    range: { type: "self", value: "rayon 3 m" },
     duration: "10 minutes",
     concentration: true,
-    components: { verbal: true, somatic: true },
-    tags: ["buff-defense"],
+    components: { verbal: true },
+    tags: ["buff-defense", "area-large"],
     availableInEras: ["high-kingdoms"],
-    shortSummary: "Un dôme de force absorbe plusieurs attaques.",
+    shortSummary:
+      "Une bulle protectrice absorbe plusieurs attaques.",
     description:
-      "Le lanceur crée une bulle protectrice absorbant une quantité notable de dégâts.",
+      "Le lanceur crée une sphère brillante qui flotte autour de lui. "
+      + "La barrière absorbe une partie des dégâts subis par le lanceur et les créatures "
+      + "alliées proches avant de se dissiper."
   },
-
   {
     key: "healing_wave",
     name: "Vague de Guérison",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier2",
     school: "vitae",
     castingTime: "action",
-    range: { type: "radius", value: "6m" },
+    range: { type: "radius", value: "6 m" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["heal", "multi-target"],
+    components: { verbal: true },
+    tags: ["heal", "area-large", "multi-target"],
     availableInEras: ["high-kingdoms"],
-    shortSummary: "Soigne tous les alliés proches.",
+    shortSummary:
+      "Une vague d’énergie soigne les alliés proches.",
     description:
-      "Une vague d’énergie vitale émane du lanceur et soigne les créatures amies dans la zone.",
+      "Un anneau de lumière verte se propage autour du lanceur, refermant plusieurs blessures "
+      + "légères sur toutes les créatures alliées dans la zone."
   },
-
   {
     key: "ward_against_dark",
     name: "Protection contre les Ténèbres",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier2",
     school: "spiritbond",
     castingTime: "action",
-    range: { type: "touch", value: "touch" },
+    range: { type: "touch", value: "contact" },
     duration: "10 minutes",
     concentration: true,
     components: { verbal: true, somatic: true },
     tags: ["buff-defense", "damage-necrotic"],
-    availableInEras: ["dark-age"],
-    shortSummary: "Protection contre nécrotique/ombre.",
+    availableInEras: ["dark-age", "high-kingdoms"],
+    shortSummary:
+      "Repousse légèrement les énergies nécrotiques.",
     description:
-      "Une lumière sacrée repousse les énergies d’Ombremonde autour de la cible.",
+      "Une aura pâle entoure la cible, réduisant les effets de la magie nécrotique et "
+      + "atténuant la terreur inspirée par les morts-vivants mineurs."
   },
 
-  {
-    key: "resist_cold",
-    name: "Résistance au Froid",
-    world: "fantasy",
-    tier: "tier2",
-    school: "frostbinding",
-    castingTime: "action",
-    range: { type: "touch", value: "touch" },
-    duration: "1h",
-    concentration: true,
-    components: { verbal: true, somatic: true },
-    tags: ["buff-defense", "damage-cold"],
-    availableInEras: ["age-of-heroes"],
-    shortSummary: "Protection contre le froid sévère.",
-    description:
-      "Une aura glaciale protège la cible des températures extrêmes.",
-  },
-
-  // ───────────────────────────────────────────────
-  // TIER 3 — Grandes protections / soins majeurs / anti-magie léger
-  // ───────────────────────────────────────────────
-
+  //
+  // TIER 3 — Grandes protections / anti-magie légère
+  //
   {
     key: "aura_of_sanctity",
     name: "Aura de Sanctité",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier3",
     school: "spiritbond",
     castingTime: "action",
-    range: { type: "radius", value: "9m" },
+    range: { type: "radius", value: "9 m" },
     duration: "10 minutes",
     concentration: true,
-    components: { verbal: true, somatic: true },
+    components: { verbal: true },
     tags: ["buff-defense", "area-large"],
     availableInEras: ["high-kingdoms"],
-    shortSummary: "Protège tous les alliés contre malédictions & peur.",
+    shortSummary:
+      "Protège les alliés contre malédictions & peur.",
     description:
-      "Une aura lumineuse renforce la volonté et protège contre les effets sombres.",
+      "Une aura lumineuse s’étend à partir du lanceur. Les alliés dans la zone voient leur esprit "
+      + "renforcé contre les malédictions, les effets de peur et l’influence des entités ténébreuses."
   },
-
   {
     key: "greater_heal",
     name: "Guérison Supérieure",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier3",
     school: "vitae",
     castingTime: "action",
-    range: { type: "touch", value: "touch" },
+    range: { type: "touch", value: "contact" },
     duration: "instantané",
     concentration: false,
     components: { verbal: true, somatic: true },
     tags: ["heal", "single-target"],
-    availableInEras: ["high-kingdoms"],
-    shortSummary: "Un soin puissant qui referme toutes les plaies importantes.",
+    availableInEras: ["high-kingdoms", "mythic-age"],
+    shortSummary:
+      "Restaure une grande quantité de vitalité.",
     description:
-      "Une énergie pure revitalise la cible, guérissant rapidement blessures graves et fractures.",
+      "Une lumière intense enveloppe la cible, refermant immédiatement de nombreuses blessures, "
+      + "ressoudant les os brisés et supprimant une fatigue extrême."
   },
-
   {
     key: "cleanse_affliction",
     name: "Purge d’Affliction",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier3",
     school: "spiritbond",
     castingTime: "action",
-    range: { type: "touch", value: "touch" },
+    range: { type: "touch", value: "contact" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["heal", "debuff"],
-    availableInEras: ["age-of-heroes"],
-    shortSummary: "Annule poisons, maladies et malédictions faibles.",
+    components: { verbal: true },
+    tags: ["debuff", "heal", "single-target"],
+    availableInEras: ["age-of-heroes", "high-kingdoms"],
+    shortSummary:
+      "Annule poisons, maladies et malédictions modestes.",
     description:
-      "Une énergie sacrée disperse les toxines, fièvres et petites malédictions.",
+      "Une onde de lumière pure traverse la cible, dissipant la plupart des venins simples, "
+      + "des maladies surnaturelles faibles et des malédictions de bas niveau."
   },
 
-  {
-    key: "resist_lightning",
-    name: "Résistance à la Foudre",
-    world: "fantasy",
-    tier: "tier3",
-    school: "stormcalling",
-    castingTime: "action",
-    range: { type: "touch", value: "touch" },
-    duration: "1h",
-    concentration: true,
-    components: { verbal: true, somatic: true },
-    tags: ["buff-defense", "damage-lightning"],
-    availableInEras: ["high-kingdoms"],
-    shortSummary: "Protection contre l’électricité.",
-    description:
-      "Une couche d’énergie tempétueuse absorbe une partie des décharges électriques.",
-  },
-
-  // ───────────────────────────────────────────────
-  // TIER 4 — Hautes protections / boucliers renforcés / soins massifs
-  // ───────────────────────────────────────────────
-
+  //
+  // TIER 4 — Hautes protections / soins massifs
+  //
   {
     key: "diamond_skin",
     name: "Peau de Diamant",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier4",
     school: "terraforge",
     castingTime: "action",
@@ -271,84 +228,93 @@ export const DEFENSE_SPELLS: Spell[] = [
     components: { verbal: true, somatic: true },
     tags: ["buff-defense"],
     availableInEras: ["mythic-age"],
-    shortSummary: "Transforme la peau en matériau quasi indestructible.",
+    shortSummary:
+      "La peau devient presque indestructible.",
     description:
-      "La peau du lanceur se durcit en un cristal translucide résistant à presque toutes les attaques.",
+      "La chair du lanceur se durcit en cristal translucide, lui conférant une résistance "
+      + "extraordinaire aux armes physiques et aux projectiles. Les coups critiques "
+      + "semblent glisser sur sa surface mi-minérale, mi-vivante."
   },
-
   {
     key: "mass_healing_aura",
     name: "Aura de Guérison de Masse",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier4",
     school: "vitae",
     castingTime: "action",
-    range: { type: "radius", value: "12m" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["heal", "multi-target"],
+    range: { type: "radius", value: "12 m" },
+    duration: "1 minute",
+    concentration: true,
+    components: { verbal: true },
+    tags: ["heal", "area-large", "multi-target"],
     availableInEras: ["high-kingdoms", "mythic-age"],
-    shortSummary: "Puissant soin de zone.",
+    shortSummary:
+      "Répare de lourdes blessures sur une large zone.",
     description:
-      "Une vague de lumière pure répare les blessures des alliés dans un large rayon.",
+      "Une pluie de lumière verte tombe autour du lanceur. Tant que le sort dure, "
+      + "les alliés dans la zone récupèrent régulièrement une partie de leurs forces, "
+      + "leurs plaies profondes se refermant progressivement."
   },
-
   {
     key: "purge_corruption",
     name: "Purge de la Corruption",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier4",
     school: "spiritbond",
     castingTime: "action",
-    range: { type: "radius", value: "9m" },
+    range: { type: "radius", value: "9 m" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: true, somatic: true },
+    components: { verbal: true },
     tags: ["debuff", "area-large"],
-    availableInEras: ["dark-age"],
-    shortSummary: "Efface toutes les corruptions et malédictions fortes.",
+    availableInEras: ["dark-age", "mythic-age"],
+    shortSummary:
+      "Balaye les malédictions fortes et les énergies corrompues.",
     description:
-      "Une lumière purificatrice disperse les énergies corrompues et libère les esprits touchés.",
+      "Une onde sacrée se répand, dissipant les possessions mineures, brisant les sceaux impies "
+      + "et affaiblissant fortement les malédictions puissantes dans la zone."
   },
 
-  // ───────────────────────────────────────────────
-  // TIER 5 — Grandes barrières / défenses mythiques / restore complet
-  // ───────────────────────────────────────────────
-
+  //
+  // TIER 5 — Grandes barrières / défenses mythiques / restauration totale
+  //
   {
     key: "mythic_barrier",
     name: "Barrière Mythique",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier5",
     school: "aethercraft",
-    castingTime: "action",
-    range: { type: "sphere", value: "18m" },
+    castingTime: "minute",
+    range: { type: "sphere", value: "rayon 18 m" },
     duration: "10 minutes",
     concentration: true,
-    components: { verbal: true, somatic: true },
-    tags: ["buff-defense", "area-large"],
+    components: { verbal: true, somatic: true, material: "fragment de cristal antique" },
+    tags: ["buff-defense", "area-large", "ritual"],
     availableInEras: ["mythic-age"],
-    shortSummary: "Un dôme presque impénétrable.",
+    shortSummary:
+      "Une coupole quasi impénétrable défend toute une zone.",
     description:
-      "Une barrière colossale de force pure protège une zone entière contre attaques physiques et magiques.",
+      "Une gigantesque sphère de force se manifeste, bloquant la plupart des attaques physiques "
+      + "et restreignant sévèrement les effets magiques hostiles traversant sa surface."
   },
-
   {
     key: "divine_restoration",
     name: "Restauration Divine",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier5",
     school: "vitae",
-    castingTime: "action",
-    range: { type: "touch", value: "touch" },
+    castingTime: "minute",
+    range: { type: "touch", value: "contact" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["heal"],
+    components: { verbal: true, somatic: true, material: "symbole sacré d’un grand ordre" },
+    tags: ["heal", "single-target"],
     availableInEras: ["mythic-age"],
-    shortSummary: "Rétablit totalement un allié.",
+    shortSummary:
+      "Rétablit totalement un allié.",
     description:
-      "Une énergie sacrée restaure la vitalité, purge toutes les altérations et revitalise complètement un allié.",
+      "Un torrent de lumière sacrée reconstruit le corps et l’esprit de la créature touchée, "
+      + "soignant toutes les blessures, effaçant la plupart des maladies, malédictions et "
+      + "épuisements, comme si elle sortait à peine d’un rêve."
   }
 ];

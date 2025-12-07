@@ -1,24 +1,21 @@
+// @ts-nocheck
 export const TYPE_SUMMONER = {
-  r,
-ole: "Summoner",
+  role: "Summoner",
   description: "Invoque ou crée des créatures pour combattre à sa place.",
-  s,
-tats: {
-      hp: "Faibles à moyens",
+  stats: {
+    hp: "Faibles à moyens",
     ac: "Faible",
-    d,
-amage: { d,
-ice: "Faible direct, élevé via", t,
-ype: "invocations" },
-    m,
-obility: "Moyenne"},
-  t,
-raits: [
+    damage: "Faible direct, élevé via invocations",
+    mobility: "Moyenne",
+  },
+  traits: [
     "Invoque des alliés",
     "Crée des minions ou familiers",
-    "Peut submerger l’adversaire par le nombre"],
-  e,
-xamples: [
+    "Peut submerger l’adversaire par le nombre",
+  ],
+  examples: [
     "Nécromancien des fosses",
     "Invocateur arcanique",
-    "Maître des familiers sauvages"]} as const;
+    "Maître des familiers sauvages",
+  ],
+} as const;

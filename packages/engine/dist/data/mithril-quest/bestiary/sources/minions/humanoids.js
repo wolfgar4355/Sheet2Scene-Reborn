@@ -16,7 +16,6 @@ export const MINIONS = [
             aggression: 2,
             courage: 2,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["hit-and-run"],
         stats: {
             hp: 11,
@@ -25,9 +24,7 @@ export const MINIONS = [
             dmg: "1d6 scimitar",
             speed: "30 ft",
         },
-        // auto-commented
         loot: ["tarnished-coin", "rusty-dagger"],
-        // auto-commented
         abilities: ["Pack Tactics (variant)"],
     },
     /* ------------------------------------------------------------ */
@@ -47,7 +44,6 @@ export const MINIONS = [
             aggression: 1,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["curse-first"],
         stats: {
             hp: 15,
@@ -56,9 +52,7 @@ export const MINIONS = [
             dmg: "1d6 scimitar",
             speed: "30 ft",
         },
-        // auto-commented
         loot: ["ritual-knife", "void-charm"],
-        // auto-commented
         abilities: ["Dark Chant", "Curse Bolt"],
     },
     /* ------------------------------------------------------------ */
@@ -78,7 +72,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["berserk-charge"],
         stats: {
             hp: 19,
@@ -87,9 +80,7 @@ export const MINIONS = [
             dmg: "1d8 spear",
             speed: "30 ft",
         },
-        // auto-commented
         loot: ["tribal-necklace"],
-        // auto-commented
         abilities: ["Battle Cry"],
     },
     /* ------------------------------------------------------------ */
@@ -109,7 +100,6 @@ export const MINIONS = [
             aggression: 2,
             courage: 2,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["ranged-kite"],
         stats: {
             hp: 16,
@@ -118,9 +108,7 @@ export const MINIONS = [
             dmg: "1d8 longbow",
             speed: "35 ft",
         },
-        // auto-commented
         loot: ["arrow-bundle"],
-        // auto-commented
         abilities: ["Keen Sight", "Hide"],
     },
     /* ------------------------------------------------------------ */
@@ -140,7 +128,6 @@ export const MINIONS = [
             aggression: 3,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["alpha-strike"],
         stats: {
             hp: 78,
@@ -149,9 +136,7 @@ export const MINIONS = [
             dmg: "1d6+4 / 7d6 sneak attack",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["black-poison", "shadow-dagger"],
-        // auto-commented
         abilities: ["Sneak Attack", "Poison Strike", "Shadow Step"],
     },
     /* ------------------------------------------------------------ */
@@ -171,7 +156,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["command-strike"],
         stats: {
             hp: 148,
@@ -180,9 +164,7 @@ export const MINIONS = [
             dmg: "1d10+7 / 2d8 cleave",
             speed: "30 ft",
         },
-        // auto-commented
         loot: ["warlord-sigil", "battle-banner"],
-        // auto-commented
         abilities: ["Command Ally", "War Cry", "Brutal Strike"],
     },
 ];

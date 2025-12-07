@@ -16,7 +16,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["hit-and-drift"],
         stats: {
             hp: 90,
@@ -25,9 +24,7 @@ export const MINIONS = [
             dmg: "2d8 bludgeoning",
             speed: "fly 90 ft",
         },
-        // auto-commented
         loot: ["air-essence"],
-        // auto-commented
         abilities: ["Whirlwind", "Incorporeal Drift"],
     },
     /* --------------------------------------------------------- */
@@ -47,7 +44,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["burrow-ambush"],
         stats: {
             hp: 126,
@@ -56,9 +52,7 @@ export const MINIONS = [
             dmg: "2d8+5 bludgeoning",
             speed: "30 ft, burrow 30 ft",
         },
-        // auto-commented
         loot: ["earth-essence"],
-        // auto-commented
         abilities: ["Earth Glide", "Ground Slam"],
     },
     /* --------------------------------------------------------- */
@@ -78,7 +72,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["burn-through-lines"],
         stats: {
             hp: 102,
@@ -87,9 +80,7 @@ export const MINIONS = [
             dmg: "2d6 fire",
             speed: "50 ft",
         },
-        // auto-commented
         loot: ["fire-essence"],
-        // auto-commented
         abilities: ["Flame Form", "Ignite", "Blazing Trail"],
     },
     /* --------------------------------------------------------- */
@@ -109,7 +100,6 @@ export const MINIONS = [
             aggression: 3,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["engulf-and-drown"],
         stats: {
             hp: 114,
@@ -118,9 +108,7 @@ export const MINIONS = [
             dmg: "2d8+4 bludgeoning",
             speed: "30 ft, swim 90 ft",
         },
-        // auto-commented
         loot: ["water-essence"],
-        // auto-commented
         abilities: ["Engulf", "Liquid Form"],
     },
     /* --------------------------------------------------------- */
@@ -140,7 +128,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["eruption-charge"],
         stats: {
             hp: 130,
@@ -149,9 +136,7 @@ export const MINIONS = [
             dmg: "2d10+5 fire",
             speed: "30 ft",
         },
-        // auto-commented
         loot: ["magma-core"],
-        // auto-commented
         abilities: ["Lava Burst", "Molten Body", "Eruption Step"],
     },
     /* --------------------------------------------------------- */
@@ -171,7 +156,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["aoe-burst-then-hover"],
         stats: {
             hp: 140,
@@ -180,9 +164,7 @@ export const MINIONS = [
             dmg: "2d10 lightning / thunder pulse 4d8",
             speed: "fly 90 ft",
         },
-        // auto-commented
         loot: ["storm-essence"],
-        // auto-commented
         abilities: ["Lightning Burst", "Thunder Pulse", "Storm Shield"],
     },
 ];

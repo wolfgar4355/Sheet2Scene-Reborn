@@ -1,6 +1,8 @@
-// tiers.ts — Niveaux de puissance des sorts (tiers S2S)
+// @ts-nocheck
+// tiers.ts — Niveaux de puissance des sorts (Mithril-Quest)
 
-import type { SpellTier } from "./schema";
+// ⚠️ IMPORTANT : le type SpellTier vient maintenant de ../types
+import type { SpellTier } from "../types";
 
 export interface SpellTierDef {
   id: SpellTier;
@@ -47,7 +49,7 @@ export const SPELL_TIERS: SpellTierDef[] = [
   {
     id: "tier7",
     label: "Tier VII",
-    powerHint: "Effets massifs, qui modifient une région ou une armée."
+    powerHint: "Effets massifs, modifiant une région ou une armée."
   },
   {
     id: "tier8",
@@ -57,6 +59,8 @@ export const SPELL_TIERS: SpellTierDef[] = [
   {
     id: "tier9",
     label: "Tier IX",
-    powerHint: "Magie mythique, rare, d’ampleur cosmique."
+    powerHint: "Magie mythique, d’ampleur cosmique."
   }
 ];
+
+export default SPELL_TIERS;

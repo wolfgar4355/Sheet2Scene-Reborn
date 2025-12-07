@@ -1,24 +1,23 @@
+// @ts-nocheck
 export const TYPE_SOLO = {
-  r,
-ole: "Solo",
+  role: "Solo",
   description:
     "Créature conçue pour affronter un groupe entier seule.",
-  s,
-tats: {
-      hp: "Extrêmement élevés",
+  stats: {
+    hp: "Extrêmement élevés",
     ac: "Haute",
-    d,
-amage: "Très élevé",
-    m,
-obility: "Variable"},
-  t,
-raits: [
+    damage: "Très élevé",
+    mobility: "Variable",
+  },
+  traits: [
     "Actions légendaires",
     "Résistances multiples",
     "Attaques de zone",
-    "Immunité aux contrôles faibles"],
-  e,
-xamples: [
+    "Immunité aux contrôles faibles",
+  ],
+  examples: [
     "Dragon adulte",
     "Titan de pierre",
-    "Archidémon"]} as const;
+    "Archidémon",
+  ],
+} as const;

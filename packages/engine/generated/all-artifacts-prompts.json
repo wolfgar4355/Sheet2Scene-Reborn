@@ -1,0 +1,97 @@
+[
+  {
+    "key": "abyssal",
+    "style": "abyss core, dark void tendrils, bioluminescent abyss glow, deep-sea horror aesthetic",
+    "prompt": "\nArtefacts abyssaux.  \nStyle: MQ ombre/néant, énergie abyssale, silhouettes tentaculaires, gemmes bioluminescentes, métal sombre corrodé, runes englouties ancestrales.  \nAmbiance: pression profonde océanique, ténèbres épaisses, reflets bleutés du néant."
+  },
+  {
+    "key": "ancient-titan-core",
+    "label": "Noyau du Titan Ancien",
+    "description": "Relique colossale provenant d’un titan pré-mythique oublié."
+  },
+  {
+    "key": "first-flame-shard",
+    "label": "Éclat de la Première Flamme",
+    "description": "Fragment incandescent datant de la création du monde."
+  },
+  {
+    "key": "primordial-echo",
+    "label": "Écho Primordial",
+    "description": "Résonance antique portant les voix des civilisations disparues."
+  },
+  {
+    "key": "stoneheart-monolith",
+    "label": "Monolithe Cœur-de-Pierre",
+    "description": "Bloc de pierre sentient, gravé d’inscriptions pré-runaires."
+  },
+  {
+    "key": "eternal-sigil",
+    "label": "Sigil Éternel",
+    "description": "Glyphe indestructible représentant l’Ordre des Premiers."
+  },
+  {
+    "key": "arcane",
+    "style": "arcane crystal, luminous glyphs, purple ether, floating runes, spellbound relic",
+    "prompt": "\nArtefacts arcaniques.\nStyle : MQ éther violet, glyphes flottants, cristaux enchantés, lumière runique, métal astral.\nAmbiance : arcane pur, halos de magie concentrée, énergies tourbillonnantes."
+  },
+  {
+    "key": "blood",
+    "style": "pulsating blood crystal, cursed flesh, crimson glow, organic runes",
+    "prompt": "\nArtefacts sanguins.\nStyle : organique/rituel, veines luminescentes, chair figée, liquides écarlates, runes tracées en sang ancien.\nAmbiance : pulsation vitale, rituels interdits, échos de battements."
+  },
+  {
+    "key": "celestial",
+    "style": "holy light, radiant crystal, astral gold, celestial plating",
+    "prompt": "\nArtefacts célestes.\nStyle : astral divin, constellations gravées, lumière pure, orichalque sacré.\nAmbiance : bénédictions stellaires, harmonie lumineuse."
+  },
+  {
+    "key": "chronos",
+    "style": "temporal artifact, hourglass fractal core, shifting timelines, chrono-runes, time distortion, golden dust loops",
+    "prompt": "\nArtefacts temporels.\nStyle : sabliers fractals, engrenages célestes, runes temporelles, flux dorés en boucle, verre cristallin brisé dans le temps.\nAmbiance : distorsions temporelles, échos du futur, traces figées dans l’air."
+  },
+  {
+    "key": "cursed",
+    "style": "haunted relic, living chains, cursed sigils, dark ichor, possessed artifact, whispering runes",
+    "prompt": "\nArtefacts maudits.\nStyle : chaînes vivantes, glyphes corrompus, ombre liquide, symbologie interdite, murmures maléfiques.\nAmbiance : peur intelligente, magie affamée, aura toxique et oppressante."
+  },
+  {
+    "key": "elemental",
+    "style": "elemental core, fire frost storm earth, glowing minerals, primal energy, crystalized elements",
+    "prompt": "\nArtefacts élémentaires.\nStyle : gemmes primitives, feu cristallisé, glace vivante, tonnerre enfermé, roche sacrée.\nAmbiance : énergie brute, vibrations telluriques, éclairs internes, cycles élémentaires naturels."
+  },
+  {
+    "key": "forbidden",
+    "style": "apocalyptic relic, void-touched metal, cursed flesh-growth, catastrophic sigils, unstable forbidden energy, cosmic corruption",
+    "prompt": "\nArtefacts interdits et catastrophiques.\nStyle : métal touché par le Néant, chair maudite en croissance, glyphes catastrophiques, énergie instable, corruption cosmique.\nAmbiance : danger absolu, anomalies dévorantes, pouvoir interdit, fractures spatiales et essence d’apocalypse."
+  },
+  {
+    "key": "mythic",
+    "style": "ancient god-forged relic, titan armor, celestial runes, divine resonance, primeval energy, myth-bound artifacts",
+    "prompt": "\nArtefacts mythiques liés aux dieux, titans et légendes primordiales.\nStyle : reliques forgées par des dieux anciens, runes célestes, énergies divines, essence de titans, matériau mythique primal.\nAmbiance : noble, écrasante, grandiose, aura d’éternité et puissance cosmique."
+  },
+  {
+    "key": "occults",
+    "style": "ritual-bound artifact, forbidden sigils, whispering shadows, occult glyphs, blood-ink seals, haunted relics",
+    "prompt": "\nArtefacts occultes utilisés dans des rituels interdits.\nStyle : glyphes occultes, ombres murmurantes, sceaux de sang, runes interdites, énergie ésotérique dangereuse.\nAmbiance : inquiétant, interdit, arcane noir, atmosphère de rituel, murmures provenant d’au-delà."
+  },
+  {
+    "key": "primal",
+    "style": "raw nature-core artifact, druidic vines, living stone, ancestral spirits, primordial growth, wild elemental essence",
+    "prompt": "\nArtefacts primordiaux issus de la nature brute et des forces sauvages.\nStyle : pierre vivante, essence druidique, croissance végétale ancestrale, racines sacrées, énergie sauvage élémentaire.\nAmbiance : ancien, vibrant, organique, imprévisible, empreint de vie primordiale."
+  },
+  {
+    "key": "relics",
+    "style": "ancient relic fragment, timeworn metal, faded inscriptions, ghostly echoes, ruined sacred artifacts",
+    "prompt": "\nReliques anciennes trouvées dans les ruines oubliées.\nStyle : métal usé par les siècles, inscriptions effacées, fragments sacrés, souffle spectral, artefacts érodés par le temps.\nAmbiance : mystérieux, archéologique, hanté, relique perdue ramenant un écho du passé."
+  },
+  {
+    "key": "stellars",
+    "style": "stellar-forged artifact, astral metal, cosmic halo, nebula core, luminous stardust, constellation runes",
+    "prompt": "\nArtefacts stellaires créés à partir d’énergies cosmiques.\nStyle : métal astral, poussière d’étoile, runes constellation, noyaux de nébuleuse, halos lumineux.\nAmbiance : céleste, spatial, radieux, majestueux, énergie cosmique pure."
+  },
+  {
+    "key": "voidtech",
+    "style": "void-infused technology, quantum machinery, gravity distortions, fractal circuits, stabilized anomalies",
+    "prompt": "\nArtefacts techno-néant fusionnant science avancée et vide cosmique.\nStyle : machinerie quantique, circuits fractals, anomalies stabilisées, distorsions gravitationnelles.\nAmbiance : futuriste sombre, instable, étrange, technologie du néant."
+  }
+]

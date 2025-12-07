@@ -1,39 +1,61 @@
-// lib/s2s/fantasy/player/backgrounds.ts
+// @ts-nocheck
+// ============================================================================
+// 🧭 PLAYER BACKGROUNDS — MITHRIL-QUEST ENGINE
+// ============================================================================
+//
+// Les “Backgrounds” définissent l’histoire, les ressources et les talents
+// d’un personnage avant le début de son aventure.
+//
+// Ils influencent :
+// - les compétences suggérées (MQ_SKILLS)
+// - les outils appris (MQ_TOOLS)
+// - les langues bonus (MQ_LANGUAGES)
+// - l’équipement et la richesse de départ
+//
+// ============================================================================
 
-export interface FantasyBackgroundDef {
+export interface MQ_BackgroundDef {
   key: string;
   label: string;
   description: string;
-  suggestedSkills: string[];  // keys from FANTASY_SKILLS
-  suggestedTools?: string[];  // outils, instruments, kits
-  suggestedLanguages?: string[];
-  startingWealth?: string;    // ex: "10 pièces d'or"
-  startingGear?: string[];    // description libre
+  suggestedSkills: string[];      // keys from MQ_SKILLS
+  suggestedTools?: string[];      // outils, kits, instruments
+  suggestedLanguages?: string[];  // MQ_LANGUAGES keys
+  startingWealth?: string;        // ex: "10 pièces d'or"
+  startingGear?: string[];        // équipement de départ
 }
 
-export const FANTASY_BACKGROUNDS: FantasyBackgroundDef[] = [
+export const MQ_BACKGROUNDS: MQ_BackgroundDef[] = [
+
+  // --------------------------------------------------------------------------
+  // 🛡️ Gardien de Village
+  // --------------------------------------------------------------------------
   {
     key: "village-guardian",
     label: "Gardien de Village",
     description:
       "Vous protégiez un petit village contre les bêtes, bandits et dangers des chemins.",
     suggestedSkills: ["survival", "athletics", "perception"],
-    suggestedTools: ["outils de chasseur"],
+    suggestedTools: ["kit-chasseur"],
     startingWealth: "10 pièces d'argent",
     startingGear: [
-      "Lance simple ou arc court avec 20 flèches",
+      "Lance simple OU arc court avec 20 flèches",
       "Cape de voyage",
       "Symbole de votre village (talisman, ruban, broche)",
     ],
   },
+
+  // --------------------------------------------------------------------------
+  // 📚 Apprenti Arcaniste
+  // --------------------------------------------------------------------------
   {
     key: "arcane-apprentice",
     label: "Apprenti Arcaniste",
     description:
       "Vous avez étudié sous la tutelle d’un mage, dans une tour, une académie ou un sanctuaire caché.",
     suggestedSkills: ["arcana", "history"],
-    suggestedTools: ["matériel d'écriture", "trousse d'alchimie"],
-    suggestedLanguages: ["langue arcanique"],
+    suggestedTools: ["matériel-écriture", "trousse-alchimie"],
+    suggestedLanguages: ["arcanique"],
     startingWealth: "15 pièces d'or",
     startingGear: [
       "Grimoire simple",
@@ -41,13 +63,17 @@ export const FANTASY_BACKGROUNDS: FantasyBackgroundDef[] = [
       "Robe de mage usée",
     ],
   },
+
+  // --------------------------------------------------------------------------
+  // ✝️ Acolyte de Temple
+  // --------------------------------------------------------------------------
   {
     key: "temple-acolyte",
     label: "Acolyte de Temple",
     description:
       "Vous serviez un temple ou un sanctuaire, en tant que novice, prêtre ou assistant.",
     suggestedSkills: ["religion", "insight", "medicine"],
-    suggestedLanguages: ["langue liturgique"],
+    suggestedLanguages: ["liturgique"],
     startingWealth: "5 pièces d'or",
     startingGear: [
       "Symbole sacré",
@@ -55,6 +81,10 @@ export const FANTASY_BACKGROUNDS: FantasyBackgroundDef[] = [
       "Habits religieux simples",
     ],
   },
+
+  // --------------------------------------------------------------------------
+  // 🐀 Enfant des Rues
+  // --------------------------------------------------------------------------
   {
     key: "street-urchin",
     label: "Enfant des Rues",
@@ -68,6 +98,10 @@ export const FANTASY_BACKGROUNDS: FantasyBackgroundDef[] = [
       "Vieux manteau élimé",
     ],
   },
+
+  // --------------------------------------------------------------------------
+  // 👑 Noble de Naissance
+  // --------------------------------------------------------------------------
   {
     key: "noble-born",
     label: "Noble de Naissance",
@@ -81,4 +115,5 @@ export const FANTASY_BACKGROUNDS: FantasyBackgroundDef[] = [
       "Lettre d'introduction",
     ],
   },
+
 ];

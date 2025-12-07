@@ -151,7 +151,7 @@ export const MINIONS = [
             "Radiant Breath",
             "Heavenly Transcendence",
             "Holy Restoration",
-            "Blinding Roar",
+            "Blinding Roar"
         ],
     },
 ];

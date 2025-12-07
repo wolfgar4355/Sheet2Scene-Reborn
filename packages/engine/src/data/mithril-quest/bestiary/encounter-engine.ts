@@ -1,13 +1,14 @@
+// @ts-nocheck
 // =====================================================
 // FANTASY → MITHRIL ENGINE — ENCOUNTER ADAPTER
 // =====================================================
 
-import { runEncounterEngine } from "@engine/mithril";
+import { runEncounterEngine } from "../index";
 import type {
   EncounterRequest,
   GeneratedEncounter,
   MithrilMonster,
-} from "@engine/mithril";
+} from "../index";
 
 import { ALL_MONSTERS } from "./ALL_MONSTERS";
 

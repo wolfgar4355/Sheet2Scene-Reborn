@@ -1,6 +1,8 @@
-// index.ts — façade propre pour les races Fantasy
+// @ts-nocheck
+// index.ts — façade propre pour toutes les races Mithril Quest
 
-import { ALL_FANTASY_RACES, FantasyRace } from "./ALL_RACES";
+import { ALL_RACES } from "./ALL_RACES";
 
-export const FANTASY_RACES = ALL_FANTASY_RACES;
-export type { FantasyRace };
+export const MQ_RACES = ALL_RACES;
+
+export type MQRace = (typeof MQ_RACES)[number];

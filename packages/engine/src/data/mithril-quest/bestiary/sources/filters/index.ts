@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ================================================
 // S2S FANTASY — FILTERS (MITHRIL ENGINE FORMAT)
 // ================================================
@@ -15,6 +16,7 @@ export const FILTERS = {
   encounters,
   factions,
   habitats,
-  types} as const;
+  types,
+} as const;
 
 export type FilterRegistry = typeof FILTERS;

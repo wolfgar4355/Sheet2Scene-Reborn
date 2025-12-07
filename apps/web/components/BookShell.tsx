@@ -9,7 +9,7 @@ export function BookShell({ children }: { children: React.ReactNode }) {
       className="min-h-screen w-full bg-fixed bg-center bg-cover"
       style={{
         backgroundImage:
-          "url('/images/bg-hall.png')", // mets ton image (bibliothèque / bureau)
+          "url('/images/study-bg.jpg')", // mets ton image (bibliothèque / bureau)
       }}
     >
       <div className="min-h-screen backdrop-blur-[1px] bg-black/40">

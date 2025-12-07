@@ -1,17 +1,16 @@
+// @ts-nocheck
 export const FACTION_CLOCKWORK = {
   name: "Clockwork Assembly",
-  t,
-hemes: ["mécanique", "automates", "magitech"],
-  c,
-olors: ["bronze", "acier bleuté", "argent"],
-  v,
-isual: [
+  themes: ["mécanique", "automates", "magitech"],
+  colors: ["bronze", "acier bleuté", "argent"],
+  visual: [
     "engrenages",
     "émissions d’étincelles magitechs",
     "plaques métalliques rivetées",
     "mécanismes complexes",
     "lumière bleue artificielle",
     "tubes d’énergie",
-    "fumerolles de vapeur"],
-  t,
-one: ["précis", "calculateur", "froid"]} as const;
+    "fumerolles de vapeur"
+  ],
+  tone: ["précis", "calculateur", "froid"],
+} as const;

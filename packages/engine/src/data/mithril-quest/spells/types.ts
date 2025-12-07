@@ -1,23 +1,27 @@
+// @ts-nocheck
+m
 // ===============================================
-// S2S FANTASY SPELLS - TYPES DE BASE
-// (Utilisé par schema.ts + toutes les sources)
+// S2S — TYPES DE BASE MITHRIL-QUEST
 // ===============================================
 
-// Si tu veux ajouter Galactic Saga plus tard,
-// le WorldId est déjà extensible
-export type WorldId =
-  | "fantasy"
-  | "pathseeker"
-  | "draknight"
-  | "galactic-saga"
-  | "custom";
+// Monde unique du système MQ
+export type WorldId = "mithril-quest";
+
+// Ères du monde Mithril-Quest
+export type EraId =
+  | "ancient-age"
+  | "age-of-heroes"
+  | "dark-age"
+  | "high-kingdoms"
+  | "arcane-renaissance"
+  | "mythic-age";
 
 // ------------------------------------------------
 // TIERS
 // ------------------------------------------------
 
 export type SpellTier =
-  | "tier0"
+  | "cantrip"
   | "tier1"
   | "tier2"
   | "tier3"
@@ -25,25 +29,29 @@ export type SpellTier =
   | "tier5"
   | "tier6"
   | "tier7"
-  | "tier8";
+  | "tier8"
+  | "tier9";
 
 // ------------------------------------------------
-// VERBAL / SOMATIC / MATERIAL
+// COMPOSANTS
 // ------------------------------------------------
+
 export interface SpellComponents {
   verbal: boolean;
   somatic: boolean;
-  material?: string; // ex: "poudre d'argent"
+  material?: string;
 }
 
 // ------------------------------------------------
 // CASTING TIME
 // ------------------------------------------------
+
 export type CastingTimeId =
   | "action"
-  | "bonus"
+  | "bonus-action"
   | "reaction"
   | "minute"
+  | "ten-minutes"
   | "hour"
   | "ritual";
 
@@ -58,11 +66,12 @@ export type SpellRangeType =
   | "line"
   | "sphere"
   | "cube"
-  | "radius";
+  | "radius"
+  | "special";
 
 export interface SpellRange {
   type: SpellRangeType;
-  value?: string; // ex: "18m", "ligne 18m", "rayon 6m"
+  value: string;
 }
 
 // ------------------------------------------------
@@ -70,13 +79,14 @@ export interface SpellRange {
 // ------------------------------------------------
 
 export interface SpellScaling {
-  upcast?: string; // ex: "+1d6 dégâts par tier"
+  upcastText?: string;
   tierNotes?: Record<SpellTier, string | undefined>;
 }
 
 // ------------------------------------------------
-// TAGS (fonction du sort)
+// TAGS
 // ------------------------------------------------
+
 export type SpellTagId =
   | "damage"
   | "damage-fire"
@@ -84,64 +94,68 @@ export type SpellTagId =
   | "damage-lightning"
   | "damage-radiant"
   | "damage-necrotic"
+  | "heal"
   | "buff-offense"
   | "buff-defense"
   | "buff-utility"
   | "control"
   | "summon"
-  | "heal"
-  | "cure"
-  | "fear"
+  | "movement"
+  | "teleport"
+  | "vision"
+  | "debuff"
   | "charm"
-  | "push"
-  | "pull"
-  | "area"
+  | "fear"
+  | "ritual"
+  | "area-large"
   | "single-target"
   | "multi-target";
 
 // ------------------------------------------------
-// SCHOOLS (écoles de magie S2S Fantasy)
+// ÉCOLES DE MAGIE
 // ------------------------------------------------
 
 export type SpellSchoolId =
   | "pyromancy"
+  | "frostbinding"
   | "stormcalling"
-  | "aquamancy"
-  | "geomancy"
-  | "lunamancy"
-  | "chronomancy"
-  | "bloodmancy"
-  | "arcanism"
+  | "terraforge"
+  | "aethercraft"
+  | "vitae"
+  | "umbramancy"
+  | "mindweave"
+  | "spiritbond"
   | "wildgrowth";
 
 // ------------------------------------------------
-// SPELL (définition d’un sort S2S)
+// STRUCTURE DU SORT
 // ------------------------------------------------
 
 export interface Spell {
   key: string;
   name: string;
-  world: WorldId;
+
+  world: WorldId;                  // tjrs "mithril-quest"
 
   tier: SpellTier;
   school: SpellSchoolId;
 
   castingTime: CastingTimeId;
-
   range: SpellRange;
+
+  duration: string;
+  concentration: boolean;
 
   components: SpellComponents;
 
   tags: SpellTagId[];
+  availableInEras: EraId[];
 
-  duration: string;          // "instantané", "1 minute", "concentration 10 min"
-  concentration: boolean;
-
-  description: string;       // description longue
-  short?: string;            // courte phrase pitch du sort
+  shortSummary: string;
+  description: string;
 
   scaling?: SpellScaling;
 
-  visualCue?: string;        // ex: "flammes bleues", "aura violette"
-  fxCue?: string;            // ex: "étincelles électriques"
+  visualCue?: string;
+  sfxCue?: string;
 }

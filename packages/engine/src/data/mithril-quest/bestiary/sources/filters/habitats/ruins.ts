@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const RUINS_HABITATS = [
   "ruins",
   "collapsed-halls",

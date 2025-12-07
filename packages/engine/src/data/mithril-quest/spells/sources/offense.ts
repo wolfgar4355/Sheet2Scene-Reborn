@@ -1,320 +1,244 @@
-// offense.ts — Sorts offensifs S2S pour Fantasy
-import type { Spell } from "../schema";
+// @ts-nocheck
+// offense.ts – Sorts offensifs & de contrôle MQ (Mithril-Quest)
+
+import type { Spell } from "./schema";
 
 export const OFFENSE_SPELLS: Spell[] = [
-
-  // ───────────────────────────────────────────────
-  // CANTRIPS (Tier 0)
-  // ───────────────────────────────────────────────
-
-  {
-    key: "spark_bolt",
-    name: "Éclair Étincelant",
-    world: "fantasy",
-    tier: "cantrip",
-    school: "stormcalling",
-    castingTime: "action",
-    range: { type: "line", value: "12m" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["damage-lightning", "single-target"],
-    availableInEras: ["ancient-age", "age-of-heroes", "high-kingdoms"],
-    shortSummary: "Un petit éclair rapide frappe une cible.",
-    description:
-      "Le lanceur libère une étincelle électrique qui touche une créature dans une ligne directe.",
-  },
-
+  //
+  // TIER 0 — Cantrips offensifs
+  //
   {
     key: "ember_dart",
     name: "Dard de Braise",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "cantrip",
     school: "pyromancy",
     castingTime: "action",
-    range: { type: "sphere", value: "18m" },
+    range: { type: "line", value: "9 m" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: false, somatic: true },
-    tags: ["damage-fire", "single-target"],
-    availableInEras: ["ancient-age", "high-kingdoms"],
-    shortSummary: "Une braise ardente jaillit en ligne droite.",
+    components: { verbal: true, somatic: true },
+    tags: ["damage", "damage-fire", "single-target"],
+    availableInEras: ["ancient-age", "age-of-heroes"],
+    shortSummary:
+      "Un petit projectile de feu brûle légèrement une cible.",
     description:
-      "Une petite braise chargée de chaleur frappe une créature à portée.",
+      "Le lanceur expédie une étincelle brûlante qui frappe une créature à portée, "
+      + "infligeant de modestes brûlures et éclairant brièvement la zone."
   },
-
   {
     key: "shadow_lash",
     name: "Fouet d’Ombre",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "cantrip",
     school: "umbramancy",
     castingTime: "action",
-    range: { type: "sphere", value: "9m" },
+    range: { type: "line", value: "3 m" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["damage-necrotic", "single-target"],
+    components: { verbal: true },
+    tags: ["damage", "damage-necrotic", "single-target"],
     availableInEras: ["dark-age"],
-    shortSummary: "Une ombre tranchante lacère la cible.",
+    shortSummary:
+      "Un éclat d’ombre lacère l’âme d’un adversaire.",
     description:
-      "Un filament de ténèbres frappe la cible, drainant un fragment d’énergie vitale.",
+      "Une lanière de ténèbres jaillit de la main du lanceur, frappant la cible d’une morsure glaciale "
+      + "qui entame légèrement sa vitalité."
   },
 
-  // ───────────────────────────────────────────────
-  // TIER 1
-  // ───────────────────────────────────────────────
-
+  //
+  // TIER 1 — Attaques de base
+  //
   {
-    key: "fire_burst",
+    key: "flame_burst",
     name: "Explosion de Flammes",
-    world: "fantasy",
+    world: "mithril-quest",
     tier: "tier1",
     school: "pyromancy",
     castingTime: "action",
-    range: { type: "sphere", value: "6m rayon" },
+    range: { type: "sphere", value: "rayon 3 m" },
     duration: "instantané",
     concentration: false,
     components: { verbal: true, somatic: true },
-    tags: ["damage-fire", "area-large"],
-    availableInEras: ["age-of-heroes"],
-    shortSummary: "Petite explosion de flammes autour du lanceur.",
+    tags: ["damage", "damage-fire", "area-large", "multi-target"],
+    availableInEras: ["age-of-heroes", "high-kingdoms"],
+    shortSummary:
+      "Une petite déflagration embrase une zone proche.",
     description:
-      "Le mage relâche une onde de flammes qui enflamme l’air dans un rayon de 6 mètres.",
+      "Le lanceur fait éclater une boule de feu compacte qui embrase brièvement un petit secteur, "
+      + "provoquant brûlures et flammes vacillantes sur les surfaces inflammables."
   },
-
   {
-    key: "ice_shard",
-    name: "Éclat de Givre",
-    world: "fantasy",
+    key: "frost_grasp",
+    name: "Poigne de Givre",
+    world: "mithril-quest",
     tier: "tier1",
     school: "frostbinding",
     castingTime: "action",
-    range: { type: "line", value: "18m" },
+    range: { type: "touch", value: "contact" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: false, somatic: true },
-    tags: ["damage-cold", "single-target"],
-    availableInEras: ["ancient-age", "high-kingdoms"],
-    shortSummary: "Une flèche de glace transperce une cible.",
+    components: { verbal: true, somatic: true },
+    tags: ["damage", "damage-cold", "control", "single-target"],
+    availableInEras: ["ancient-age", "age-of-heroes"],
+    shortSummary:
+      "Gèle partiellement la cible et ralentit ses mouvements.",
     description:
-      "Un éclat gelé est projeté rapidement vers une cible, infligeant un froid mordant.",
+      "La main du lanceur se couvre de glace et transmet un froid mordant à la cible, "
+      + "engourdissant ses membres et freinant ses mouvements pour un court instant."
   },
 
+  //
+  // TIER 2 — Offensifs intermédiaires & contrôle de zone
+  //
   {
-    key: "stone_spike",
-    name: "Pointe de Pierre",
-    world: "fantasy",
-    tier: "tier1",
-    school: "terraforge",
-    castingTime: "action",
-    range: { type: "line", value: "6m" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: false, somatic: true },
-    tags: ["damage", "single-target"],
-    availableInEras: ["ancient-age"],
-    shortSummary: "Une pointe de roche sort du sol et empale une cible.",
-    description:
-      "Une pierre affûtée surgit soudainement du sol, frappant une créature à proximité.",
-  },
-
-  // ───────────────────────────────────────────────
-  // TIER 2
-  // ───────────────────────────────────────────────
-
-  {
-    key: "lightning_arc",
-    name: "Arc Électrique",
-    world: "fantasy",
+    key: "storm_lance",
+    name: "Lance de Tempête",
+    world: "mithril-quest",
     tier: "tier2",
     school: "stormcalling",
     castingTime: "action",
-    range: { type: "multi-target", value: "9m, 3 cibles" },
+    range: { type: "line", value: "18 m" },
     duration: "instantané",
     concentration: false,
     components: { verbal: true, somatic: true },
-    tags: ["damage-lightning", "multi-target"],
-    availableInEras: ["high-kingdoms"],
-    shortSummary: "Un éclair bondit de cible en cible.",
+    tags: ["damage", "damage-lightning", "single-target"],
+    availableInEras: ["age-of-heroes", "high-kingdoms"],
+    shortSummary:
+      "Un trait d’éclair transperce un ennemi.",
     description:
-      "Un arc électrique frappe une créature, puis saute vers deux autres cibles proches.",
+      "Une lance de foudre pure jaillit de la main du lanceur et traverse l’air en un instant, "
+      + "électrifiant violemment la créature visée et laissant une odeur d’ozone."
   },
-
   {
-    key: "flame_spear",
-    name: "Lanceflamme",
-    world: "fantasy",
+    key: "grasping_roots",
+    name: "Racines Enserrantes",
+    world: "mithril-quest",
     tier: "tier2",
-    school: "pyromancy",
+    school: "wildgrowth",
     castingTime: "action",
-    range: { type: "line", value: "12m" },
-    duration: "instantané",
-    concentration: false,
+    range: { type: "radius", value: "6 m" },
+    duration: "1 minute",
+    concentration: true,
     components: { verbal: true, somatic: true },
-    tags: ["damage-fire", "line"],
-    availableInEras: ["age-of-heroes"],
-    shortSummary: "Un jet de flammes brûle tout sur son passage.",
+    tags: ["control", "area-large"],
+    availableInEras: ["ancient-age", "dark-age"],
+    shortSummary:
+      "Des racines sortent du sol et immobilisent les ennemis.",
     description:
-      "Un souffle de feu concentré balaie une ligne droite de 12 mètres.",
+      "Le sol se fissure et laisse jaillir des racines, lianes et herbes épaisses qui saisissent "
+      + "les jambes des créatures ennemies, rendant leur progression difficile voire impossible."
   },
 
+  //
+  // TIER 3 — Puissants blasts & contrôle sévère
+  //
   {
-    key: "gravity_pulse",
-    name: "Impulsion Gravitationnelle",
-    world: "fantasy",
-    tier: "tier2",
-    school: "aethercraft",
-    castingTime: "action",
-    range: { type: "sphere", value: "6m rayon" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["damage", "control", "area-large"],
-    availableInEras: ["arcane-renaissance"],
-    shortSummary: "Un choc de gravité écrase les ennemis autour.",
-    description:
-      "Une onde écrasante de force modifie brutalement la gravité dans une zone.",
-  },
-
-  // ───────────────────────────────────────────────
-  // TIER 3
-  // ───────────────────────────────────────────────
-
-  {
-    key: "inferno_orb",
-    name: "Orbe Infernal",
-    world: "fantasy",
+    key: "sunlance",
+    name: "Lance Solaire",
+    world: "mithril-quest",
     tier: "tier3",
-    school: "pyromancy",
+    school: "vitae",
     castingTime: "action",
-    range: { type: "sphere", value: "18m" },
+    range: { type: "line", value: "18 m" },
     duration: "instantané",
     concentration: false,
-    components: { verbal: true, somatic: true, material: "poussière de soufre" },
-    tags: ["damage-fire", "area-large"],
+    components: { verbal: true, somatic: true, material: "symbole sacré" },
+    tags: ["damage", "damage-radiant", "single-target"],
     availableInEras: ["high-kingdoms"],
-    shortSummary: "Un orbe enflammé explose en un cercle incendiaire.",
+    shortSummary:
+      "Un rayon sacré transperce un ennemi, terrible pour les morts-vivants.",
     description:
-      "Une boule de feu condensée explose, embrasant une large zone.",
-    scaling: {
-      upcastText: "+1d6 feu par tier au-dessus de tier3"
-    }
+      "Un faisceau d’une blancheur brûlante frappe la cible choisie. Les morts-vivants, démons "
+      + "et créatures de l’ombre subissent des dégâts terribles de cette lumière sanctifiée."
   },
-
   {
-    key: "frost_nova",
-    name: "Nova de Givre",
-    world: "fantasy",
-    tier: "tier3",
-    school: "frostbinding",
-    castingTime: "action",
-    range: { type: "radius", value: "9m" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["damage-cold", "control", "area-large"],
-    availableInEras: ["age-of-heroes"],
-    shortSummary: "Une onde glacée explose du lanceur.",
-    description:
-      "Un choc glacial gèle l’air et ralentit toutes les créatures dans un rayon de 9 mètres.",
-  },
-
-  {
-    key: "umbral_scream",
-    name: "Hurlement Ombreux",
-    world: "fantasy",
+    key: "shadow_prison",
+    name: "Prison d’Ombre",
+    world: "mithril-quest",
     tier: "tier3",
     school: "umbramancy",
     castingTime: "action",
-    range: { type: "cone", value: "12m" },
-    duration: "instantané",
-    concentration: false,
+    range: { type: "sphere", value: "rayon 6 m" },
+    duration: "1 minute",
+    concentration: true,
     components: { verbal: true, somatic: true },
-    tags: ["damage-necrotic", "fear", "cone"],
-    availableInEras: ["dark-age"],
-    shortSummary: "Un cri de pure ténèbre fait vaciller la volonté ennemie.",
-    description:
-      "Une onde vibrante d’ombre hurle dans un cône de 12 mètres, infligeant des dégâts nécrotiques et effrayant les créatures faibles.",
-  },
-
-  // ───────────────────────────────────────────────
-  // TIER 4
-  // ───────────────────────────────────────────────
-
-  {
-    key: "thunder_collapse",
-    name: "Effondrement Tonitruant",
-    world: "fantasy",
-    tier: "tier4",
-    school: "stormcalling",
-    castingTime: "action",
-    range: { type: "sphere", value: "18m" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["damage-lightning", "area-large", "control"],
-    availableInEras: ["high-kingdoms"],
-    shortSummary: "Un tonnerre cataclysmique écrase une zone.",
-    description:
-      "Une colonne d’énergie orageuse s’abat depuis le ciel, brisant pierre, sol et os.",
-  },
-
-  {
-    key: "molten_rift",
-    name: "Faille de Magma",
-    world: "fantasy",
-    tier: "tier4",
-    school: "pyromancy",
-    castingTime: "action",
-    range: { type: "line", value: "15m x 3m" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["damage-fire", "area-large"],
-    availableInEras: ["mythic-age"],
-    shortSummary: "Une fissure de magma éclate dans le sol.",
-    description:
-      "Le sol s’ouvre, libérant une coulée de magma brûlant sur plusieurs mètres.",
-  },
-
-  // ───────────────────────────────────────────────
-  // TIER 5
-  // ───────────────────────────────────────────────
-
-  {
-    key: "meteor_fall",
-    name: "Chute de Météore",
-    world: "fantasy",
-    tier: "tier5",
-    school: "aethercraft",
-    castingTime: "action",
-    range: { type: "sphere", value: "36m" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["damage", "area-large"],
-    availableInEras: ["mythic-age"],
-    shortSummary: "Un énorme météore arcane tombe du ciel.",
-    description:
-      "Un rocher incandescent renforcé d’énergie pure s’abat sur la zone ciblée.",
-  },
-
-  {
-    key: "shadow_cataclysm",
-    name: "Cataclysme Ombreux",
-    world: "fantasy",
-    tier: "tier5",
-    school: "umbramancy",
-    castingTime: "action",
-    range: { type: "radius", value: "18m" },
-    duration: "instantané",
-    concentration: false,
-    components: { verbal: true, somatic: true },
-    tags: ["damage-necrotic", "area-large", "debuff"],
+    tags: ["control", "fear", "area-large"],
     availableInEras: ["dark-age", "mythic-age"],
-    shortSummary: "Une explosion de ténèbres consume la zone.",
+    shortSummary:
+      "Une cage d’ombre immobilise et terrifie les ennemis.",
     description:
-      "Un vortex d’ombre dévore l’énergie vitale de toutes les créatures dans la zone.",
+      "Des barreaux d’ombre se forment autour d’une zone, obscurcissant la lumière et remplissant "
+      + "l’air de murmures malveillants. Les créatures piégées se sentent enfermées et oppressées."
+  },
+
+  //
+  // TIER 4 — Destructions majeures
+  //
+  {
+    key: "meteor_shower",
+    name: "Pluie de Météores",
+    world: "mithril-quest",
+    tier: "tier4",
+    school: "pyromancy",
+    castingTime: "minute",
+    range: { type: "radius", value: "12 m" },
+    duration: "instantané",
+    concentration: false,
+    components: { verbal: true, somatic: true, material: "poussière de météorite" },
+    tags: ["damage", "damage-fire", "area-large", "multi-target", "ritual"],
+    availableInEras: ["mythic-age"],
+    shortSummary:
+      "Une pluie de roches enflammées ravage un vaste secteur.",
+    description:
+      "Le ciel s’ouvre brièvement et laisse tomber plusieurs fragments ardents qui s’écrasent "
+      + "sur le champ de bataille, incendiant le terrain et pulvérisant les défenses."
+  },
+  {
+    key: "tempest_maelstrom",
+    name: "Maelström de Tempête",
+    world: "mithril-quest",
+    tier: "tier4",
+    school: "stormcalling",
+    castingTime: "action",
+    range: { type: "radius", value: "9 m" },
+    duration: "1 minute",
+    concentration: true,
+    components: { verbal: true, somatic: true },
+    tags: ["damage", "damage-lightning", "area-large", "control"],
+    availableInEras: ["mythic-age"],
+    shortSummary:
+      "Un vortex de vents et d’éclairs déchire toute une zone.",
+    description:
+      "Des bourrasques hurlantes et des éclairs chaotiques tourbillonnent autour d’un point choisi, "
+      + "bousculant violemment les créatures et frappant au hasard de décharges électriques."
+  },
+
+  //
+  // TIER 5 — Pouvoirs mythiques
+  //
+  {
+    key: "starfall_cataclysm",
+    name: "Cataclysme d’Étoiles",
+    world: "mithril-quest",
+    tier: "tier5",
+    school: "aethercraft",
+    castingTime: "hour",
+    range: { type: "radius", value: "24 m" },
+    duration: "instantané",
+    concentration: false,
+    components: {
+      verbal: true,
+      somatic: true,
+      material: "fragment d’astrolabe antique"
+    },
+    tags: ["damage", "area-large", "multi-target", "ritual"],
+    availableInEras: ["mythic-age"],
+    shortSummary:
+      "Un appel cosmique fait tomber plusieurs astres sur le champ de bataille.",
+    description:
+      "Le mage se synchronise avec les cieux et détourne la course de plusieurs fragments stellaires. "
+      + "Ils s’écrasent dans un fracas apocalyptique, remodelant le terrain et laissant derrière eux "
+      + "des cratères encore fumants."
   }
 ];

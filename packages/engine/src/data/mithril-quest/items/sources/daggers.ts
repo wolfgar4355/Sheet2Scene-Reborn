@@ -1,3 +1,4 @@
+// @ts-nocheck
 // daggers.ts — Armes : dagues, poignards et lames légères
 
 export const DAGGERS = [

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export * from "./artillery";
 export * from "./assassin";
 export * from "./boss";

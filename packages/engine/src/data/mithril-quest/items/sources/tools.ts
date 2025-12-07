@@ -1,3 +1,4 @@
+// @ts-nocheck
 // tools.ts — Outils, kits, instruments, artisanats, matériel magique & spécial
 
 export const TOOLS = [

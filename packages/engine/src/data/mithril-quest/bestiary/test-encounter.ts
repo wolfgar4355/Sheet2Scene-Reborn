@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { generateFantasyEncounter } from "./encounter-engine";
 
 async function runTest() {

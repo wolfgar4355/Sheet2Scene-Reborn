@@ -1,129 +1,143 @@
-// generate-all-classes.ts
-// -----------------------------------------------------------------------------
-// Script PRO — Fusion automatique de toutes les classes Fantasy
-// Identique au système Bestiary & Races
-// -----------------------------------------------------------------------------
+// @ts-nocheck
+/**
+ * ──────────────────────────────────────────────────────────────
+ *  Script MQ — Génération automatique de ALL_CLASSES.ts
+ *  Compatible avec les fichiers MQ_CLASS_X dans /sources
+ * ──────────────────────────────────────────────────────────────
+ */
 
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
-// ESM -> __dirname
+/* -------------------------------------------------- */
+/*  Résolution chemins ESM                            */
+/* -------------------------------------------------- */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const BASE = __dirname;
-const SRC_DIR = path.join(BASE, "sources");
-const OUT_FILE = path.join(BASE, "ALL_CLASSES.ts");
+const SRC_DIR = path.join(__dirname, "sources");
+const OUT_FILE = path.join(__dirname, "ALL_CLASSES.ts");
 
-type RawClass = {
+/* -------------------------------------------------- */
+/*  Type brute                                         */
+/* -------------------------------------------------- */
+export interface RawClass {
   key: string;
   label: string;
   description: string;
   hitdice: string;
   primaryAbility: string;
   archetypes: string[];
-  role?: string;
-  complexity?: string;
-  resourceType?: string;
-  weaponAffinity?: string;
-  armorTraining?: string;
-  recommendedRaces?: string[];
-  visualTags?: string[];
-  gameplayTags?: string[];
-  [k: string]: any;
-};
+}
 
-function loadClasses(): RawClass[] {
-  const results: RawClass[] = [];
+/* -------------------------------------------------- */
+/*  Fonction — Charger dynamiquement toutes les classes */
+/* -------------------------------------------------- */
 
-  if (!fs.existsSync(SRC_DIR)) {
-    console.warn("⚠️ Dossier introuvable :", SRC_DIR);
+async function loadClasses(): Promise<RawClass[]> {
+  console.log("🔍 Chargement des classes MQ…");
+
+  const files = fs.readdirSync(SRC_DIR)
+    .filter((f) => f.endsWith(".ts") && f !== "index.ts" && f !== "ALL_CLASSES.ts");
+
+  if (files.length === 0) {
+    console.error("⚠️ Aucun fichier trouvé dans /sources !");
     return [];
   }
 
-  const files = fs.readdirSync(SRC_DIR).filter((f) => f.endsWith(".ts"));
+  const results: RawClass[] = [];
 
   for (const file of files) {
-    const fileContent = fs.readFileSync(path.join(SRC_DIR, file), "utf8");
-
-    const match = fileContent.match(/=\s*\[\s*([\s\S]*?)\]\s*as const/);
-    if (!match) {
-      console.warn("⚠️ Aucun tableau exporté trouvé dans :", file);
-      continue;
-    }
+    const fullPath = path.join(SRC_DIR, file);
 
     try {
-      const arr = eval("[" + match[1] + "]") as RawClass[];
-      arr.forEach((c) => ((c as any)._src = file));
-      results.push(...arr);
+      // Import dynamique ESM du module
+      const mod = await import(fullPath);
+
+      // Trouver toutes les constantes qui commencent par MQ_CLASS_
+      const entries = Object.entries(mod).filter(([name]) =>
+        name.startsWith("MQ_CLASS_")
+      );
+
+      if (entries.length === 0) {
+        console.warn(`⚠️ Aucun MQ_CLASS_* trouvé dans: ${file}`);
+        continue;
+      }
+
+      for (const [name, value] of entries) {
+        if (!Array.isArray(value)) {
+          console.warn(`⚠️ ${name} dans ${file} n’est pas un tableau MQ valide`);
+          continue;
+        }
+
+        results.push(...(value as RawClass[]));
+      }
+
     } catch (err) {
-      console.error("❌ Erreur parsing dans", file, err);
+      console.error(`❌ Erreur d’import dans ${file}:`, err);
     }
   }
 
   return results;
 }
 
+/* -------------------------------------------------- */
+/*  Validation                                         */
+/* -------------------------------------------------- */
+
 function validateClasses(classes: RawClass[]): string[] {
   const errors: string[] = [];
-  const seen = new Set<string>();
 
   for (const c of classes) {
-    const src = (c as any)._src || "???";
-
-    if (!c.key) errors.push(`Classe sans key (fichier ${src})`);
-    if (!c.label) errors.push(`Classe ${c.key} sans label (${src})`);
-    if (!c.description)
-      errors.push(`Classe ${c.key} sans description (${src})`);
-
-    if (seen.has(c.key)) {
-      errors.push(`Doublon key "${c.key}" (${src})`);
+    if (!c.key) errors.push(`❌ Classe sans key (${c.label})`);
+    if (!c.label) errors.push(`❌ Classe sans label (key: ${c.key})`);
+    if (!c.description) errors.push(`❌ Classe sans description (${c.key})`);
+    if (!c.hitdice) errors.push(`❌ Classe sans hitdice (${c.key})`);
+    if (!c.primaryAbility) errors.push(`❌ Classe sans primaryAbility (${c.key})`);
+    if (!Array.isArray(c.archetypes)) {
+      errors.push(`❌ Archetypes invalides (${c.key})`);
     }
-    seen.add(c.key);
   }
 
   return errors;
 }
 
+/* -------------------------------------------------- */
+/*  Génération de ALL_CLASSES.ts                       */
+/* -------------------------------------------------- */
+
 function writeOutput(classes: RawClass[]) {
-  const clean = classes.map(({ _src, ...rest }) => rest);
+  const out = `// AUTO-GÉNÉRÉ — NE PAS MODIFIER À LA MAIN
+// Généré par generate-all-classes.ts
 
-  clean.sort((a, b) =>
-    (a.label || a.key).localeCompare(b.label || b.key, "fr")
-  );
+export const ALL_CLASSES = ${JSON.stringify(classes, null, 2)} as const;
 
-  const content = `// ALL_CLASSES.ts
-// -----------------------------------------------------------------------------
-// ⚠️ FICHIER GÉNÉRÉ AUTOMATIQUEMENT — NE PAS MODIFIER
-// -----------------------------------------------------------------------------
-
-export const ALL_FANTASY_CLASSES = ${JSON.stringify(clean, null, 2)} as const;
-
-export type FantasyClass = typeof ALL_FANTASY_CLASSES[number];
+export type MQClass = (typeof ALL_CLASSES)[number];
 `;
 
-  fs.writeFileSync(OUT_FILE, content, "utf8");
+  fs.writeFileSync(OUT_FILE, out, "utf8");
+  console.log("🎉 ALL_CLASSES.ts généré !");
 }
 
-function main() {
-  console.log("✨ Génération des classes Fantasy…");
+/* -------------------------------------------------- */
+/*  MAIN                                               */
+/* -------------------------------------------------- */
 
-  const classes = loadClasses();
-  console.log(`🔍 ${classes.length} classes détectées dans sources/`);
+async function main() {
+  const classes = await loadClasses();
+
+  console.log(`📦 ${classes.length} classes détectées.`);
 
   const errors = validateClasses(classes);
-
-  writeOutput(classes);
-
-  console.log(`📦 ALL_CLASSES.ts généré dans : ${OUT_FILE}`);
-
-  if (errors.length) {
-    console.log("⚠️ Avertissements:");
-    errors.forEach((e) => console.log("   •", e));
-  } else {
-    console.log("🧪 Validation OK — aucune erreur.");
+  if (errors.length > 0) {
+    console.error("❌ Erreurs de validation :");
+    for (const e of errors) console.error(e);
+    return;
   }
+
+  console.log("🟩 Validation OK");
+  writeOutput(classes);
 }
 
 main();

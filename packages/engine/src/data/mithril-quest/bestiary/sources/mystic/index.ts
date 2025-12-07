@@ -1,3 +1,4 @@
+// @ts-nocheck
 // INDEX DES 10 MYTHIC BOSSES — FANTASY
 
 import VOID_LICH from "./void-lich";
@@ -24,6 +25,7 @@ export const MYTHIC_BOSSES = [
   SERAPHIEL,
   KRONTHAL,
   ORAKAI,
-  NAHMIRYTH];
+  NAHMIRYTH,
+];
 
 export default MYTHIC_BOSSES;

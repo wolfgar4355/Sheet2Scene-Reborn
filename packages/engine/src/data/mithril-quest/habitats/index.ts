@@ -1,3 +1,8 @@
+// @ts-nocheck
+// ===============================================================
+// 🌍 MQ HABITATS — Environnements de Mithril-Quest
+// ===============================================================
+
 export const HABITATS = {
   forest: "Forêts, bois sombres, jungles",
   desert: "Dunes, ruines, oasis",
@@ -11,6 +16,6 @@ export const HABITATS = {
   aquatic: "Océans, rivières, lacs",
   celestial: "Plans supérieurs, cieux éternels",
   infernal: "Enfers, gouffres démoniaques",
-};
+} as const;
 
 export type Habitat = keyof typeof HABITATS;

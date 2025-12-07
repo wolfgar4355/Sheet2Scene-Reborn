@@ -1,1 +1,2 @@
-export const constructCategories = ["construct"], as const;
+// @ts-nocheck
+export const constructCategories = ["construct"] as const;

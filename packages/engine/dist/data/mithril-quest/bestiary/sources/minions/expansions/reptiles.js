@@ -16,7 +16,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["stab-and-retreat", "net-snare"],
         stats: {
             hp: 26,
@@ -25,9 +24,7 @@ export const MINIONS = [
             dmg: "1d8 piercing",
             speed: "30 ft, swim 30 ft",
         },
-        // auto-commented
         loot: ["horn-spear", "wet-scales"],
-        // auto-commented
         abilities: ["Blood Frenzy", "Reptile Instinct"],
     },
     /* ------------------------------------------------------------ */
@@ -47,7 +44,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["coil-and-strike"],
         stats: {
             hp: 45,
@@ -56,9 +52,7 @@ export const MINIONS = [
             dmg: "3d8 + poison",
             speed: "40 ft, swim 30 ft",
         },
-        // auto-commented
         loot: ["venom-gland"],
-        // auto-commented
         abilities: ["Constriction", "Poison Fangs"],
     },
     /* ------------------------------------------------------------ */
@@ -78,7 +72,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["surface-grab-and-drag"],
         stats: {
             hp: 30,
@@ -87,9 +80,7 @@ export const MINIONS = [
             dmg: "2d6 piercing",
             speed: "40 ft, swim 40 ft",
         },
-        // auto-commented
         loot: ["thick-hide"],
-        // auto-commented
         abilities: ["Death Roll", "Water Ambush"],
     },
     /* ------------------------------------------------------------ */
@@ -109,7 +100,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["gaze-first-then-bite"],
         stats: {
             hp: 95,
@@ -118,9 +108,7 @@ export const MINIONS = [
             dmg: "2d8 piercing",
             speed: "35 ft",
         },
-        // auto-commented
         loot: ["petrified-skin-fragment"],
-        // auto-commented
         abilities: ["Petrifying Gaze", "Venom Bite"],
     },
     /* ------------------------------------------------------------ */
@@ -140,7 +128,6 @@ export const MINIONS = [
             aggression: 6,
             courage: 7,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["trample-then-roar"],
         stats: {
             hp: 186,
@@ -149,9 +136,7 @@ export const MINIONS = [
             dmg: "2d10 bludgeoning + lightning",
             speed: "50 ft",
         },
-        // auto-commented
         loot: ["thunder-scale", "ancient-scales"],
-        // auto-commented
         abilities: ["Thunder Roar", "Stampede", "Lightning Pulse"],
     },
 ];

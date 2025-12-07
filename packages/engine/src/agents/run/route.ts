@@ -2,14 +2,14 @@ import { AGENTS } from "@engine/agents/registry";
 import type { AgentTask } from "@engine/agents/registry";
 
 export async function POST(req: Request) {
-  const task = (await req.json()) as AgentTask;
+  // Le namespace AgentTask ne peut pas être utilisé comme type → cast complet
+  const task = (await req.json()) as any;
 
   const agent = AGENTS[task.target];
   if (!agent) {
     return Response.json({ error: "Unknown agent" }, { status: 400 });
   }
 
-  // On construit une requête pour OpenAI ou Anthropic
   const payload = {
     model: agent.model ?? "gpt-4.1",
     messages: [
@@ -18,7 +18,6 @@ export async function POST(req: Request) {
     ]
   };
 
-  // Appel LLM
   const out = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {

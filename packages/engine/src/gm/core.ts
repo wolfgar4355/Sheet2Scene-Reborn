@@ -1,3 +1,7 @@
+//-------------------------------------------------------------
+// GM Engine – Core Encounter Engine (Mithril-Quest)
+//-------------------------------------------------------------
+
 import type {
   EncounterDifficulty,
   EncounterRequest,
@@ -13,22 +17,30 @@ function targetCRForParty(
   partySize: number,
   difficulty: EncounterDifficulty
 ): number {
-  // CR approximatif = niveau * nombre / facteur
+  // CR approximatif = niveau * nombre * facteur
   const base = partyLevel * (partySize * 0.75);
 
   switch (difficulty) {
-    case "easy": return base * 0.6;
-    case "medium": return base * 0.85;
-    case "hard": return base * 1.15;
-    case "deadly": return base * 1.4;
-    default: return base;
+    case "easy":
+      return base * 0.6;
+    case "medium":
+      return base * 0.85;
+    case "hard":
+      return base * 1.15;
+    case "deadly":
+      return base * 1.4;
+    default:
+      return base;
   }
 }
 
 /* -------------------------------------------------------
- * 2. Filtrage global des monstres
+ * 2. Filtrage global des monstres selon la requête
  * ----------------------------------------------------- */
-function filterMonsters(all: GmeMonster[], req: EncounterRequest): GmeMonster[] {
+function filterMonsters(
+  all: GmeMonster[],
+  req: EncounterRequest
+): GmeMonster[] {
   return all.filter((m) => {
     // --- CR ---
     if (req.minCR !== undefined && m.cr < req.minCR) return false;
@@ -38,7 +50,8 @@ function filterMonsters(all: GmeMonster[], req: EncounterRequest): GmeMonster[] 
     if (req.biome && !(m.biomeTags ?? []).includes(req.biome)) return false;
 
     // --- habitat ---
-    if (req.habitat && !(m.habitatTags ?? []).includes(req.habitat)) return false;
+    if (req.habitat && !(m.habitatTags ?? []).includes(req.habitat))
+      return false;
 
     // --- tags ---
     if (req.tags && req.tags.length > 0) {
@@ -84,11 +97,12 @@ export function runEncounterEngine(
   let best: GmeMonster[] = [];
   let bestDiff = Infinity;
 
-  // 30 essais → optimisation randomisée légère
+  // 30 essais → sélection aléatoire contrôlée
   for (let i = 0; i < 30; i++) {
     let total = 0;
     const chosen: GmeMonster[] = [];
 
+    // Génère un ensemble de 4 monstres max
     for (let j = 0; j < 4; j++) {
       const pick = sorted[Math.floor(Math.random() * sorted.length)];
       if (pick) {
@@ -98,18 +112,18 @@ export function runEncounterEngine(
     }
 
     const diff = Math.abs(total - target);
+
     if (diff < bestDiff) {
       best = chosen;
       bestDiff = diff;
     }
 
-    if (diff <= tolerance) break; // validé
+    if (diff <= tolerance) break; // ensemble validé
   }
 
-  // --- fallback ---
+  // Fallback si aucun essai valide
   if (best.length === 0) {
-    const fallback = sorted[0];
-    best = [fallback];
+    best = [sorted[0]];
   }
 
   const totalCR = best.reduce((t, m) => t + m.cr, 0);

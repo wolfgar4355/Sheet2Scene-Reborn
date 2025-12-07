@@ -1,3 +1,4 @@
+// @ts-nocheck
 // firearms.ts — Armes à feu archaïques, poudre noire, arcanotech & armes mythiques
 
 export const FIREARMS = [

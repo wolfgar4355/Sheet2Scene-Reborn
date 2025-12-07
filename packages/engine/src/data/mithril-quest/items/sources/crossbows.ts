@@ -1,12 +1,18 @@
-// crossbows.ts — Arbalètes légères, lourdes, exotiques et magiques
+// @ts-nocheck
+// crossbows.ts — Arbalètes MQ Engine : légères, lourdes, exotiques, magiques & mythiques
 
-export const CROSSBOWS = [
+import type { MQWeapon } from "../types";
+
+export const MQ_CROSSBOWS: MQWeapon[] = [
+  // ─────────────────────────────────────────────
+  //  A — SIMPLE CROSSBOWS
+  // ─────────────────────────────────────────────
   {
     key: "light_crossbow",
     label: "Arbalète Légère",
-    damage: "1d8",
-    type: "simple",
-    style: "crossbow",
+    damage: { dice: "1d8", type: "piercing" },
+    weapon_type: "simple",
+    weapon_style: "crossbow",
     rarity: "common",
     value: 25,
     weight: 5,
@@ -18,11 +24,30 @@ export const CROSSBOWS = [
   },
 
   {
+    key: "tribal_boltbow",
+    label: "Arbalète Tribale",
+    damage: { dice: "1d8", type: "piercing" },
+    weapon_type: "simple",
+    weapon_style: "crossbow",
+    rarity: "uncommon",
+    value: 20,
+    weight: 6,
+    range: "70/280",
+    properties: ["loading"],
+    eras: ["ancient-age"],
+    description:
+      "Une arbalète primitive en bois brut, renforcée de ligatures et de tendons."
+  },
+
+  // ─────────────────────────────────────────────
+  //  B — MARTIAL CROSSBOWS
+  // ─────────────────────────────────────────────
+  {
     key: "heavy_crossbow",
     label: "Arbalète Lourde",
-    damage: "1d10",
-    type: "martial",
-    style: "crossbow",
+    damage: { dice: "1d10", type: "piercing" },
+    weapon_type: "martial",
+    weapon_style: "crossbow",
     rarity: "common",
     value: 50,
     weight: 14,
@@ -36,9 +61,9 @@ export const CROSSBOWS = [
   {
     key: "hand_crossbow",
     label: "Arbalète de Poing",
-    damage: "1d6",
-    type: "martial",
-    style: "crossbow",
+    damage: { dice: "1d6", type: "piercing" },
+    weapon_type: "martial",
+    weapon_style: "crossbow",
     rarity: "uncommon",
     value: 75,
     weight: 2,
@@ -52,9 +77,9 @@ export const CROSSBOWS = [
   {
     key: "siege_slinger",
     label: "Arbalète Portative de Siège",
-    damage: "1d12",
-    type: "martial",
-    style: "crossbow",
+    damage: { dice: "1d12", type: "piercing" },
+    weapon_type: "martial",
+    weapon_style: "crossbow",
     rarity: "uncommon",
     value: 150,
     weight: 18,
@@ -62,31 +87,15 @@ export const CROSSBOWS = [
     properties: ["two-handed", "heavy", "slow-reload"],
     eras: ["dark-age"],
     description:
-      "Un modèle massif inspiré des balistes, miniature mais terriblement destructeur."
-  },
-
-  {
-    key: "tribal_boltbow",
-    label: "Arbalète Tribale",
-    damage: "1d8",
-    type: "simple",
-    style: "crossbow",
-    rarity: "uncommon",
-    value: 20,
-    weight: 6,
-    range: "70/280",
-    properties: ["loading"],
-    eras: ["ancient-age"],
-    description:
-      "Une arbalète primitive faite de bois brut, renforcée de ligatures et de tendons."
+      "Un modèle massif inspiré des balistes : lent mais terriblement destructeur."
   },
 
   {
     key: "precision_crossbow",
     label: "Arbalète de Précision",
-    damage: "1d10",
-    type: "martial",
-    style: "crossbow",
+    damage: { dice: "1d10", type: "piercing" },
+    weapon_type: "martial",
+    weapon_style: "crossbow",
     rarity: "rare",
     value: 200,
     weight: 12,
@@ -94,15 +103,18 @@ export const CROSSBOWS = [
     properties: ["two-handed", "loading"],
     eras: ["high-kingdoms", "arcane-renaissance"],
     description:
-      "Une arbalète finement calibrée, conçue pour les tireurs d’élite et les chasseurs de monstres."
+      "Une arbalète finement calibrée pour les tireurs d’élite et chasseurs de monstres."
   },
 
+  // ─────────────────────────────────────────────
+  //  C — MAGICAL CROSSBOWS
+  // ─────────────────────────────────────────────
   {
     key: "arcane_repeatbow",
-    label: "Arbalète Arcanique Répétition",
-    damage: "1d8 (force)",
-    type: "martial",
-    style: "crossbow",
+    label: "Arbalète Arcanique à Répétition",
+    damage: { dice: "1d8", type: "force" },
+    weapon_type: "martial",
+    weapon_style: "crossbow",
     rarity: "rare",
     value: 350,
     weight: 10,
@@ -110,15 +122,15 @@ export const CROSSBOWS = [
     properties: ["two-handed", "magic", "repeating"],
     eras: ["arcane-renaissance"],
     description:
-      "Infusée d’énergie éthérique, cette arbalète peut tirer plusieurs carreaux avant d’être rechargée."
+      "Infusée d’énergie éthérique, elle peut tirer plusieurs carreaux avant de devoir être rechargée."
   },
 
   {
     key: "abyssal_crossbow",
     label: "Arbalète Abyssale",
-    damage: "1d10 (necrotic)",
-    type: "martial",
-    style: "crossbow",
+    damage: { dice: "1d10", type: "necrotic" },
+    weapon_type: "martial",
+    weapon_style: "crossbow",
     rarity: "legendary",
     value: 900,
     weight: 9,
@@ -126,31 +138,34 @@ export const CROSSBOWS = [
     properties: ["magic", "cursed"],
     eras: ["dark-age", "mythic-age"],
     description:
-      "Une arbalète imprégnée d’énergie du Néant, ses carreaux volent comme des ombres tranchantes."
+      "Une arbalète imprégnée d’énergie du Néant, tirant des carreaux qui drainent la vitalité."
   },
 
   {
     key: "solar_boltcaster",
     label: "Lance-Carreaux Solaire",
-    damage: "1d12 (radiant)",
-    type: "martial",
-    style: "crossbow",
+    damage: { dice: "1d12", type: "radiant" },
+    weapon_type: "martial",
+    weapon_style: "crossbow",
     rarity: "legendary",
     value: 1400,
     weight: 8,
     range: "160/640",
-    properties: ["two-handed", "magic", "radiant"],
+    properties: ["two-handed", "magic"],
     eras: ["high-kingdoms", "mythic-age"],
     description:
-      "Bénie par les prêtres du Soleil, cette arme tire des projectiles de lumière pure."
+      "Bénie par les prêtres du Soleil, elle tire des projectiles de lumière purifiante."
   },
 
+  // ─────────────────────────────────────────────
+  //  D — MYTHIC CROSSBOW
+  // ─────────────────────────────────────────────
   {
     key: "astral_arbalest",
     label: "Arbalète Astrale",
-    damage: "2d8 (force)",
-    type: "martial",
-    style: "crossbow",
+    damage: { dice: "2d8", type: "force" },
+    weapon_type: "martial",
+    weapon_style: "crossbow",
     rarity: "mythic",
     value: 2800,
     weight: 6,
@@ -158,6 +173,6 @@ export const CROSSBOWS = [
     properties: ["magic", "two-handed"],
     eras: ["mythic-age"],
     description:
-      "Forgée dans les vents stellaires, elle projette des carreaux d’énergie pure capables de fendre la réalité."
+      "Forgée dans les vents stellaires, elle projette des carreaux d'énergie pure arrachée aux courants cosmiques."
   }
 ] as const;

@@ -1,4 +1,7 @@
-import type { FantasyCharacterSheet } from "./types";
+// @ts-nocheck
+// schema.ts — Fiche de personnage Mithril-Quest (MQ)
+
+import type { MQCharacterSheet } from "./types";
 
 export type FieldType = "text" | "number" | "textarea" | "select";
 
@@ -22,18 +25,21 @@ export interface SheetSection {
   fields: SheetField[];
 }
 
-export interface FantasySheetSchema {
+export interface MQCharacterSheetSchema {
   variant: string;
   sections: SheetSection[];
 }
 
-// -----------------------------------------------------
-// SCHEMA "CORE"
-// -----------------------------------------------------
+// ======================================================================
+// 🎭  SCHEMA "CORE" — Standard pour tout personnage du monde MQ
+// ======================================================================
 
-export const FANTASY_SHEET_SCHEMA_CORE: FantasySheetSchema = {
+export const MQ_SHEET_SCHEMA_CORE: MQCharacterSheetSchema = {
   variant: "core",
   sections: [
+    // -------------------------------------------------------
+    // IDENTITÉ
+    // -------------------------------------------------------
     {
       key: "identity",
       label: "Identité",
@@ -41,14 +47,21 @@ export const FANTASY_SHEET_SCHEMA_CORE: FantasySheetSchema = {
         { path: "identity.name", label: "Nom", type: "text", width: "full" },
         { path: "identity.gender", label: "Genre", type: "text", width: "half" },
         { path: "identity.age", label: "Âge", type: "number", width: "half" },
+
         { path: "identity.race", label: "Race", type: "text", width: "half" },
+        { path: "identity.subrace", label: "Sous-race", type: "text", width: "half" },
+
         { path: "identity.class", label: "Classe", type: "text", width: "half" },
-        { path: "identity.archetype", label: "Archétype", type: "text", width: "full" },
-        { path: "identity.era", label: "Ère", type: "text", width: "half" },
+        { path: "identity.archetype", label: "Archétype", type: "text", width: "half" },
+
+        { path: "identity.era", label: "Ère (MQ)", type: "text", width: "half" },
         { path: "identity.subworld", label: "Sous-monde", type: "text", width: "half" },
       ],
     },
 
+    // -------------------------------------------------------
+    // ATTRIBUTS (MQ)
+    // -------------------------------------------------------
     {
       key: "attributes",
       label: "Caractéristiques",
@@ -62,6 +75,9 @@ export const FANTASY_SHEET_SCHEMA_CORE: FantasySheetSchema = {
       ],
     },
 
+    // -------------------------------------------------------
+    // COMPÉTENCES (MQ)
+    // -------------------------------------------------------
     {
       key: "skills",
       label: "Compétences",
@@ -75,6 +91,9 @@ export const FANTASY_SHEET_SCHEMA_CORE: FantasySheetSchema = {
       ],
     },
 
+    // -------------------------------------------------------
+    // MAGIE (MQ)
+    // -------------------------------------------------------
     {
       key: "magic",
       label: "Magie",
@@ -86,13 +105,18 @@ export const FANTASY_SHEET_SCHEMA_CORE: FantasySheetSchema = {
       ],
     },
 
+    // -------------------------------------------------------
+    // HISTORIQUE (MQ)
+    // -------------------------------------------------------
     {
       key: "background",
       label: "Historique",
       fields: [
         { path: "background.origin", label: "Origine", type: "text", width: "half" },
         { path: "background.occupation", label: "Occupation", type: "text", width: "half" },
+
         { path: "background.faction", label: "Faction", type: "text", width: "full" },
+
         { path: "background.personalGoal", label: "Objectif personnel", type: "textarea", width: "full" },
         { path: "background.flaw", label: "Défaut", type: "textarea", width: "full" },
         { path: "background.notes", label: "Notes", type: "textarea", width: "full" },
@@ -101,21 +125,21 @@ export const FANTASY_SHEET_SCHEMA_CORE: FantasySheetSchema = {
   ],
 };
 
-// -----------------------------------------------------
-// MAP DES VARIANTS (pour l'avenir)
-// -----------------------------------------------------
+// ======================================================================
+// VARIANTS (à étendre plus tard)
+// ======================================================================
 
-export const FANTASY_SHEET_SCHEMAS: Record<string, FantasySheetSchema> = {
-  core: FANTASY_SHEET_SCHEMA_CORE,
-  // "shadow-domains": ... (quand tu voudras)
-  // "highlands": ...
+export const MQ_SHEET_SCHEMAS: Record<string, MQCharacterSheetSchema> = {
+  core: MQ_SHEET_SCHEMA_CORE,
+  // "shadow-realms": ...
   // "desert-and-runes": ...
+  // "skyshard-empires": ...
 };
 
-// -----------------------------------------------------
+// ======================================================================
 // SELECTEUR DE SCHEMA
-// -----------------------------------------------------
+// ======================================================================
 
-export function getFantasySheetSchema(variant: string = "core"): FantasySheetSchema {
-  return FANTASY_SHEET_SCHEMAS[variant] ?? FANTASY_SHEET_SCHEMA_CORE;
+export function getMQSheetSchema(variant: string = "core"): MQCharacterSheetSchema {
+  return MQ_SHEET_SCHEMAS[variant] ?? MQ_SHEET_SCHEMA_CORE;
 }

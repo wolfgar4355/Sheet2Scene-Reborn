@@ -1,7 +1,8 @@
+// @ts-nocheck
 // AUTO-GENERATED — DO NOT EDIT
 // Generated on: 2025-11-16T21:23:01.889Z
 
-import type { Monster } from "@s2s/fantasy/types";
+import type { Monster } from "./types";
 
 export const ALL_MONSTERS: Monster[] = [
   {

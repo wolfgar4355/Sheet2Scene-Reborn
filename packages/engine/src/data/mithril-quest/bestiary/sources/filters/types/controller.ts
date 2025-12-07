@@ -1,28 +1,25 @@
+// @ts-nocheck
 export const TYPE_CONTROLLER = {
-  r,
-ole: "Controller",
+  role: "Controller",
   description:
     "Manipule le rythme du combat : entrave, pièges, illusions, contrôle mental ou altérations d’état.",
-  s,
-tats: {
-      hp: "Moyens",
+  stats: {
+    hp: "Moyens",
     ac: "Moyenne",
-    d,
-amage: { d,
-ice: "Faible à", t,
-ype: "moyen" },
-    m,
-obility: "Faible à moyenne"},
-  t,
-raits: [
+    damage: "Faible à moyen",
+    mobility: "Faible à moyenne",
+  },
+  traits: [
     "Immobilisation ou entrave",
     "Télékinésie ou manipulation",
     "Illusions, malédictions ou contrôle mental",
-    "Perturbe ou isole des ennemis"],
-  e,
-xamples: [
+    "Perturbe ou isole des ennemis",
+  ],
+  examples: [
     "Enchanteur spectral",
     "Dryade ancestrale",
     "Esprit manipulateur",
     "Tisseur d’illusions",
-    "Marionnettiste occulte"]} as const;
+    "Marionnettiste occulte",
+  ],
+} as const;

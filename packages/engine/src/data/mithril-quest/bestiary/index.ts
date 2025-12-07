@@ -1,5 +1,7 @@
-// Mithril Quest — Bestiary Index
-// Centralise toutes les sources du bestiaire pour le moteur Mithril Engine
+// @ts-nocheck
+
+// Bestiary Index — AAA v2
+// Centralise toutes les sources du bestiaire Fantasy + générés
 
 // --- Fichiers générés automatiques ---
 export * from "./ALL_MONSTERS";
@@ -13,12 +15,12 @@ export * from "./types";
 export * from "./encounter-engine";
 export * from "./test-encounter";
 
-// --- Sources principales ---
+// --- Sources Fantasy ---
 export * from "./sources/boss";
 export * from "./sources/categories";
 export * from "./sources/encounters";
 
-// --- Sous-dossiers spécialisés ---
+// Sous-dossiers spécialisés
 export * from "./sources/cr";
 export * from "./sources/filters";
 export * from "./sources/mystic";

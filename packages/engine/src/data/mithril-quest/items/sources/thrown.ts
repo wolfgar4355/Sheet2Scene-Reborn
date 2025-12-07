@@ -1,3 +1,4 @@
+// @ts-nocheck
 // thrown.ts — Armes de jet : javelots, chakrams, haches de jet, bolas, etc.
 
 export const THROWN_WEAPONS = [

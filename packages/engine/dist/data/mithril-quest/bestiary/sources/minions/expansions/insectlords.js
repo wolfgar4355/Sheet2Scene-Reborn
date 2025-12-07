@@ -16,7 +16,6 @@ export const MINIONS = [
             aggression: 4,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["flank-and-slam"],
         stats: {
             hp: 18,
@@ -25,9 +24,7 @@ export const MINIONS = [
             dmg: "1d6+2 slashing",
             speed: "40 ft, climb 30 ft",
         },
-        // auto-commented
         loot: ["chitin-shard"],
-        // auto-commented
         abilities: ["Pheromone Mark"],
     },
     /* ------------------------------------------------------------ */
@@ -47,7 +44,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["burst-from-ground"],
         stats: {
             hp: 36,
@@ -56,9 +52,7 @@ export const MINIONS = [
             dmg: "2d8+3 piercing",
             speed: "35 ft, burrow 30 ft",
         },
-        // auto-commented
         loot: ["chitin-carapace"],
-        // auto-commented
         abilities: ["Burrow Ambush", "Chitin Charge"],
     },
     /* ------------------------------------------------------------ */
@@ -78,7 +72,6 @@ export const MINIONS = [
             aggression: 6,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["stun-then-venom-slash"],
         stats: {
             hp: 68,
@@ -87,9 +80,7 @@ export const MINIONS = [
             dmg: "1d10 necrotic",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["mantis-fang"],
-        // auto-commented
         abilities: ["Paralyzing Gaze", "Necrotic Lash"],
     },
     /* ------------------------------------------------------------ */
@@ -109,7 +100,6 @@ export const MINIONS = [
             aggression: 7,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["summon-minions-and-overwhelm"],
         stats: {
             hp: 110,
@@ -118,9 +108,7 @@ export const MINIONS = [
             dmg: "2d10 slashing",
             speed: "30 ft, burrow 10 ft",
         },
-        // auto-commented
         loot: ["scarab-gland"],
-        // auto-commented
         abilities: ["Summon Scarabs", "Carapace Burst", "Fear Chitter"],
     },
     /* ------------------------------------------------------------ */
@@ -140,7 +128,6 @@ export const MINIONS = [
             aggression: 9,
             courage: 10,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["stomp-frontline-then-gore"],
         stats: {
             hp: 240,
@@ -149,14 +136,12 @@ export const MINIONS = [
             dmg: "4d12 slashing",
             speed: "40 ft",
         },
-        // auto-commented
         loot: ["colossus-plate", "ancient-chitin-core"],
-        // auto-commented
         abilities: [
             "Massive Stomp",
             "Gore Rampage",
             "Hive Roar",
-            "Pheromone Domination",
+            "Pheromone Domination"
         ],
     },
 ];

@@ -1,7 +1,5 @@
-// src/adapters/encounters.adapter.ts
-
-import * as ENCOUNTERS from "../content/fantasy/bestiary/sources/encounters";
+import ENCOUNTER_TABLES from "../data/mithril-quest/bestiary/sources/encounters";
 
 export function getAllEncounters() {
-  return Object.values(ENCOUNTERS).flat();
+    return Object.values(ENCOUNTER_TABLES).flat();
 }

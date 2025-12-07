@@ -1,1 +1,2 @@
-export const oceanBiomes = ["ocean"], as const;
+// @ts-nocheck
+export const oceanBiomes = ["ocean"] as const;

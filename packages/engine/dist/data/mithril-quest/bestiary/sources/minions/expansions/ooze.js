@@ -15,7 +15,6 @@ export const MINIONS = [
             aggression: 1,
             courage: 2,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["crawl-and-latch"],
         stats: {
             hp: 18,
@@ -24,9 +23,7 @@ export const MINIONS = [
             dmg: "1d6 acid",
             speed: "20 ft",
         },
-        // auto-commented
         loot: ["sticky-residue"],
-        // auto-commented
         abilities: ["Amorphous Body"],
     },
     /* ------------------------------------------------------------ */
@@ -45,7 +42,6 @@ export const MINIONS = [
             aggression: 3,
             courage: 3,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["engulf-and-divide"],
         stats: {
             hp: 52,
@@ -54,9 +50,7 @@ export const MINIONS = [
             dmg: "2d8 acid",
             speed: "20 ft",
         },
-        // auto-commented
         loot: ["gel-mass"],
-        // auto-commented
         abilities: ["Divide on Hit", "Engulf"],
     },
     /* ------------------------------------------------------------ */
@@ -75,7 +69,6 @@ export const MINIONS = [
             aggression: 3,
             courage: 4,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["strike-and-dissolve"],
         stats: {
             hp: 55,
@@ -84,9 +77,7 @@ export const MINIONS = [
             dmg: "2d6 acid",
             speed: "25 ft, swim 30 ft",
         },
-        // auto-commented
         loot: ["volatile-acid"],
-        // auto-commented
         abilities: ["Toxic Mist", "Dissolve Flesh"],
     },
     /* ------------------------------------------------------------ */
@@ -105,7 +96,6 @@ export const MINIONS = [
             aggression: 5,
             courage: 5,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["grip-and-corrosion"],
         stats: {
             hp: 78,
@@ -114,9 +104,7 @@ export const MINIONS = [
             dmg: "2d10 acid",
             speed: "20 ft, climb 10 ft",
         },
-        // auto-commented
         loot: ["corroded-armor", "ooze-gland"],
-        // auto-commented
         abilities: ["Equipment Corrosion", "Split"],
     },
     /* ------------------------------------------------------------ */
@@ -135,7 +123,6 @@ export const MINIONS = [
             aggression: 6,
             courage: 6,
         },
-        tactics: { prefersAmbush: true }, // NOTE: anciennement // auto-commented
         tactics: ["pull-then-devour"],
         stats: {
             hp: 145,
@@ -144,9 +131,7 @@ export const MINIONS = [
             dmg: "2d10 necrotic + disintegrating touch",
             speed: "30 ft",
         },
-        // auto-commented
         loot: ["voidic-residue", "collapsed-reality-shard"],
-        // auto-commented
         abilities: ["Gravity Pull", "Void Dissolution", "Matter Collapse"],
     },
 ];

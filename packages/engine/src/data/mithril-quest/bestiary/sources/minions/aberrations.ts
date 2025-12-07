@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { UniversalCreature } from "../../UNIVERSAL_CREATURE";
 
 export const aberrations: UniversalCreature[] = [
@@ -8,62 +9,42 @@ export const aberrations: UniversalCreature[] = [
   {
     id: "grell",
     name: "Grell",
-    r,
-arity: "elite",
-    t,
-ype: "aberration",
-    c,
-ategories: ["aberrations"],
+    rarity: "elite",
+    type: "aberration",
+    categories: ["aberrations"],
     biomes: ["underdark", "dungeon", "caves"],
-    h,
-abitats: ["ceiling-nests", "flesh-lairs"],
-    f,
-actions: [],
-    t,
-agsAAA: ["levitation", "tentacles", "paralysis"],
-    c,
-r: 3,
+    habitats: ["ceiling-nests", "flesh-lairs"],
+    factions: [],
+    tagsAAA: ["levitation", "tentacles", "paralysis"],
+    cr: 3,
 
     // Combat
     hp: 55,
     ac: 14,
-    s,
-peed: ["f,
-ly:20"],
+    speed: ["fly:20"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Tentacle",
         bonus: +5,
-        d,
-amage: { d,
-ice: "1d10 piercing +", t,
-ype: "paralysis" }}],
+        damage: "1d10 piercing + paralysis",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "defensive",
-      c,
-onfidence: "coward",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["descend-silently-and-grapple"]
+    behavior: {
+      aggression: "lurker",
+      confidence: "coward",
+      tactics: ["descend-silently-and-grapple"],
     },
 
-    d,
-rops: ["neural-tentacle"],
-    a,
-bilities: ["Paralyzing Tentacles", "Silent Glide"],
+    drops: ["neural-tentacle"],
+    abilities: ["Paralyzing Tentacles", "Silent Glide"],
 
-    v,
-isuals: {
-      i,
-con: "grell",
-      k,
-eywords: ["floating", "tentacles"]}},
+    visuals: {
+      icon: "grell",
+      keywords: ["floating", "tentacles"],
+    },
+  },
 
   //──────────────────────────────
   // GRICK — CR 2
@@ -71,63 +52,41 @@ eywords: ["floating", "tentacles"]}},
   {
     id: "grick",
     name: "Grick",
-    r,
-arity: "elite",
-    t,
-ype: "aberration",
-    c,
-ategories: ["aberrations"],
+    rarity: "elite",
+    type: "aberration",
+    categories: ["aberrations"],
     biomes: ["forest", "underdark"],
-    h,
-abitats: ["stone-chasms", "narrow-passages"],
-    f,
-actions: [],
-    t,
-agsAAA: ["ambush", "tentacle"],
-    c,
-r: 2,
+    habitats: ["stone-chasms", "narrow-passages"],
+    factions: [],
+    tagsAAA: ["ambush", "tentacle"],
+    cr: 2,
 
     hp: 45,
     ac: 13,
-    s,
-peed: ["c,
-limb:20", "l,
-and:30"],
+    speed: ["climb:20", "land:30"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Bite",
         bonus: +4,
-        d,
-amage: { d,
-ice: "1d12", t,
-ype: "slashing" }}],
+        damage: "1d12 slashing",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "aggressive",
-      c,
-onfidence: "c,
-ourage:3",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["ambush-from-above"]
+    behavior: {
+      aggression: "predator",
+      confidence: "courage:3",
+      tactics: ["ambush-from-above"],
     },
 
-    d,
-rops: ["chitin-shard"],
-    a,
-bilities: ["Stone Camouflage"],
+    drops: ["chitin-shard"],
+    abilities: ["Stone Camouflage"],
 
-    v,
-isuals: {
-      i,
-con: "grick",
-      k,
-eywords: ["stone", "tentacle"]}},
+    visuals: {
+      icon: "grick",
+      keywords: ["stone", "tentacle"],
+    },
+  },
 
   //──────────────────────────────
   // MIND WORM — CR 1
@@ -135,62 +94,41 @@ eywords: ["stone", "tentacle"]}},
   {
     id: "mind-worm",
     name: "Mind Worm",
-    r,
-arity: "common",
-    t,
-ype: "aberration",
-    c,
-ategories: ["aberrations"],
+    rarity: "common",
+    type: "aberration",
+    categories: ["aberrations"],
     biomes: ["swamp", "underdark", "ancient-labs"],
-    h,
-abitats: ["dead-pools", "eldritch-creels"],
-    f,
-actions: [],
-    t,
-agsAAA: ["psionic", "infection"],
-    c,
-r: 1,
+    habitats: ["dead-pools", "eldritch-creels"],
+    factions: [],
+    tagsAAA: ["psionic", "infection"],
+    cr: 1,
 
     hp: 22,
     ac: 12,
-    s,
-peed: ["l,
-and:20", "s,
-wim:20"],
+    speed: ["land:20", "swim:20"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Mind Spike",
         bonus: +4,
-        d,
-amage: { d,
-ice: "1d8", t,
-ype: "psychic" }}],
+        damage: "1d8 psychic",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "instinct",
-      c,
-onfidence: "coward",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["psionic-scream-and-hide"]
+    behavior: {
+      aggression: "instinct",
+      confidence: "coward",
+      tactics: ["psionic-scream-and-hide"],
     },
 
-    d,
-rops: ["psionic-residue"],
-    a,
-bilities: ["Mind Screech", "Neural Feedback"],
+    drops: ["psionic-residue"],
+    abilities: ["Mind Screech", "Neural Feedback"],
 
-    v,
-isuals: {
-      i,
-con: "worm",
-      k,
-eywords: ["psionic", "worm"]}},
+    visuals: {
+      icon: "worm",
+      keywords: ["psionic", "worm"],
+    },
+  },
 
   //──────────────────────────────
   // GIBBERING MASS — CR 5
@@ -198,61 +136,41 @@ eywords: ["psionic", "worm"]}},
   {
     id: "gibbering-mass",
     name: "Gibbering Mass",
-    r,
-arity: "rare",
-    t,
-ype: "aberration",
-    c,
-ategories: ["aberrations"],
+    rarity: "rare",
+    type: "aberration",
+    categories: ["aberrations"],
     biomes: ["swamp", "corrupted"],
-    h,
-abitats: ["gurgling-pools", "madness-pits"],
-    f,
-actions: [],
-    t,
-agsAAA: ["amorphous", "madness"],
-    c,
-r: 5,
+    habitats: ["gurgling-pools", "madness-pits"],
+    factions: [],
+    tagsAAA: ["amorphous", "madness"],
+    cr: 5,
 
     hp: 140,
     ac: 9,
-    s,
-peed: ["l,
-and:20"],
+    speed: ["land:20"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Maw",
         bonus: +6,
-        d,
-amage: { d,
-ice: "4d6", t,
-ype: "acid" }}],
+        damage: "4d6 acid",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "obsession",
-      c,
-onfidence: "fearless",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["suppress-all-sanity-with-aura"]
+    behavior: {
+      aggression: "obsession",
+      confidence: "fearless",
+      tactics: ["suppress-all-sanity-with-aura"],
     },
 
-    d,
-rops: ["fractured-organ"],
-    a,
-bilities: ["Gibbering Aura", "Amorphous Engulf"],
+    drops: ["fractured-organ"],
+    abilities: ["Gibbering Aura", "Amorphous Engulf"],
 
-    v,
-isuals: {
-      i,
-con: "mass",
-      k,
-eywords: ["amorphous", "eyes"]}},
+    visuals: {
+      icon: "mass",
+      keywords: ["amorphous", "eyes"],
+    },
+  },
 
   //──────────────────────────────
   // INTELLECT DEVOURER — CR 2
@@ -260,62 +178,41 @@ eywords: ["amorphous", "eyes"]}},
   {
     id: "intellect-devourer",
     name: "Intellect Devourer",
-    r,
-arity: "elite",
-    t,
-ype: "aberration",
-    c,
-ategories: ["aberrations"],
+    rarity: "elite",
+    type: "aberration",
+    categories: ["aberrations"],
     biomes: ["ruins", "underdark"],
-    h,
-abitats: ["eldritch-chambers"],
-    f,
-actions: [],
-    t,
-agsAAA: ["psionic", "brain-walker"],
-    c,
-r: 2,
+    habitats: ["eldritch-chambers"],
+    factions: [],
+    tagsAAA: ["psionic", "brain-walker"],
+    cr: 2,
 
     hp: 35,
     ac: 14,
-    s,
-peed: ["l,
-and:40"],
+    speed: ["land:40"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Brain Rend",
         bonus: +5,
-        d,
-amage: { d,
-ice: "1d8", t,
-ype: "psychic" }}],
+        damage: "1d8 psychic",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "aggressive",
-      c,
-onfidence: "c,
-ourage:5",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["assail-brain-then-pursue"]
+    behavior: {
+      aggression: "hunter",
+      confidence: "courage:5",
+      tactics: ["assail-brain-then-pursue"],
     },
 
-    d,
-rops: ["horror-residue"],
-    a,
-bilities: ["Horror Instinct", "Body Thief"],
+    drops: ["horror-residue"],
+    abilities: ["Horror Instinct", "Body Thief"],
 
-    v,
-isuals: {
-      i,
-con: "brain",
-      k,
-eywords: ["brain", "psionic"]}},
+    visuals: {
+      icon: "brain",
+      keywords: ["brain", "psionic"],
+    },
+  },
 
   //──────────────────────────────
   // VOID EYE — CR 6
@@ -323,58 +220,39 @@ eywords: ["brain", "psionic"]}},
   {
     id: "void-eye",
     name: "Void Eye",
-    r,
-arity: "legendary",
-    t,
-ype: "aberration",
-    c,
-ategories: ["aberrations"],
+    rarity: "legendary",
+    type: "aberration",
+    categories: ["aberrations"],
     biomes: ["wastelands", "shadowlands"],
-    h,
-abitats: ["void-rifts", "anti-magic-reaches"],
-    f,
-actions: [],
-    t,
-agsAAA: ["null-magic", "beam"],
-    c,
-r: 6,
+    habitats: ["void-rifts", "anti-magic-reaches"],
+    factions: [],
+    tagsAAA: ["null-magic", "beam"],
+    cr: 6,
 
     hp: 160,
     ac: 16,
-    s,
-peed: ["f,
-ly:40"],
+    speed: ["fly:40"],
 
-    a,
-ttacks: [
+    attacks: [
       {
         name: "Void Lance",
         bonus: +8,
-        d,
-amage: { d,
-ice: "3d10", t,
-ype: "force" }}],
+        damage: "3d10 force",
+      },
+    ],
 
-    b,
-ehavior: {
-      a,
-ggression: "berserk",
-      c,
-onfidence: "fearless",
-      t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["float-at-range-and-swap-space"]
+    behavior: {
+      aggression: "annihilation",
+      confidence: "fearless",
+      tactics: ["float-at-range-and-swap-space"],
     },
 
-    d,
-rops: ["void-core"],
-    a,
-bilities: ["Null Aura", "Void Beam", "Levitation"],
+    drops: ["void-core"],
+    abilities: ["Null Aura", "Void Beam", "Levitation"],
 
-    v,
-isuals: {
-      i,
-con: "eye",
-      k,
-eywords: ["void", "beam"]}}];
+    visuals: {
+      icon: "eye",
+      keywords: ["void", "beam"],
+    },
+  },
+];

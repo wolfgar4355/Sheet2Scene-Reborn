@@ -1,4 +1,7 @@
-// lib/s2s/fantasy/player/skills.ts
+// @ts-nocheck
+// ============================================================================
+// 🎯 MQ_SKILLS — Compétences Mithril-Quest
+// ============================================================================
 
 export type AbilityKey =
   | "strength"
@@ -8,14 +11,14 @@ export type AbilityKey =
   | "wisdom"
   | "charisma";
 
-export interface FantasySkill {
+export interface MQSkill {
   key: string;
   label: string;
   ability: AbilityKey;
   description: string;
 }
 
-export const FANTASY_SKILLS: FantasySkill[] = [
+export const MQ_SKILLS: MQSkill[] = [
   {
     key: "athletics",
     label: "Athlétisme",

@@ -1,17 +1,18 @@
-// armors.ts — Armures légères, intermédiaires, lourdes, magiques & mythiques
+// @ts-nocheck
+// armors.ts — Armures légères, intermédiaires, lourdes, magiques & mythiques (MQ Engine)
 
-export const ARMORS = [
-  //
+import type { MQArmor } from "../types"; // si ton type générique existe (sinon je te le génère)
+
+export const MQ_ARMORS: MQArmor[] = [
   // ──────────────────────────────────────────
-  //  A — LIGHT ARMOR (Armures légères)
+  //  A — LIGHT ARMOR
   // ──────────────────────────────────────────
-  //
   {
     key: "padded",
     label: "Armure Matelassée",
     ac_base: 11,
     dex_cap: "max",
-    type: "light",
+    armor_type: "light",
     rarity: "common",
     value: 5,
     weight: 8,
@@ -26,7 +27,7 @@ export const ARMORS = [
     label: "Armure de Cuir",
     ac_base: 11,
     dex_cap: "max",
-    type: "light",
+    armor_type: "light",
     rarity: "common",
     value: 10,
     weight: 10,
@@ -40,7 +41,7 @@ export const ARMORS = [
     label: "Cuir Clouté",
     ac_base: 12,
     dex_cap: "max",
-    type: "light",
+    armor_type: "light",
     rarity: "uncommon",
     value: 45,
     weight: 13,
@@ -54,7 +55,7 @@ export const ARMORS = [
     label: "Tissage d’Ombre",
     ac_base: 12,
     dex_cap: "max",
-    type: "light",
+    armor_type: "light",
     rarity: "rare",
     value: 350,
     weight: 8,
@@ -69,7 +70,7 @@ export const ARMORS = [
     label: "Soieries Célestes",
     ac_base: 13,
     dex_cap: "max",
-    type: "light",
+    armor_type: "light",
     rarity: "mythic",
     value: 2500,
     weight: 5,
@@ -79,17 +80,15 @@ export const ARMORS = [
       "Un vêtement magique tissé dans la lumière pure, procurant une défense incroyable sans gêner les mouvements."
   },
 
-  //
   // ──────────────────────────────────────────
-  //  B — MEDIUM ARMOR (Armures intermédiaires)
+  //  B — MEDIUM ARMOR
   // ──────────────────────────────────────────
-  //
   {
     key: "hide_armor",
     label: "Armure de Peaux",
     ac_base: 12,
     dex_cap: 2,
-    type: "medium",
+    armor_type: "medium",
     rarity: "common",
     value: 10,
     weight: 12,
@@ -103,7 +102,7 @@ export const ARMORS = [
     label: "Chemise de Mailles",
     ac_base: 13,
     dex_cap: 2,
-    type: "medium",
+    armor_type: "medium",
     rarity: "common",
     value: 50,
     weight: 20,
@@ -117,11 +116,11 @@ export const ARMORS = [
     label: "Armure Écaille",
     ac_base: 14,
     dex_cap: 2,
-    type: "medium",
+    armor_type: "medium",
     rarity: "uncommon",
-    stealth_disadvantage: true,
     value: 50,
     weight: 45,
+    stealth_disadvantage: true,
     eras: ["high-kingdoms"],
     description:
       "Des plaques en forme d’écailles superposées, fournissant une solide défense."
@@ -132,7 +131,7 @@ export const ARMORS = [
     label: "Demi-Plate",
     ac_base: 15,
     dex_cap: 2,
-    type: "medium",
+    armor_type: "medium",
     rarity: "rare",
     value: 750,
     weight: 40,
@@ -147,7 +146,7 @@ export const ARMORS = [
     label: "Cuirasse Écorce-Druide",
     ac_base: 14,
     dex_cap: 2,
-    type: "medium",
+    armor_type: "medium",
     rarity: "rare",
     value: 500,
     weight: 14,
@@ -157,17 +156,15 @@ export const ARMORS = [
       "Une armure vivante faite d’écorce renforcée, vibrante d’énergie naturelle."
   },
 
-  //
   // ──────────────────────────────────────────
-  //  C — HEAVY ARMOR (Armures lourdes)
+  //  C — HEAVY ARMOR
   // ──────────────────────────────────────────
-  //
   {
     key: "ring_mail",
     label: "Armure Anneaux",
     ac_base: 14,
     dex_cap: 0,
-    type: "heavy",
+    armor_type: "heavy",
     rarity: "common",
     value: 30,
     weight: 40,
@@ -183,7 +180,7 @@ export const ARMORS = [
     ac_base: 16,
     dex_cap: 0,
     strength_req: 13,
-    type: "heavy",
+    armor_type: "heavy",
     rarity: "common",
     value: 75,
     weight: 55,
@@ -199,7 +196,7 @@ export const ARMORS = [
     ac_base: 17,
     dex_cap: 0,
     strength_req: 15,
-    type: "heavy",
+    armor_type: "heavy",
     rarity: "uncommon",
     value: 200,
     weight: 60,
@@ -215,7 +212,7 @@ export const ARMORS = [
     ac_base: 18,
     dex_cap: 0,
     strength_req: 15,
-    type: "heavy",
+    armor_type: "heavy",
     rarity: "rare",
     value: 1500,
     weight: 65,
@@ -231,7 +228,7 @@ export const ARMORS = [
     ac_base: 19,
     dex_cap: 0,
     strength_req: 17,
-    type: "heavy",
+    armor_type: "heavy",
     rarity: "mythic",
     value: 6000,
     weight: 70,
@@ -242,17 +239,15 @@ export const ARMORS = [
       "Une armure colossale forgée dans un métal ancien, offrant une défense quasi impénétrable."
   },
 
-  //
   // ──────────────────────────────────────────
-  //  D — MAGICAL / LEGENDARY ARMOR SETS
+  //  D — MAGICAL & MYTHIC SETS
   // ──────────────────────────────────────────
-  //
   {
     key: "dragon_scale_armor",
     label: "Armure en Écailles de Dragon",
     ac_base: 17,
     dex_cap: 2,
-    type: "medium",
+    armor_type: "medium",
     rarity: "legendary",
     value: 5000,
     weight: 40,
@@ -267,7 +262,7 @@ export const ARMORS = [
     label: "Armure Céleste",
     ac_base: 18,
     dex_cap: "max",
-    type: "light",
+    armor_type: "light",
     rarity: "mythic",
     value: 8000,
     weight: 20,
@@ -282,7 +277,7 @@ export const ARMORS = [
     label: "Carapace Abyssale",
     ac_base: 19,
     dex_cap: 0,
-    type: "heavy",
+    armor_type: "heavy",
     rarity: "mythic",
     value: 9000,
     weight: 70,

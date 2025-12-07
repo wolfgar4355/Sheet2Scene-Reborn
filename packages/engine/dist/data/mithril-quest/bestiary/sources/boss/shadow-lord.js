@@ -15,35 +15,34 @@ export const MONSTERS = [
             courage: 9,
             awareness: 8
         },
-        // unified tactics (fix-fantasy v2)
         tactics: [
             "opens-with-dark-nova",
-            // "teleport-behind-target",
-            // "summon-shadow-minions",
-            "finish-with-void-lance",
+            "teleport-behind-target",
+            "summon-shadow-minions",
+            "finish-with-void-lance"
         ],
         stats: {
             hp: 210,
             ac: 18,
             atk: 19,
             dmg: "2d10+6 necrotic",
-            speed: "40 ft, teleport 30 ft",
+            speed: "40 ft, teleport 30 ft"
         },
         loot: [
-        // "obsidian-heart",
-        // "shadow-lord-crown",
-        // "essence-of-night",
+            "obsidian-heart",
+            "shadow-lord-crown",
+            "essence-of-night"
         ],
         abilities: [
-        // "Shadowstep",
-        // "Cone of Darkness",
-        // "Nightbound Command",
-        // "Void Lance",
-        // "Summon Umbral Shades",
+            "Shadowstep",
+            "Cone of Darkness",
+            "Nightbound Command",
+            "Void Lance",
+            "Summon Umbral Shades"
         ],
         ref: {
             source: "custom",
-            key: "shadow-lord",
+            key: "shadow-lord"
         }
     }
 ];

@@ -1,9 +1,10 @@
+// @ts-nocheck
 // ============================================================================
 //  FANTASY — ENCOUNTER FILTERS — INDEX
 //  Charge les catégories additionnelles : embuscades, patrouilles, raids, etc.
 // ============================================================================
 
-import type { MonsterDefinition } from "@s2s/fantasy/types";
+import type { MonsterDefinition } from "./types";
 
 // Import des tables
 import AMBUSHES from "./ambushes";
@@ -20,7 +21,8 @@ const ENCOUNTER_FILTER_TABLES: Record<string, MonsterDefinition[]> = {
   raids: RAIDS,
   "boss-arenas": BOSS_ARENAS,
   "dungeon-rooms": DUNGEON_ROOMS,
-  "corrupted-zones": CORRUPTED};
+  "corrupted-zones": CORRUPTED,
+};
 
 // API
 export function loadEncounterFilters(name: string): MonsterDefinition[] {

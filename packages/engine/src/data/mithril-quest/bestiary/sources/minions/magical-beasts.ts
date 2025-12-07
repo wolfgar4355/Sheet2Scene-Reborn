@@ -1,4 +1,5 @@
-import { Minion } from "@s2s/fantasy/types";
+// @ts-nocheck
+import { Minion } from "./types";
 
 export const MINIONS: Minion[] = [
 
@@ -8,38 +9,28 @@ export const MINIONS: Minion[] = [
 {
   id: "griffon",
   name: "Griffon",
-  c,
-r: 2,
+  cr: 2,
   biomes: ["mountains", "hills", "savanna"],
-  h,
-abitat: ["sky-cliffs", "eagle-criers"],
+  habitat: ["sky-cliffs", "eagle-criers"],
   category: "magical-beast",
-  r,
-ole: "striker",
-  f,
-actions: ["wildwood-tribes"],
+  role: "striker",
+  factions: ["wildwood-tribes"],
   tags: ["flying", "predator"],
-  b,
-ehavior: {
-    a,
-ggression: 4,
-    c,
-ourage: 3},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["fly-by-attack"],
-s,
-tats: {
-      hp: 52,
+  behavior: {
+    aggression: 4,
+    courage: 3,
+  },
+  tactics: ["fly-by-attack"],
+  stats: {
+    hp: 52,
     ac: 13,
     atk: 15,
     dmg: "1d8 + 2d6",
-    s,
-peed: "40 ft, fly 80 ft"},
+    speed: "40 ft, fly 80 ft",
+  },
   loot: ["griffon-feather", "beak-fragment"],
-  a,
-bilities: ["Talon Swipe", "Dive Attack"]},
+  abilities: ["Talon Swipe", "Dive Attack"],
+},
 
 /* ------------------------------------------------------------ */
 /* UNICORN — CR 5                                               */
@@ -47,38 +38,28 @@ bilities: ["Talon Swipe", "Dive Attack"]},
 {
   id: "unicorn",
   name: "Unicorn",
-  c,
-r: 5,
+  cr: 5,
   biomes: ["forest", "feywild"],
-  h,
-abitat: ["sacred-groves", "ancient-glade"],
+  habitat: ["sacred-groves", "ancient-glade"],
   category: "magical-beast",
-  r,
-ole: "mystic",
-  f,
-actions: ["ashen-seers"],
+  role: "mystic",
+  factions: ["ashen-seers"],
   tags: ["holy", "protector"],
-  b,
-ehavior: {
-    a,
-ggression: 2,
-    c,
-ourage: 6},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["charge"],
-s,
-tats: {
-      hp: 68,
+  behavior: {
+    aggression: 2,
+    courage: 6,
+  },
+  tactics: ["charge"],
+  stats: {
+    hp: 68,
     ac: 15,
     atk: 14,
     dmg: "1d8 radiant / horn",
-    s,
-peed: "50 ft"},
+    speed: "50 ft",
+  },
   loot: ["unicorn-horn", "forest-horn-shard"],
-  a,
-bilities: ["Healing Touch", "Teleport", "Magic Assistance"]},
+  abilities: ["Healing Touch", "Teleport", "Magic Assistance"],
+},
 
 /* ------------------------------------------------------------ */
 /* MANTICORE — CR 3                                             */
@@ -86,38 +67,28 @@ bilities: ["Healing Touch", "Teleport", "Magic Assistance"]},
 {
   id: "manticore",
   name: "Manticore",
-  c,
-r: 3,
+  cr: 3,
   biomes: ["desert", "badlands", "ruins"],
-  h,
-abitat: ["scorpion-crags", "ancient-steppes"],
+  habitat: ["scorpion-crags", "ancient-steppes"],
   category: "magical-beast",
-  r,
-ole: "striker",
-  f,
-actions: ["red-knives"],
+  role: "striker",
+  factions: ["red-knives"],
   tags: ["spikes", "flying"],
-  b,
-ehavior: {
-    a,
-ggression: 5,
-    c,
-ourage: 3},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["spike-volley"],
-s,
-tats: {
-      hp: 56,
+  behavior: {
+    aggression: 5,
+    courage: 3,
+  },
+  tactics: ["spike-volley"],
+  stats: {
+    hp: 56,
     ac: 14,
     atk: 14,
     dmg: "1d8 / spike-volley (1d8+3)",
-    s,
-peed: "40 ft, fly 50 ft"},
+    speed: "40 ft, fly 50 ft",
+  },
   loot: ["manticore-spike", "manticore-hide"],
-  a,
-bilities: ["Spike Volley", "Lion's Fury"]},
+  abilities: ["Spike Volley", "Lion's Fury"],
+},
 
 /* ------------------------------------------------------------ */
 /* BASILISK — CR 6                                              */
@@ -125,38 +96,28 @@ bilities: ["Spike Volley", "Lion's Fury"]},
 {
   id: "basilisk",
   name: "Basilisk",
-  c,
-r: 6,
+  cr: 6,
   biomes: ["cavern", "underdark", "swamp"],
-  h,
-abitat: ["deep-stone", "fungal-deeps"],
+  habitat: ["deep-stone", "fungal-deeps"],
   category: "magical-beast",
-  r,
-ole: "controller",
-  f,
-actions: ["void-cult"],
+  role: "controller",
+  factions: ["void-cult"],
   tags: ["petrify"],
-  b,
-ehavior: {
-    a,
-ggression: 5,
-    c,
-ourage: 4},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["petrifying-gaze"],
-s,
-tats: {
-      hp: 85,
+  behavior: {
+    aggression: 5,
+    courage: 4,
+  },
+  tactics: ["petrifying-gaze"],
+  stats: {
+    hp: 85,
     ac: 15,
     atk: 15,
     dmg: "1d10 + 4",
-    s,
-peed: "30 ft"},
+    speed: "30 ft",
+  },
   loot: ["basilisk-eye", "stone-scale"],
-  a,
-bilities: ["Petrifying Gaze"]},
+  abilities: ["Petrifying Gaze"],
+},
 
 /* ------------------------------------------------------------ */
 /* CHIMERA — CR 6                                               */
@@ -164,37 +125,29 @@ bilities: ["Petrifying Gaze"]},
 {
   id: "chimera",
   name: "Chimera",
-  c,
-r: 6,
+  cr: 6,
   biomes: ["mountains", "ruins"],
-  h,
-abitat: ["dragon-ridges", "volcanic-ledges"],
+  habitat: ["dragon-ridges", "volcanic-ledges"],
   category: "magical-beast",
-  r,
-ole: "predator",
-  f,
-actions: ["wildwood-tribes"],
+  role: "predator",
+  factions: ["wildwood-tribes"],
   tags: ["multi-head", "fire"],
-  b,
-ehavior: {
-    a,
-ggression: 6,
-    c,
-ourage: 5},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["bite-claw-maul"],
-s,
-tats: {
-      hp: 114,
+  behavior: {
+    aggression: 6,
+    courage: 5,
+  },
+  tactics: ["bite-claw-maul"],
+  stats: {
+    hp: 114,
     ac: 14,
     atk: 16,
     dmg: "1d10+4 / 2d6 / fire breath 20ft",
-    s,
-peed: "40 ft, fly 60 ft"},
+    speed: "40 ft, fly 60 ft",
+  },
   loot: ["lion-horn", "dragon-scale", "goat-horn"],
-  a,
-bilities: ["Fire Breath", "Multiattack"]}];
+  abilities: ["Fire Breath", "Multiattack"],
+},
+
+];
 
 export default MINIONS;

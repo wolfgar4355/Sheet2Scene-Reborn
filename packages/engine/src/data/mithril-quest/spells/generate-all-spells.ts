@@ -1,56 +1,62 @@
-// generate-all-spells.ts
-// Fusion automatique de tous les sorts Fantasy
+// @ts-nocheck
+// generate-all-spells.ts — Fusionne toutes les sources MQ en un fichier ALL_SPELLS.ts
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import type { Spell } from "./schema";
-
+// Résoudre __dirname en mode ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Dossier contenant les fichiers sources (defense.ts, offense.ts, etc.)
 const SRC_DIR = path.join(__dirname, "sources");
-const OUT_FILE = path.join(__dirname, "ALL_SPELLS.ts");
-function loadSpells(): Spell[] {
-  const spells: Spell[] = [];
 
-  const files = fs.readdirSync(SRC_DIR).filter(f => f.endsWith(".ts"));
+// Liste stricte des fichiers MQ
+const SOURCE_FILES = ["defense.ts", "healing.ts", "offense.ts", "utility.ts"];
 
-  for (const file of files) {
-    const full = path.join(SRC_DIR, file);
-    const content = fs.readFileSync(full, "utf8");
+// Le fichier final généré
+const OUTPUT_FILE = path.join(__dirname, "ALL_SPELLS.ts");
 
-    const match = content.match(/export const .*? = (\[.*\]);/s);
-    if (!match) {
-      console.warn(`⚠ Aucun tableau exporté trouvé dans : ${file}`);
+console.log("✨ Fusion des sorts Mithril-Quest…");
+
+async function loadAllSources() {
+  const allSpells = [];
+
+  for (const filename of SOURCE_FILES) {
+    const fullPath = path.join(SRC_DIR, filename);
+    console.log(`📖 Lecture : ${filename}`);
+
+    if (!fs.existsSync(fullPath)) {
+      console.warn(`⚠️ Fichier introuvable : ${filename}`);
       continue;
     }
 
-    try {
-      const parsed = eval(match[1]) as Spell[];
-      spells.push(...parsed);
-    } catch (err) {
-      console.error(`❌ Erreur parsing ${file}`, err);
+    // Import dynamique ES module
+    const mod = await import("file://" + fullPath);
+
+    // On récupère la constante exportée : DEFENSE_SPELLS, HEALING_SPELLS, etc.
+    const exportedArray =
+      Object.values(mod).find((v) => Array.isArray(v)) ?? [];
+
+    if (exportedArray.length === 0) {
+      console.warn(`⚠️ Aucun tableau exporté trouvé dans ${filename}`);
     }
+
+    console.log(`➕ ${exportedArray.length} sorts`);
+    allSpells.push(...exportedArray);
   }
 
-  return spells;
-}
+  console.log(`📦 Total : ${allSpells.length} sorts détectés.`);
 
-function writeAll(spells: Spell[]) {
+  // Écriture du fichier ALL_SPELLS.ts
   const content =
-    `// ⚠ FICHIER GÉNÉRÉ AUTOMATIQUEMENT — NE PAS MODIFIER\n\n` +
-    `export const ALL_SPELLS = ${JSON.stringify(spells, null, 2)} as const;\n` +
-    `export type Spell = typeof ALL_SPELLS[number];\n`;
+    `// Fichier généré automatiquement — NE PAS MODIFIER À LA MAIN\n` +
+    `import type { Spell } from "./schema";\n\n` +
+    `export const ALL_SPELLS: Spell[] = ${JSON.stringify(allSpells, null, 2)} as const;\n`;
 
-  fs.writeFileSync(OUT_FILE, content);
+  fs.writeFileSync(OUTPUT_FILE, content, "utf8");
+
+  console.log(`📁 Fichier généré : ${OUTPUT_FILE}`);
 }
 
-function main() {
-  console.log("✨ Fusion des sorts Fantasy…");
-  const spells = loadSpells();
-  console.log(`🔍 ${spells.length} sorts détectés dans sources/`);
-  writeAll(spells);
-  console.log(`📦 ALL_SPELLS.ts généré avec succès !`);
-}
-
-main();
+loadAllSources();

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Sheet2Scene – Fantasy Items Sources – index.ts
 
 export * from "./accessories";

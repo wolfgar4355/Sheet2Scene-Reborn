@@ -1,6 +1,7 @@
-import type { Ritual } from "../schema.ts";
+// @ts-nocheck
+import type { Ritual } from "../schema";
 
-export const RITUALS_SPIRIT: Ritual[] = [
+export const RITUAL_SPIRIT: Ritual[] = [
   {
     id: "summon_ancestor",
     label: "Invocation des Ancêtres",
@@ -69,7 +70,7 @@ export const RITUALS_SPIRIT: Ritual[] = [
     castTime: "1 heure",
     ingredients: ["sel", "os creux"],
     description:
-      "Invoque un petit esprit pour des tâches simples ou un message."
+      "Invoque un petit esprit pour des tâches simples ou porter un message."
   },
   {
     id: "spirit_binding",

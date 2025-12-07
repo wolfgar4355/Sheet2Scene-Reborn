@@ -1,2 +1,6 @@
-// apps/web/lib/mithril/ambient.ts
-export * from "../../../../packages/engine/src/mithril/ambient";
+// src/utils/ambient.ts
+// -----------------------------------------------------
+// Re-export propre et centralisé pour l'ambient Mithril
+// -----------------------------------------------------
+
+export * from "../../../packages/engine/src/mithril/ambient";

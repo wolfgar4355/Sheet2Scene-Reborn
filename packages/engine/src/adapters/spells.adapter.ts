@@ -1,4 +1,4 @@
-// spells.adapter.ts
+// src/adapters/spells.adapter.ts
 import fs from "fs";
 import path from "path";
 
@@ -19,13 +19,11 @@ const SPELLS_DIR = path.join(
 
 function loadSpellFile(filePath: string): Spell[] {
   const data = require(filePath);
-  // Chaque fichier exporte par défaut un tableau ou un objet => on normalise
   return Array.isArray(data) ? data : Object.values(data);
 }
 
 export function getAllSpells(): Spell[] {
   const spells: Spell[] = [];
-
   const files = fs.readdirSync(SPELLS_DIR);
 
   for (const file of files) {

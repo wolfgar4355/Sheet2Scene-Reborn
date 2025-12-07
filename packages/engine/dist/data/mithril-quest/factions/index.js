@@ -1,3 +1,4 @@
+// src/data/mithril-quest/factions/index.ts
 export const FACTIONS = {
     draconic: "Dragons, drakéides et cultistes draconiques",
     frostborn: "Tribus glacées, morts gelés, bêtes nordiques",

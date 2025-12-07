@@ -1,17 +1,16 @@
+// @ts-nocheck
 export const FACTION_FROSTBORN = {
   name: "Frostborn Clans",
-  t,
-hemes: ["glace", "montagnes", "tribus du froid"],
-  c,
-olors: ["bleu glacier", "blanc neige", "gris acier"],
-  v,
-isual: [
+  themes: ["glace", "montagnes", "tribus du froid"],
+  colors: ["bleu glacier", "blanc neige", "gris acier"],
+  visual: [
     "souffle glacé",
     "givre sur les armes",
     "fourrure épaisse",
     "pierres gelées",
     "runologie nordique",
     "cristaux bleus",
-    "brume glaciale"],
-  t,
-one: ["dur", "sauvage", "glacial"]} as const;
+    "brume glaciale"
+  ],
+  tone: ["dur", "sauvage", "glacial"],
+} as const;

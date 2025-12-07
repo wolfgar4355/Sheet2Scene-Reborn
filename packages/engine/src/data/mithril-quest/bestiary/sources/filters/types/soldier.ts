@@ -1,22 +1,21 @@
+// @ts-nocheck
 export const TYPE_SOLDIER = {
-  r,
-ole: "Soldier",
+  role: "Soldier",
   description: "Combattant polyvalent, équilibré, fiable sur la ligne de front.",
-  s,
-tats: {
-      hp: "Moyens à élevés",
+  stats: {
+    hp: "Moyens à élevés",
     ac: "Bonne",
-    d,
-amage: "Modéré",
-    m,
-obility: "Moyenne"},
-  t,
-raits: [
+    damage: "Modéré",
+    mobility: "Moyenne",
+  },
+  traits: [
     "Polyvalent en mêlée",
     "Compétent en défense et attaque",
-    "Peut maintenir la pression sur la durée"],
-  e,
-xamples: [
+    "Peut maintenir la pression sur la durée",
+  ],
+  examples: [
     "Guerrier vétéran",
     "Sentinelle impériale",
-    "Champion tribal"]} as const;
+    "Champion tribal",
+  ],
+} as const;

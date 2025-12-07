@@ -1,0 +1,411 @@
+{
+  "artisan": [
+    {
+      "key": "smith_tools",
+      "style": "iron tools, forge ambiance, embers glow",
+      "prompt": "\nOutils de Forgeron MQ.\nMarteaux, tenailles et limes posés sur une enclume.\nLueurs de braises, acier chauffé, ambiance atelier médiéval."
+    },
+    {
+      "key": "carpenter_tools",
+      "style": "wood tools, shavings, rustic workbench",
+      "prompt": "\nOutils de Charpentier MQ.\nBois sculpté, copeaux, équerres et maillet.\nAmbiance artisan rustique, lumière douce."
+    },
+    {
+      "key": "alchemist_supplies",
+      "style": "glass vials, bubbling liquids, mystical smoke",
+      "prompt": "\nFournitures d’Alchimiste MQ.\nFioles, huiles, poudres colorées, fumée mystique.\nAmbiance laboratoire ancien, lueurs vertes et violettes."
+    },
+    {
+      "key": "leatherworker_tools",
+      "style": "leather scraps, metal punches, rustic kit",
+      "prompt": "\nOutils de Tanneur MQ.\nCuir brut, outils de découpe, aiguilles métalliques.\nAmbiance artisan détaillée, textures naturelles."
+    }
+  ],
+  "instruments": [
+    {
+      "key": "flute",
+      "style": "carved wood flute, delicate craftsmanship, soft bardic glow",
+      "prompt": "\nFlûte MQ en bois taillé.\nTon clair, ambiance bardique douce.\nLégers reflets dorés, décorations gravées."
+    },
+    {
+      "key": "lute",
+      "style": "polished wood, carved patterns, warm strings resonance",
+      "prompt": "\nLuth MQ de qualité.\nBois poli, cordes fines, arabesques sculptées.\nAmbiance musicale de barde, éclat chaleureux."
+    },
+    {
+      "key": "tribal_drum",
+      "style": "raw hide drum, tribal symbols, ritual energy",
+      "prompt": "\nTambour Tribal MQ.\nPeaux tendues, motifs rituels anciens.\nVibration mystique, ambiance cérémonie primitive."
+    },
+    {
+      "key": "storm_horn",
+      "style": "carved bone horn, crackling sparks, thunder motifs",
+      "prompt": "\nCor de Tempête MQ.\nCornes sculptées, runes électriques, étincelles bleutées.\nAmbiance orage mystique, souffle puissant."
+    },
+    {
+      "key": "moon_harp",
+      "style": "slender silver harp, moonlight glow, ethereal resonance",
+      "prompt": "\nHarpe Lunaire MQ.\nStructure argentée, cordes lumineuses.\nReflets lunaires, ambiance mystique et paisible."
+    },
+    {
+      "key": "ember_violin",
+      "style": "burning ember wood, faint smoke trails, fiery carvings",
+      "prompt": "\nViolon de Braise MQ.\nBois rouge ardent, traces de fumée légère.\nGravures enflammées, ambiance vivant-feu."
+    },
+    {
+      "key": "void_ocarin",
+      "style": "obsidian ocarina, void-carved holes, purple distortion glow",
+      "prompt": "\nOcarina du Vide MQ.\nObsidienne lisse, énergie violette tourbillonnante.\nAmbiance néant, sons irréels et distordus."
+    }
+  ],
+  "criminal": [
+    {
+      "key": "thieves_tools",
+      "style": "slim metallic picks, dark leather roll, stealth craftsmanship",
+      "prompt": "\nOutils de Voleur MQ.\nCrochets fins, étuis en cuir noir, précision chirurgicale.\nAmbiance infiltration, ombres, silence maîtrisé."
+    },
+    {
+      "key": "poison_kit",
+      "style": "small alchemy box, vials, herbs, toxic aura",
+      "prompt": "\nKit à Poisons MQ.\nFioles serrées, poudres sombres, plantes toxiques.\nAmbiance clandestine, lueur verte inquiétante."
+    },
+    {
+      "key": "shadow_cloakkit",
+      "style": "dark fabric tools, forged in shadows, mimicry patterns",
+      "prompt": "\nKit de Dissimulation Nocturne MQ.\nTissus noirs, faux-papiers, accessoires d'espion discret.\nAmbiance ombre profonde, opérations secrètes."
+    },
+    {
+      "key": "silent_glasscutter",
+      "style": "diamond-tip ring blade, noise-dampening aura, sleek design",
+      "prompt": "\nCoupe-verre Silencieux MQ.\nAnneau à pointe diamant, coupe sans bruit.\nAmbiance cambriolage expert, précision fantôme."
+    },
+    {
+      "key": "lockbreaker_brace",
+      "style": "mechanical wrist device, rotating pins, arcane micro-gears",
+      "prompt": "\nBracelet Brise-Serrures MQ.\nMécanisme poignet à micro-engrenages arcanotech.\nOuvre serrures complexes avec vibrations calibrées."
+    },
+    {
+      "key": "shadow_inkset",
+      "style": "black liquid ink, forgery symbols, spectral shimmer",
+      "prompt": "\nEncrier d’Ombre MQ.\nEncre noire à reflets spectraux, usage pour faux documents.\nAmbiance faussaire expert, illusions légères intégrées."
+    },
+    {
+      "key": "smoke_coin",
+      "style": "engraved metal coin, hidden vents, instant dark smoke",
+      "prompt": "\nPièce-Fumée MQ.\nJeton métallique gravé, libère un nuage sombre instantané.\nAmbiance fuite rapide, confusion criminelle maîtrisée."
+    },
+    {
+      "key": "wire_silentgarrote",
+      "style": "thin spectral wire, reinforced handles, deadly precision",
+      "prompt": "\nFil-Garrot Silencieux MQ.\nFil spectral ultra-fin, poignées renforcées.\nAmbiance assassin MQ, arme discrète et silencieuse."
+    }
+  ],
+  "survival": [
+    {
+      "key": "traveler_pack",
+      "style": "worn leather straps, rolled blanket, travel-worn textures",
+      "prompt": "\nPack du Voyageur MQ.\nSac de toile usée, couverture roulée, équipement minimaliste.\nAmbiance explorateur pratique, teintes terreuses."
+    },
+    {
+      "key": "flint_kit",
+      "style": "stone+steel sparks, rustic textures, survival tone",
+      "prompt": "\nTrousse à Silex MQ.\nPierre à feu, grattoir métallique, étincelles réalistes.\nAmbiance bivouac, ton utilitaire."
+    },
+    {
+      "key": "wooden_compass",
+      "style": "simple carved wood, brass needle, humble craftsmanship",
+      "prompt": "\nBoussole de Bois MQ.\nBois sculpté, aiguille en laiton, look rustique.\nAmbiance éclaireur débutant."
+    },
+    {
+      "key": "waterskin",
+      "style": "leather pouch, tied rope, natural hydration gear",
+      "prompt": "\nGourde en Cuir MQ.\nPeau cousue, corde de transport, rendu réaliste.\nAmbiance survie basique en forêt."
+    },
+    {
+      "key": "rope_kit",
+      "style": "coiled hemp rope, knots, adventurer-ready",
+      "prompt": "\nCorde d’Aventure MQ.\nFibre de chanvre, texture robuste, nœuds utilitaires.\nAmbiance escalade légère."
+    },
+    {
+      "key": "torch_bundle",
+      "style": "wrapped cloth, resin-soaked tips, warm glow",
+      "prompt": "\nFaisceau de Torches MQ.\nBâtons résineux, flammes chaudes, ambiance exploration de ruines."
+    },
+    {
+      "key": "basic_pickaxe",
+      "style": "wood handle, chipped metal head, miner look",
+      "prompt": "\nPioche Simple MQ.\nAcier usé, manche en bois, outil modeste mais fiable.\nAmbiance fouilles légères."
+    },
+    {
+      "key": "portable_pan",
+      "style": "iron pan, soot marks, rugged survival gear",
+      "prompt": "\nPoêle de Camp MQ.\nFer noirci, traces de suie, cuisine rustique d’aventurier."
+    },
+    {
+      "key": "cloth_tent",
+      "style": "rough fabric, simple poles, utilitarian shadow",
+      "prompt": "\nTente en Tissu MQ.\nToile grossière, piquets simples, ambiance campement modeste."
+    },
+    {
+      "key": "foraging_pouch",
+      "style": "brown leather, small herb icons, practical design",
+      "prompt": "\nSac de Cueillette MQ.\nPetite bourse pour plantes, style herboriste amateur.\nAmbiance forêt paisible."
+    },
+    {
+      "key": "windfinder_compass",
+      "style": "metal+crystal needle, faint blue glow, arcane navigation",
+      "prompt": "\nBoussole Trouve-Vent MQ.\nAiguille cristalline, halo bleu, navigation magique.\nAmbiance explorateur légendaire."
+    },
+    {
+      "key": "echo_locator",
+      "style": "rune-carved stone circle, spectral sound lines",
+      "prompt": "\nLocaliseur d'Écho MQ.\nPierre runique qui révèle reliefs et cavernes par vibration.\nAmbiance exploration profonde et mystique."
+    },
+    {
+      "key": "stormcloak_cape",
+      "style": "weatherproof enchanted fabric, storm motifs",
+      "prompt": "\nCape Tempête MQ.\nTissu enchanté résistant au froid, pluie et vents violents.\nAmbiance survivaliste élite."
+    },
+    {
+      "key": "nightwatch_lantern",
+      "style": "iron lantern, blue flame, shadow-sensitive glow",
+      "prompt": "\nLanterne Veille-Nuit MQ.\nFlamme bleue détectant mouvements dans l’obscurité.\nAmbiance exploration dangereuse."
+    },
+    {
+      "key": "earthsense_boots",
+      "style": "reinforced leather, runic soles, vibration detection",
+      "prompt": "\nBottes Sens-Terre MQ.\nSemelles runiques, ressent vibrations du sol.\nAmbiance pisteur expert du MQ."
+    }
+  ],
+  "magic": [
+    {
+      "key": "spark_quill",
+      "style": "violet arcane ink, shimmering runes, floating quill",
+      "prompt": "\nPlume d’Étincelle MQ.\nÉcriture magique légère, traînée violette lumineuse.\nAmbiance étudiant arcaniste."
+    },
+    {
+      "key": "minor_focus",
+      "style": "tiny crystal orb, faint glow, simple conduit",
+      "prompt": "\nPetit Focaliseur MQ.\nCristal simple, énergie magique légère.\nIdéal pour novices."
+    },
+    {
+      "key": "hermetic_vials",
+      "style": "glass vials, glowing liquids, gentle luminescence",
+      "prompt": "\nFioles Hermétiques MQ.\nLiquides mystiques faiblement lumineux.\nAmbiance alchimie douce."
+    },
+    {
+      "key": "arcane_chalk",
+      "style": "blue glowing dust, hand-drawn glyphs",
+      "prompt": "\nCraie Arcanique MQ.\nMarques lumineuses, runes rapides.\nAmbiance rituel débutant."
+    },
+    {
+      "key": "mana_reader",
+      "style": "small device, rotating needle, arcane sensor",
+      "prompt": "\nLecteur de Mana MQ.\nPetit appareil détectant les flux magiques.\nAmbiance atelier de mage."
+    },
+    {
+      "key": "ritual_candle",
+      "style": "soft golden flame, dripped wax, shimmering aura",
+      "prompt": "\nBougie de Rituel MQ.\nFlamme dorée stable, ambiance calme.\nUsage pour petits rituels."
+    },
+    {
+      "key": "focus_bracelet",
+      "style": "engraved wood, weak runic glow",
+      "prompt": "\nBracelet Focaliseur MQ.\nRunes légères, aide à la concentration.\nAmbiance méditation arcanique."
+    },
+    {
+      "key": "scroll_case",
+      "style": "simple leather tube, brass cap, parchment aura",
+      "prompt": "\nÉtui à Parchemins MQ.\nCuir vieilli, aura subtile.\nAmbiance érudit."
+    },
+    {
+      "key": "runic_mirror",
+      "style": "fogged glass, faint sigils, soft glow",
+      "prompt": "\nMiroir Runique MQ.\nVerre enchanté reflétant traces magiques.\nAmbiance détective arcanique."
+    },
+    {
+      "key": "ember_crystal",
+      "style": "tiny ember core, orange glow, cracked surface",
+      "prompt": "\nCristal-Braise MQ.\nSource de chaleur magique modérée.\nAmbiance survie mystique."
+    },
+    {
+      "key": "astral_lens",
+      "style": "floating lens, silver glow, star-threaded aura",
+      "prompt": "\nLentille Astrale MQ.\nVoit flux stellaires, étoiles invisibles.\nAmbiance magie cosmique."
+    },
+    {
+      "key": "soul_vessel",
+      "style": "glass orb, inner mist swirl, whispering aura",
+      "prompt": "\nVase d’Âme MQ.\nOrbe contenant fragments d’essence spirituelle.\nAmbiance chaman avancé."
+    },
+    {
+      "key": "eldritch_chimes",
+      "style": "metal rings, eerie resonance, void echoes",
+      "prompt": "\nCarillons Étranges MQ.\nRésonance magique détectant anomalies.\nAmbiance sorcier de haut niveau."
+    },
+    {
+      "key": "arcane_tether",
+      "style": "chain of runes, ethereal string, faint tethering glow",
+      "prompt": "\nLien Arcanique MQ.\nChaine runique attachant objets ou esprits.\nAmbiance rituel complexe."
+    },
+    {
+      "key": "ethereal_lantern",
+      "style": "ghostly flame, floating cage, spectral lighting",
+      "prompt": "\nLanterne Éthérée MQ.\nÉclaire zones d’énergie magique cachée.\nAmbiance exploration occulte."
+    }
+  ],
+  "tech": [
+    {
+      "key": "gnome_screwkit",
+      "style": "tiny gears, brass screws, compact toolkit",
+      "prompt": "\nMini-Trousse Gnome MQ.\nPetits outils en laiton, engrenages simples.\nAmbiance bricoleur débutant."
+    },
+    {
+      "key": "spark_gloves",
+      "style": "leather gloves, weak electric sparks",
+      "prompt": "\nGants Étincelle MQ.\nDécharge légère, outils de maintenance magique."
+    },
+    {
+      "key": "coil_meter",
+      "style": "brass dial, rotating needle, mana reading indicator",
+      "prompt": "\nMesure-Bobine MQ.\nOutil de diagnostic mécanique-magique."
+    },
+    {
+      "key": "charge_capsule",
+      "style": "glass tube, faint electric glow, stored energy",
+      "prompt": "\nCapsule de Charge MQ.\nStocke petite quantité d’énergie."
+    },
+    {
+      "key": "iron_spanner",
+      "style": "reinforced wrench, solid design",
+      "prompt": "\nClé de Serrage Gnome MQ.\nOutil basique pour machines artisanales."
+    },
+    {
+      "key": "steam_nozzle",
+      "style": "pipe piece, warm vapor effect",
+      "prompt": "\nBuse Vapeur MQ.\nUtilisée pour aiguiser et nettoyer composants."
+    },
+    {
+      "key": "gnome_blueprint",
+      "style": "rolled parchment, ink diagrams, simple schematics",
+      "prompt": "\nPlan Gnome MQ.\nSchémas mécaniques simples."
+    },
+    {
+      "key": "weld_rod",
+      "style": "metal rod, ember tip, low-power arc",
+      "prompt": "\nTige de Soudure MQ.\nArc faible mais utile pour petites réparations."
+    },
+    {
+      "key": "gear_brace",
+      "style": "brace with gears, adjustable locks",
+      "prompt": "\nOrthèse d’Engrenage MQ.\nPour stabiliser machines endommagées."
+    },
+    {
+      "key": "tuning_key",
+      "style": "precision dial key, soft resonance",
+      "prompt": "\nClé d’Ajustement MQ.\nSynchronise dispositifs mécaniques mineurs."
+    },
+    {
+      "key": "chrono_compass",
+      "style": "time-spin dial, shimmering rings",
+      "prompt": "\nChrono-Boussole MQ.\nCapable de lire micro-distorsions temporelles."
+    },
+    {
+      "key": "mana_converter",
+      "style": "copper coils, blue core, tiny energy arcs",
+      "prompt": "\nConvertisseur de Mana MQ.\nTransforme énergie brute en énergie stable."
+    },
+    {
+      "key": "gnome_autolathe",
+      "style": "mini rotating device, enchanted tools",
+      "prompt": "\nAuto-Tour Gnome MQ.\nFaçonne petites pièces automatiquement."
+    },
+    {
+      "key": "quantum_spanner",
+      "style": "shifting metal, multi-phase edges",
+      "prompt": "\nClé Quantique MQ.\nOutil rare modifiant forme selon besoin."
+    },
+    {
+      "key": "void_resonator",
+      "style": "oscillating rings, deep hum, void vibration",
+      "prompt": "\nRésonateur du Néant MQ.\nAnalyse anomalies énergétiques de haute intensité."
+    }
+  ],
+  "relics": [
+    {
+      "key": "blessed_talisman",
+      "style": "small wooden charm, faint holy glow",
+      "prompt": "\nTalisman Béni MQ.\nBénédiction légère, aura apaisante."
+    },
+    {
+      "key": "old_incense_box",
+      "style": "wood box, aromatic smoke",
+      "prompt": "\nBoîte d’Encens Ancien MQ.\nUtilisé dans rites mineurs."
+    },
+    {
+      "key": "pilgrim_cape",
+      "style": "cloth cloak, travel stains, simple symbols",
+      "prompt": "\nCape de Pèlerin MQ.\nAmbiance religieux modeste."
+    },
+    {
+      "key": "faith_token",
+      "style": "small metal coin, etched prayer",
+      "prompt": "\nJeton de Foi MQ.\nSymbole de protection basique."
+    },
+    {
+      "key": "holy_ribbon",
+      "style": "white cloth strip, delicate embroidery",
+      "prompt": "\nRuban Sacré MQ.\nUtilisé dans bénédictions simples."
+    },
+    {
+      "key": "ritual_sand",
+      "style": "small pouch, golden grains",
+      "prompt": "\nSable Rituel MQ.\nTrace cercles et symboles de faible puissance."
+    },
+    {
+      "key": "penance_stone",
+      "style": "smooth stone, minor glow",
+      "prompt": "\nPierre de Pénitence MQ.\nAbsorbe émotions négatives faibles."
+    },
+    {
+      "key": "blessing_vial",
+      "style": "glass vial, bright golden liquid",
+      "prompt": "\nFiole de Bénédiction MQ.\nUtilisée dans rites quotidiens."
+    },
+    {
+      "key": "guardian_charm",
+      "style": "iron icon, minor ward effect",
+      "prompt": "\nCharme Gardien MQ.\nProtection légère contre mauvais présages."
+    },
+    {
+      "key": "ancestral_cord",
+      "style": "woven strand, old symbols",
+      "prompt": "\nCorde Ancestrale MQ.\nReliée aux traditions anciennes."
+    },
+    {
+      "key": "aetherian_icon",
+      "style": "floating icon, swirling holy aura",
+      "prompt": "\nIcône Aéthérienne MQ.\nArtefact sacré rayonnant une puissance subtile."
+    },
+    {
+      "key": "saint_crystal",
+      "style": "prismatic shard, divine resonance",
+      "prompt": "\nCristal Saint MQ.\nConcentré d’énergie sacrée rare."
+    },
+    {
+      "key": "eternal_incense",
+      "style": "ever-burning incense, infinite smoke",
+      "prompt": "\nEncens Éternel MQ.\nBrûle sans fin, utilisé dans grands temples."
+    },
+    {
+      "key": "celestial_relic",
+      "style": "metallic plate, star-forged patterns",
+      "prompt": "\nRelique Céleste MQ.\nArtefact forgé selon cycles stellaires."
+    },
+    {
+      "key": "void_relic",
+      "style": "dark orb, no reflection, void aura",
+      "prompt": "\nRelique du Vide MQ.\nObjet sacré… ou maudit. Énergie nulle absolue."
+    }
+  ]
+}

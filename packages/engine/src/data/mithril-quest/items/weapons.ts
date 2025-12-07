@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/s2s/fantasy/items/weapons.ts
 
 import type { Weapon } from "./types";

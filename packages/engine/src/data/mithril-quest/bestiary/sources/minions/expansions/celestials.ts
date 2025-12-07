@@ -1,4 +1,5 @@
-import { Minion } from "@s2s/fantasy/types";
+// @ts-nocheck
+import { Minion } from "./types";
 
 export const MINIONS: Minion[] = [
 
@@ -8,38 +9,28 @@ export const MINIONS: Minion[] = [
 {
   id: "lantern-cherub",
   name: "Lantern Cherub",
-  c,
-r: 1,
+  cr: 1,
   biomes: ["temple", "holy-grounds", "mountain"],
-  h,
-abitat: ["celestial-garden", "sanctuaries"],
+  habitat: ["celestial-garden", "sanctuaries"],
   category: "celestial",
-  r,
-ole: "support",
-  f,
-actions: ["radiant-host"],
+  role: "support",
+  factions: ["radiant-host"],
   tags: ["light", "healing", "hover"],
-  b,
-ehavior: {
-    a,
-ggression: 1,
-    c,
-ourage: 6},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["beam-light-and-aid-ally"],
-s,
-tats: {
-      hp: 18,
+  behavior: {
+    aggression: 1,
+    courage: 6,
+  },
+  tactics: ["beam-light-and-aid-ally"],
+  stats: {
+    hp: 18,
     ac: 14,
     atk: 10,
     dmg: "1d4 radiant",
-    s,
-peed: "10 ft (hover)"},
+    speed: "10 ft (hover)",
+  },
   loot: ["radiant-spark"],
-  a,
-bilities: ["Holy Glow", "Minor Heal", "Soothing Hymn"]},
+  abilities: ["Holy Glow", "Minor Heal", "Soothing Hymn"],
+},
 
 /* ------------------------------------------------------------ */
 /* ANVIL SENTINEL — CR 3                                        */
@@ -47,38 +38,28 @@ bilities: ["Holy Glow", "Minor Heal", "Soothing Hymn"]},
 {
   id: "anvil-sentinel",
   name: "Anvil Sentinel",
-  c,
-r: 3,
+  cr: 3,
   biomes: ["temple", "mountains", "ruins"],
-  h,
-abitat: ["celestial-forge", "radiant-stronghold"],
+  habitat: ["celestial-forge", "radiant-stronghold"],
   category: "celestial",
-  r,
-ole: "guardian",
-  f,
-actions: ["forgeborn-order"],
+  role: "guardian",
+  factions: ["forgeborn-order"],
   tags: ["armor", "radiant"],
-  b,
-ehavior: {
-    a,
-ggression: 3,
-    c,
-ourage: 8},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["stand-still-and-pierce-on-12"],
-s,
-tats: {
-      hp: 55,
+  behavior: {
+    aggression: 3,
+    courage: 8,
+  },
+  tactics: ["stand-still-and-pierce-on-12"],
+  stats: {
+    hp: 55,
     ac: 18,
     atk: 14,
     dmg: "1d8+3 radiant",
-    s,
-peed: "25 ft"},
+    speed: "25 ft",
+  },
   loot: ["radiant-ingot"],
-  a,
-bilities: ["Radiant Smite", "Divine Ward"]},
+  abilities: ["Radiant Smite", "Divine Ward"],
+},
 
 /* ------------------------------------------------------------ */
 /* VALKYRIAN RIDER — CR 5                                       */
@@ -86,38 +67,28 @@ bilities: ["Radiant Smite", "Divine Ward"]},
 {
   id: "valkyrian-rider",
   name: "Valkyrian Rider",
-  c,
-r: 5,
+  cr: 5,
   biomes: ["mountains", "holy-grounds", "battlefields"],
-  h,
-abitat: ["storm-peak", "temple-chariot"],
+  habitat: ["storm-peak", "temple-chariot"],
   category: "celestial",
-  r,
-ole: "striker",
-  f,
-actions: ["skyward-legion"],
+  role: "striker",
+  factions: ["skyward-legion"],
   tags: ["flying", "lance", "radiant"],
-  b,
-ehavior: {
-    a,
-ggression: 5,
-    c,
-ourage: 9},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["dive-charge-from-above"],
-s,
-tats: {
-      hp: 78,
+  behavior: {
+    aggression: 5,
+    courage: 9,
+  },
+  tactics: ["dive-charge-from-above"],
+  stats: {
+    hp: 78,
     ac: 17,
     atk: 18,
     dmg: "2d8+3 radiant (lance)",
-    s,
-peed: "40 ft, fly 80 ft"},
+    speed: "40 ft, fly 80 ft",
+  },
   loot: ["valkyrian-feather"],
-  a,
-bilities: ["Sky Charge", "Radiant Lance", "Wing Buffet"]},
+  abilities: ["Sky Charge", "Radiant Lance", "Wing Buffet"],
+},
 
 /* ------------------------------------------------------------ */
 /* LIGHTFORGED GOLEM — CR 7                                     */
@@ -125,38 +96,28 @@ bilities: ["Sky Charge", "Radiant Lance", "Wing Buffet"]},
 {
   id: "lightforged-golem",
   name: "Lightforged Golem",
-  c,
-r: 7,
+  cr: 7,
   biomes: ["temple", "ruins", "holy-grounds"],
-  h,
-abitat: ["titan-chamber"],
+  habitat: ["titan-chamber"],
   category: "celestial",
-  r,
-ole: "defender",
-  f,
-actions: ["forgeborn-order", "construct"],
+  role: "defender",
+  factions: ["forgeborn-order", "construct"],
   tags: ["radiant", "tank"],
-  b,
-ehavior: {
-    a,
-ggression: 3,
-    c,
-ourage: 10},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["frontline-then-radiant-burst"],
-s,
-tats: {
-      hp: 110,
+  behavior: {
+    aggression: 3,
+    courage: 10,
+  },
+  tactics: ["frontline-then-radiant-burst"],
+  stats: {
+    hp: 110,
     ac: 19,
     atk: 16,
     dmg: "2d10+4 radiant",
-    s,
-peed: "30 ft"},
+    speed: "30 ft",
+  },
   loot: ["light-core"],
-  a,
-bilities: ["Radiant Pulse", "Aegis Shield", "Unbreakable Frame"]},
+  abilities: ["Radiant Pulse", "Aegis Shield", "Unbreakable Frame"],
+},
 
 /* ------------------------------------------------------------ */
 /* SERAPHIC CHAMPION — CR 10 (ELITE/BOSS)                       */
@@ -164,41 +125,34 @@ bilities: ["Radiant Pulse", "Aegis Shield", "Unbreakable Frame"]},
 {
   id: "seraphic-champion",
   name: "Seraphic Champion",
-  c,
-r: 10,
+  cr: 10,
   biomes: ["holy-grounds", "temples", "sun-peak"],
-  h,
-abitat: ["radiant-spire", "flame-wings"],
+  habitat: ["radiant-spire", "flame-wings"],
   category: "celestial",
-  r,
-ole: "elite-warrior",
-  f,
-actions: ["radiant-host", "flame-legion"],
+  role: "elite-warrior",
+  factions: ["radiant-host", "flame-legion"],
   tags: ["flying", "radiant", "holy-strike"],
-  b,
-ehavior: {
-    a,
-ggression: 7,
-    c,
-ourage: 10},
-  t,
-actics: { prefersAmbush: true }, // NOTE: anciennement 
-t,
-actics: ["smite-evil-with-powered-strike"],
-s,
-tats: {
-      hp: 145,
+  behavior: {
+    aggression: 7,
+    courage: 10,
+  },
+  tactics: ["smite-evil-with-powered-strike"],
+  stats: {
+    hp: 145,
     ac: 20,
     atk: 22,
     dmg: "2d10+6 radiant",
-    s,
-peed: "40 ft, fly 80 ft"},
+    speed: "40 ft, fly 80 ft",
+  },
   loot: ["seraphic-feather", "flame-sigil"],
-  a,
-bilities: [
+  abilities: [
     "Holy Smite",
     "Divine Wings",
     "Blinding Flare",
-    "Aura of Courage"]}];
+    "Aura of Courage",
+  ],
+},
+
+];
 
 export default MINIONS;

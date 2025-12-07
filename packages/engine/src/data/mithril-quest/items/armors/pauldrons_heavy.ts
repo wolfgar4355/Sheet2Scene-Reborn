@@ -1,0 +1,308 @@
+// @ts-nocheck
+// MQ — Heavy Pauldrons (Épaulières Lourdes)
+
+import type { MQItemArmor } from "../types";
+
+export const MQ_ITEMS_ARMORS_PAULDRONS_HEAVY: MQItemArmor[] = [
+  // ───── 10 COMMUNS ─────
+  {
+    key: "iron-pauldrons",
+    label: "Épaulières en Fer",
+    description: "Plaques simples forgées en fer brut, offrant une protection correcte.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 2,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 120,
+      weight: 5,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "steel-plates",
+    label: "Épaulières d’Acier",
+    description: "Plaques renforcées en acier poli, utilisées par les soldats.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 3,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 180,
+      weight: 6,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "battleguard-plates",
+    label: "Épaulières de Batailleur",
+    description: "Équipement fiable conçu pour les longues batailles.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 3,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 210,
+      weight: 6,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "thick-iron",
+    label: "Épaulières Épaisses",
+    description: "Plaques surdimensionnées offrant une bonne protection.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 4,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 240,
+      weight: 7,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "reinforced-steel",
+    label: "Acier Renforcé",
+    description: "Acier doublé d’un renfort interne pour encaisser les impacts lourds.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 4,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 260,
+      weight: 7,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "soldier-pauldrons",
+    label: "Épaulières de Soldat",
+    description: "Équipement standard de l’infanterie lourde.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 3,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 190,
+      weight: 5,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "tower-plates",
+    label: "Plaques Tour",
+    description: "Épaulières à large surface, efficaces pour bloquer les coups verticaux.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 4,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 270,
+      weight: 8,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "ironclad-guards",
+    label: "Garde-Fer",
+    description: "Modèle très populaire chez les gardes de citadelles.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 3,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 200,
+      weight: 5,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "field-plates",
+    label: "Plaques de Terrain",
+    description: "Modèle pensé pour les longues campagnes militaires.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 4,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 230,
+      weight: 6,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  {
+    key: "warsteel-guards",
+    label: "Plaques de Guerre",
+    description: "Épaulières robustes conçues pour la mêlée directe.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 4,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "common",
+      value: 250,
+      weight: 7,
+      tags: ["armor", "heavy", "shoulders"],
+    },
+  },
+
+  // ───── 5 RARES ─────
+  {
+    key: "dragonbone-plates",
+    label: "Plaques d’Ossature Draconique",
+    description: "Forgées à partir d’os de dragon, elles protègent contre le feu.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 6,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "rare",
+      value: 1500,
+      weight: 6,
+      tags: ["armor", "heavy", "dragon", "shoulders"],
+    },
+  },
+
+  {
+    key: "rune-etched-pauldrons",
+    label: "Épaulières Runisées",
+    description: "Recouvertes de runes protectrices qui dispersent l’impact.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 5,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "rare",
+      value: 900,
+      weight: 6,
+      tags: ["armor", "heavy", "magic", "shoulders"],
+    },
+  },
+
+  {
+    key: "warden-bastion",
+    label: "Bastion du Gardien",
+    description: "Lourd symbole d’autorité, utilisé par les gardiens royaux.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 6,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "rare",
+      value: 1300,
+      weight: 7,
+      tags: ["armor", "heavy", "royal", "shoulders"],
+    },
+  },
+
+  {
+    key: "obsidian-shoulders",
+    label: "Épaulières d’Obsidienne",
+    description: "Matériau incroyablement rigide, presque incassable.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 6,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "rare",
+      value: 1600,
+      weight: 8,
+      tags: ["armor", "heavy", "obsidian", "shoulders"],
+    },
+  },
+
+  {
+    key: "celestial-bulwark",
+    label: "Rempart Céleste",
+    description: "Infusées de lumière, elles réduisent les dégâts sacrés et nécrotiques.",
+    type: "armor",
+    category: "shoulders",
+    subtype: "heavy",
+    rpg: {
+      armorClass: 7,
+      maxDexBonus: null,
+      penaltyStealth: true,
+    },
+    metadata: {
+      rarity: "rare",
+      value: 2000,
+      weight: 7,
+      tags: ["armor", "heavy", "celestial", "magic", "shoulders"],
+    },
+  },
+];
