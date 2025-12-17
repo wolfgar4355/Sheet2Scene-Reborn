@@ -1,68 +1,100 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+
 import GrimoireFrame from "@lib/mithril/GrimoireFrame";
 import TransitionLayer from "@lib/mithril/TransitionLayer";
-import SceneController from "@lib/mithril/SceneController";
 
 export default function Home() {
   const router = useRouter();
+  const [cinematic, setCinematic] = useState(false);
 
   function openBook() {
-    try { (navigator as any)?.vibrate?.(12); } catch {}
-    router.push("/create");
+    try { navigator.vibrate?.(15); } catch {}
+
+    // Début de l’effet cinématique
+    setCinematic(true);
+
+    // On laisse la caméra zoomer un peu AVANT d'aller à /create
+    setTimeout(() => {
+      router.push("/create");
+    }, 850); // timing calibré pour un effet impressionnant
   }
 
   return (
     <main className="relative min-h-[100svh] overflow-hidden">
-      {/* Fond study en arrière-plan (parallaxe légère via .bg-hall) */}
-      <div className="bg-hall" aria-hidden />
+      
+      {/* --- BACKGROUND HALL --- */}
+      <div
+        className={`
+          bg-hall absolute inset-0 transition-all duration-700 
+          ${cinematic ? "blur-2xl scale-105 opacity-60" : "blur-md opacity-100"}
+        `}
+      />
 
-      {/* Scène : lutrin centré + grimoire posé sur le plateau bas */}
-      <section className="relative mx-auto w-full max-w-[720px] md:max-w-[860px] pt-[6svh] pb-[22svh]">
-        {/* Lutrin (décor) */}
-<img
-  src="/images/lectern-clear.png"
-  alt=""
-  className="lectern-img pointer-events-none select-none absolute left-1/2 -translate-x-1/2 bottom-[18vh] w-[min(560px,92vw)]"
-  draggable={false}
-/>
-        {/* Grimoire (cliquable) – reliure centrée sur le plateau */}
-        <button
-          type="button"
-          aria-label="Ouvrir le grimoire"
-          onClick={openBook}
-          className="
-            absolute left-1/2 -translate-x-1/2
-            bottom-[9.5%] sm:bottom-[10%] md:bottom-[10.5%] lg:bottom-[9.5%]
-            w-[700px] sm:w-[620px] md:w-[540px] lg:w-[480px]
-            outline-none focus:outline-none focus:ring-0
-          "
-        >
-          <img
-            src="/images/grimoire-closed-clear.png"
-            alt=""
-            className="w-full h-auto select-none"
-            draggable={false}
-          />
-        </button>
-      </section>
+      {/* --- LUTRIN rapproché --- */}
+      <Image
+        src="/images/lectern-clear.png"
+        alt="Lutrin"
+        width={900}
+        height={900}
+        draggable={false}
+        className={`
+          absolute left-[42%] bottom-[22vh]
+          -translate-x-1/2
+          w-[min(680px,95vw)]
+          select-none pointer-events-none
+          transition-all duration-600 ease-out
+          ${cinematic ? "opacity-0 scale-95" : "opacity-100 scale-100"}
+        `}
+      />
 
-      {/* CTA */}
-      <nav className="fixed left-1/2 -translate-x-1/2 z-20 flex gap-3 bottom-[calc(env(safe-area-inset-bottom)+16px)]">
-        <a
-          href="/create"
-          className="rounded-2xl px-4 py-3 bg-emerald-600/90 text-white font-semibold shadow-lg backdrop-blur"
-        >
+      {/* --- GRIMOIRE FERME (vue rapprochée) --- */}
+      <button
+        onClick={openBook}
+        aria-label="Ouvrir le grimoire"
+        className="
+          absolute left-1/2 -translate-x-1/2 
+          bottom-[14vh]
+          focus:outline-none
+          z-20
+        "
+      >
+        <Image
+          src="/images/grimoire-closed-clear.png"
+          alt="Grimoire"
+          width={800}
+          height={600}
+          draggable={false}
+          priority
+          className={`
+            w-[min(720px,92vw)] transition-all ease-out duration-700
+            ${cinematic ? "scale-[1.55] translate-y-[-10vh] opacity-100" : "scale-100 opacity-100"}
+          `}
+        />
+      </button>
+
+      {/* --- CTA (disparaît en mode cinematic) --- */}
+      <nav
+        className={`
+          fixed left-1/2 -translate-x-1/2 bottom-[calc(env(safe-area-inset-bottom)+16px)]
+          z-30 flex gap-3 transition-all duration-500
+          ${cinematic ? "opacity-0 pointer-events-none" : "opacity-100"}
+        `}
+      >
+        <a className="rounded-2xl px-4 py-3 bg-emerald-600/90 text-white font-semibold shadow-lg backdrop-blur">
           Créer une scène
         </a>
-        <a
-          href="/demo"
-          className="rounded-2xl px-4 py-3 bg-neutral-900/85 text-white font-semibold shadow-lg backdrop-blur"
-        >
+        <a className="rounded-2xl px-4 py-3 bg-neutral-900/85 text-white font-semibold shadow-lg backdrop-blur">
           Voir la démo
         </a>
       </nav>
+
+      {/* --- LAYERS DU MITHRIL ENGINE --- */}
+      <GrimoireFrame />
+      <TransitionLayer />
     </main>
   );
 }

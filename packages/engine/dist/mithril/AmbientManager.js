@@ -1,16 +1,16 @@
 "use client";
 /*
- * Mithril Engine – AmbientManager v1.5.1 (patch)
+ * Mithril Engine – AmbientManager v1.6
  * - Gère l’ambiance 3D (WebAudio + caméra)
  * - Positionne les sources (vent, pluie, neige, mer, etc.)
  * - Ajuste les volumes selon saison / météo / phase du jour
  * - Suit la caméra utilisateur pour la spatialisation 3D
  * - Rafraîchit saison / météo toutes les 5 minutes
+ * - Charge les sons en .ogg ou .mp3 (fallback automatique)
  */
 import { useEffect, useRef } from "react";
 import { useCamera } from "./hooks/useCamera";
-import { AmbientConfigDefault } from "./ambient-config";
-import { getSeason, getDayPhase, getWeather } from "./hooks/useSeason";
+import { AmbientConfig as AmbientConfigDefault, getSeason, getDayPhase, getWeather, } from "../ambient.config";
 const AmbientManager = () => {
     // refs principaux
     const ctxRef = useRef(null);
@@ -30,6 +30,30 @@ const AmbientManager = () => {
     if (AmbientConfig.enableSpatialAudio === false) {
         return null;
     }
+    /**
+     * Charge un buffer audio à partir d’un chemin **sans extension**,
+     * avec fallback automatique OGG → MP3 suivant le support navigateur.
+     *
+     * Exemple:
+     *   basePath = "/audio/storm/distant-thunder"
+     *   => test "/audio/storm/distant-thunder.ogg" puis ".mp3"
+     */
+    const fetchAudioBuffer = async (ctx, basePath) => {
+        const audio = document.createElement("audio");
+        const ogg = `${basePath}.ogg`;
+        const mp3 = `${basePath}.mp3`;
+        const canOgg = audio.canPlayType("audio/ogg");
+        const canMp3 = audio.canPlayType("audio/mpeg");
+        const url = (canOgg && canOgg !== "no") ? ogg :
+            (canMp3 && canMp3 !== "no") ? mp3 :
+                mp3; // dernier recours: MP3
+        const res = await fetch(url);
+        if (!res.ok) {
+            throw new Error(`Failed to load audio: ${url}`);
+        }
+        const arr = await res.arrayBuffer();
+        return ctx.decodeAudioData(arr);
+    };
     /**
      * Crée une source spatialisée pour un AmbientSource.
      */
@@ -73,12 +97,13 @@ const AmbientManager = () => {
         const phase = getDayPhase(now.getHours());
         // on laisse la logique fine à ambient-config,
         // ici on se contente de poser les data-attrs.
-        document.body.dataset.season = season;
-        document.body.dataset.phase = phase;
+        if (typeof document !== "undefined") {
+            document.body.dataset.season = season;
+            document.body.dataset.phase = phase;
+        }
     };
     /**
      * Met à jour les volumes selon la saison / la météo / la phase.
-     * NOTE: async car getWeather() retourne une Promise<WeatherKind>.
      */
     const updateAmbience = async () => {
         const currentCtx = ctxRef.current;
@@ -87,8 +112,10 @@ const AmbientManager = () => {
         const now = new Date();
         const season = getSeason(now.getMonth() + 1);
         const phase = getDayPhase(now.getHours());
-        const weather = await getWeather(); // <- correction principale
-        document.body.dataset.weather = weather;
+        const weather = await getWeather();
+        if (typeof document !== "undefined") {
+            document.body.dataset.weather = weather;
+        }
         const windNode = nodesRef.current.get("wind");
         const rainNode = nodesRef.current.get("rain");
         const snowNode = nodesRef.current.get("snow");
@@ -179,16 +206,18 @@ const AmbientManager = () => {
         const loadAllSources = async () => {
             for (const src of sources) {
                 try {
-                    const res = await fetch(src.file);
-                    const arr = await res.arrayBuffer();
-                    const buffer = await ctx.decodeAudioData(arr);
+                    if (!src.file)
+                        continue;
+                    // on accepte "/audio/xxx.ogg", "/audio/xxx.mp3" ou "/audio/xxx"
+                    const basePath = String(src.file).replace(/\.(ogg|mp3)$/i, "");
+                    const buffer = await fetchAudioBuffer(ctx, basePath);
                     const node = buildNodeFromSource(ctx, buffer, src);
                     nodesRef.current.set(src.id ?? node.id, node);
                     node.source.start(0);
                 }
                 catch (err) {
                     // eslint-disable-next-line no-console
-                    console.warn("[Ambient] failed to load source", src.id, err);
+                    console.warn("[Ambient] failed to load source", src.id ?? src.file, err);
                 }
             }
         };

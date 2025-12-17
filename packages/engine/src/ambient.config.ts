@@ -1,6 +1,6 @@
 /**
- * 🌿 Mithril Engine – Ambient System
- * Configuration centrale de l’ambiance : saison, phase du jour, météo, couleurs, sons.
+ * 🌩️ Mithril Engine – Ambient System AAA
+ * Config centrale : saisons, météo, lumière, ambiances, tempêtes, tonnerre.
  */
 
 // -----------------------------------------------------
@@ -8,13 +8,15 @@
 // -----------------------------------------------------
 
 export type AmbientSource = {
-  id: "fire" | "wind" | "candles" | "rain" | "snow" | "fog";
-  file: string;
+  id: string;            // élargi : accepte n’importe quel ID
+  file: string;          // chemin SANS extension
   x: number;
   y: number;
   z: number;
-  maxDistance: number;
-  volume: number;
+  maxDistance?: number;
+  volume?: number;
+  refDistance?: number;
+  rolloffFactor?: number;
 };
 
 export type AmbientWeather = "clear" | "windy" | "rain" | "snow" | "fog";
@@ -24,6 +26,8 @@ export type AmbientWeather = "clear" | "windy" | "rain" | "snow" | "fog";
 // -----------------------------------------------------
 
 export const AmbientConfig = {
+  enableSpatialAudio: true,
+
   ambientLight: {
     morning: "#ffd666",
     day: "#ffffcc",
@@ -31,141 +35,123 @@ export const AmbientConfig = {
     night: "#121017",
   },
 
+  /**
+   * 🔊 Sources spatialisées
+   * NOTE : Tous les `file:` sont SANS extension.
+   * Le moteur charge auto : .ogg → .mp3
+   */
   sources: <AmbientSource[]>[
+    // -------------------------
+    // 🔥 Intérieur / feu
+    // -------------------------
     {
       id: "fire",
-      file: "/sounds/ambient/fire_loop.mp3",
+      file: "/sounds/ambient/fire_loop",
       x: 3,
       y: 0,
       z: 2,
-      maxDistance: 10,
       volume: 0.5,
+      refDistance: 2,
     },
-    {
-      id: "wind",
-      file: "/sounds/ambient/wind_loop.mp3",
-      x: -2,
-      y: 0,
-      z: 3,
-      maxDistance: 20,
-      volume: 0.2,
-    },
+
     {
       id: "candles",
-      file: "/sounds/ambient/candles.mp3",
+      file: "/sounds/ambient/candles",
       x: 1,
       y: 0,
       z: 1,
-      maxDistance: 6,
-      volume: 0.2,
+      volume: 0.25,
     },
+
+    // -------------------------
+    // 🌬️ Vent général
+    // -------------------------
+    {
+      id: "wind",
+      file: "/sounds/ambient/wind_loop",
+      x: -2,
+      y: 0,
+      z: 3,
+      volume: 0.3,
+      refDistance: 4,
+      rolloffFactor: 1.2,
+    },
+
+    // -------------------------
+    // 🌧️ Pluie
+    // -------------------------
     {
       id: "rain",
-      file: "/sounds/ambient/rain_loop.mp3",
+      file: "/sounds/weather/rain_loop",
       x: 0,
       y: 0,
       z: 0,
-      maxDistance: 25,
       volume: 0.4,
+      refDistance: 8,
     },
+
+    // -------------------------
+    // ❄️ Neige (vent glacé)
+    // -------------------------
     {
       id: "snow",
-      file: "/sounds/ambient/snow_wind.mp3",
+      file: "/sounds/weather/snow_wind",
       x: 0,
       y: 0,
       z: 3,
-      maxDistance: 20,
       volume: 0.3,
     },
+
+    // -------------------------
+    // 🌫️ Brouillard
+    // -------------------------
     {
       id: "fog",
-      file: "/sounds/ambient/fog_rumble.mp3",
+      file: "/sounds/weather/fog_rumble",
       x: 0,
       y: 0,
-      z: 0,
-      maxDistance: 15,
+      z: -2,
       volume: 0.2,
+    },
+
+    // -------------------------
+    // ⚡ Tonnerre lointain
+    // -------------------------
+    {
+      id: "storm-far",
+      file: "/sounds/storms/distant_storm_thunder",
+      x: -10,
+      y: 0,
+      z: -20,
+      volume: 0.55,
+      refDistance: 6,
+      rolloffFactor: 1.2,
+    },
+
+    // -------------------------
+    // ⚡ Tonnerre moyen
+    // -------------------------
+    {
+      id: "storm-mid",
+      file: "/sounds/storms/mid_storm_thunder",
+      x: 5,
+      y: 1,
+      z: -10,
+      volume: 0.7,
+      refDistance: 4,
+    },
+
+    // -------------------------
+    // ⚡ Tonnerre très proche (impact synchro éclair)
+    // -------------------------
+    {
+      id: "thunder-strike",
+      file: "/sounds/storms/lightning_strike",
+      x: 2,
+      y: 0,
+      z: -2,
+      volume: 1.0,
+      refDistance: 2,
     },
   ],
 };
-
-// -----------------------------------------------------
-// Saison actuelle
-// -----------------------------------------------------
-
-export function getSeason(): "spring" | "summer" | "autumn" | "winter" {
-  const month = new Date().getMonth() + 1;
-
-  if (month >= 3 && month <= 5) return "spring";
-  if (month >= 6 && month <= 8) return "summer";
-  if (month >= 9 && month <= 11) return "autumn";
-  return "winter";
-}
-
-// -----------------------------------------------------
-// Phase du jour
-// -----------------------------------------------------
-
-export function getDayPhase(): "morning" | "day" | "evening" | "night" {
-  const hour = new Date().getHours();
-
-  if (hour >= 6 && hour < 10) return "morning";
-  if (hour >= 10 && hour < 18) return "day";
-  if (hour >= 18 && hour < 22) return "evening";
-  return "night";
-}
-
-// -----------------------------------------------------
-// Météo pseudo-aléatoire
-// -----------------------------------------------------
-
-export function getWeather(): AmbientWeather {
-  const seed = Math.random();
-
-  if (seed < 0.6) return "clear";
-  if (seed < 0.75) return "windy";
-  if (seed < 0.9) return "rain";
-  if (seed < 0.97) return "snow";
-  return "fog";
-}
-
-// -----------------------------------------------------
-// Couleur finale d’ambiance
-// -----------------------------------------------------
-
-export function getAmbientColor(): string {
-  const season = getSeason();
-  const phase = getDayPhase();
-
-  const colors: Record<
-    "spring" | "summer" | "autumn" | "winter",
-    Record<"morning" | "day" | "evening" | "night", string>
-  > = {
-    spring: {
-      morning: "#aad8ff",
-      day: "#89c2ff",
-      evening: "#3b4f80",
-      night: "#1a1f33",
-    },
-    summer: {
-      morning: "#ffef7b",
-      day: "#fff530",
-      evening: "#ff9962",
-      night: "#2f1d25",
-    },
-    autumn: {
-      morning: "#ffd27b",
-      day: "#ffe27a",
-      evening: "#ff7943",
-      night: "#3b110b",
-    },
-    winter: {
-      morning: "#d6d6ff",
-      day: "#fffbd2",
-      evening: "#c87941",
-      night: "#2b1c12",
-    },
-  };
-
-  return colors[season][phase];
-}

@@ -1,7 +1,10 @@
 {
   "name": "sheet2scene",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "preinstall": "npm run build:engine",
     "build:engine": "npm --workspace=engine run build",

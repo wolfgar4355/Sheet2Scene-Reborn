@@ -1,37 +1,82 @@
 "use client";
 
 import { useEffect } from "react";
-import bookAudio from "@utils/bookSounds";
 
-/**
- * Réveille l'AudioContext et précharge silencieusement au 1er geste utilisateur
- * (nécessaire sur iOS/Safari & mobiles).
- */
+// -----------------------------------------------------------------------------
+// AudioBoot AAA — Gestion centralisée d'un unique AudioContext
+// -----------------------------------------------------------------------------
+
+class AudioBootCore {
+  private _ctx: AudioContext | null = null;
+  private _readyPromise: Promise<AudioContext>;
+  private _resolve!: (ctx: AudioContext) => void;
+
+  constructor() {
+    this._readyPromise = new Promise((res) => {
+      this._resolve = res;
+    });
+  }
+
+  /**
+   * Retourne l'AudioContext global (créé si nécessaire)
+   */
+  get context(): AudioContext {
+    if (!this._ctx) {
+      const Ctx = window.AudioContext || (window as any).webkitAudioContext;
+      this._ctx = new Ctx();
+    }
+    return this._ctx;
+  }
+
+  /**
+   * Promesse résolue lorsque le contexte est activé
+   */
+  ready(): Promise<AudioContext> {
+    return this._readyPromise;
+  }
+
+  /**
+   * Force un "resume" du contexte (iOS/Safari friendly)
+   */
+  async ensure() {
+    try {
+      const ctx = this.context;
+
+      if (ctx.state === "suspended") {
+        await ctx.resume();
+      }
+
+      // Résout la promesse si c'est la première activation
+      this._resolve(ctx);
+
+    } catch (err) {
+      console.warn("[AudioBoot] resume failed", err);
+    }
+  }
+
+  /**
+   * Boot automatique au premier geste utilisateur
+   */
+  attachUserGestures() {
+    const run = () => this.ensure();
+
+    const opts = { once: true };
+    window.addEventListener("pointerdown", run, opts);
+    window.addEventListener("touchstart", run, opts);
+    window.addEventListener("keydown", run, opts);
+  }
+}
+
+// Singleton global
+export const AudioBootCoreInstance = new AudioBootCore();
+
+// -----------------------------------------------------------------------------
+// Composant React (facultatif mais pratique)
+// -----------------------------------------------------------------------------
+
 export default function AudioBoot() {
   useEffect(() => {
-    const boot = async () => {
-      try {
-        // lecture silencieuse => réveille le contexte + précharge
-        await bookAudio.open(0);
-      } catch {}
-    };
-
-    const once = () => {
-      boot();
-      cleanup();
-    };
-
-    const cleanup = () => {
-      window.removeEventListener("pointerdown", once);
-      window.removeEventListener("touchstart", once);
-      window.removeEventListener("keydown", once);
-    };
-
-    window.addEventListener("pointerdown", once, { once: true });
-    window.addEventListener("touchstart", once, { once: true });
-    window.addEventListener("keydown", once, { once: true });
-
-    return cleanup;
+    AudioBootCoreInstance.attachUserGestures();
   }, []);
 
   return null;

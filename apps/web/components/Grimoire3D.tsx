@@ -1,54 +1,71 @@
-// apps/web/components/Grimoire3D.tsx
-'use client';
-import * as React from 'react';
-import { motion } from 'framer-motion';
-import Image from "next/image";
+k// apps/web/components/Grimoire3D.tsx
+"use client";
 
-type Vars = React.CSSProperties & {
-  ['--i']?: number | string;
-  ['--tiltX']?: string;
-  ['--tiltY']?: string;
-  ['--thickness']?: string;
-};
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import "./grimoire3d.css";
 
 export default function Grimoire3D() {
-  const [open, setOpen] = React.useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-  // Tu peux animer l’ouverture en jouant sur transform du book (ou page-turn)
-  const bookTilt: Vars = { '--tiltX': open ? '6deg' : '10deg', '--tiltY': open ? '-4deg' : '-8deg' };
+  // Tilt léger : souris + scroll + mobile friendly
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const onMove = (x: number, y: number) => {
+      const rX = ((y - window.innerHeight / 2) / window.innerHeight) * -6;
+      const rY = ((x - window.innerWidth / 2) / window.innerWidth) * 6;
+      el.style.setProperty("--tiltX", `${rX}deg`);
+      el.style.setProperty("--tiltY", `${rY}deg`);
+    };
+
+    const onMouse = (e: MouseEvent) => onMove(e.clientX, e.clientY);
+    const onScroll = () =>
+      onMove(window.innerWidth / 2, window.scrollY % window.innerHeight);
+
+    window.addEventListener("mousemove", onMouse, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    onScroll();
+
+    return () => {
+      window.removeEventListener("mousemove", onMouse);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  // 18 feuilles = épaisseur AAA
+  const leaves = Array.from({ length: 18 });
 
   return (
-    <div className="relative g3d-wrap">
-      {/* Halos/Glow au-dessus du décor */}
-      <div className="g2-candle-halo" aria-hidden />
-      <div className="g2-book-glow" aria-hidden />
+    <div className="g3d-wrap">
+      <div className="g3d-book" ref={ref} aria-label="Grimoire Sheet2Scene">
+        {/* dos du livre */}
+        <div className="g3d-back" />
 
-      <motion.button
-        type="button"
-        aria-pressed={open}
-        onClick={() => setOpen(v => !v)}
-        className="relative g3d-book outline-none"
-        style={bookTilt}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.99 }}
-      >
-        {/* Couverture (image) */}
-        <Image src="/images/grimoire-closed-clear.png" alt="" className="g3d-cover" draggable={false} />
-        <div className="g3d-cover_gloss" aria-hidden />
-        
-        {/* Tranche arrière */}
-        <div className="g3d-back" aria-hidden />
-
-        {/* Pile de pages */}
-        <div className="g3d-pages" aria-hidden>
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="g3d-page" style={{ ['--i']: i } as Vars} />
+        {/* pages empilées */}
+        <div className="g3d-pages">
+          {leaves.map((_, i) => (
+            <div className="g3d-page" key={i} style={{ ["--i" as any]: i }} />
           ))}
         </div>
 
-        {/* Ombre portée */}
-        <div className="g3d-shadow" aria-hidden />
-      </motion.button>
+        {/* couverture */}
+        <div className="g3d-cover">
+          <Image
+            src="/assets/props/grimoire.png"
+            alt="Grimoire"
+            fill
+            priority
+            sizes="(max-width: 768px) 90vw, 560px"
+          />
+          <div className="g3d-cover-gloss" />
+        </div>
+
+        {/* ombre */}
+        <div className="g3d-shadow" />
+      </div>
     </div>
   );
 }

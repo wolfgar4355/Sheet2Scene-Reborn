@@ -3,90 +3,111 @@
 import React, {
   createContext,
   useContext,
-  useEffect,
-  useState,
-  type ReactNode
+  type ReactNode,
 } from "react";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useSpring, useTransform } from "framer-motion";
 
-import {
-  getSeason,
-  getDayPhase,
-  getWeather,
-  getAmbientColor
-} from "./time";
+import useSeason from "./hooks/useSeason";
+import { useCamera } from "./hooks/useCamera";
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
 
 interface SceneContextType {
-  cameraZoom: number;
-  setCameraZoom: (v: number) => void;
+  // Camera AAA
+  camera: ReturnType<typeof useCamera>;
+
+  // Lumière globale (0 = nuit, 1 = jour)
   lightLevel: number;
-  setLightLevel: (v: number) => void;
+
+  // Saison & météo
   season: string;
+  phase: string;
   weather: string;
+  intensity: number;
+
+  // Ambiance
+  ambientColor: string;
+
+  // Biome / Monde
+  biome?: string;
+  worldId?: string;
 }
 
 const SceneContext = createContext<SceneContextType | undefined>(undefined);
 
 export function useScene() {
   const ctx = useContext(SceneContext);
-  if (!ctx) throw new Error("useScene must be used inside SceneController");
+  if (!ctx) throw new Error("useScene must be used inside <SceneController>");
   return ctx;
 }
 
+// ---------------------------------------------------------------------------
+// AAA SceneController
+// ---------------------------------------------------------------------------
+
 export default function SceneController({
+  biome = "generic",
+  worldId = "mithril-quest",
   children,
 }: {
+  biome?: string;
+  worldId?: string;
   children: ReactNode;
 }) {
-  const [cameraZoom, setCameraZoom] = useState(1);
-  const [lightLevel, setLightLevel] = useState(0.85);
-  const [season, setSeason] = useState(getSeason());
-  const [weather, setWeather] = useState("clear");
+  // ------------------------------
+  // Saison + météo + ambiance
+  // ------------------------------
+  const season = useSeason({ biome, worldId });
 
-  const zoomMotion = useMotionValue(cameraZoom);
-  const lightMotion = useMotionValue(lightLevel);
-  const brightness = useTransform(lightMotion, [0, 1], [0.6, 1]);
+  // Niveau de lumière automatique selon la phase du jour
+  const lightLevel =
+    season.phase === "night"
+      ? 0.25
+      : season.phase === "evening" || season.phase === "morning"
+      ? 0.55
+      : 1;
 
-  // Lumières & météo
-  useEffect(() => {
-    async function sync() {
-      const w = await getWeather();
-      setWeather(w);
+  // ------------------------------
+  // Camera AAA v3
+  // ------------------------------
+  const camera = useCamera();
 
-      const now = new Date().getHours();
-      const isNight = now < 6 || now > 20;
-      setLightLevel(isNight ? 0.7 : 1);
-    }
+  // Brightness dynamique
+  const lightMotion = useSpring(lightLevel, {
+    stiffness: 90,
+    damping: 25,
+  });
 
-    sync();
-    const interval = setInterval(sync, 60 * 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const brightness = useTransform(lightMotion, [0, 1], [0.4, 1]);
 
-  // Synchro motion
-  useEffect(() => {
-    zoomMotion.set(cameraZoom);
-    lightMotion.set(lightLevel);
-  }, [cameraZoom, lightLevel]);
+  // ---------------------------------------------------------------------------
+  // Render
+  // ---------------------------------------------------------------------------
 
   return (
     <SceneContext.Provider
       value={{
-        cameraZoom,
-        setCameraZoom,
+        camera,
         lightLevel,
-        setLightLevel,
-        season,
-        weather,
+        season: season.name,
+        phase: season.phase,
+        weather: season.weather,
+        intensity: season.intensity,
+        ambientColor: season.ambientColor,
+        biome,
+        worldId,
       }}
     >
       <motion.div
         style={{
-          scale: zoomMotion,
-          filter: `brightness(${brightness.get()})`,
+          scale: camera.zoom, // zoom AAA
+          filter: brightness.to((v) => `brightness(${v})`),
+          backgroundColor: season.ambientColor,
         }}
-        className="relative w-full h-full overflow-hidden transition-all"
+        className="relative w-full h-full overflow-hidden transition-colors duration-700"
       >
         {children}
       </motion.div>

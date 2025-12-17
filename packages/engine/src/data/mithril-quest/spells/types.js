@@ -1,3 +1,0 @@
-// @ts-nocheck
-m;
-export {};

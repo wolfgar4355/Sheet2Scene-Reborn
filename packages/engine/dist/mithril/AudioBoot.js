@@ -1,18 +1,25 @@
 "use client";
 import { useEffect } from "react";
-import bookAudio from "@utils/bookSounds";
 /**
- * Réveille l'AudioContext et précharge silencieusement au 1er geste utilisateur
- * (nécessaire sur iOS/Safari & mobiles).
+ * AudioBoot v2 — Réveille l'AudioContext au premier geste utilisateur.
+ * Nécessaire pour iOS, Safari et Android (policy autoplay).
  */
 export default function AudioBoot() {
     useEffect(() => {
+        let ctx = null;
         const boot = async () => {
             try {
-                // lecture silencieuse => réveille le contexte + précharge
-                await bookAudio.open(0);
+                if (!ctx) {
+                    ctx = new (window.AudioContext ||
+                        window.webkitAudioContext)();
+                }
+                if (ctx.state === "suspended") {
+                    await ctx.resume();
+                }
             }
-            catch { }
+            catch (err) {
+                console.warn("[AudioBoot] resume failed", err);
+            }
         };
         const once = () => {
             boot();

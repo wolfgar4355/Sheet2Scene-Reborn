@@ -1,29 +1,47 @@
+// src/mithril/GrimoireFrame.tsx
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import React, {
   createContext,
   useContext,
   useEffect,
-  useState,
+  useRef,
   type ReactNode,
-  type Dispatch,
-  type SetStateAction,
 } from "react";
 
+import IsometricWorld from "./iso/IsometricWorld";
+import WeatherEngineProvider from "./WeatherEngine";
 import AudioBoot from "./AudioBoot";
-import useSeason, { type SeasonData } from "./hooks/useSeason";
+import AmbientManager from "./AmbientManager";
+import LightningEngine from "./LightningEngine";
+import WorldAmbientController from "./WorldAmbientController";
+import SeasonParticles from "./SeasonParticles";
+import TransitionLayer from "./TransitionLayer";
+import PageTurner from "./PageTurner";
+import DevControls from "./DevControls";
+import { TurnController } from "./encounter/TurnController";
 
-interface MithrilContextType {
+import { useCamera } from "./hooks/useCamera";
+import { useSeason, type SeasonData, type UseSeasonOptions } from "./hooks/useSeason";
+
+// 🧠 Encounter
+import EncounterController from "./encounter/EncounterController";
+
+// ---------------------------------------------------------------------------
+// Contexte Mithril
+// ---------------------------------------------------------------------------
+
+export interface MithrilContextValue {
+  worldId: string;
+  eraId?: string;
+  page: number;
   season: SeasonData;
-  setSeason: Dispatch<SetStateAction<SeasonData>>;
-  flip: () => void;
-  isFlipping: boolean;
+  camera: ReturnType<typeof useCamera>;
 }
 
-const MithrilContext = createContext<MithrilContextType | null>(null);
+const MithrilContext = createContext<MithrilContextValue | undefined>(undefined);
 
-export function useMithril(): MithrilContextType {
+export function useMithril(): MithrilContextValue {
   const ctx = useContext(MithrilContext);
   if (!ctx) {
     throw new Error("useMithril must be used inside <GrimoireFrame>");
@@ -31,64 +49,140 @@ export function useMithril(): MithrilContextType {
   return ctx;
 }
 
-type GrimoireFrameProps = {
-  children: ReactNode;
-};
+// ---------------------------------------------------------------------------
+// Props
+// ---------------------------------------------------------------------------
 
-/**
- * 🧙‍♂️ GrimoireFrame — layout global du grimoire
- * Gestion du flip de page, saison, ambiance, etc.
- */
-export default function GrimoireFrame({ children }: GrimoireFrameProps) {
-  const initialSeason = useSeason();
-  const [season, setSeason] = useState<SeasonData>(initialSeason);
-  const [isFlipping, setFlipping] = useState(false);
+export interface GrimoireFrameProps {
+  worldId?: string;
+  eraId?: string;
+  biome?: UseSeasonOptions["biome"];
+  page?: number;
+  devMode?: boolean;
+  children?: ReactNode;
+}
 
-  // Si le hook recalcule la saison (changement d’heure / de mois), on synchronise l’état
+// ---------------------------------------------------------------------------
+// Composant public
+// ---------------------------------------------------------------------------
+
+export default function GrimoireFrame({
+  worldId = "mithril-quest",
+  eraId,
+  biome = "generic",
+  page = 1,
+  devMode = false,
+  children,
+}: GrimoireFrameProps) {
+  return (
+    <MithrilFrameInner
+      worldId={worldId}
+      eraId={eraId}
+      biome={biome}
+      page={page}
+      devMode={devMode}
+    >
+      {children}
+    </MithrilFrameInner>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Couche interne : caméra + monde + encounter + grimoire
+// ---------------------------------------------------------------------------
+
+function MithrilFrameInner({
+  worldId,
+  eraId,
+  biome,
+  page,
+  devMode,
+  children,
+}: Omit<GrimoireFrameProps, "devMode"> & { devMode: boolean }) {
+  const frameRef = useRef<HTMLDivElement | null>(null);
+
+  // Saison / météo
+  const season = useSeason({ biome, worldId });
+
+  // Caméra AAA
+  const camera = useCamera();
+
+  // Parallaxe / mouvement du grimoire
   useEffect(() => {
-    setSeason(initialSeason);
-  }, [initialSeason]);
+    const el = frameRef.current;
+    if (!el) return;
 
-  const flip = () => {
-    setFlipping(true);
-    setTimeout(() => setFlipping(false), 800);
+    const { x, y, yaw, pitch, zoom } = camera;
+
+    el.style.transform = `
+      translate3d(${x * 8}px, ${-y * 6}px, 0)
+      scale(${zoom})
+      rotateX(${pitch * 8}deg)
+      rotateY(${yaw * 8}deg)
+    `;
+  }, [camera]);
+
+  const ctxValue: MithrilContextValue = {
+    worldId,
+    eraId,
+    page,
+    season,
+    camera,
   };
 
-  const bg = "/images/bg_hall.png";
-  const parchment = "/images/parchment.png";
-
   return (
-    <MithrilContext.Provider value={{ season, setSeason, flip, isFlipping }}>
-      <main className="relative w-full h-full overflow-hidden bg-black text-white">
-        {/* Décor principal */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-70 transition-all"
-          style={{ backgroundImage: `url(${bg})` }}
-        />
+    <MithrilContext.Provider value={ctxValue}>
+      <AudioBoot />
 
-        {/* Parchemin */}
-        <div
-          className="absolute inset-0 pointer-events-none bg-no-repeat bg-contain mix-blend-lighten opacity-90 transition-all"
-          style={{ backgroundImage: `url(${parchment})` }}
-        />
+      <div
+        ref={frameRef}
+        data-mithril-root
+        className="relative w-full h-full overflow-hidden select-none"
+        style={{
+          perspective: "1600px",
+          transformStyle: "preserve-3d",
+          backgroundColor: season.ambientColor,
+          transition: "background-color 0.7s ease",
+        }}
+      >
+        <WeatherEngineProvider biome={biome} worldId={worldId}>
 
-        {/* Animation de flip des pages */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={isFlipping ? "flip" : "idle"}
-            initial={{ rotateY: 0, opacity: 1 }}
-            animate={{ rotateY: isFlipping ? 180 : 0, opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative w-full h-full"
-          >
-            {children}
-          </motion.div>
-        </AnimatePresence>
+          {/* =================== ENCOUNTER / WORLD =================== */}
+          <EncounterController>
+            <WorldAmbientController>
+              <TransitionLayer />
+              <SeasonParticles />
+              <AmbientManager />
+              <LightningEngine />
 
-        {/* Boot audio / ambiances */}
-        <AudioBoot />
-      </main>
+              {/* 🌍 Monde isométrique */}
+                 <TurnController>
+                 <IsometricWorld />
+                 </TurnController>
+
+              {devMode && <DevControls />}
+            </WorldAmbientController>
+          </EncounterController>
+
+          {/* =================== GRIMOIRE / UI =================== */}
+          <div className="relative mx-auto w-[95%] max-w-[1550px] h-full pointer-events-auto">
+            <PageTurner page={page}>
+              <div
+                className="
+                  w-full h-full
+                  bg-[url('/engine/grimoire/page-texture.webp')]
+                  bg-cover bg-center bg-no-repeat
+                  p-6 md:p-10 lg:p-14
+                  font-serif text-[#210] dark:text-[#dedede]
+                "
+              >
+                {children}
+              </div>
+            </PageTurner>
+          </div>
+
+        </WeatherEngineProvider>
+      </div>
     </MithrilContext.Provider>
   );
 }

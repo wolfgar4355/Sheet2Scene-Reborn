@@ -1,9 +1,12 @@
 // apps/web/app/layout.tsx
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import FireAudio from "@components/FireAudio";
 
 import AudioBoot from "@mithril/AudioBoot";
-import { MithrilProvider } from "@mithril/engine"; 
+import { MithrilProvider } from "@mithril/engine";
+import BookAnimation from "@components/BookAnimation"; // ← AJOUT
+
 export const metadata: Metadata = {
   title: "Sheet2Scene",
   description: "Transformez vos feuilles en scènes jouables.",
@@ -23,9 +26,7 @@ export const metadata: Metadata = {
     apple: [
       { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    other: [
-      { rel: "mask-icon", url: "/icons/icon-maskable-512.png" },
-    ],
+    other: [{ rel: "mask-icon", url: "/icons/icon-maskable-512.png" }],
   },
 };
 
@@ -41,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning className="scroll-smooth">
       <head>
+        {/* Préchargement d’images essentielles */}
         <link rel="preload" as="image" href="/images/bg-hall.png" />
         <link rel="preload" as="image" href="/images/lectern.png" />
         <link rel="preload" as="image" href="/images/grimoire-closed-clear.png" />
@@ -48,13 +50,24 @@ export default function RootLayout({
       </head>
 
       <body className="min-h-screen antialiased">
-        {/* Préchargement audio client */}
+        {/* Préchargement audio */}
         <AudioBoot />
 
-        {/* 🔥 IMPORTANT : Fournit toutes les animations et le moteur UI */}
-<MithrilProvider>
-   {children}
-</MithrilProvider>
+        {/* 🔥 Ambiance feu de foyer */}
+        <FireAudio />
+
+        {/* 🌫️ Fumée douce depuis le foyer */}
+        <div className="fire-smoke-layer">
+          <div className="fire-smoke"></div>
+        </div>
+
+        {/* 🔥 SUPER IMPORTANT : Overlay global pour animations du grimoire */}
+        <BookAnimation />
+
+        {/* 🔮 Noyau du Mithril Engine */}
+        <MithrilProvider>
+          {children}
+        </MithrilProvider>
 
         {/* Portail modal */}
         <div id="modal-root"></div>

@@ -1,29 +1,34 @@
 /* ============================================================================
- * Mithril Engine – Root Exports (Mithril-Quest Only)
+ * Mithril Engine – Root Exports
  * ============================================================================
  */
-// ---------------------------------------------------------------------------
-// MQ Data Sources
-// ---------------------------------------------------------------------------
-export * as MQ_Bestiary from "./data/mithril-quest/bestiary";
-export * as MQ_Classes from "./data/mithril-quest/classes";
-export * as MQ_Spells from "./data/mithril-quest/spells";
-export * as MQ_Character from "./data/mithril-quest/character";
-export * as MQ_Eras from "./data/mithril-quest/eras";
-export * as MQ_Items from "./data/mithril-quest/items";
-export * as MQ_Rituals from "./data/mithril-quest/rituals";
-export * as MQ_Roles from "./data/mithril-quest/roles";
-export * as MQ_Factions from "./data/mithril-quest/factions";
-export * as MQ_Tags from "./data/mithril-quest/tags";
-export * as MQ_Player from "./data/mithril-quest/player";
-export * as MQ_Worlds from "./data/mithril-quest/worlds";
-// ---------------------------------------------------------------------------
-// GM Tools (si présents)
-// ---------------------------------------------------------------------------
+/* -------------------------------------------
+ * CORE ENGINE EXPORTS
+ * -------------------------------------------
+ */
+export * from "./ambient.config";
+export * from "./getWorlds";
+/* -------------------------------------------
+ * MITHRIL VISUAL ENGINE (UI Components)
+ * -------------------------------------------
+ */
+export * from "./mithril/AmbientManager";
+export * from "./mithril/GrimoireFrame";
+export * from "./mithril/TransitionLayer";
+export * from "./mithril/PageTurner";
+export * from "./mithril/SceneController";
+export * from "./mithril/SeasonParticles";
+export * from "./mithril/AudioBoot";
+/* -------------------------------------------
+ * WORLDS
+ * -------------------------------------------
+ */
+export * as MQ from "./mithril-quest"; // Mithril-Quest (Fantasy / D&D)
+export * as DK from "./worlds/darknight"; // The Darknight Chronicles
+export * as GS from "./worlds/galactic-saga"; // Galactic Saga (Star Wars)
+export * as PS from "./worlds/pathseeker"; // Pathseeker (Pathfinder)
+/* -------------------------------------------
+ * GM Tools (if available)
+ * -------------------------------------------
+ */
 export * from "./gm/encounter-engine";
-// ---------------------------------------------------------------------------
-// Ambient & Grimoire
-// ---------------------------------------------------------------------------
-export * from "./AmbientManager";
-export * from "./TransitionLayer";
-export * from "./GrimoireFrame";

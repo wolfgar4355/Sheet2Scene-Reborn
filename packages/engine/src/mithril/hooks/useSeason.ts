@@ -12,89 +12,204 @@ import {
   type WeatherKind,
 } from "../time";
 
-// --- Données de saison utilisées côté UI -----------------------------------
+// ---------------------------------------------------------------------------
+// Options
+// ---------------------------------------------------------------------------
+
+export interface UseSeasonOptions {
+  updateIntervalMs?: number;
+  mobileMode?: boolean;
+  biome?: "generic" | "forest" | "desert" | "mountain" | "city" | "coast" | "void";
+  worldId?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Données exposées
+// ---------------------------------------------------------------------------
 
 export interface SeasonData {
-  /** "winter" | "spring" | "summer" | "autumn" */
   name: SeasonName;
-  /** "night" | "morning" | "day" | "evening" */
   phase: DayPhase;
-  /** météo actuelle ou simulée */
   weather: WeatherKind;
-  /** couleur d’ambiance pour fond / lumière */
+  intensity: number;
   ambientColor: string;
+  biome?: UseSeasonOptions["biome"];
+  worldId?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Pseudo-RNG deterministe
+// ---------------------------------------------------------------------------
+
+function lcg(seed: number): number {
+  const a = 1664525;
+  const c = 1013904223;
+  const m = 2 ** 32;
+  return (a * seed + c) % m;
 }
 
 /**
- * Hook principal pour le moteur Mithril:
- * - lit l'heure/Date actuelle
- * - dérive saison + phase + couleur
- * - charge la météo (placeholder async)
+ * Sélection météo déterministe en fonction du biome + seed horaire
  */
-export default function useSeason(): SeasonData {
-  // état initial dérivé de l'instant présent
+function sampleWeatherFor(
+  baseWeather: WeatherKind,
+  seedBase: number,
+  biome: UseSeasonOptions["biome"] = "generic"
+): { weather: WeatherKind; intensity: number } {
+  let seed = lcg(seedBase);
+  const rnd = seed / 2 ** 32;
+
+  let rainBias = 0.25;
+  let snowBias = 0.15;
+  let fogBias = 0.15;
+  let stormBias = 0.1;
+
+  switch (biome) {
+    case "desert":
+      rainBias = 0.05;
+      snowBias = 0;
+      fogBias = 0.05;
+      stormBias = 0.15;
+      break;
+    case "forest":
+      rainBias = 0.35;
+      fogBias = 0.2;
+      break;
+    case "mountain":
+      snowBias = 0.3;
+      fogBias = 0.2;
+      break;
+    case "city":
+      fogBias = 0.1;
+      stormBias = 0.2;
+      break;
+    case "coast":
+      rainBias = 0.3;
+      stormBias = 0.2;
+      break;
+    case "void":
+      rainBias = 0.1;
+      snowBias = 0.1;
+      fogBias = 0.2;
+      stormBias = 0.3;
+      break;
+  }
+
+  const clearBias = Math.max(0, 1 - (rainBias + snowBias + fogBias + stormBias));
+
+  let acc = clearBias;
+  let weather: WeatherKind = "clear";
+
+  if (rnd < acc) weather = "clear";
+  else {
+    acc += rainBias;
+    if (rnd < acc) weather = "rain";
+    else {
+      acc += snowBias;
+      if (rnd < acc) weather = "snow";
+      else {
+        acc += fogBias;
+        weather = rnd < acc ? "fog" : "storm";
+      }
+    }
+  }
+
+  seed = lcg(seed);
+  const intensity = weather === "clear" ? 0 : (seed / 2 ** 32) ** 1.3;
+
+  return { weather, intensity };
+}
+
+// ---------------------------------------------------------------------------
+// Hook principal
+// ---------------------------------------------------------------------------
+
+export default function useSeason(opts: UseSeasonOptions = {}): SeasonData {
+  const {
+    mobileMode = false,
+    updateIntervalMs,
+    biome = "generic",
+    worldId,
+  } = opts;
+
+  const defaultInterval = mobileMode ? 5 * 60 * 1000 : 2 * 60 * 1000;
+  const interval = updateIntervalMs ?? defaultInterval;
+
   const [data, setData] = useState<SeasonData>(() => {
     const now = new Date();
     const month = now.getMonth() + 1;
     const hour = now.getHours();
 
+    const dayOfYear = Math.floor(
+      (Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) -
+        Date.UTC(now.getFullYear(), 0, 0)) /
+        86400000
+    );
+
     const name = getSeason(month);
     const phase = getDayPhase(hour);
     const ambientColor = getAmbientColor(name, phase);
 
+    const seedBase = dayOfYear * 24 + hour + biome.length * 17 + (worldId?.length ?? 0) * 13;
+    const { weather, intensity } = sampleWeatherFor("clear", seedBase, biome);
+
     return {
       name,
       phase,
-      weather: "clear",
       ambientColor,
+      weather,
+      intensity,
+      biome,
+      worldId,
     };
   });
 
   useEffect(() => {
     let cancelled = false;
 
-    // 1) Météo async
-    (async () => {
-      try {
-        const w = await getWeather();
-        if (!cancelled) {
-          setData((prev) => ({ ...prev, weather: w }));
-        }
-      } catch {
-        // On garde "clear" en cas d'erreur
-      }
-    })();
-
-    // 2) Mise à jour régulière saison/phase/couleur (toutes les 5 minutes)
     const timer = setInterval(() => {
+      if (cancelled) return;
+
       const now = new Date();
       const month = now.getMonth() + 1;
       const hour = now.getHours();
+
+      const dayOfYear = Math.floor(
+        (Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) -
+          Date.UTC(now.getFullYear(), 0, 0)) /
+          86400000
+      );
 
       const name = getSeason(month);
       const phase = getDayPhase(hour);
       const ambientColor = getAmbientColor(name, phase);
 
-      setData((prev) => ({
-        ...prev,
+      const seedBase = dayOfYear * 24 + hour + biome.length * 17 + (worldId?.length ?? 0) * 13;
+      const { weather, intensity } = sampleWeatherFor("clear", seedBase, biome);
+
+      setData({
         name,
         phase,
         ambientColor,
-      }));
-    }, 5 * 60 * 1000);
+        weather,
+        intensity,
+        biome,
+        worldId,
+      });
+    }, interval);
 
     return () => {
       cancelled = true;
       clearInterval(timer);
     };
-  }, []);
+  }, [interval, biome, worldId]);
 
   return data;
 }
 
-// --- Ré-export des helpers pour compatibilité ------------------------------
-// Ça permet de garder des imports comme:
-//   import { getSeason, getDayPhase } from "./hooks/useSeason";
+// ---------------------------------------------------------------------------
+// Ré-exports utilitaires
+// ---------------------------------------------------------------------------
 
 export { getSeason, getDayPhase, getWeather, getAmbientColor };
 export type { SeasonName, DayPhase, WeatherKind };

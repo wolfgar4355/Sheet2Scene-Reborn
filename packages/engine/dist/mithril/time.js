@@ -1,10 +1,19 @@
 // src/mithril/time.ts
-// --- Saisons ----------------------------------------------------------------
+// ---------------------------------------------------------------------------
+//  Mithril Engine — Time & Ambient System Utilities
+//  Gestion : Saison • Phase du jour • Météo • Couleur d’ambiance
+// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+//  Saison actuelle
+// ---------------------------------------------------------------------------
 /**
- * Retourne la saison à partir d'un mois (1–12).
- * Si aucun argument: utilise la date système.
+ * Retourne la saison basée sur un mois (1-12).
+ * Si aucun paramètre → utilise l’heure système (SSR-safe).
  */
-export function getSeason(month = new Date().getMonth() + 1) {
+export function getSeason(month = typeof window !== "undefined"
+    ? new Date().getMonth() + 1
+    : 1 // fallback SSR
+) {
     if (month === 12 || month <= 2)
         return "winter";
     if (month <= 5)
@@ -13,12 +22,17 @@ export function getSeason(month = new Date().getMonth() + 1) {
         return "summer";
     return "autumn";
 }
-// --- Jour / nuit ------------------------------------------------------------
+// ---------------------------------------------------------------------------
+//  Phase du jour
+// ---------------------------------------------------------------------------
 /**
- * Retourne la phase de la journée à partir d'une heure (0–23).
- * Si aucun argument: utilise l'heure système.
+ * Retourne la phase du jour (matin / jour / soir / nuit).
+ * Si aucun paramètre → utilise l’heure locale.
  */
-export function getDayPhase(hour = new Date().getHours()) {
+export function getDayPhase(hour = typeof window !== "undefined"
+    ? new Date().getHours()
+    : 12 // SSR fallback
+) {
     if (hour < 6 || hour >= 22)
         return "night";
     if (hour < 10)
@@ -27,21 +41,26 @@ export function getDayPhase(hour = new Date().getHours()) {
         return "day";
     return "evening";
 }
-// --- Météo (placeholder IA plus tard) --------------------------------------
+// ---------------------------------------------------------------------------
+//  Météo (placeholder)
+// ---------------------------------------------------------------------------
 /**
- * Placeholder qui te permettra plus tard de brancher une IA, une API météo,
- * ou un générateur procédural. Pour l’instant: toujours "clear".
+ * Placeholder IA / API.
+ * Pour l’instant : météo claire.
  */
 export async function getWeather() {
     return "clear";
 }
-// --- Couleur d'ambiance -----------------------------------------------------
+// ---------------------------------------------------------------------------
+//  Couleur d’ambiance
+// ---------------------------------------------------------------------------
 /**
- * Couleur d'ambiance simple en fonction de la saison et de la phase du jour.
- * Tu pourras raffiner ça plus tard (gradient, LUT, etc.).
+ * Génère une couleur d’ambiance basée sur :
+ *  - la saison (teinte)
+ *  - la phase du jour (luminosité)
  */
 export function getAmbientColor(season = getSeason(), phase = getDayPhase()) {
-    // Palette ultra simple pour démarrer
+    // Palette simple mais propre
     const baseBySeason = {
         winter: "#cfe9ff",
         spring: "#e8ffe0",
@@ -49,16 +68,17 @@ export function getAmbientColor(season = getSeason(), phase = getDayPhase()) {
         autumn: "#ffd9b3",
     };
     const darken = (hex, factor) => {
-        const n = hex.replace("#", "");
-        const r = parseInt(n.slice(0, 2), 16);
-        const g = parseInt(n.slice(2, 4), 16);
-        const b = parseInt(n.slice(4, 6), 16);
-        const d = (v) => Math.max(0, Math.min(255, Math.round(v * factor)));
-        return `#${d(r).toString(16).padStart(2, "0")}${d(g)
+        const h = hex.replace("#", "");
+        const r = parseInt(h.slice(0, 2), 16);
+        const g = parseInt(h.slice(2, 4), 16);
+        const b = parseInt(h.slice(4, 6), 16);
+        const apply = (v) => Math.max(0, Math.min(255, Math.round(v * factor)));
+        return `#${apply(r).toString(16).padStart(2, "0")}${apply(g)
             .toString(16)
-            .padStart(2, "0")}${d(b).toString(16).padStart(2, "0")}`;
+            .padStart(2, "0")}${apply(b).toString(16).padStart(2, "0")}`;
     };
     const base = baseBySeason[season];
+    /** Ajustement selon l’heure */
     switch (phase) {
         case "night":
             return darken(base, 0.35);

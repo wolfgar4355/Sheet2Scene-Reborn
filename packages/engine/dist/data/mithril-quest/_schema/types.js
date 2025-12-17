@@ -10,7 +10,7 @@
 export const ERAS = [
     "ancient-age",
     "age-of-heroes",
-    "dark-ages",
+    "dark-age",
     "high-kingdoms",
     "arcane-renaissance",
     "mystic-age",

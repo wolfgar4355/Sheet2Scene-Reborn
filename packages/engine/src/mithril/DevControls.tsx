@@ -1,25 +1,35 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { AmbientConfig } from '../ambient.config';
-import { useCamera } from './hooks/useCamera';
+import { useState, useEffect } from "react";
+import { AmbientConfig } from "../ambient-config";
+import { useCamera } from "./hooks/useCamera";
+import { getSeason, getDayPhase } from "../time";
 
 /**
- * Mithril Engine — DevControls v1.2
- * Mini panneau de test temps réel (caméra, son, saison, etc.)
+ * Mithril Engine — DevControls v2.0
+ * Panneau debug interne pour tester ambiance + caméra
  */
 export default function DevControls() {
   const [visible, setVisible] = useState(false);
   const [audioEnabled, setAudioEnabled] = useState(true);
-  const [season, setSeason] = useState<'winter' | 'spring' | 'summer' | 'autumn'>('winter');
-  const [phase, setPhase] = useState<'morning' | 'day' | 'evening' | 'night'>('day');
+
+  const [season, setSeason] = useState(getSeason());
+  const [phase, setPhase] = useState(getDayPhase());
+
   const camera = useCamera();
 
-  // Synchroniser la couleur de fond de test
+  // Accent visuel saison → bordure
   useEffect(() => {
     if (!visible) return;
     document.body.style.outline = `2px solid ${AmbientConfig.ambientLight[phase]}`;
   }, [phase, visible]);
+
+  // Synchroniser dataset (utilisé par AmbientManager)
+  useEffect(() => {
+    if (!visible) return;
+    document.body.dataset.season = season;
+    document.body.dataset.phase = phase;
+  }, [season, phase]);
 
   if (!visible)
     return (
@@ -88,9 +98,11 @@ export default function DevControls() {
       {/* Caméra */}
       <div className="mt-3 border-t border-neutral-700 pt-2">
         <label className="text-xs block mb-1">🎥 Position caméra</label>
-        {(['x', 'y', 'z'] as const).map((axis) => (
+        {(["x", "y", "z"] as const).map((axis) => (
           <div key={axis} className="flex items-center mb-1">
-            <span className="w-4 text-right text-xs mr-1">{axis.toUpperCase()}</span>
+            <span className="w-4 text-right text-xs mr-1">
+              {axis.toUpperCase()}
+            </span>
             <input
               type="range"
               min={-5}
@@ -98,7 +110,10 @@ export default function DevControls() {
               step={0.1}
               value={camera[axis]}
               onChange={(e) =>
-                camera.set((prev) => ({ ...prev, [axis]: parseFloat(e.target.value) }))
+                camera.set({
+                  ...camera,
+                  [axis]: parseFloat(e.target.value),
+                })
               }
               className="flex-1 accent-amber-500"
             />

@@ -1,6 +1,0 @@
-// @ts-nocheck
-export const DESERT_HABITATS = [
-    "DESERT_ENCOUNTERS",
-    "SCORCHED_DUNES_ENCOUNTERS",
-    "ASHWIND_STORMS_ENCOUNTERS",
-];
