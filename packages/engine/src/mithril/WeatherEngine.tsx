@@ -1,7 +1,7 @@
 // src/mithril/WeatherEngine.tsx
 "use client";
 
-import React, {
+import {
   createContext,
   useCallback,
   useContext,
@@ -98,7 +98,7 @@ function scheduleNextStormEvent(
   const maxDelay = 9000;
   const span = maxDelay - minDelay;
   const delay =
-    minDelay + Math.random() * span * (1.2 - clamp(i, 0.2, 1));
+    minDelay + Math.random() * span * (1.2 - i);
   return now + delay;
 }
 
@@ -132,15 +132,14 @@ export default function WeatherEngineProvider({
     computePhase(weather)
   );
 
+  // Refs (évite closures obsolètes)
+  const weatherRef = useRef(weather);
   const lastUpdateMsRef = useRef(Date.now());
-  const nextEventAtRef = useRef<number | null>(
-    weather.kind === "storm"
-      ? scheduleNextStormEvent(
-          Date.now(),
-          weather.intensity
-        )
-      : null
-  );
+  const nextEventAtRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    weatherRef.current = weather;
+  }, [weather]);
 
   // Transition state
   const transitionRef = useRef<{
@@ -157,7 +156,7 @@ export default function WeatherEngineProvider({
     durationMs: 0,
   });
 
-  // Events
+  // Event subscribers
   const subsRef = useRef(
     new Set<(evt: WeatherEvent) => void>()
   );
@@ -189,7 +188,7 @@ export default function WeatherEngineProvider({
 
       const next = createWeatherState(
         kind,
-        intensity ?? weather.intensity
+        intensity ?? weatherRef.current.intensity
       );
 
       setWeather(next);
@@ -201,27 +200,20 @@ export default function WeatherEngineProvider({
           ? scheduleNextStormEvent(now, next.intensity)
           : null;
 
-      emit({
-        type: "WEATHER_CHANGED",
-        weather: next,
-        atMs: now,
-      });
+      emit({ type: "WEATHER_CHANGED", weather: next, atMs: now });
       emit({
         type: "INTENSITY_CHANGED",
         intensity: next.intensity,
         atMs: now,
       });
     },
-    [emit, weather.intensity]
+    [emit]
   );
 
   const transitionTo = useCallback(
     (
       kind: WeatherKind,
-      opts?: {
-        durationMs?: number;
-        targetIntensity?: number;
-      }
+      opts?: { durationMs?: number; targetIntensity?: number }
     ) => {
       const now = Date.now();
       const durationMs = clamp(
@@ -232,12 +224,12 @@ export default function WeatherEngineProvider({
 
       const to = createWeatherState(
         kind,
-        opts?.targetIntensity ?? weather.intensity
+        opts?.targetIntensity ?? weatherRef.current.intensity
       );
 
       transitionRef.current = {
         active: true,
-        from: weather,
+        from: weatherRef.current,
         to,
         startMs: now,
         durationMs,
@@ -249,7 +241,7 @@ export default function WeatherEngineProvider({
         atMs: now,
       });
     },
-    [emit, weather]
+    [emit]
   );
 
   // -------------------------------------------------------------------------
@@ -264,22 +256,18 @@ export default function WeatherEngineProvider({
       season.intensity
     );
 
+    const current = weatherRef.current;
+
     if (
-      baseline.kind !== weather.kind ||
-      Math.abs(
-        baseline.intensity - weather.intensity
-      ) > 0.12
+      baseline.kind !== current.kind ||
+      Math.abs(baseline.intensity - current.intensity) > 0.12
     ) {
       transitionTo(baseline.kind, {
         durationMs: 1400,
         targetIntensity: baseline.intensity,
       });
     }
-  }, [
-    followSeasonBaseline,
-    season.weather,
-    season.intensity,
-  ]); // eslint-disable-line
+  }, [followSeasonBaseline, season.weather, season.intensity, transitionTo]);
 
   // -------------------------------------------------------------------------
   // Tick moteur
@@ -301,8 +289,7 @@ export default function WeatherEngineProvider({
 
         const newIntensity =
           tr.from.intensity +
-          (tr.to.intensity - tr.from.intensity) *
-            tt;
+          (tr.to.intensity - tr.from.intensity) * tt;
 
         const newKind =
           t >= 0.65 ? tr.to.kind : tr.from.kind;
@@ -333,7 +320,9 @@ export default function WeatherEngineProvider({
         }
       }
 
-      if (weather.kind === "storm") {
+      const current = weatherRef.current;
+
+      if (current.kind === "storm") {
         if (
           nextEventAtRef.current == null ||
           now >= nextEventAtRef.current
@@ -343,11 +332,10 @@ export default function WeatherEngineProvider({
             distance01: Math.random(),
             atMs: now,
           });
-          nextEventAtRef.current =
-            scheduleNextStormEvent(
-              now,
-              Math.max(0.2, weather.intensity)
-            );
+          nextEventAtRef.current = scheduleNextStormEvent(
+            now,
+            Math.max(0.2, current.intensity)
+          );
         }
       } else {
         nextEventAtRef.current = null;
@@ -355,7 +343,7 @@ export default function WeatherEngineProvider({
     }, tickMs);
 
     return () => window.clearInterval(timer);
-  }, [emit, tickMs, weather]);
+  }, [emit, tickMs]);
 
   // -------------------------------------------------------------------------
   // API

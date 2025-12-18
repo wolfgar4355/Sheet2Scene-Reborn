@@ -19,20 +19,26 @@ import {
  * - camera shake proportionnelle
  * - zéro logique météo interne
  */
-
 export default function LightningEngine() {
   const { state, subscribe } = useWeather();
-  const { weather } = state;
 
+  const weatherRef = useRef(state.weather);
   const [flash, setFlash] = useState(false);
   const timeoutRef = useRef<number | null>(null);
+
+  // Garder la météo courante sans closures obsolètes
+  useEffect(() => {
+    weatherRef.current = state.weather;
+  }, [state.weather]);
 
   // ---------------------------------------------------------------------------
   // Écoute événements météo (LIGHTNING_STRIKE)
   // ---------------------------------------------------------------------------
   useEffect(() => {
-    // Si on n’est pas en tempête, on ignore tout
-    if (weather.kind !== "storm") {
+    if (typeof window === "undefined") return;
+
+    // Ignore si pas en tempête
+    if (state.weather.kind !== "storm") {
       clear();
       return;
     }
@@ -46,13 +52,14 @@ export default function LightningEngine() {
       unsubscribe();
       clear();
     };
-  }, [weather.kind]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [state.weather.kind, subscribe]);
 
   // ---------------------------------------------------------------------------
   // Réaction à un éclair (déjà décidé par le moteur)
   // ---------------------------------------------------------------------------
   function handleLightning(distance01: number) {
     const event: ThunderEvent = generateThunderEvent(distance01);
+    const weather = weatherRef.current;
 
     // ⚡ FLASH VISUEL
     setFlash(true);

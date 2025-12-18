@@ -11,38 +11,15 @@ import type { WeatherState } from "@engine/ambient/weather";
 import { pickWeatherSound } from "@engine/ambient/weather";
 
 /**
- * Convertit l’état météo logique de la scène
- * vers un WeatherState canon
- */
-function resolveWeatherState(
-  kind: string,
-  intensity: number
-): WeatherState {
-  switch (kind) {
-    case "rain":
-      return { kind: "rain", intensity };
-    case "snow":
-      return { kind: "snow", intensity };
-    case "fog":
-      return { kind: "fog", intensity: intensity * 0.4 };
-    case "storm":
-      return { kind: "storm", intensity };
-    case "clear":
-    default:
-      return { kind: "clear", intensity: 0 };
-  }
-}
-
-/**
  * AmbientManager — Mithril Engine AAA
- *
+ * --------------------------------------------------
  * - Ambiances météo via AudioContext global
- * - Volume dynamique selon intensité (0–1.0)
+ * - Volume dynamique selon WeatherState.intensity
  * - Fade-in / Fade-out propre
- * - Aucun artefact sonore
+ * - AUCUNE logique météo ici (lecture seule)
  */
 export default function AmbientManager() {
-  const scene = useScene(); // weather, intensity, ambientColor
+  const scene = useScene(); // weather: WeatherState, ambientColor
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const gainRef = useRef<GainNode | null>(null);
@@ -59,18 +36,14 @@ export default function AmbientManager() {
   }, [scene.ambientColor]);
 
   // ---------------------------------------------------------------------------
-  // Boucle météo principale
+  // Boucle météo audio principale
   // ---------------------------------------------------------------------------
   useEffect(() => {
     let cancelled = false;
+    const weather = scene.weather;
 
     (async () => {
-      const weather = resolveWeatherState(
-        scene.weather,
-        scene.intensity ?? 0
-      );
-
-      // Stop ambiance si météo claire
+      // Stop audio si météo claire
       if (weather.kind === "clear") {
         fadeOut(gainRef.current);
         return;
@@ -82,18 +55,17 @@ export default function AmbientManager() {
 
       const ctx = AudioBootCoreInstance.context;
 
-      // Choisir le son météo
+      // Charger son météo
       const sound = pickWeatherSound(weather);
-      const el = await loadAudio(sound.src);
+      const el = await loadAudio(sound.mp3);
 
       if (cancelled) return;
 
-      // Création de la chaîne audio
+      // Chaîne audio
       const source = ctx.createMediaElementSource(el);
       const gain = ctx.createGain();
 
       gain.gain.value = 0;
-
       source.connect(gain).connect(ctx.destination);
 
       el.loop = true;
@@ -105,7 +77,6 @@ export default function AmbientManager() {
         // autoplay bloqué → AudioBoot gère
       }
 
-      // Sauvegarde refs
       audioRef.current = el;
       gainRef.current = gain;
 
@@ -120,18 +91,12 @@ export default function AmbientManager() {
   }, [scene.weather]);
 
   // ---------------------------------------------------------------------------
-  // Ajustement dynamique du volume (intensité)
+  // Ajustement dynamique du volume (intensité météo)
   // ---------------------------------------------------------------------------
   useEffect(() => {
     if (!gainRef.current) return;
-
-    const weather = resolveWeatherState(
-      scene.weather,
-      scene.intensity ?? 0
-    );
-
-    fadeTo(gainRef.current, computeVolume(weather), 0.3);
-  }, [scene.intensity]);
+    fadeTo(gainRef.current, computeVolume(scene.weather), 0.3);
+  }, [scene.weather]);
 
   return null;
 }
@@ -143,9 +108,7 @@ export default function AmbientManager() {
 function computeVolume(weather: WeatherState): number {
   if (weather.kind === "clear") return 0;
 
-  const base =
-    weather.kind === "storm" ? 0.55 : 0.35;
-
+  const base = weather.kind === "storm" ? 0.55 : 0.35;
   return Math.min(1, base + weather.intensity * 0.6);
 }
 

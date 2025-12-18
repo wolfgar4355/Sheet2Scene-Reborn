@@ -3,7 +3,6 @@
 
 import { useEffect, useRef } from "react";
 import { useScene } from "./SceneController";
-import type { WeatherState } from "@engine/ambient/weather";
 
 interface Particle {
   x: number;
@@ -19,10 +18,11 @@ export default function SeasonParticles() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const { season, weather, lightLevel } = useScene();
-
   const intensity = weather.intensity;
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -66,8 +66,7 @@ export default function SeasonParticles() {
     const initParticles = () => {
       particles = Array.from({ length: density }).map(() => {
         const isRain =
-          weather.kind === "rain" ||
-          weather.kind === "storm";
+          weather.kind === "rain" || weather.kind === "storm";
         const isSnow = weather.kind === "snow";
         const isFog = weather.kind === "fog";
 
@@ -120,17 +119,15 @@ export default function SeasonParticles() {
     };
 
     // -----------------------------------------------------------------------
-    // ANIMATION PRINCIPALE
+    // ANIMATION
     // -----------------------------------------------------------------------
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (const p of particles) {
-        // déplacement
         p.x += p.vx;
         p.y += p.vy;
 
-        // turbulence tempête
         if (weather.kind === "storm") {
           p.x +=
             Math.sin(p.y * 0.025) *
@@ -139,12 +136,10 @@ export default function SeasonParticles() {
           p.x += Math.sin(p.y * 0.002) * 0.2;
         }
 
-        // réinitialisation
         if (p.y > canvas.height + 20) p.y = -10;
         if (p.x > canvas.width + 20) p.x = -10;
         if (p.x < -20) p.x = canvas.width + 10;
 
-        // rendu
         ctx.beginPath();
         ctx.globalAlpha =
           p.opacity * (0.6 + lightLevel * 0.4);
