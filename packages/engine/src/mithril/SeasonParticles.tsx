@@ -3,6 +3,7 @@
 
 import { useEffect, useRef } from "react";
 import { useScene } from "./SceneController";
+import type { WeatherState } from "@engine/ambient/weather";
 
 interface Particle {
   x: number;
@@ -17,19 +18,9 @@ interface Particle {
 export default function SeasonParticles() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  /**
-   * SceneController doit renvoyer :
-   * - season: "summer" | "autumn" | "winter" | "spring"
-   * - weather: "clear" | "rain" | "snow" | "fog" | "storm"
-   * - intensity: 0–1
-   * - lightLevel: 0–1
-   */
-  const {
-    season,
-    weather,
-    intensity = 0.5,
-    lightLevel = 1,
-  } = useScene() as any;
+  const { season, weather, lightLevel } = useScene();
+
+  const intensity = weather.intensity;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -41,23 +32,31 @@ export default function SeasonParticles() {
     let particles: Particle[] = [];
     let rafId = 0;
 
-    // -----------------------------
-    //  DENSITÉ DES PARTICULES
-    // -----------------------------
+    // -----------------------------------------------------------------------
+    // DENSITÉ DES PARTICULES
+    // -----------------------------------------------------------------------
     const baseDensity =
-      weather === "snow" ? 140 :
-      weather === "rain" ? 180 :
-      weather === "fog"  ? 80  :
-      weather === "storm"? 200 :
-      season === "autumn" ? 90 :
-      season === "winter" ? 110 :
-      40;
+      weather.kind === "snow"
+        ? 140
+        : weather.kind === "rain"
+        ? 180
+        : weather.kind === "fog"
+        ? 80
+        : weather.kind === "storm"
+        ? 200
+        : season === "autumn"
+        ? 90
+        : season === "winter"
+        ? 110
+        : 40;
 
-    const density = Math.round(baseDensity * (0.4 + intensity * 1.6));
+    const density = Math.round(
+      baseDensity * (0.4 + intensity * 1.6)
+    );
 
-    // -----------------------------
-    //  RÉSOLUTION + INIT
-    // -----------------------------
+    // -----------------------------------------------------------------------
+    // RÉSOLUTION + INIT
+    // -----------------------------------------------------------------------
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -66,9 +65,11 @@ export default function SeasonParticles() {
 
     const initParticles = () => {
       particles = Array.from({ length: density }).map(() => {
-        const isRain = weather === "rain" || weather === "storm";
-        const isSnow = weather === "snow";
-        const isFog  = weather === "fog";
+        const isRain =
+          weather.kind === "rain" ||
+          weather.kind === "storm";
+        const isSnow = weather.kind === "snow";
+        const isFog = weather.kind === "fog";
 
         const size = isRain
           ? Math.random() * 1 + 0.6
@@ -78,29 +79,33 @@ export default function SeasonParticles() {
           ? Math.random() * 5 + 3
           : Math.random() * 2.2 + 1;
 
-        const color =
-          isRain
-            ? `rgba(180,180,255,${0.2 + intensity * 0.3})`
-            : isSnow
-            ? `rgba(255,255,255,${0.3 + intensity * 0.4})`
-            : isFog
-            ? `rgba(200,200,200,${0.15 + intensity * 0.2})`
-            : season === "autumn"
-            ? "rgba(255,150,40,0.7)"
-            : "rgba(255,255,255,0.4)";
+        const color = isRain
+          ? `rgba(180,180,255,${0.2 + intensity * 0.3})`
+          : isSnow
+          ? `rgba(255,255,255,${0.3 + intensity * 0.4})`
+          : isFog
+          ? `rgba(200,200,200,${0.15 + intensity * 0.2})`
+          : season === "autumn"
+          ? "rgba(255,150,40,0.7)"
+          : "rgba(255,255,255,0.4)";
 
         const wind =
-          weather === "storm" ? 2.5 + intensity * 3 :
-          weather === "rain"  ? 1.5 + intensity * 2 :
-          weather === "fog"   ? 0.3 :
-          0.2 + intensity * 0.5;
+          weather.kind === "storm"
+            ? 2.5 + intensity * 3
+            : weather.kind === "rain"
+            ? 1.5 + intensity * 2
+            : weather.kind === "fog"
+            ? 0.3
+            : 0.2 + intensity * 0.5;
 
         const vx = wind * (0.7 + Math.random() * 0.6);
-        const vy =
-          isRain ? 4 + intensity * 4 :
-          isSnow ? 1 + intensity * 1.5 :
-          isFog  ? 0.2 + Math.random() * 0.3 :
-          0.5 + Math.random() * 1;
+        const vy = isRain
+          ? 4 + intensity * 4
+          : isSnow
+          ? 1 + intensity * 1.5
+          : isFog
+          ? 0.2 + Math.random() * 0.3
+          : 0.5 + Math.random() * 1;
 
         return {
           x: Math.random() * canvas.width,
@@ -114,9 +119,9 @@ export default function SeasonParticles() {
       });
     };
 
-    // -----------------------------
-    //  ANIMATION PRINCIPALE
-    // -----------------------------
+    // -----------------------------------------------------------------------
+    // ANIMATION PRINCIPALE
+    // -----------------------------------------------------------------------
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -126,8 +131,10 @@ export default function SeasonParticles() {
         p.y += p.vy;
 
         // turbulence tempête
-        if (weather === "storm") {
-          p.x += Math.sin(p.y * 0.025) * (1 + intensity * 2.5);
+        if (weather.kind === "storm") {
+          p.x +=
+            Math.sin(p.y * 0.025) *
+            (1 + intensity * 2.5);
         } else {
           p.x += Math.sin(p.y * 0.002) * 0.2;
         }
@@ -139,7 +146,8 @@ export default function SeasonParticles() {
 
         // rendu
         ctx.beginPath();
-        ctx.globalAlpha = p.opacity * (0.6 + lightLevel * 0.4);
+        ctx.globalAlpha =
+          p.opacity * (0.6 + lightLevel * 0.4);
         ctx.fillStyle = p.color;
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
@@ -157,15 +165,13 @@ export default function SeasonParticles() {
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(rafId);
     };
-  }, [season, weather, intensity, lightLevel]);
+  }, [season, weather.kind, weather.intensity, lightLevel]);
 
   return (
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none z-[2]"
-      style={{
-        mixBlendMode: "screen",
-      }}
+      style={{ mixBlendMode: "screen" }}
     />
   );
 }

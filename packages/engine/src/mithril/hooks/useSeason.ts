@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import {
   getSeason,
   getDayPhase,
-  getWeather,
   getAmbientColor,
   type SeasonName,
   type DayPhase,
-  type WeatherKind,
 } from "../time";
+
+import type { WeatherKind } from "@engine/ambient/weather";
 
 // ---------------------------------------------------------------------------
 // Options
@@ -19,7 +19,14 @@ import {
 export interface UseSeasonOptions {
   updateIntervalMs?: number;
   mobileMode?: boolean;
-  biome?: "generic" | "forest" | "desert" | "mountain" | "city" | "coast" | "void";
+  biome?:
+    | "generic"
+    | "forest"
+    | "desert"
+    | "mountain"
+    | "city"
+    | "coast"
+    | "void";
   worldId?: string;
 }
 
@@ -38,7 +45,7 @@ export interface SeasonData {
 }
 
 // ---------------------------------------------------------------------------
-// Pseudo-RNG deterministe
+// Pseudo-RNG déterministe
 // ---------------------------------------------------------------------------
 
 function lcg(seed: number): number {
@@ -49,10 +56,9 @@ function lcg(seed: number): number {
 }
 
 /**
- * Sélection météo déterministe en fonction du biome + seed horaire
+ * Sélection météo déterministe selon biome + seed horaire
  */
 function sampleWeatherFor(
-  baseWeather: WeatherKind,
   seedBase: number,
   biome: UseSeasonOptions["biome"] = "generic"
 ): { weather: WeatherKind; intensity: number } {
@@ -95,19 +101,25 @@ function sampleWeatherFor(
       break;
   }
 
-  const clearBias = Math.max(0, 1 - (rainBias + snowBias + fogBias + stormBias));
+  const clearBias = Math.max(
+    0,
+    1 - (rainBias + snowBias + fogBias + stormBias)
+  );
 
   let acc = clearBias;
   let weather: WeatherKind = "clear";
 
-  if (rnd < acc) weather = "clear";
-  else {
+  if (rnd < acc) {
+    weather = "clear";
+  } else {
     acc += rainBias;
-    if (rnd < acc) weather = "rain";
-    else {
+    if (rnd < acc) {
+      weather = "rain";
+    } else {
       acc += snowBias;
-      if (rnd < acc) weather = "snow";
-      else {
+      if (rnd < acc) {
+        weather = "snow";
+      } else {
         acc += fogBias;
         weather = rnd < acc ? "fog" : "storm";
       }
@@ -115,7 +127,8 @@ function sampleWeatherFor(
   }
 
   seed = lcg(seed);
-  const intensity = weather === "clear" ? 0 : (seed / 2 ** 32) ** 1.3;
+  const intensity =
+    weather === "clear" ? 0 : Math.pow(seed / 2 ** 32, 1.3);
 
   return { weather, intensity };
 }
@@ -124,7 +137,9 @@ function sampleWeatherFor(
 // Hook principal
 // ---------------------------------------------------------------------------
 
-export default function useSeason(opts: UseSeasonOptions = {}): SeasonData {
+export default function useSeason(
+  opts: UseSeasonOptions = {}
+): SeasonData {
   const {
     mobileMode = false,
     updateIntervalMs,
@@ -132,7 +147,10 @@ export default function useSeason(opts: UseSeasonOptions = {}): SeasonData {
     worldId,
   } = opts;
 
-  const defaultInterval = mobileMode ? 5 * 60 * 1000 : 2 * 60 * 1000;
+  const defaultInterval = mobileMode
+    ? 5 * 60 * 1000
+    : 2 * 60 * 1000;
+
   const interval = updateIntervalMs ?? defaultInterval;
 
   const [data, setData] = useState<SeasonData>(() => {
@@ -141,7 +159,11 @@ export default function useSeason(opts: UseSeasonOptions = {}): SeasonData {
     const hour = now.getHours();
 
     const dayOfYear = Math.floor(
-      (Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) -
+      (Date.UTC(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate()
+      ) -
         Date.UTC(now.getFullYear(), 0, 0)) /
         86400000
     );
@@ -150,8 +172,16 @@ export default function useSeason(opts: UseSeasonOptions = {}): SeasonData {
     const phase = getDayPhase(hour);
     const ambientColor = getAmbientColor(name, phase);
 
-    const seedBase = dayOfYear * 24 + hour + biome.length * 17 + (worldId?.length ?? 0) * 13;
-    const { weather, intensity } = sampleWeatherFor("clear", seedBase, biome);
+    const seedBase =
+      dayOfYear * 24 +
+      hour +
+      biome.length * 17 +
+      (worldId?.length ?? 0) * 13;
+
+    const { weather, intensity } = sampleWeatherFor(
+      seedBase,
+      biome
+    );
 
     return {
       name,
@@ -175,7 +205,11 @@ export default function useSeason(opts: UseSeasonOptions = {}): SeasonData {
       const hour = now.getHours();
 
       const dayOfYear = Math.floor(
-        (Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) -
+        (Date.UTC(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate()
+        ) -
           Date.UTC(now.getFullYear(), 0, 0)) /
           86400000
       );
@@ -184,8 +218,16 @@ export default function useSeason(opts: UseSeasonOptions = {}): SeasonData {
       const phase = getDayPhase(hour);
       const ambientColor = getAmbientColor(name, phase);
 
-      const seedBase = dayOfYear * 24 + hour + biome.length * 17 + (worldId?.length ?? 0) * 13;
-      const { weather, intensity } = sampleWeatherFor("clear", seedBase, biome);
+      const seedBase =
+        dayOfYear * 24 +
+        hour +
+        biome.length * 17 +
+        (worldId?.length ?? 0) * 13;
+
+      const { weather, intensity } = sampleWeatherFor(
+        seedBase,
+        biome
+      );
 
       setData({
         name,
@@ -211,5 +253,4 @@ export default function useSeason(opts: UseSeasonOptions = {}): SeasonData {
 // Ré-exports utilitaires
 // ---------------------------------------------------------------------------
 
-export { getSeason, getDayPhase, getWeather, getAmbientColor };
-export type { SeasonName, DayPhase, WeatherKind };
+export type { SeasonName, DayPhase };

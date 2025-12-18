@@ -1,7 +1,8 @@
+// src/mithril/LightningEngine.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useWeatherEngine } from "./WeatherEngine";
+import { useWeather } from "./WeatherEngine";
 import { triggerCameraShake } from "./CameraShake";
 
 import {
@@ -10,9 +11,9 @@ import {
 } from "@engine/ambient/thunder";
 
 /**
- * LightningEngine v4 — Weather-driven AAA
+ * LightningEngine — Weather-driven AAA (canon)
  * --------------------------------------------------
- * - écoute WeatherEngine (storm uniquement)
+ * - écoute WeatherEngine (events uniquement)
  * - flash visuel synchronisé
  * - son tonnerre réaliste (distance)
  * - camera shake proportionnelle
@@ -20,55 +21,47 @@ import {
  */
 
 export default function LightningEngine() {
-  const { weather, intensity, subscribe } = useWeatherEngine();
-  const [flash, setFlash] = useState(false);
+  const { state, subscribe } = useWeather();
+  const { weather } = state;
 
+  const [flash, setFlash] = useState(false);
   const timeoutRef = useRef<number | null>(null);
 
   // ---------------------------------------------------------------------------
-  // Gestion événementielle météo
+  // Écoute événements météo (LIGHTNING_STRIKE)
   // ---------------------------------------------------------------------------
   useEffect(() => {
-    if (weather !== "storm") {
+    // Si on n’est pas en tempête, on ignore tout
+    if (weather.kind !== "storm") {
       clear();
       return;
     }
 
-    // Abonnement aux ticks météo (ex: WeatherEngine pulse)
-    const unsubscribe = subscribe("storm:tick", handleStormTick);
+    const unsubscribe = subscribe((evt) => {
+      if (evt.type !== "LIGHTNING_STRIKE") return;
+      handleLightning(evt.distance01);
+    });
 
     return () => {
       unsubscribe();
       clear();
     };
-  }, [weather, intensity]);
+  }, [weather.kind]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ---------------------------------------------------------------------------
-  // Tick météo → déclenche éclair ou non
+  // Réaction à un éclair (déjà décidé par le moteur)
   // ---------------------------------------------------------------------------
-  function handleStormTick() {
-    // probabilité basée sur intensité
-    const chance = 0.25 + intensity * 0.55;
-    if (Math.random() > chance) return;
+  function handleLightning(distance01: number) {
+    const event: ThunderEvent = generateThunderEvent(distance01);
 
-    triggerLightning();
-  }
-
-  // ---------------------------------------------------------------------------
-  // Déclenchement complet éclair
-  // ---------------------------------------------------------------------------
-  function triggerLightning() {
-    const dist = Math.random(); // 0 = proche, 1 = lointain
-    const event: ThunderEvent = generateThunderEvent(dist);
-
-    // ⚡ FLASH
+    // ⚡ FLASH VISUEL
     setFlash(true);
     window.setTimeout(() => setFlash(false), 120);
 
     // 🎥 CAMERA SHAKE (plus proche = plus violent)
-    triggerCameraShake((1 - dist) * 900);
+    triggerCameraShake((1 - distance01) * 900);
 
-    // 🎧 AUDIO (décalé selon distance)
+    // 🎧 AUDIO (retardé selon distance)
     timeoutRef.current = window.setTimeout(() => {
       try {
         const audio = new Audio(event.url);
@@ -82,7 +75,8 @@ export default function LightningEngine() {
 
         audio.volume = Math.min(
           1,
-          distanceFactor * (0.6 + intensity * 0.7)
+          distanceFactor *
+            (0.6 + weather.intensity * 0.7)
         );
 
         audio.play().catch(() => {});

@@ -18,12 +18,12 @@ const WORLD_TINT: Record<string, string> = {
 };
 
 /**
- * WorldAmbientController AAA v3
- * - Teinte visuelle selon le monde
- * - Teinte météo et intensité
- * - Overlays pluie/neige/fog (visuel simple)
- * - Overlays thématiques worldId
- * - NE GÈRE PAS d’audio → AmbientManager fait ça
+ * WorldAmbientController — Mithril Engine AAA
+ * --------------------------------------------------
+ * - Teinte globale jour/nuit + météo
+ * - Teinte thématique par worldId
+ * - Overlays météo (visuel pur)
+ * - Ne gère PAS l’audio (AmbientManager)
  */
 export default function WorldAmbientController({
   children,
@@ -32,14 +32,16 @@ export default function WorldAmbientController({
 }) {
   const scene = useScene();
 
-  const { weather, intensity, ambientColor, worldId } = scene;
+  const { weather, ambientColor, worldId } = scene;
+  const intensity = weather.intensity;
 
-  const tintWorld = WORLD_TINT[worldId ?? "mithril-quest"] ?? "transparent";
+  const tintWorld =
+    WORLD_TINT[worldId ?? "mithril-quest"] ?? "transparent";
 
-  const isRain = weather === "rain";
-  const isSnow = weather === "snow";
-  const isFog = weather === "fog";
-  const isStorm = weather === "storm";
+  const isRain = weather.kind === "rain";
+  const isSnow = weather.kind === "snow";
+  const isFog = weather.kind === "fog";
+  const isStorm = weather.kind === "storm";
 
   return (
     <div className="relative w-full h-full">
@@ -51,7 +53,7 @@ export default function WorldAmbientController({
         className="pointer-events-none fixed inset-0 mix-blend-soft-light transition-opacity duration-700"
         style={{
           background: ambientColor,
-          opacity: 0.40 + intensity * 0.3,
+          opacity: 0.4 + intensity * 0.3,
         }}
       />
 
@@ -68,7 +70,7 @@ export default function WorldAmbientController({
       />
 
       {/* ----------------------------------------------------------
-         WEATHER OVERLAYS — VISUEL PUR (Pas de CSS files)
+         WEATHER OVERLAYS — VISUEL PUR
       ---------------------------------------------------------- */}
 
       {isRain && (
@@ -111,11 +113,9 @@ export default function WorldAmbientController({
       )}
 
       {/* ----------------------------------------------------------
-         WORLD SPECIAL FX (optional future)
-         Exemple : vortex, halos, glyphes selon MQ era
+         WORLD SPECIAL FX (future)
       ---------------------------------------------------------- */}
 
-      {/* children content */}
       {children}
     </div>
   );

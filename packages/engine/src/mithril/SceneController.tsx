@@ -1,3 +1,4 @@
+// src/mithril/SceneController.tsx
 "use client";
 
 import React, {
@@ -10,6 +11,9 @@ import { motion, useSpring, useTransform } from "framer-motion";
 
 import useSeason from "./hooks/useSeason";
 import { useCamera } from "./hooks/useCamera";
+
+import type { WeatherState } from "@engine/ambient/weather";
+import { createWeatherState } from "@engine/ambient/weather";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -25,8 +29,7 @@ interface SceneContextType {
   // Saison & météo
   season: string;
   phase: string;
-  weather: string;
-  intensity: number;
+  weather: WeatherState;
 
   // Ambiance
   ambientColor: string;
@@ -40,7 +43,9 @@ const SceneContext = createContext<SceneContextType | undefined>(undefined);
 
 export function useScene() {
   const ctx = useContext(SceneContext);
-  if (!ctx) throw new Error("useScene must be used inside <SceneController>");
+  if (!ctx) {
+    throw new Error("useScene must be used inside <SceneController>");
+  }
   return ctx;
 }
 
@@ -57,12 +62,23 @@ export default function SceneController({
   worldId?: string;
   children: ReactNode;
 }) {
-  // ------------------------------
+  // -------------------------------------------------------------------------
   // Saison + météo + ambiance
-  // ------------------------------
+  // -------------------------------------------------------------------------
   const season = useSeason({ biome, worldId });
 
-  // Niveau de lumière automatique selon la phase du jour
+  /**
+   * Construction canon du WeatherState
+   * → UNE seule source de vérité
+   */
+  const weather: WeatherState = createWeatherState(
+    season.weather,
+    season.intensity ?? 0
+  );
+
+  // -------------------------------------------------------------------------
+  // Lumière globale selon la phase
+  // -------------------------------------------------------------------------
   const lightLevel =
     season.phase === "night"
       ? 0.25
@@ -70,12 +86,11 @@ export default function SceneController({
       ? 0.55
       : 1;
 
-  // ------------------------------
+  // -------------------------------------------------------------------------
   // Camera AAA v3
-  // ------------------------------
+  // -------------------------------------------------------------------------
   const camera = useCamera();
 
-  // Brightness dynamique
   const lightMotion = useSpring(lightLevel, {
     stiffness: 90,
     damping: 25,
@@ -83,10 +98,9 @@ export default function SceneController({
 
   const brightness = useTransform(lightMotion, [0, 1], [0.4, 1]);
 
-  // ---------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
   // Render
-  // ---------------------------------------------------------------------------
-
+  // -------------------------------------------------------------------------
   return (
     <SceneContext.Provider
       value={{
@@ -94,8 +108,7 @@ export default function SceneController({
         lightLevel,
         season: season.name,
         phase: season.phase,
-        weather: season.weather,
-        intensity: season.intensity,
+        weather,
         ambientColor: season.ambientColor,
         biome,
         worldId,
@@ -103,7 +116,7 @@ export default function SceneController({
     >
       <motion.div
         style={{
-          scale: camera.zoom, // zoom AAA
+          scale: camera.zoom,
           filter: brightness.to((v) => `brightness(${v})`),
           backgroundColor: season.ambientColor,
         }}
