@@ -11,17 +11,18 @@ import type { WeatherState } from "@engine/ambient/weather";
 import { pickWeatherSound } from "@engine/ambient/weather";
 
 /**
- * AmbientManager — Mithril Engine AAA
+ * AmbientManager — Mithril Engine AAA (canon)
  * --------------------------------------------------
- * - Ambiances météo via AudioContext global
- * - Volume dynamique selon WeatherState.intensity
- * - Fade-in / Fade-out propre
- * - AUCUNE logique météo ici (lecture seule)
+ * - Lecture SEULE du WeatherState
+ * - 1 seule source audio active
+ * - Fade propre / aucun doublon
+ * - ZÉRO logique météo ici
  */
 export default function AmbientManager() {
-  const scene = useScene(); // weather: WeatherState, ambientColor
+  const { weather, ambientColor } = useScene();
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
   const gainRef = useRef<GainNode | null>(null);
 
   // ---------------------------------------------------------------------------
@@ -31,37 +32,35 @@ export default function AmbientManager() {
     if (typeof document === "undefined") return;
     document.documentElement.style.setProperty(
       "--mithril-ambient-color",
-      scene.ambientColor
+      ambientColor
     );
-  }, [scene.ambientColor]);
+  }, [ambientColor]);
 
   // ---------------------------------------------------------------------------
-  // Boucle météo audio principale
+  // Boucle météo audio (kind uniquement)
   // ---------------------------------------------------------------------------
   useEffect(() => {
     let cancelled = false;
-    const weather = scene.weather;
 
-    (async () => {
-      // Stop audio si météo claire
+    async function start() {
+      // 🔇 Stop si clear
       if (weather.kind === "clear") {
-        fadeOut(gainRef.current);
+        stopAudio();
         return;
       }
 
-      // Attendre AudioContext global
       await AudioBootCoreInstance.ready();
       if (cancelled) return;
 
       const ctx = AudioBootCoreInstance.context;
 
-      // Charger son météo
+      // 🔁 Nettoyage AVANT nouvelle source
+      stopAudio();
+
       const sound = pickWeatherSound(weather);
       const el = await loadAudio(sound.mp3);
-
       if (cancelled) return;
 
-      // Chaîne audio
       const source = ctx.createMediaElementSource(el);
       const gain = ctx.createGain();
 
@@ -78,25 +77,26 @@ export default function AmbientManager() {
       }
 
       audioRef.current = el;
+      sourceRef.current = source;
       gainRef.current = gain;
 
-      // Fade-in initial
       fadeTo(gain, computeVolume(weather), 1);
-    })();
+    }
+
+    start();
 
     return () => {
       cancelled = true;
-      fadeOut(gainRef.current);
     };
-  }, [scene.weather]);
+  }, [weather.kind]); // ⚠️ kind seulement
 
   // ---------------------------------------------------------------------------
-  // Ajustement dynamique du volume (intensité météo)
+  // Ajustement dynamique du volume (intensity)
   // ---------------------------------------------------------------------------
   useEffect(() => {
     if (!gainRef.current) return;
-    fadeTo(gainRef.current, computeVolume(scene.weather), 0.3);
-  }, [scene.weather]);
+    fadeTo(gainRef.current, computeVolume(weather), 0.3);
+  }, [weather.intensity]);
 
   return null;
 }
@@ -107,28 +107,23 @@ export default function AmbientManager() {
 
 function computeVolume(weather: WeatherState): number {
   if (weather.kind === "clear") return 0;
-
   const base = weather.kind === "storm" ? 0.55 : 0.35;
   return Math.min(1, base + weather.intensity * 0.6);
 }
 
-function fadeTo(
-  gain: GainNode | null,
-  value: number,
-  seconds = 0.5
-) {
-  if (!gain) return;
+function fadeTo(gain: GainNode, value: number, seconds = 0.5) {
   const now = gain.context.currentTime;
   gain.gain.cancelScheduledValues(now);
   gain.gain.linearRampToValueAtTime(value, now + seconds);
 }
 
-function fadeOut(
-  gain: GainNode | null,
-  seconds = 0.6
-) {
-  if (!gain) return;
-  const now = gain.context.currentTime;
-  gain.gain.cancelScheduledValues(now);
-  gain.gain.linearRampToValueAtTime(0, now + seconds);
+function stopAudio() {
+  try {
+    gainRef.current?.disconnect();
+    sourceRef.current?.disconnect();
+    audioRef.current?.pause();
+    audioRef.current = null;
+    sourceRef.current = null;
+    gainRef.current = null;
+  } catch {}
 }
