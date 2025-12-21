@@ -17,11 +17,7 @@ import useSeason, {
   type UseSeasonOptions,
 } from "./hooks/useSeason";
 
-import type {
-  WeatherState,
-  WeatherKind,
-} from "@engine/ambient/weather";
-
+import type { WeatherState, WeatherKind } from "@engine/ambient";
 import { createWeatherState } from "@engine/ambient/weather";
 
 // ---------------------------------------------------------------------------

@@ -1,39 +1,68 @@
 "use client";
 import { useEffect } from "react";
-/**
- * AudioBoot v2 — Réveille l'AudioContext au premier geste utilisateur.
- * Nécessaire pour iOS, Safari et Android (policy autoplay).
- */
+// -----------------------------------------------------------------------------
+// AudioBoot AAA — Gestion centralisée d'un unique AudioContext
+// -----------------------------------------------------------------------------
+class AudioBootCore {
+    _ctx = null;
+    _readyPromise;
+    _resolve;
+    constructor() {
+        this._readyPromise = new Promise((res) => {
+            this._resolve = res;
+        });
+    }
+    /**
+     * Retourne l'AudioContext global (créé si nécessaire)
+     */
+    get context() {
+        if (!this._ctx) {
+            const Ctx = window.AudioContext || window.webkitAudioContext;
+            this._ctx = new Ctx();
+        }
+        return this._ctx;
+    }
+    /**
+     * Promesse résolue lorsque le contexte est activé
+     */
+    ready() {
+        return this._readyPromise;
+    }
+    /**
+     * Force un "resume" du contexte (iOS/Safari friendly)
+     */
+    async ensure() {
+        try {
+            const ctx = this.context;
+            if (ctx.state === "suspended") {
+                await ctx.resume();
+            }
+            // Résout la promesse si c'est la première activation
+            this._resolve(ctx);
+        }
+        catch (err) {
+            console.warn("[AudioBoot] resume failed", err);
+        }
+    }
+    /**
+     * Boot automatique au premier geste utilisateur
+     */
+    attachUserGestures() {
+        const run = () => this.ensure();
+        const opts = { once: true };
+        window.addEventListener("pointerdown", run, opts);
+        window.addEventListener("touchstart", run, opts);
+        window.addEventListener("keydown", run, opts);
+    }
+}
+// Singleton global
+export const AudioBootCoreInstance = new AudioBootCore();
+// -----------------------------------------------------------------------------
+// Composant React (facultatif mais pratique)
+// -----------------------------------------------------------------------------
 export default function AudioBoot() {
     useEffect(() => {
-        let ctx = null;
-        const boot = async () => {
-            try {
-                if (!ctx) {
-                    ctx = new (window.AudioContext ||
-                        window.webkitAudioContext)();
-                }
-                if (ctx.state === "suspended") {
-                    await ctx.resume();
-                }
-            }
-            catch (err) {
-                console.warn("[AudioBoot] resume failed", err);
-            }
-        };
-        const once = () => {
-            boot();
-            cleanup();
-        };
-        const cleanup = () => {
-            window.removeEventListener("pointerdown", once);
-            window.removeEventListener("touchstart", once);
-            window.removeEventListener("keydown", once);
-        };
-        window.addEventListener("pointerdown", once, { once: true });
-        window.addEventListener("touchstart", once, { once: true });
-        window.addEventListener("keydown", once, { once: true });
-        return cleanup;
+        AudioBootCoreInstance.attachUserGestures();
     }, []);
     return null;
 }

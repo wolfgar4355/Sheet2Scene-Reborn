@@ -4,7 +4,7 @@ export function pickWorldAmbient(ctx) {
         if (ctx.biome === "city")
             return "ambient.city.tavern";
         if (ctx.biome === "temple" || ctx.biome === "arcane") {
-            return "ambient.city.tavern"; // à raffiner plus tard
+            return "ambient.city.tavern";
         }
     }
     if (ctx.biome === "forest") {
@@ -12,6 +12,5 @@ export function pickWorldAmbient(ctx) {
             ? "ambient.forest.night"
             : "ambient.forest.day";
     }
-    // fallback : rien
     return undefined;
 }

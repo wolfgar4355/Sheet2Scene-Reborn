@@ -22,7 +22,10 @@ import DevControls from "./DevControls";
 import { TurnController } from "./encounter/TurnController";
 
 import { useCamera } from "./hooks/useCamera";
-import { useSeason, type SeasonData, type UseSeasonOptions } from "./hooks/useSeason";
+import useSeason, {
+  type SeasonData,
+  type UseSeasonOptions,
+} from "./hooks/useSeason";
 
 // 🧠 Encounter
 import EncounterController from "./encounter/EncounterController";

@@ -12,7 +12,7 @@ import { motion, useSpring, useTransform } from "framer-motion";
 import useSeason from "./hooks/useSeason";
 import { useCamera } from "./hooks/useCamera";
 
-import type { WeatherState } from "@engine/ambient/weather";
+import type { WeatherState, WeatherKind } from "@engine/ambient";
 import { createWeatherState } from "@engine/ambient/weather";
 
 // ---------------------------------------------------------------------------
@@ -117,7 +117,7 @@ export default function SceneController({
       <motion.div
         style={{
           scale: camera.zoom,
-          filter: brightness.to((v) => `brightness(${v})`),
+          filter: useTransform(brightness, (v) => `brightness(${v})`),
           backgroundColor: season.ambientColor,
         }}
         className="relative w-full h-full overflow-hidden transition-colors duration-700"

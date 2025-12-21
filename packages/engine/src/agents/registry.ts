@@ -1,4 +1,3 @@
-export const runtime = "nodejs";
 // app/api/agents/registry.ts
 
 // --- MQ Items prompt datasets ---------------------------------------------
@@ -13,6 +12,19 @@ export type Agent = {
   locale?: string; // valeur générique; l’adaptation se fait au runtime
   model?: string;  // override modèle si besoin
   system?: string; // persona / règles
+};
+export type AgentId = keyof typeof AGENTS;
+
+export type AgentTask = {
+  target: AgentId | string;
+  severity?: "low" | "medium" | "high" | "critical";
+  summary: string;
+  files?: string[];
+  payload?: unknown;
+};
+
+export type InternalAgentTask = Omit<AgentTask, "target"> & {
+  target: AgentId;
 };
 
 // Règle d’adaptation de langue commune à tous les agents (Option B)
@@ -58,7 +70,7 @@ Règles :
   },
 
   // 🧭 Direction & Design
-  joefry: {
+  joeffry: {
     id: "joeffry",
     name: "Joeffry — DA",
     role: "Direction artistique, tokens WCAG AA",

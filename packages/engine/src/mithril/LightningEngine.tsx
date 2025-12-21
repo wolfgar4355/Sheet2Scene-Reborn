@@ -5,11 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { useWeather } from "./WeatherEngine";
 import { triggerCameraShake } from "./CameraShake";
 
-import {
-  generateThunderEvent,
-  type ThunderEvent,
-} from "@engine/ambient/thunder";
-
+import { generateThunderEvent } from "@engine/ambient/thunder";
+import type { ThunderEvent } from "@engine/ambient/thunder";
 /**
  * LightningEngine — Weather-driven AAA (canon)
  * --------------------------------------------------

@@ -4,11 +4,7 @@
 import { useMithril } from "./GrimoireFrame";
 import { useEffect, useRef, useState } from "react";
 
-import {
-  generateThunderEvent,
-  type ThunderEvent,
-} from "@engine/ambient/thunder";
-
+import type { ThunderEvent } from "@engine/ambient/thunder";
 import { triggerCameraShake } from "./CameraShake";
 import LightningArcs from "./LightningArcs";
 

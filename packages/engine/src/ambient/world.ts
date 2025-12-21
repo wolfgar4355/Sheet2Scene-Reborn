@@ -1,12 +1,18 @@
 // packages/engine/src/ambient/world.ts
 
-import type { AmbientContext } from "./types";
+export interface WorldAmbientInput {
+  biome?: string;
+  dayPhase?: "day" | "night" | "morning" | "evening";
+  inside?: boolean;
+}
 
-export function pickWorldAmbient(ctx: AmbientContext): string | undefined {
+export function pickWorldAmbient(
+  ctx: WorldAmbientInput
+): string | undefined {
   if (ctx.inside) {
     if (ctx.biome === "city") return "ambient.city.tavern";
     if (ctx.biome === "temple" || ctx.biome === "arcane") {
-      return "ambient.city.tavern"; // à raffiner plus tard
+      return "ambient.city.tavern";
     }
   }
 
@@ -16,6 +22,5 @@ export function pickWorldAmbient(ctx: AmbientContext): string | undefined {
       : "ambient.forest.day";
   }
 
-  // fallback : rien
   return undefined;
 }

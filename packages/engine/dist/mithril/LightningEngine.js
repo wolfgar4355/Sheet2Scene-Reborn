@@ -1,119 +1,90 @@
+// src/mithril/LightningEngine.tsx
 "use client";
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useEffect, useRef } from "react";
-import { useScene } from "./SceneController";
+import { useEffect, useRef, useState } from "react";
+import { useWeather } from "./WeatherEngine";
 import { triggerCameraShake } from "./CameraShake";
-import LightningArcs from "./LightningArcs";
+import { generateThunderEvent } from "@engine/ambient/thunder";
 /**
- * ⚡ Mithril Engine — Lightning + Thunder AAA PACK
- * - Éclairs directionnels (left, right, center, behind)
- * - Flash avec intensité variable
- * - Distance réaliste -> délai tonnerre
- * - Plusieurs samples audio selon distance
- * - Intégration camera shake
- * - Arcs lightning en Canvas
+ * LightningEngine — Weather-driven AAA (canon)
+ * --------------------------------------------------
+ * - écoute WeatherEngine (events uniquement)
+ * - flash visuel synchronisé
+ * - son tonnerre réaliste (distance)
+ * - camera shake proportionnelle
+ * - zéro logique météo interne
  */
 export default function LightningEngine() {
-    const { weather, intensity } = useScene();
-    const flashRef = useRef(null);
-    const audioCtx = useRef(null);
+    const { state, subscribe } = useWeather();
+    const weatherRef = useRef(state.weather);
+    const [flash, setFlash] = useState(false);
+    const timeoutRef = useRef(null);
+    // Garder la météo courante sans closures obsolètes
     useEffect(() => {
-        if (weather !== "storm")
+        weatherRef.current = state.weather;
+    }, [state.weather]);
+    // ---------------------------------------------------------------------------
+    // Écoute événements météo (LIGHTNING_STRIKE)
+    // ---------------------------------------------------------------------------
+    useEffect(() => {
+        if (typeof window === "undefined")
             return;
-        if (!audioCtx.current) {
-            audioCtx.current = new AudioContext();
+        // Ignore si pas en tempête
+        if (state.weather.kind !== "storm") {
+            clear();
+            return;
         }
-        let running = true;
-        const loop = async () => {
-            while (running) {
-                const next = 1200 + Math.random() * (6000 / (intensity + 0.3));
-                await delay(next);
-                if (!running)
-                    break;
-                // 1) Générer un éclair
-                const dist = getRandomDistance();
-                const dir = getDirection();
-                const delaySound = dist / 340;
-                // 2) flash visuel
-                triggerFlash(dir, intensity);
-                // 3) arcs lightning si proche
-                if (dist < 250)
-                    LightningArcs.spawn(dir);
-                // 4) camera shake
-                triggerCameraShake(dist);
-                // 5) jouer tonnerre
-                playThunder(dist, delaySound);
-            }
+        const unsubscribe = subscribe((evt) => {
+            if (evt.type !== "LIGHTNING_STRIKE")
+                return;
+            handleLightning(evt.distance01);
+        });
+        return () => {
+            unsubscribe();
+            clear();
         };
-        loop();
-        return () => { running = false; };
-    }, [weather, intensity]);
-    const triggerFlash = (dir, intensity) => {
-        if (!flashRef.current)
-            return;
-        const power = Math.min(1, 0.4 + intensity * 0.7);
-        const angle = dir === "left" ? "translateX(-20%)"
-            : dir === "right" ? "translateX(20%)"
-                : dir === "behind" ? "scale(0.6)"
-                    : "none";
-        flashRef.current.style.transform = angle;
-        flashRef.current.style.opacity = String(power);
-        setTimeout(() => {
-            if (flashRef.current)
-                flashRef.current.style.opacity = "0";
-        }, 60 + Math.random() * 70);
-    };
-    const playThunder = async (dist, delay) => {
-        if (!audioCtx.current)
-            return;
-        const sample = pickSample(dist);
-        const arr = await fetch("/sounds/thunder/" + sample).then(r => r.arrayBuffer());
-        const buffer = await audioCtx.current.decodeAudioData(arr);
-        setTimeout(() => {
-            const src = audioCtx.current.createBufferSource();
-            const gain = audioCtx.current.createGain();
-            const volume = dist < 100
-                ? 1.2
-                : dist < 400
-                    ? 1.0
-                    : dist < 1200
-                        ? 0.6
-                        : 0.3;
-            gain.gain.value = volume;
-            src.buffer = buffer;
-            src.connect(gain);
-            gain.connect(audioCtx.current.destination);
-            src.start(0);
-        }, delay * 1000);
-    };
-    return (_jsx("div", { ref: flashRef, className: "pointer-events-none absolute inset-0 z-[80] bg-white", style: {
-            opacity: 0,
-            transition: "opacity 0.07s linear",
-            mixBlendMode: "screen"
+    }, [state.weather.kind, subscribe]);
+    // ---------------------------------------------------------------------------
+    // Réaction à un éclair (déjà décidé par le moteur)
+    // ---------------------------------------------------------------------------
+    function handleLightning(distance01) {
+        const event = generateThunderEvent(distance01);
+        const weather = weatherRef.current;
+        // ⚡ FLASH VISUEL
+        setFlash(true);
+        window.setTimeout(() => setFlash(false), 120);
+        // 🎥 CAMERA SHAKE (plus proche = plus violent)
+        triggerCameraShake((1 - distance01) * 900);
+        // 🎧 AUDIO (retardé selon distance)
+        timeoutRef.current = window.setTimeout(() => {
+            try {
+                const audio = new Audio(event.url);
+                const distanceFactor = event.distance === "close"
+                    ? 1
+                    : event.distance === "mid"
+                        ? 0.75
+                        : 0.55;
+                audio.volume = Math.min(1, distanceFactor *
+                    (0.6 + weather.intensity * 0.7));
+                audio.play().catch(() => { });
+            }
+            catch { }
+        }, event.delayMs);
+    }
+    function clear() {
+        if (timeoutRef.current) {
+            window.clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+        }
+        setFlash(false);
+    }
+    // ---------------------------------------------------------------------------
+    // Flash overlay
+    // ---------------------------------------------------------------------------
+    return (_jsx("div", { "aria-hidden": "true", className: "pointer-events-none fixed inset-0 transition-opacity duration-150", style: {
+            opacity: flash ? 1 : 0,
+            background: "radial-gradient(circle at 30% 0%, rgba(255,255,255,0.95), rgba(255,255,255,0.35) 45%, transparent 75%)",
+            mixBlendMode: "screen",
+            zIndex: 50,
         } }));
-}
-function delay(ms) {
-    return new Promise(res => setTimeout(res, ms));
-}
-function getRandomDistance() {
-    // 15% des éclairs = impact direct (sorts)
-    if (Math.random() < 0.15)
-        return 0;
-    return Math.floor(80 + Math.random() * 2000);
-}
-function getDirection() {
-    const dirs = ["left", "right", "center", "behind"];
-    return dirs[Math.floor(Math.random() * dirs.length)];
-}
-function pickSample(dist) {
-    if (dist === 0)
-        return "thunder_close_1.mp3";
-    if (dist < 300)
-        return rand(["thunder_close_1.mp3", "thunder_close_2.mp3"]);
-    if (dist < 900)
-        return rand(["thunder_mid_1.mp3", "thunder_mid_2.mp3"]);
-    return rand(["thunder_far_1.mp3", "thunder_far_2.mp3"]);
-}
-function rand(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
 }

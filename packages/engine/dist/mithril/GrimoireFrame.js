@@ -1,11 +1,23 @@
+// src/mithril/GrimoireFrame.tsx
 "use client";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { AnimatePresence, motion } from "framer-motion";
-import { createContext, useContext, useEffect, useState, } from "react";
+import { createContext, useContext, useEffect, useRef, } from "react";
+import IsometricWorld from "./iso/IsometricWorld";
+import WeatherEngineProvider from "./WeatherEngine";
 import AudioBoot from "./AudioBoot";
 import AmbientManager from "./AmbientManager";
-import { useSeason } from "./hooks/useSeason";
-const MithrilContext = createContext(null);
+import LightningEngine from "./LightningEngine";
+import WorldAmbientController from "./WorldAmbientController";
+import SeasonParticles from "./SeasonParticles";
+import TransitionLayer from "./TransitionLayer";
+import PageTurner from "./PageTurner";
+import DevControls from "./DevControls";
+import { TurnController } from "./encounter/TurnController";
+import { useCamera } from "./hooks/useCamera";
+import useSeason from "./hooks/useSeason";
+// 🧠 Encounter
+import EncounterController from "./encounter/EncounterController";
+const MithrilContext = createContext(undefined);
 export function useMithril() {
     const ctx = useContext(MithrilContext);
     if (!ctx) {
@@ -13,22 +25,45 @@ export function useMithril() {
     }
     return ctx;
 }
-/**
- * 🧙‍♂️ GrimoireFrame — Layout principal du moteur Mithril
- */
-export default function GrimoireFrame({ children }) {
-    const initialSeason = useSeason();
-    const [season, setSeason] = useState(initialSeason);
-    const [isFlipping, setFlipping] = useState(false);
-    // Mise à jour automatique lors du recalcul de la saison
+// ---------------------------------------------------------------------------
+// Composant public
+// ---------------------------------------------------------------------------
+export default function GrimoireFrame({ worldId = "mithril-quest", eraId, biome = "generic", page = 1, devMode = false, children, }) {
+    return (_jsx(MithrilFrameInner, { worldId: worldId, eraId: eraId, biome: biome, page: page, devMode: devMode, children: children }));
+}
+// ---------------------------------------------------------------------------
+// Couche interne : caméra + monde + encounter + grimoire
+// ---------------------------------------------------------------------------
+function MithrilFrameInner({ worldId, eraId, biome, page, devMode, children, }) {
+    const frameRef = useRef(null);
+    // Saison / météo
+    const season = useSeason({ biome, worldId });
+    // Caméra AAA
+    const camera = useCamera();
+    // Parallaxe / mouvement du grimoire
     useEffect(() => {
-        setSeason(initialSeason);
-    }, [initialSeason]);
-    const flip = () => {
-        setFlipping(true);
-        setTimeout(() => setFlipping(false), 800);
+        const el = frameRef.current;
+        if (!el)
+            return;
+        const { x, y, yaw, pitch, zoom } = camera;
+        el.style.transform = `
+      translate3d(${x * 8}px, ${-y * 6}px, 0)
+      scale(${zoom})
+      rotateX(${pitch * 8}deg)
+      rotateY(${yaw * 8}deg)
+    `;
+    }, [camera]);
+    const ctxValue = {
+        worldId,
+        eraId,
+        page,
+        season,
+        camera,
     };
-    const bg = "/images/bg_hall.png";
-    const parchment = "/images/parchment.png";
-    return (_jsx(MithrilContext.Provider, { value: { season, setSeason, flip, isFlipping }, children: _jsxs("main", { className: "relative w-full h-full overflow-hidden bg-black text-white", children: [_jsx("div", { className: "absolute inset-0 bg-cover bg-center opacity-70 transition-all", style: { backgroundImage: `url(${bg})` } }), _jsx("div", { className: "absolute inset-0 pointer-events-none bg-no-repeat bg-contain opacity-85 transition-all", style: { backgroundImage: `url(${parchment})` } }), _jsx(AnimatePresence, { mode: "wait", children: _jsx(motion.div, { initial: { rotateY: 0, opacity: 1 }, animate: { rotateY: isFlipping ? 180 : 0, opacity: 1 }, exit: { opacity: 0 }, transition: { duration: 0.8 }, className: "relative w-full h-full", children: children }, isFlipping ? "flip" : "idle") }), _jsx(AudioBoot, {}), _jsx(LightningEngine, {}), _jsx(AmbientManager, {})] }) }));
+    return (_jsxs(MithrilContext.Provider, { value: ctxValue, children: [_jsx(AudioBoot, {}), _jsx("div", { ref: frameRef, "data-mithril-root": true, className: "relative w-full h-full overflow-hidden select-none", style: {
+                    perspective: "1600px",
+                    transformStyle: "preserve-3d",
+                    backgroundColor: season.ambientColor,
+                    transition: "background-color 0.7s ease",
+                }, children: _jsxs(WeatherEngineProvider, { biome: biome, worldId: worldId, children: [_jsx(EncounterController, { children: _jsxs(WorldAmbientController, { children: [_jsx(TransitionLayer, {}), _jsx(SeasonParticles, {}), _jsx(AmbientManager, {}), _jsx(LightningEngine, {}), _jsx(TurnController, { children: _jsx(IsometricWorld, {}) }), devMode && _jsx(DevControls, {})] }) }), _jsx("div", { className: "relative mx-auto w-[95%] max-w-[1550px] h-full pointer-events-auto", children: _jsx(PageTurner, { page: page, children: _jsx("div", { className: "\n                  w-full h-full\n                  bg-[url('/engine/grimoire/page-texture.webp')]\n                  bg-cover bg-center bg-no-repeat\n                  p-6 md:p-10 lg:p-14\n                  font-serif text-[#210] dark:text-[#dedede]\n                ", children: children }) }) })] }) })] }));
 }

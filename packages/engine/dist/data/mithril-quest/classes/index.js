@@ -1,7 +1,5 @@
-// @ts-nocheck
-// ===============================================================
-//  INDEX MQ — Assemblage des 29 classes Mithril-Quest
-// ===============================================================
+// apps/web/data/mithril-quest/classes/index.ts
+// --- IMPORTS AUTO-GÉNÉRÉS (1 fichier = 1 classe MQ) ---
 import { MQ_CLASS_ALCHEMIST } from "./alchemist";
 import { MQ_CLASS_ARTIFICER } from "./artificer";
 import { MQ_CLASS_ASSASSIN } from "./assassin";
@@ -32,36 +30,36 @@ import { MQ_CLASS_WARLOCK } from "./warlock";
 import { MQ_CLASS_WARPRIEST } from "./warpriest";
 import { MQ_CLASS_WITCH_HUNTER } from "./witch_hunter";
 // ===============================================================
-//  Regroupement final
+//     REGROUPEMENT FINAL (ordonné alphabétiquement)
 // ===============================================================
 export const MQ_CLASSES = [
-    ...MQ_CLASS_ALCHEMIST,
-    ...MQ_CLASS_ARTIFICER,
-    ...MQ_CLASS_ASSASSIN,
-    ...MQ_CLASS_BARD,
-    ...MQ_CLASS_BATTLEMAGE,
-    ...MQ_CLASS_BERSERKER,
-    ...MQ_CLASS_BLOODMAGE,
-    ...MQ_CLASS_CLERIC,
-    ...MQ_CLASS_DRUID,
-    ...MQ_CLASS_DUELIST,
-    ...MQ_CLASS_FIGHTER,
-    ...MQ_CLASS_HUNTER,
-    ...MQ_CLASS_INQUISITOR,
-    ...MQ_CLASS_KNIGHT,
-    ...MQ_CLASS_MAGE,
-    ...MQ_CLASS_MONK,
-    ...MQ_CLASS_MYSTIC,
-    ...MQ_CLASS_NECROMANCER,
-    ...MQ_CLASS_PALADIN,
-    ...MQ_CLASS_PSION,
-    ...MQ_CLASS_RANGER,
-    ...MQ_CLASS_ROGUE,
-    ...MQ_CLASS_RUNEGUARD,
-    ...MQ_CLASS_SHAMAN,
-    ...MQ_CLASS_SORCERER,
-    ...MQ_CLASS_SPELLSWORD,
-    ...MQ_CLASS_WARLOCK,
-    ...MQ_CLASS_WARPRIEST,
-    ...MQ_CLASS_WITCH_HUNTER,
+    MQ_CLASS_ALCHEMIST,
+    MQ_CLASS_ARTIFICER,
+    MQ_CLASS_ASSASSIN,
+    MQ_CLASS_BARD,
+    MQ_CLASS_BATTLEMAGE,
+    MQ_CLASS_BERSERKER,
+    MQ_CLASS_BLOODMAGE,
+    MQ_CLASS_CLERIC,
+    MQ_CLASS_DRUID,
+    MQ_CLASS_DUELIST,
+    MQ_CLASS_FIGHTER,
+    MQ_CLASS_HUNTER,
+    MQ_CLASS_INQUISITOR,
+    MQ_CLASS_KNIGHT,
+    MQ_CLASS_MAGE,
+    MQ_CLASS_MONK,
+    MQ_CLASS_MYSTIC,
+    MQ_CLASS_NECROMANCER,
+    MQ_CLASS_PALADIN,
+    MQ_CLASS_PSION,
+    MQ_CLASS_RANGER,
+    MQ_CLASS_ROGUE,
+    MQ_CLASS_RUNEGUARD,
+    MQ_CLASS_SHAMAN,
+    MQ_CLASS_SORCERER,
+    MQ_CLASS_SPELLSWORD,
+    MQ_CLASS_WARLOCK,
+    MQ_CLASS_WARPRIEST,
+    MQ_CLASS_WITCH_HUNTER,
 ];

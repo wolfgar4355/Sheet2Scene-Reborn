@@ -1,93 +1,65 @@
 // src/mithril/time.ts
 // ---------------------------------------------------------------------------
-//  Mithril Engine — Time & Ambient System Utilities
-//  Gestion : Saison • Phase du jour • Météo • Couleur d’ambiance
+// Saison selon le mois (1–12)
 // ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-//  Saison actuelle
-// ---------------------------------------------------------------------------
-/**
- * Retourne la saison basée sur un mois (1-12).
- * Si aucun paramètre → utilise l’heure système (SSR-safe).
- */
-export function getSeason(month = typeof window !== "undefined"
-    ? new Date().getMonth() + 1
-    : 1 // fallback SSR
-) {
+export function getSeason(month) {
     if (month === 12 || month <= 2)
         return "winter";
-    if (month <= 5)
+    if (month >= 3 && month <= 5)
         return "spring";
-    if (month <= 8)
+    if (month >= 6 && month <= 8)
         return "summer";
     return "autumn";
 }
 // ---------------------------------------------------------------------------
-//  Phase du jour
+// Phase de la journée selon l’heure (0–23)
 // ---------------------------------------------------------------------------
-/**
- * Retourne la phase du jour (matin / jour / soir / nuit).
- * Si aucun paramètre → utilise l’heure locale.
- */
-export function getDayPhase(hour = typeof window !== "undefined"
-    ? new Date().getHours()
-    : 12 // SSR fallback
-) {
-    if (hour < 6 || hour >= 22)
+export function getDayPhase(hour) {
+    if (hour < 5)
         return "night";
-    if (hour < 10)
+    if (hour < 11)
         return "morning";
     if (hour < 18)
         return "day";
     return "evening";
 }
 // ---------------------------------------------------------------------------
-//  Météo (placeholder)
+// Météo “back-end” (pour plus tard : API, préférences, etc.)
+// Pour l’instant : toujours "clear" pour laisser le moteur
+// côté client (useSeason) piloter la météo.
 // ---------------------------------------------------------------------------
-/**
- * Placeholder IA / API.
- * Pour l’instant : météo claire.
- */
 export async function getWeather() {
     return "clear";
 }
 // ---------------------------------------------------------------------------
-//  Couleur d’ambiance
+// Couleur d’ambiance selon saison + phase
 // ---------------------------------------------------------------------------
-/**
- * Génère une couleur d’ambiance basée sur :
- *  - la saison (teinte)
- *  - la phase du jour (luminosité)
- */
-export function getAmbientColor(season = getSeason(), phase = getDayPhase()) {
-    // Palette simple mais propre
-    const baseBySeason = {
-        winter: "#cfe9ff",
-        spring: "#e8ffe0",
-        summer: "#fff6cc",
-        autumn: "#ffd9b3",
-    };
-    const darken = (hex, factor) => {
-        const h = hex.replace("#", "");
-        const r = parseInt(h.slice(0, 2), 16);
-        const g = parseInt(h.slice(2, 4), 16);
-        const b = parseInt(h.slice(4, 6), 16);
-        const apply = (v) => Math.max(0, Math.min(255, Math.round(v * factor)));
-        return `#${apply(r).toString(16).padStart(2, "0")}${apply(g)
-            .toString(16)
-            .padStart(2, "0")}${apply(b).toString(16).padStart(2, "0")}`;
-    };
-    const base = baseBySeason[season];
-    /** Ajustement selon l’heure */
-    switch (phase) {
-        case "night":
-            return darken(base, 0.35);
-        case "evening":
-            return darken(base, 0.7);
-        case "morning":
-            return darken(base, 0.9);
-        case "day":
-        default:
-            return base;
-    }
+const AMBIENT_COLORS = {
+    winter: {
+        night: "#020617", // bleu très sombre
+        morning: "#1e293b", // bleu froid
+        day: "#e0f2fe", // ciel pâle
+        evening: "#0f172a", // bleu nuit
+    },
+    spring: {
+        night: "#020617",
+        morning: "#bbf7d0",
+        day: "#dcfce7",
+        evening: "#4ade80",
+    },
+    summer: {
+        night: "#020617",
+        morning: "#fed7aa",
+        day: "#fee2e2",
+        evening: "#fb923c",
+    },
+    autumn: {
+        night: "#020617",
+        morning: "#f97316",
+        day: "#fed7aa",
+        evening: "#9a3412",
+    },
+};
+export function getAmbientColor(season, phase) {
+    return AMBIENT_COLORS[season][phase];
 }
