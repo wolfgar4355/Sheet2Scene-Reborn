@@ -1,25 +1,37 @@
 import { AGENTS } from "@engine/agents/registry";
 export async function POST(req) {
-    // Le namespace AgentTask ne peut pas être utilisé comme type → cast complet
-    const task = (await req.json());
+    // 1️⃣ Parsing contrôlé (unknown → AgentTask)
+    const raw = (await req.json());
+    // 2️⃣ Validation minimale runtime
+    if (typeof raw !== "object" ||
+        raw === null ||
+        typeof raw.target !== "string") {
+        return Response.json({ error: "Invalid AgentTask payload" }, { status: 400 });
+    }
+    const task = raw;
+    // 3️⃣ Résolution de l’agent
     const agent = AGENTS[task.target];
     if (!agent) {
-        return Response.json({ error: "Unknown agent" }, { status: 400 });
+        return Response.json({ error: `Unknown agent: ${task.target}` }, { status: 400 });
     }
+    // 4️⃣ Payload OpenAI
     const payload = {
         model: agent.model ?? "gpt-4.1",
         messages: [
-            { role: "system", content: agent.system },
-            { role: "user", content: JSON.stringify(task) }
-        ]
+            { role: "system", content: agent.system ?? "" },
+            { role: "user", content: JSON.stringify(task, null, 2) },
+        ],
     };
-    const out = await fetch("https://api.openai.com/v1/chat/completions", {
+    const res = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
             Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
             "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
-    }).then(r => r.json());
-    return Response.json(out);
+    });
+    if (!res.ok) {
+        return Response.json({ error: "OpenAI request failed", details: await res.text() }, { status: 500 });
+    }
+    return Response.json(await res.json());
 }

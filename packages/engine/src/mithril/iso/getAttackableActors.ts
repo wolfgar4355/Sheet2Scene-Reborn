@@ -1,4 +1,4 @@
-import type { Actor } from "./TurnController";
+import type { Actor } from "../encounter/TurnController";
 import type { Vec2 } from "../iso/isoMath";
 
 function dist(a: Vec2, b: Vec2) {

@@ -29,6 +29,7 @@ export function TurnController({ children }) {
         const rolled = actors
             .map((a) => ({
             ...a,
+            // initiative est "runtime-only" → on le met mais sans typer Actor
             initiative: rollInitiative(),
             hp: a.hp ?? a.maxHp ?? 10,
             maxHp: a.maxHp ?? a.hp ?? 10,
@@ -36,10 +37,13 @@ export function TurnController({ children }) {
             attackBonus: a.attackBonus ?? 3,
             dmg: a.dmg ?? { dice: 1, sides: 6, bonus: 0 },
             critMult: a.critMult ?? 2,
-            buffs: [],
-            status: [], // ✅ B4
+            buffs: a.buffs ?? [],
+            status: a.status ?? [],
         }))
-            .sort((a, b) => b.initiative - a.initiative);
+            // sort sur "initiative" runtime
+            .sort((a, b) => b.initiative - a.initiative)
+            // on nettoie initiative pour rester Actor pur
+            .map(({ initiative: _i, ...rest }) => rest);
         setState({
             active: true,
             round: 1,
@@ -56,15 +60,17 @@ export function TurnController({ children }) {
             ...s,
             active: false,
             actors: [],
+            turnIndex: 0,
+            round: 1,
+            movementPoints: s.maxMovementPoints,
+            actionPoints: s.maxActionPoints,
         }));
     };
     /* ---------------------------------- BUFFS --------------------------------- */
     const addBuff = (actorId, buff) => {
         setState((s) => ({
             ...s,
-            actors: s.actors.map((a) => a.id === actorId
-                ? { ...a, buffs: [...(a.buffs ?? []), buff] }
-                : a),
+            actors: s.actors.map((a) => a.id === actorId ? { ...a, buffs: [...(a.buffs ?? []), buff] } : a),
         }));
     };
     const cleanupBuffs = (when) => {
@@ -80,21 +86,58 @@ export function TurnController({ children }) {
     const addStatus = (actorId, status) => {
         setState((s) => ({
             ...s,
-            actors: s.actors.map((a) => a.id === actorId
-                ? { ...a, status: [...(a.status ?? []), status] }
-                : a),
+            actors: s.actors.map((a) => a.id === actorId ? { ...a, status: [...(a.status ?? []), status] } : a),
         }));
     };
     const clearStatus = (actorId, statusId) => {
         setState((s) => ({
             ...s,
             actors: s.actors.map((a) => a.id === actorId
-                ? {
-                    ...a,
-                    status: (a.status ?? []).filter((s) => s.id !== statusId),
-                }
+                ? { ...a, status: (a.status ?? []).filter((st) => st.id !== statusId) }
                 : a),
         }));
+    };
+    /* ---------------------------------- HELPERS -------------------------------- */
+    const patchActor = (id, patch) => {
+        setState((s) => ({
+            ...s,
+            actors: s.actors.map((a) => (a.id === id ? { ...a, ...patch } : a)),
+        }));
+    };
+    const setActorPos = (id, pos) => {
+        patchActor(id, { pos });
+    };
+    const damageActor = (id, dmg) => {
+        setState((s) => ({
+            ...s,
+            actors: s.actors.map((a) => {
+                if (a.id !== id)
+                    return a;
+                const hp = Math.max(0, (a.hp ?? a.maxHp ?? 10) - dmg);
+                return { ...a, hp };
+            }),
+        }));
+    };
+    const clearActorLoot = (id) => {
+        patchActor(id, { loot: false });
+    };
+    const currentActor = () => state.active ? state.actors[state.turnIndex] ?? null : null;
+    const isPlayersTurn = () => currentActor()?.kind === "player";
+    const spendMovement = (amount = 1) => {
+        setState((s) => ({
+            ...s,
+            movementPoints: Math.max(0, s.movementPoints - amount),
+        }));
+    };
+    const spendAction = (amount = 1) => {
+        let ok = false;
+        setState((s) => {
+            if (s.actionPoints < amount)
+                return s;
+            ok = true;
+            return { ...s, actionPoints: s.actionPoints - amount };
+        });
+        return ok;
     };
     /* ---------------------------------- TURNS --------------------------------- */
     const nextTurn = () => {
@@ -127,70 +170,34 @@ export function TurnController({ children }) {
         });
         cleanupBuffs("startOfNextTurn");
     };
-    const prevTurn = () => { };
-    /* ---------------------------------- HELPERS -------------------------------- */
-    const patchActor = (id, patch) => {
-        setState((s) => ({
-            ...s,
-            actors: s.actors.map((a) => (a.id === id ? { ...a, ...patch } : a)),
-        }));
-    };
-    const currentActor = () => state.active ? state.actors[state.turnIndex] ?? null : null;
-    const isPlayersTurn = () => currentActor()?.kind === "player";
-    const spendMovement = (amount = 1) => {
-        setState((s) => ({
-            ...s,
-            movementPoints: Math.max(0, s.movementPoints - amount),
-        }));
-    };
-    const spendAction = (amount = 1) => {
-        let ok = false;
+    const prevTurn = () => {
         setState((s) => {
-            if (s.actionPoints < amount)
+            if (!s.active || s.actors.length === 0)
                 return s;
-            ok = true;
-            return { ...s, actionPoints: s.actionPoints - amount };
+            const prev = s.turnIndex - 1;
+            if (prev < 0) {
+                return {
+                    ...s,
+                    turnIndex: Math.max(0, s.actors.length - 1),
+                    movementPoints: s.maxMovementPoints,
+                    actionPoints: s.maxActionPoints,
+                };
+            }
+            return {
+                ...s,
+                turnIndex: prev,
+                movementPoints: s.maxMovementPoints,
+                actionPoints: s.maxActionPoints,
+            };
         });
-        return ok;
     };
-    /* -------------------------------------------------------------------------- */
-    /* STATUS HELPERS (B4.5)                                                      */
-    /* -------------------------------------------------------------------------- */
-    export function hasStatus(actor, type) {
-        if (!actor)
-            return false;
-        return (actor.status ?? []).some((s) => s.type === type);
-    }
-    export function getStatus(actor, type) {
-        return (actor?.status ?? []).find((s) => s.type === type);
-    }
-    export function isImmobilized(actor) {
-        return (hasStatus(actor, "immobilized") ||
-            hasStatus(actor, "rooted"));
-    }
-    export function canMoveActor(actor) {
-        if (!actor)
-            return false;
-        if (hasStatus(actor, "stunned"))
-            return false;
-        if (isImmobilized(actor))
-            return false;
-        return true;
-    }
-    export function canActActor(actor) {
-        if (!actor)
-            return false;
-        if (hasStatus(actor, "stunned"))
-            return false;
-        return true;
-    }
     const value = useMemo(() => ({
         state,
         beginTurns,
         endTurns,
         nextTurn,
         prevTurn,
-        setActorPos: patchActor,
+        setActorPos,
         patchActor,
         addBuff,
         cleanupBuffs,
@@ -200,12 +207,47 @@ export function TurnController({ children }) {
         currentActor,
         spendMovement,
         spendAction,
+        damageActor,
+        clearActorLoot,
     }), [state]);
-    return (_jsx(TurnContext.Provider, { value: value, children: children }));
+    return _jsx(TurnContext.Provider, { value: value, children: children });
 }
+/* -------------------------------------------------------------------------- */
+/* HOOK                                                                       */
+/* -------------------------------------------------------------------------- */
 export function useTurns() {
     const ctx = useContext(TurnContext);
     if (!ctx)
         throw new Error("useTurns must be used inside <TurnController>");
     return ctx;
+}
+/* -------------------------------------------------------------------------- */
+/* STATUS HELPERS (B4.5) — ✅ HORS du composant (plus de TS1184)              */
+/* -------------------------------------------------------------------------- */
+export function hasStatus(actor, type) {
+    if (!actor)
+        return false;
+    return (actor.status ?? []).some((s) => s.type === type);
+}
+export function getStatus(actor, type) {
+    return (actor?.status ?? []).find((s) => s.type === type);
+}
+export function isImmobilized(actor) {
+    return hasStatus(actor, "immobilized") || hasStatus(actor, "rooted");
+}
+export function canMoveActor(actor) {
+    if (!actor)
+        return false;
+    if (hasStatus(actor, "stunned"))
+        return false;
+    if (isImmobilized(actor))
+        return false;
+    return true;
+}
+export function canActActor(actor) {
+    if (!actor)
+        return false;
+    if (hasStatus(actor, "stunned"))
+        return false;
+    return true;
 }

@@ -29,8 +29,9 @@ export default function AbilityBar({
       }}
     >
       {abilities.map((a) => {
-        const isSel = a.id === selected;
-        const isSelf = !a.requiresTarget;
+        const isSelected = a.id === selected;
+        const isSelf = a.self === true;
+
         return (
           <button
             key={a.id}
@@ -40,12 +41,15 @@ export default function AbilityBar({
               if (isSelf) onUseSelf(a.id);
               else setSelected(a.id);
             }}
-            title={a.desc}
             style={{
               padding: "8px 10px",
               borderRadius: 12,
-              border: isSel ? "1px solid rgba(255,220,140,0.75)" : "1px solid rgba(255,255,255,0.12)",
-              background: isSel ? "rgba(255,210,140,0.14)" : "rgba(255,255,255,0.06)",
+              border: isSelected
+                ? "1px solid rgba(255,220,140,0.75)"
+                : "1px solid rgba(255,255,255,0.12)",
+              background: isSelected
+                ? "rgba(255,210,140,0.14)"
+                : "rgba(255,255,255,0.06)",
               cursor: disabled ? "not-allowed" : "pointer",
               opacity: disabled ? 0.5 : 1,
               whiteSpace: "nowrap",

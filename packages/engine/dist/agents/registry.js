@@ -1,4 +1,3 @@
-export const runtime = "nodejs";
 // app/api/agents/registry.ts
 // --- MQ Items prompt datasets ---------------------------------------------
 import { MQ_ACCESSORY_PROMPT_DATASET } from "../prompts/items/generate-all-accessories-prompts";
@@ -43,7 +42,7 @@ Règles :
 - Tu gardes une trace textuelle de la cause, du plan et de l’agent choisi (pour les changelogs).`,
     },
     // 🧭 Direction & Design
-    joefry: {
+    joeffry: {
         id: "joeffry",
         name: "Joeffry — DA",
         role: "Direction artistique, tokens WCAG AA",

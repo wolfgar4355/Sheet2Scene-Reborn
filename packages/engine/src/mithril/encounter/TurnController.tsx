@@ -11,10 +11,7 @@ export type ActorKind = "player" | "enemy" | "npc";
 
 /* ---------------------------- BUFFS (STATS) ------------------------------- */
 
-export type BuffExpire =
-  | "startOfNextTurn"
-  | "endOfTurn"
-  | "endOfCombat";
+export type BuffExpire = "startOfNextTurn" | "endOfTurn" | "endOfCombat";
 
 export type Buff = {
   id: string;
@@ -62,7 +59,9 @@ export type Actor = {
   loot?: boolean;
 
   buffs?: Buff[];
-  status?: TimedStatus[]; // ✅ B4
+  status?: TimedStatus[];
+
+  reactionUsed?: boolean; // ✅ B4 – attaques d’opportunité
 };
 
 /* ------------------------------ TURN STATE -------------------------------- */
@@ -80,7 +79,7 @@ export type TurnState = {
   maxActionPoints: number;
 };
 
-type TurnContextValue = {
+export type TurnContextValue = {
   state: TurnState;
 
   beginTurns: (actors: Actor[]) => void;
@@ -103,6 +102,10 @@ type TurnContextValue = {
 
   spendMovement: (amount?: number) => void;
   spendAction: (amount?: number) => boolean;
+
+  // utilitaires (pratiques)
+  damageActor: (id: string, dmg: number) => void;
+  clearActorLoot: (id: string) => void;
 };
 
 /* -------------------------------------------------------------------------- */
@@ -140,6 +143,7 @@ export function TurnController({ children }: { children: React.ReactNode }) {
     const rolled = actors
       .map((a) => ({
         ...a,
+        // initiative est "runtime-only" → on le met mais sans typer Actor
         initiative: rollInitiative(),
         hp: a.hp ?? a.maxHp ?? 10,
         maxHp: a.maxHp ?? a.hp ?? 10,
@@ -147,10 +151,13 @@ export function TurnController({ children }: { children: React.ReactNode }) {
         attackBonus: a.attackBonus ?? 3,
         dmg: a.dmg ?? { dice: 1, sides: 6, bonus: 0 },
         critMult: a.critMult ?? 2,
-        buffs: [],
-        status: [], // ✅ B4
+        buffs: a.buffs ?? [],
+        status: a.status ?? [],
       }))
-      .sort((a, b) => (b as any).initiative - (a as any).initiative);
+      // sort sur "initiative" runtime
+      .sort((a, b) => (b as any).initiative - (a as any).initiative)
+      // on nettoie initiative pour rester Actor pur
+      .map(({ initiative: _i, ...rest }) => rest as Actor);
 
     setState({
       active: true,
@@ -169,6 +176,10 @@ export function TurnController({ children }: { children: React.ReactNode }) {
       ...s,
       active: false,
       actors: [],
+      turnIndex: 0,
+      round: 1,
+      movementPoints: s.maxMovementPoints,
+      actionPoints: s.maxActionPoints,
     }));
   };
 
@@ -178,9 +189,7 @@ export function TurnController({ children }: { children: React.ReactNode }) {
     setState((s) => ({
       ...s,
       actors: s.actors.map((a) =>
-        a.id === actorId
-          ? { ...a, buffs: [...(a.buffs ?? []), buff] }
-          : a
+        a.id === actorId ? { ...a, buffs: [...(a.buffs ?? []), buff] } : a
       ),
     }));
   };
@@ -201,9 +210,7 @@ export function TurnController({ children }: { children: React.ReactNode }) {
     setState((s) => ({
       ...s,
       actors: s.actors.map((a) =>
-        a.id === actorId
-          ? { ...a, status: [...(a.status ?? []), status] }
-          : a
+        a.id === actorId ? { ...a, status: [...(a.status ?? []), status] } : a
       ),
     }));
   };
@@ -213,13 +220,60 @@ export function TurnController({ children }: { children: React.ReactNode }) {
       ...s,
       actors: s.actors.map((a) =>
         a.id === actorId
-          ? {
-              ...a,
-              status: (a.status ?? []).filter((s) => s.id !== statusId),
-            }
+          ? { ...a, status: (a.status ?? []).filter((st) => st.id !== statusId) }
           : a
       ),
     }));
+  };
+
+  /* ---------------------------------- HELPERS -------------------------------- */
+
+  const patchActor = (id: string, patch: Partial<Actor>) => {
+    setState((s) => ({
+      ...s,
+      actors: s.actors.map((a) => (a.id === id ? { ...a, ...patch } : a)),
+    }));
+  };
+
+  const setActorPos = (id: string, pos: Vec2) => {
+    patchActor(id, { pos });
+  };
+
+  const damageActor = (id: string, dmg: number) => {
+    setState((s) => ({
+      ...s,
+      actors: s.actors.map((a) => {
+        if (a.id !== id) return a;
+        const hp = Math.max(0, (a.hp ?? a.maxHp ?? 10) - dmg);
+        return { ...a, hp };
+      }),
+    }));
+  };
+
+  const clearActorLoot = (id: string) => {
+    patchActor(id, { loot: false });
+  };
+
+  const currentActor = () =>
+    state.active ? state.actors[state.turnIndex] ?? null : null;
+
+  const isPlayersTurn = () => currentActor()?.kind === "player";
+
+  const spendMovement = (amount = 1) => {
+    setState((s) => ({
+      ...s,
+      movementPoints: Math.max(0, s.movementPoints - amount),
+    }));
+  };
+
+  const spendAction = (amount = 1) => {
+    let ok = false;
+    setState((s) => {
+      if (s.actionPoints < amount) return s;
+      ok = true;
+      return { ...s, actionPoints: s.actionPoints - amount };
+    });
+    return ok;
   };
 
   /* ---------------------------------- TURNS --------------------------------- */
@@ -258,48 +312,71 @@ export function TurnController({ children }: { children: React.ReactNode }) {
     cleanupBuffs("startOfNextTurn");
   };
 
-  const prevTurn = () => {};
-
-  /* ---------------------------------- HELPERS -------------------------------- */
-
-  const patchActor = (id: string, patch: Partial<Actor>) => {
-    setState((s) => ({
-      ...s,
-      actors: s.actors.map((a) => (a.id === id ? { ...a, ...patch } : a)),
-    }));
-  };
-
-  const currentActor = () =>
-    state.active ? state.actors[state.turnIndex] ?? null : null;
-
-  const isPlayersTurn = () =>
-    currentActor()?.kind === "player";
-
-  const spendMovement = (amount = 1) => {
-    setState((s) => ({
-      ...s,
-      movementPoints: Math.max(0, s.movementPoints - amount),
-    }));
-  };
-
-  const spendAction = (amount = 1) => {
-    let ok = false;
+  const prevTurn = () => {
     setState((s) => {
-      if (s.actionPoints < amount) return s;
-      ok = true;
-      return { ...s, actionPoints: s.actionPoints - amount };
+      if (!s.active || s.actors.length === 0) return s;
+
+      const prev = s.turnIndex - 1;
+
+      if (prev < 0) {
+        return {
+          ...s,
+          turnIndex: Math.max(0, s.actors.length - 1),
+          movementPoints: s.maxMovementPoints,
+          actionPoints: s.maxActionPoints,
+        };
+      }
+
+      return {
+        ...s,
+        turnIndex: prev,
+        movementPoints: s.maxMovementPoints,
+        actionPoints: s.maxActionPoints,
+      };
     });
-    return ok;
   };
 
+  const value = useMemo<TurnContextValue>(
+    () => ({
+      state,
+      beginTurns,
+      endTurns,
+      nextTurn,
+      prevTurn,
+      setActorPos,
+      patchActor,
+      addBuff,
+      cleanupBuffs,
+      addStatus,
+      clearStatus,
+      isPlayersTurn,
+      currentActor,
+      spendMovement,
+      spendAction,
+      damageActor,
+      clearActorLoot,
+    }),
+    [state]
+  );
+
+  return <TurnContext.Provider value={value}>{children}</TurnContext.Provider>;
+}
+
 /* -------------------------------------------------------------------------- */
-/* STATUS HELPERS (B4.5)                                                      */
+/* HOOK                                                                       */
 /* -------------------------------------------------------------------------- */
 
-export function hasStatus(
-  actor: Actor | null,
-  type: StatusEffect
-): boolean {
+export function useTurns() {
+  const ctx = useContext(TurnContext);
+  if (!ctx) throw new Error("useTurns must be used inside <TurnController>");
+  return ctx;
+}
+
+/* -------------------------------------------------------------------------- */
+/* STATUS HELPERS (B4.5) — ✅ HORS du composant (plus de TS1184)              */
+/* -------------------------------------------------------------------------- */
+
+export function hasStatus(actor: Actor | null, type: StatusEffect): boolean {
   if (!actor) return false;
   return (actor.status ?? []).some((s) => s.type === type);
 }
@@ -312,10 +389,7 @@ export function getStatus(
 }
 
 export function isImmobilized(actor: Actor | null): boolean {
-  return (
-    hasStatus(actor, "immobilized") ||
-    hasStatus(actor, "rooted")
-  );
+  return hasStatus(actor, "immobilized") || hasStatus(actor, "rooted");
 }
 
 export function canMoveActor(actor: Actor | null): boolean {
@@ -329,38 +403,4 @@ export function canActActor(actor: Actor | null): boolean {
   if (!actor) return false;
   if (hasStatus(actor, "stunned")) return false;
   return true;
-}
-
-  const value = useMemo<TurnContextValue>(
-    () => ({
-      state,
-      beginTurns,
-      endTurns,
-      nextTurn,
-      prevTurn,
-      setActorPos: patchActor as any,
-      patchActor,
-      addBuff,
-      cleanupBuffs,
-      addStatus,
-      clearStatus,
-      isPlayersTurn,
-      currentActor,
-      spendMovement,
-      spendAction,
-    }),
-    [state]
-  );
-
-  return (
-    <TurnContext.Provider value={value}>
-      {children}
-    </TurnContext.Provider>
-  );
-}
-
-export function useTurns() {
-  const ctx = useContext(TurnContext);
-  if (!ctx) throw new Error("useTurns must be used inside <TurnController>");
-  return ctx;
 }

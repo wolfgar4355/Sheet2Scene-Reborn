@@ -16,7 +16,7 @@ import { TurnController } from "./encounter/TurnController";
 import { useCamera } from "./hooks/useCamera";
 import useSeason from "./hooks/useSeason";
 // 🧠 Encounter
-import EncounterController from "./encounter/EncounterController";
+import { EncounterController } from "./encounter/EncounterController";
 const MithrilContext = createContext(undefined);
 export function useMithril() {
     const ctx = useContext(MithrilContext);
@@ -25,22 +25,28 @@ export function useMithril() {
     }
     return ctx;
 }
-// ---------------------------------------------------------------------------
-// Composant public
-// ---------------------------------------------------------------------------
+/* -------------------------------------------------------------------------- */
+/* COMPOSANT PUBLIC                                                            */
+/* -------------------------------------------------------------------------- */
 export default function GrimoireFrame({ worldId = "mithril-quest", eraId, biome = "generic", page = 1, devMode = false, children, }) {
     return (_jsx(MithrilFrameInner, { worldId: worldId, eraId: eraId, biome: biome, page: page, devMode: devMode, children: children }));
 }
-// ---------------------------------------------------------------------------
-// Couche interne : caméra + monde + encounter + grimoire
-// ---------------------------------------------------------------------------
+/* -------------------------------------------------------------------------- */
+/* COUCHE INTERNE                                                              */
+/* -------------------------------------------------------------------------- */
 function MithrilFrameInner({ worldId, eraId, biome, page, devMode, children, }) {
     const frameRef = useRef(null);
-    // Saison / météo
-    const season = useSeason({ biome, worldId });
-    // Caméra AAA
+    // 🔐 Sécurisation stricte (TS strict-safe)
+    const safeWorldId = worldId ?? "mithril-quest";
+    const safePage = page ?? 1;
+    // 🌦️ Saison / météo
+    const season = useSeason({
+        biome,
+        worldId: safeWorldId,
+    });
+    // 🎥 Caméra AAA
     const camera = useCamera();
-    // Parallaxe / mouvement du grimoire
+    // 📜 Parallaxe / mouvement du grimoire
     useEffect(() => {
         const el = frameRef.current;
         if (!el)
@@ -54,9 +60,9 @@ function MithrilFrameInner({ worldId, eraId, biome, page, devMode, children, }) 
     `;
     }, [camera]);
     const ctxValue = {
-        worldId,
+        worldId: safeWorldId,
         eraId,
-        page,
+        page: safePage,
         season,
         camera,
     };
@@ -65,5 +71,5 @@ function MithrilFrameInner({ worldId, eraId, biome, page, devMode, children, }) 
                     transformStyle: "preserve-3d",
                     backgroundColor: season.ambientColor,
                     transition: "background-color 0.7s ease",
-                }, children: _jsxs(WeatherEngineProvider, { biome: biome, worldId: worldId, children: [_jsx(EncounterController, { children: _jsxs(WorldAmbientController, { children: [_jsx(TransitionLayer, {}), _jsx(SeasonParticles, {}), _jsx(AmbientManager, {}), _jsx(LightningEngine, {}), _jsx(TurnController, { children: _jsx(IsometricWorld, {}) }), devMode && _jsx(DevControls, {})] }) }), _jsx("div", { className: "relative mx-auto w-[95%] max-w-[1550px] h-full pointer-events-auto", children: _jsx(PageTurner, { page: page, children: _jsx("div", { className: "\n                  w-full h-full\n                  bg-[url('/engine/grimoire/page-texture.webp')]\n                  bg-cover bg-center bg-no-repeat\n                  p-6 md:p-10 lg:p-14\n                  font-serif text-[#210] dark:text-[#dedede]\n                ", children: children }) }) })] }) })] }));
+                }, children: _jsxs(WeatherEngineProvider, { biome: biome, worldId: safeWorldId, children: [_jsx(EncounterController, { children: _jsxs(WorldAmbientController, { children: [_jsx(TransitionLayer, {}), _jsx(SeasonParticles, {}), _jsx(AmbientManager, {}), _jsx(LightningEngine, {}), _jsx(TurnController, { children: _jsx(IsometricWorld, {}) }), devMode && _jsx(DevControls, {})] }) }), _jsx("div", { className: "relative mx-auto w-[95%] max-w-[1550px] h-full pointer-events-auto", children: _jsx(PageTurner, { page: safePage, children: _jsx("div", { className: "\n                  w-full h-full\n                  bg-[url('/engine/grimoire/page-texture.webp')]\n                  bg-cover bg-center bg-no-repeat\n                  p-6 md:p-10 lg:p-14\n                  font-serif text-[#210] dark:text-[#dedede]\n                ", children: children }) }) })] }) })] }));
 }

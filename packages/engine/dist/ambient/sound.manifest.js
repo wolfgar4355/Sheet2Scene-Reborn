@@ -1,14 +1,12 @@
 // packages/engine/src/ambient/sound.manifest.ts
 // --------------------------------------------------
-// Mithril Engine v2 — Sound Manifest AAA
+// Mithril Engine v2 — Sound Manifest AAA (CANON)
 // --------------------------------------------------
-// --------------------------------------------------
-// MANIFEST PRINCIPAL
-// --------------------------------------------------
+/* --------------------------------------------------
+ * MANIFEST
+ * -------------------------------------------------- */
 export const SoundManifest = {
-    // --------------------------------------------------
-    // UI
-    // --------------------------------------------------
+    /* ---------------- UI ---------------- */
     ui: {
         clickSoft: "/sounds/ui/ui_click_soft.mp3",
         clickHeavy: "/sounds/ui/ui_click_heavy.mp3",
@@ -17,18 +15,14 @@ export const SoundManifest = {
         pageDrag: "/sounds/ui/page_drag.mp3",
         scrollMove: "/sounds/ui/scroll_move.mp3",
     },
-    // --------------------------------------------------
-    // AMBIENT
-    // --------------------------------------------------
+    /* -------------- AMBIENT ------------- */
     ambient: {
         fire: "/sounds/ambient/fire_loop.mp3",
         wind: "/sounds/ambient/wind_loop.mp3",
         candles: "/sounds/ambient/candles.mp3",
         hallEcho: "/sounds/ambient/hall_echo.mp3",
     },
-    // --------------------------------------------------
-    // WEATHER LOOPS
-    // --------------------------------------------------
+    /* -------------- WEATHER ------------- */
     weather: {
         rainLight: "/sounds/weather/rain_light_loop.mp3",
         rainMedium: "/sounds/weather/rain_medium_loop.mp3",
@@ -42,18 +36,19 @@ export const SoundManifest = {
         fogRumble: "/sounds/weather/fog_rumble_bed.mp3",
         fogLowWind: "/sounds/weather/fog_low_wind.mp3",
     },
-    // --------------------------------------------------
-    // STORM LOOPS
-    // --------------------------------------------------
+    /* --------------- STORM -------------- */
     storm: {
         stormBed: "/sounds/storm/storm_bed_loop.mp3",
         stormHeavy: "/sounds/storm/storm_heavy_bed_loop.mp3",
         gusts: "/sounds/storm/storm_wind_gusts.mp3",
         rainMix: "/sounds/storm/storm_rain_mix_loop.mp3",
     },
-    // --------------------------------------------------
-    // THUNDER: layered impacts + echoes + rumbles
-    // --------------------------------------------------
+    /* -------------- THUNDER ------------- */
+    /**
+     * ⚡ IMPORTANT
+     * Les clés correspondent AUX DISTANCES,
+     * PAS aux variantId logiques (voir helper plus bas)
+     */
     thunder: {
         close: [
             "/sounds/thunder/impact_close_01.mp3",
@@ -84,9 +79,7 @@ export const SoundManifest = {
             "/sounds/thunder/aftershock_02.mp3",
         ],
     },
-    // --------------------------------------------------
-    // SPELL SFX (par école)
-    // --------------------------------------------------
+    /* --------------- SPELLS ------------- */
     spells: {
         fire: {
             fireboltCast: "/sounds/spells/fire/firebolt_cast_01.mp3",
@@ -117,9 +110,7 @@ export const SoundManifest = {
             burst: "/sounds/spells/shadow/shadow_burst_01.mp3",
         },
     },
-    // --------------------------------------------------
-    // WORLD — ambiance par biome / location
-    // --------------------------------------------------
+    /* ---------------- WORLD -------------- */
     world: {
         forest: {
             day: "/sounds/world/forest/forest_day_loop.mp3",
@@ -137,30 +128,11 @@ export const SoundManifest = {
             sandStep: "/sounds/world/desert/sandstep_01.mp3",
             ruinsEcho: "/sounds/world/desert/ruins_echo.mp3",
         },
-        arctic: {
-            blizzard: "/sounds/world/arctic/arctic_blizzard_loop.mp3",
-            iceCrack: "/sounds/world/arctic/ice_crack_heavy.mp3",
-        },
-        volcano: {
-            lavaBubble: "/sounds/world/volcano/lava_bubble_low.mp3",
-            lavaRumble: "/sounds/world/volcano/lava_rumble.mp3",
-            heat: "/sounds/world/volcano/heat_distortion.mp3",
-        },
-        tavern: {
-            ambience: "/sounds/world/tavern/tavern_ambience_loop.mp3",
-            mug: "/sounds/world/tavern/mug_clink_01.mp3",
-            fireplace: "/sounds/world/tavern/fireplace_crackle.mp3",
-        },
-        ruins: {
-            echo: "/sounds/world/ruins/ruins_echo_low.mp3",
-            stoneFall: "/sounds/world/ruins/stone_fall_small.mp3",
-            whisper: "/sounds/world/ruins/whisper_distant.mp3",
-        },
     },
 };
-// --------------------------------------------------
-// HELPERS
-// --------------------------------------------------
+/* --------------------------------------------------
+ * GENERIC HELPERS
+ * -------------------------------------------------- */
 export function getSoundUrl(category, id) {
     const group = SoundManifest[category];
     if (!group)
@@ -169,16 +141,18 @@ export function getSoundUrl(category, id) {
     if (!entry)
         return null;
     if (Array.isArray(entry)) {
-        // ex: thunder.close → renvoie un élément random
         return entry[Math.floor(Math.random() * entry.length)];
     }
     return entry;
 }
-export function listSoundsByCategory(cat) {
-    const group = SoundManifest[cat];
-    if (!group)
-        return [];
-    return Object.values(group)
-        .flatMap((v) => (Array.isArray(v) ? v : [v]))
-        .map(String);
+/* --------------------------------------------------
+ * ⚡ THUNDER HELPERS (CANON)
+ * -------------------------------------------------- */
+/**
+ * Résout un ThunderEvent → URL audio
+ * 👉 À utiliser dans LightningEngine / LightningFX
+ */
+export function resolveThunderSound(distance) {
+    const pool = SoundManifest.thunder[distance];
+    return pool[Math.floor(Math.random() * pool.length)];
 }

@@ -1,20 +1,33 @@
+// src/mithril/LightningArcs.tsx
 "use client";
 
-import { SceneController } from "./SceneController"; // for type only
 import { useScene } from "./SceneController";
 
+/**
+ * ⚡ LightningArcs — rendu canvas des arcs d’éclairs
+ * - Couleur dynamique selon lumière ambiante
+ * - Intensité liée à la météo
+ * - Flash + fade-out cinématique
+ */
 class LightningArcs {
   static canvas: HTMLCanvasElement | null = null;
   static ctx: CanvasRenderingContext2D | null = null;
 
-  /** Couleur dynamique selon phase du jour */
+  // ---------------------------------------------------------------------------
+  // Utils
+  // ---------------------------------------------------------------------------
+
+  /** Couleur dynamique selon luminosité (nuit → bleu) */
   private static computeColor(lightLevel: number): string {
-    // Nuit = arcs bleutés
     const blueTint = 180 + Math.floor((1 - lightLevel) * 60);
-    return `rgba(${blueTint}, ${blueTint}, 255, 0.95)`; 
+    return `rgba(${blueTint}, ${blueTint}, 255, 0.95)`;
   }
 
-  /** Initialise le canvas dans un layer du moteur */
+  // ---------------------------------------------------------------------------
+  // Lifecycle
+  // ---------------------------------------------------------------------------
+
+  /** Initialise le canvas dans un parent donné */
   static init(parent: HTMLElement, lightLevel = 1) {
     if (this.canvas) return;
 
@@ -27,22 +40,33 @@ class LightningArcs {
     parent.appendChild(canvas);
 
     this.canvas = canvas;
-    this.ctx = canvas.getContext("2d")!;
+    this.ctx = canvas.getContext("2d");
     this.resize();
 
-    this.ctx.strokeStyle = this.computeColor(lightLevel);
-    window.addEventListener("resize", () => this.resize());
+    if (this.ctx) {
+      this.ctx.strokeStyle = this.computeColor(lightLevel);
+    }
+
+    window.addEventListener("resize", this.resize);
   }
 
   /** Resize dynamique */
-  static resize() {
-    if (!this.canvas) return;
-    this.canvas.width = this.canvas.parentElement!.clientWidth;
-    this.canvas.height = this.canvas.parentElement!.clientHeight;
-  }
+  static resize = () => {
+    if (!this.canvas || !this.canvas.parentElement) return;
 
-  /** API publique : spawn d’un arc */
-  static spawn(direction: "left" | "center" | "right", scene: ReturnType<typeof useScene>) {
+    this.canvas.width = this.canvas.parentElement.clientWidth;
+    this.canvas.height = this.canvas.parentElement.clientHeight;
+  };
+
+  // ---------------------------------------------------------------------------
+  // API publique
+  // ---------------------------------------------------------------------------
+
+  /** Spawn d’un arc directionnel */
+  static spawn(
+    direction: "left" | "center" | "right",
+    scene: ReturnType<typeof useScene>
+  ) {
     if (!this.canvas || !this.ctx) return;
 
     const w = this.canvas.width;
@@ -50,22 +74,26 @@ class LightningArcs {
 
     const startX =
       direction === "left"
-        ? w * 0.20
+        ? w * 0.2
         : direction === "right"
-        ? w * 0.80
-        : w * 0.50;
+        ? w * 0.8
+        : w * 0.5;
 
     const color = this.computeColor(scene.lightLevel);
-    this.drawArc(startX, -30, h, color, scene.intensity);
+
+this.drawArc(startX, -30, h, color, scene.lightLevel);
   }
 
-  /** Arc vers un point aléatoire (utility) */
+  /** Spawn aléatoire (helper) */
   static spawnRandom(scene: ReturnType<typeof useScene>) {
     const dirs = ["left", "center", "right"] as const;
     this.spawn(dirs[Math.floor(Math.random() * dirs.length)], scene);
   }
 
-  /** Dessin amélioré AAA */
+  // ---------------------------------------------------------------------------
+  // Rendu
+  // ---------------------------------------------------------------------------
+
   private static drawArc(
     startX: number,
     yStart: number,
@@ -73,8 +101,12 @@ class LightningArcs {
     color: string,
     intensity: number
   ) {
-    const ctx = this.ctx!;
-    ctx.clearRect(0, 0, this.canvas!.width, this.canvas!.height);
+    if (!this.ctx || !this.canvas) return;
+
+    const ctx = this.ctx;
+
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    ctx.globalAlpha = 1;
 
     ctx.strokeStyle = color;
     ctx.lineWidth = 2 + intensity * 1.5;
@@ -85,7 +117,6 @@ class LightningArcs {
     ctx.beginPath();
     ctx.moveTo(x, y);
 
-    // fractale profonde (plus d'étapes pour intensité élevée)
     const steps = 12 + Math.floor(intensity * 6);
 
     for (let i = 0; i < steps; i++) {
@@ -97,43 +128,39 @@ class LightningArcs {
 
     ctx.stroke();
 
-    // flash global synchronisé
     this.flash(intensity);
-
-    // fade-out progressif de l'arc
     this.fadeOut();
   }
 
-  /** Flash global très rapide */
+  /** Flash blanc global très bref */
   private static flash(intensity: number) {
-    if (!this.canvas) return;
+    if (!this.canvas || !this.canvas.parentElement) return;
 
     const flash = document.createElement("div");
     flash.className =
       "pointer-events-none absolute inset-0 z-[65] mix-blend-screen";
     flash.style.background = `rgba(255,255,255,${0.1 + intensity * 0.3})`;
 
-    this.canvas.parentElement!.appendChild(flash);
+    this.canvas.parentElement.appendChild(flash);
 
-    flash.animate(
-      [
-        { opacity: 1 },
-        { opacity: 0 }
-      ],
-      {
+    flash
+      .animate([{ opacity: 1 }, { opacity: 0 }], {
         duration: 180,
         easing: "ease-out",
-      }
-    ).onfinish = () => flash.remove();
+      })
+      .onfinish = () => flash.remove();
   }
 
   /** Fade-out progressif du canvas */
   private static fadeOut() {
-    const ctx = this.ctx!;
+    if (!this.ctx || !this.canvas) return;
+
+    const ctx = this.ctx;
     let opacity = 1;
 
     const tick = () => {
       opacity -= 0.06;
+
       if (opacity <= 0) {
         ctx.clearRect(0, 0, this.canvas!.width, this.canvas!.height);
         ctx.globalAlpha = 1;

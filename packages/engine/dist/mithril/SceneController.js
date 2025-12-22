@@ -21,7 +21,10 @@ export default function SceneController({ biome = "generic", worldId = "mithril-
     // -------------------------------------------------------------------------
     // Saison + météo + ambiance
     // -------------------------------------------------------------------------
-    const season = useSeason({ biome, worldId });
+    const season = useSeason({
+        biome: biome,
+        worldId,
+    });
     /**
      * Construction canon du WeatherState
      * → UNE seule source de vérité

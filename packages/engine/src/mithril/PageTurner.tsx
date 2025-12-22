@@ -4,21 +4,27 @@
 import { motion, AnimatePresence } from "framer-motion";
 import type { ReactNode } from "react";
 
-interface PageTurnerProps {
-  step: number;
-  pages: ReactNode[];
+export interface PageTurnerProps {
+  /** Numéro de page courant (déclenche l’animation) */
+  page: number;
+
+  /** Contenu de la page */
+  children: ReactNode;
 }
 
 /**
  * 📖 Mithril Engine v2 — PageTurner AAA
- * - Flip 3D naturel
- * - Compatible GrimoireFrame (perspective, texture, ombrage)
- * - Sécurisé contre les steps hors-borne
- * - Rendu parchemin cohérent avec toute l’UI
+ *
+ * - Flip 3D naturel façon grimoire
+ * - Compatible GrimoireFrame (perspective globale)
+ * - Animation déclenchée par `page`
+ * - API React standard (children)
+ * - Zéro dépendance au contenu interne
  */
-export default function PageTurner({ step, pages }: PageTurnerProps) {
-  const safeStep = Math.max(0, Math.min(step, pages.length - 1));
-
+export default function PageTurner({
+  page,
+  children,
+}: PageTurnerProps) {
   return (
     <div
       className="relative w-full h-full overflow-hidden"
@@ -26,7 +32,7 @@ export default function PageTurner({ step, pages }: PageTurnerProps) {
     >
       <AnimatePresence mode="wait">
         <motion.div
-          key={safeStep}
+          key={page}
           initial={{
             rotateY: 90,
             opacity: 0,
@@ -53,25 +59,25 @@ export default function PageTurner({ step, pages }: PageTurnerProps) {
             absolute inset-0
             shadow-[0_0_60px_rgba(0,0,0,0.55)]
             bg-no-repeat bg-cover bg-center
-            p-8 overflow-y-auto
+            overflow-hidden
             rounded-[8px]
           "
           style={{
-            backgroundImage: "url('/assets/bg-parchment.png')",
+            backgroundImage: "url('/engine/grimoire/page-texture.webp')",
             transformStyle: "preserve-3d",
             backfaceVisibility: "hidden",
           }}
         >
-          {/* Voile subtil pour renforcer le côté grimoire ancien */}
-          <div className="absolute inset-0 pointer-events-none bg-[rgba(0,0,0,0.08)] mix-blend-multiply"></div>
+          {/* Voile subtil parchemin ancien */}
+          <div
+            className="absolute inset-0 pointer-events-none
+                       bg-[rgba(0,0,0,0.08)]
+                       mix-blend-multiply"
+          />
 
-          {/* Contenu de la page */}
-          <div className="relative z-10">
-            {pages[safeStep] ?? (
-              <div className="text-center text-xl opacity-60">
-                (Page manquante)
-              </div>
-            )}
+          {/* Contenu réel de la page */}
+          <div className="relative z-10 w-full h-full">
+            {children}
           </div>
         </motion.div>
       </AnimatePresence>

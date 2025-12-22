@@ -1,29 +1,42 @@
 // src/mithril/LightningFX.tsx
 "use client";
 
-import { useMithril } from "./GrimoireFrame";
 import { useEffect, useRef, useState } from "react";
+import { useMithril } from "./GrimoireFrame";
+import { useScene } from "./SceneController";
 
-import type { ThunderEvent } from "@engine/ambient/thunder";
-import { triggerCameraShake } from "./CameraShake";
 import LightningArcs from "./LightningArcs";
+import { triggerCameraShake } from "./CameraShake";
+
+import {
+  generateThunderEvent,
+  type ThunderEvent,
+} from "@engine/ambient/thunder";
+
+import { SoundManifest } from "@engine/ambient/sound.manifest";
 
 /**
- * LightningFX v4 — Ultra AAA
- * - éclairs volumétriques
- * - arcs électriques dynamiques
- * - thunder audio delay réaliste
- * - camera shake proportionnel à distance
+ * ⚡ LightningFX — Mithril Engine AAA
+ * --------------------------------------------------
+ * - éclairs visuels + arcs canvas
+ * - thunder audio avec délai réaliste
+ * - camera shake proportionnel à la distance
+ * - logique autonome (FX legacy, non pilotée par WeatherEngine)
  */
 export default function LightningFX() {
   const { season } = useMithril();
+  const scene = useScene();
+
   const [flash, setFlash] = useState(false);
   const timerRef = useRef<number | null>(null);
 
+  // ---------------------------------------------------------------------------
+  // Loop principal (uniquement en tempête)
+  // ---------------------------------------------------------------------------
   useEffect(() => {
     if (season.weather !== "storm") {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
+      if (timerRef.current !== null) {
+        window.clearTimeout(timerRef.current);
         timerRef.current = null;
       }
       setFlash(false);
@@ -31,11 +44,12 @@ export default function LightningFX() {
     }
 
     const schedule = () => {
-      const intensity = Math.max(0.3, season.intensity || 0.6);
+      const intensity = Math.max(0.3, season.intensity ?? 0.6);
 
       const min = 1800;
       const max = 7000;
-      const delay = min + Math.random() * (max - min) * (1.3 - intensity);
+      const delay =
+        min + Math.random() * (max - min) * (1.3 - intensity);
 
       timerRef.current = window.setTimeout(() => {
         strike(intensity);
@@ -44,25 +58,36 @@ export default function LightningFX() {
     };
 
     const strike = (intensity: number) => {
-      // 0 = très proche, 1 = loin
+      // 0 = très proche, 1 = lointain
       const distNorm = Math.random();
       const event: ThunderEvent = generateThunderEvent(distNorm);
 
       // 💥 Flash global
       setFlash(true);
-      setTimeout(() => setFlash(false), 120);
+      window.setTimeout(() => setFlash(false), 120);
 
-      // ⚡ Arcs électriques
+      // ⚡ Arcs électriques (canvas)
       const dir = Math.random() < 0.5 ? "left" : "right";
-      LightningArcs.spawn(dir);
+      LightningArcs.spawn(dir, scene);
 
-      // 🎥 Camera Shake AAA
-      triggerCameraShake(distNorm * 900);
+      // 🎥 Camera shake (plus proche = plus fort)
+      triggerCameraShake((1 - distNorm) * 900);
 
       // 🎧 Thunder audio avec délai réaliste
-      setTimeout(() => {
+      window.setTimeout(() => {
         try {
-          const audio = new Audio(event.url);
+          // Résolution canon via SoundManifest
+          const thunderGroup =
+            SoundManifest.thunder[event.distance];
+
+          if (!thunderGroup) return;
+
+          const url =
+            thunderGroup[
+              Math.floor(Math.random() * thunderGroup.length)
+            ];
+
+          const audio = new Audio(url);
 
           const distFactor =
             event.distance === "close"
@@ -77,17 +102,25 @@ export default function LightningFX() {
           );
 
           audio.play().catch(() => {});
-        } catch {}
+        } catch {
+          /* silence volontaire */
+        }
       }, event.delayMs);
     };
 
     schedule();
 
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+      if (timerRef.current !== null) {
+        window.clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
     };
-  }, [season.weather, season.intensity]);
+  }, [season.weather, season.intensity, scene]);
 
+  // ---------------------------------------------------------------------------
+  // Flash visuel global
+  // ---------------------------------------------------------------------------
   return (
     <div
       aria-hidden="true"

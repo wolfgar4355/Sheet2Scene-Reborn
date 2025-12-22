@@ -1,12 +1,15 @@
+// src/mithril/iso/PlayerController.tsx
 "use client";
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { clamp, isoToWorld, worldToIso, tileDistance, } from "./isoMath";
 import { useKeys } from "./useKeys";
 import { useEncounter } from "../encounter/EncounterController";
-import { useTurns } from "../encounter/TurnController";
+import { useTurns, hasStatus, canMoveActor, canActActor, } from "../encounter/TurnController";
 import { useAttack } from "../encounter/useAttack";
-import { hasStatus, canMoveActor, canActActor, } from "../encounter/TurnController";
+/* -------------------------------------------------------------------------- */
+/* UTILS                                                                      */
+/* -------------------------------------------------------------------------- */
 function dist(a, b) {
     const dx = a.x - b.x;
     const dy = a.y - b.y;
@@ -15,20 +18,18 @@ function dist(a, b) {
 function roundTile(p) {
     return { x: Math.round(p.x), y: Math.round(p.y) };
 }
-/* -------------------------------------------------------------------------- */
-/* ZOC HELPERS                                                                */
-/* -------------------------------------------------------------------------- */
 function isInEnemyZOC(pos, enemies) {
     return enemies.some((e) => (e.hp ?? 1) > 0 && tileDistance(e.pos, pos) === 1);
 }
 /* -------------------------------------------------------------------------- */
-/* PLAYER CONTROLLER                                                          */
+/* COMPONENT                                                                  */
 /* -------------------------------------------------------------------------- */
-export default function PlayerController({ cfg, mapW, mapH, onMove, actorId = "player-1", }) {
+export default function PlayerController({ cfg, mapW, mapH, forcedTarget, onArrive, onMove, actorId = "player-1", }) {
     const keys = useKeys();
     const encounter = useEncounter();
     const turns = useTurns();
     const { attack } = useAttack();
+    /* ---------------- Local visual state ----------------------------------- */
     const [player, setPlayer] = useState({
         pos: { x: 6, y: 6 },
         target: null,
@@ -38,7 +39,7 @@ export default function PlayerController({ cfg, mapW, mapH, onMove, actorId = "p
     useEffect(() => {
         playerRef.current = player;
     }, [player]);
-    /* ---------------- Actor sync (encounter = source of truth) --------------- */
+    /* ---------------- Actor sync (encounter source of truth) --------------- */
     const actor = useMemo(() => turns.state.actors.find((a) => a.id === actorId) ?? null, [turns.state.actors, actorId]);
     useEffect(() => {
         if (!encounter.state.active || !actor)
@@ -49,14 +50,25 @@ export default function PlayerController({ cfg, mapW, mapH, onMove, actorId = "p
             target: null,
         }));
     }, [encounter.state.active, actor?.pos?.x, actor?.pos?.y]);
-    /* ---------------- Enemies alive (ZOC / AoO) ------------------------------ */
+    /* ---------------- Forced movement (IsometricWorld) --------------------- */
+    useEffect(() => {
+        if (!forcedTarget)
+            return;
+        setPlayer((p) => ({
+            ...p,
+            pos: forcedTarget,
+            target: null,
+        }));
+        onArrive?.();
+    }, [forcedTarget, onArrive]);
+    /* ---------------- Enemies (ZOC / AoO) ---------------------------------- */
     const enemies = useMemo(() => turns.state.actors.filter((a) => a.kind === "enemy" && (a.hp ?? 0) > 0), [turns.state.actors]);
-    /* ---------------- Movement permission ----------------------------------- */
+    /* ---------------- Movement permission ---------------------------------- */
     const canMove = !encounter.state.active ||
         (turns.state.active &&
             turns.isPlayersTurn() &&
             canMoveActor(actor ?? turns.currentActor()));
-    /* ---------------- Click to move ----------------------------------------- */
+    /* ---------------- Pointer-based movement (encounter) ------------------ */
     const onPointerDown = (e) => {
         if (!canMove)
             return;
@@ -67,50 +79,41 @@ export default function PlayerController({ cfg, mapW, mapH, onMove, actorId = "p
             x: clamp(Math.round(w.x), 0, mapW - 1),
             y: clamp(Math.round(w.y), 0, mapH - 1),
         };
-        /* ---------------- ENCOUNTER MODE -------------------------------------- */
-        if (encounter.state.active) {
-            const me = actor ?? turns.currentActor();
-            if (!me || me.kind !== "player")
-                return;
-            if (!canMoveActor(me))
-                return;
-            const from = roundTile(me.pos);
-            let cost = tileDistance(from, target);
-            if (hasStatus(me, "slowed"))
-                cost += 1;
-            if (cost <= 0)
-                return;
-            if ((turns.state.movementPoints ?? 0) < cost)
-                return;
-            const ignoreZOC = false;
-            const fromInZOC = isInEnemyZOC(from, enemies);
-            const toInZOC = isInEnemyZOC(target, enemies);
-            const leavingZOC = fromInZOC && !toInZOC;
-            const crossingZOC = !fromInZOC && toInZOC && cost > 1;
-            if (!ignoreZOC && crossingZOC)
-                return;
-            /* ---------------- Attaque d’opportunité ----------------------------- */
-            if (!ignoreZOC && leavingZOC && canActActor(me)) {
-                const attacker = enemies.find((e) => !e.reactionUsed &&
-                    tileDistance(e.pos, from) === 1);
-                if (attacker) {
-                    turns.patchActor(attacker.id, { reactionUsed: true });
-                    attack(attacker.id, attacker.pos, me.pos, {
-                        reaction: true,
-                        bonusDamage: 0,
-                    });
-                }
-            }
-            turns.setActorPos(me.id, target);
-            turns.spendMovement(cost);
-            setPlayer((p) => ({ ...p, pos: target, target: null }));
-            onMove?.(target);
+        if (!encounter.state.active) {
+            setPlayer((p) => ({ ...p, target }));
             return;
         }
-        /* ---------------- EXPLORATION MODE ----------------------------------- */
-        setPlayer((p) => ({ ...p, target }));
+        const me = actor ?? turns.currentActor();
+        if (!me || me.kind !== "player")
+            return;
+        if (!canMoveActor(me))
+            return;
+        const from = roundTile(me.pos);
+        let cost = tileDistance(from, target);
+        if (hasStatus(me, "slowed"))
+            cost += 1;
+        if (cost <= 0)
+            return;
+        if ((turns.state.movementPoints ?? 0) < cost)
+            return;
+        const fromInZOC = isInEnemyZOC(from, enemies);
+        const toInZOC = isInEnemyZOC(target, enemies);
+        const leavingZOC = fromInZOC && !toInZOC;
+        /* -------- Attaque d’opportunité ------------------------------------- */
+        if (leavingZOC && canActActor(me)) {
+            const attacker = enemies.find((e) => !e.reactionUsed &&
+                tileDistance(e.pos, from) === 1);
+            if (attacker) {
+                turns.patchActor(attacker.id, { reactionUsed: true });
+                attack(attacker.id, attacker.pos, me.pos);
+            }
+        }
+        turns.setActorPos(me.id, target);
+        turns.spendMovement(cost);
+        setPlayer((p) => ({ ...p, pos: target, target: null }));
+        onMove?.(target);
     };
-    /* ---------------- RAF movement (exploration only) ----------------------- */
+    /* ---------------- Exploration movement (RAF) --------------------------- */
     useEffect(() => {
         let raf = 0;
         let last = performance.now();

@@ -4,13 +4,14 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from "react";
 import { useWeather } from "./WeatherEngine";
 import { triggerCameraShake } from "./CameraShake";
-import { generateThunderEvent } from "@engine/ambient/thunder";
+import { generateThunderEvent, } from "@engine/ambient/thunder";
+import { SoundManifest } from "@engine/ambient/sound.manifest";
 /**
- * LightningEngine — Weather-driven AAA (canon)
+ * ⚡ LightningEngine — Weather-driven AAA (canon)
  * --------------------------------------------------
  * - écoute WeatherEngine (events uniquement)
  * - flash visuel synchronisé
- * - son tonnerre réaliste (distance)
+ * - tonnerre audio réaliste (distance + intensité)
  * - camera shake proportionnelle
  * - zéro logique météo interne
  */
@@ -19,7 +20,9 @@ export default function LightningEngine() {
     const weatherRef = useRef(state.weather);
     const [flash, setFlash] = useState(false);
     const timeoutRef = useRef(null);
+    // ---------------------------------------------------------------------------
     // Garder la météo courante sans closures obsolètes
+    // ---------------------------------------------------------------------------
     useEffect(() => {
         weatherRef.current = state.weather;
     }, [state.weather]);
@@ -29,7 +32,7 @@ export default function LightningEngine() {
     useEffect(() => {
         if (typeof window === "undefined")
             return;
-        // Ignore si pas en tempête
+        // Pas de tempête → nettoyage
         if (state.weather.kind !== "storm") {
             clear();
             return;
@@ -45,7 +48,7 @@ export default function LightningEngine() {
         };
     }, [state.weather.kind, subscribe]);
     // ---------------------------------------------------------------------------
-    // Réaction à un éclair (déjà décidé par le moteur)
+    // Réaction à un éclair (déjà décidé par WeatherEngine)
     // ---------------------------------------------------------------------------
     function handleLightning(distance01) {
         const event = generateThunderEvent(distance01);
@@ -58,28 +61,37 @@ export default function LightningEngine() {
         // 🎧 AUDIO (retardé selon distance)
         timeoutRef.current = window.setTimeout(() => {
             try {
-                const audio = new Audio(event.url);
+                // Résolution canon depuis le SoundManifest
+                const thunderGroup = SoundManifest.thunder[event.distance];
+                if (!thunderGroup)
+                    return;
+                const url = thunderGroup[Math.floor(Math.random() * thunderGroup.length)];
+                const audio = new Audio(url);
                 const distanceFactor = event.distance === "close"
                     ? 1
                     : event.distance === "mid"
                         ? 0.75
                         : 0.55;
-                audio.volume = Math.min(1, distanceFactor *
-                    (0.6 + weather.intensity * 0.7));
+                audio.volume = Math.min(1, distanceFactor * (0.6 + weather.intensity * 0.7));
                 audio.play().catch(() => { });
             }
-            catch { }
+            catch {
+                /* silence volontaire */
+            }
         }, event.delayMs);
     }
+    // ---------------------------------------------------------------------------
+    // Cleanup
+    // ---------------------------------------------------------------------------
     function clear() {
-        if (timeoutRef.current) {
+        if (timeoutRef.current !== null) {
             window.clearTimeout(timeoutRef.current);
             timeoutRef.current = null;
         }
         setFlash(false);
     }
     // ---------------------------------------------------------------------------
-    // Flash overlay
+    // Flash overlay visuel
     // ---------------------------------------------------------------------------
     return (_jsx("div", { "aria-hidden": "true", className: "pointer-events-none fixed inset-0 transition-opacity duration-150", style: {
             opacity: flash ? 1 : 0,

@@ -28,11 +28,11 @@ import useSeason, {
 } from "./hooks/useSeason";
 
 // 🧠 Encounter
-import EncounterController from "./encounter/EncounterController";
+import { EncounterController } from "./encounter/EncounterController";
 
-// ---------------------------------------------------------------------------
-// Contexte Mithril
-// ---------------------------------------------------------------------------
+/* -------------------------------------------------------------------------- */
+/* CONTEXTE MITHRIL                                                            */
+/* -------------------------------------------------------------------------- */
 
 export interface MithrilContextValue {
   worldId: string;
@@ -52,9 +52,9 @@ export function useMithril(): MithrilContextValue {
   return ctx;
 }
 
-// ---------------------------------------------------------------------------
-// Props
-// ---------------------------------------------------------------------------
+/* -------------------------------------------------------------------------- */
+/* PROPS                                                                       */
+/* -------------------------------------------------------------------------- */
 
 export interface GrimoireFrameProps {
   worldId?: string;
@@ -65,9 +65,9 @@ export interface GrimoireFrameProps {
   children?: ReactNode;
 }
 
-// ---------------------------------------------------------------------------
-// Composant public
-// ---------------------------------------------------------------------------
+/* -------------------------------------------------------------------------- */
+/* COMPOSANT PUBLIC                                                            */
+/* -------------------------------------------------------------------------- */
 
 export default function GrimoireFrame({
   worldId = "mithril-quest",
@@ -90,9 +90,9 @@ export default function GrimoireFrame({
   );
 }
 
-// ---------------------------------------------------------------------------
-// Couche interne : caméra + monde + encounter + grimoire
-// ---------------------------------------------------------------------------
+/* -------------------------------------------------------------------------- */
+/* COUCHE INTERNE                                                              */
+/* -------------------------------------------------------------------------- */
 
 function MithrilFrameInner({
   worldId,
@@ -104,13 +104,20 @@ function MithrilFrameInner({
 }: Omit<GrimoireFrameProps, "devMode"> & { devMode: boolean }) {
   const frameRef = useRef<HTMLDivElement | null>(null);
 
-  // Saison / météo
-  const season = useSeason({ biome, worldId });
+  // 🔐 Sécurisation stricte (TS strict-safe)
+  const safeWorldId = worldId ?? "mithril-quest";
+  const safePage = page ?? 1;
 
-  // Caméra AAA
+  // 🌦️ Saison / météo
+  const season = useSeason({
+    biome,
+    worldId: safeWorldId,
+  });
+
+  // 🎥 Caméra AAA
   const camera = useCamera();
 
-  // Parallaxe / mouvement du grimoire
+  // 📜 Parallaxe / mouvement du grimoire
   useEffect(() => {
     const el = frameRef.current;
     if (!el) return;
@@ -126,9 +133,9 @@ function MithrilFrameInner({
   }, [camera]);
 
   const ctxValue: MithrilContextValue = {
-    worldId,
+    worldId: safeWorldId,
     eraId,
-    page,
+    page: safePage,
     season,
     camera,
   };
@@ -148,8 +155,7 @@ function MithrilFrameInner({
           transition: "background-color 0.7s ease",
         }}
       >
-        <WeatherEngineProvider biome={biome} worldId={worldId}>
-
+        <WeatherEngineProvider biome={biome} worldId={safeWorldId}>
           {/* =================== ENCOUNTER / WORLD =================== */}
           <EncounterController>
             <WorldAmbientController>
@@ -159,9 +165,9 @@ function MithrilFrameInner({
               <LightningEngine />
 
               {/* 🌍 Monde isométrique */}
-                 <TurnController>
-                 <IsometricWorld />
-                 </TurnController>
+              <TurnController>
+                <IsometricWorld />
+              </TurnController>
 
               {devMode && <DevControls />}
             </WorldAmbientController>
@@ -169,7 +175,7 @@ function MithrilFrameInner({
 
           {/* =================== GRIMOIRE / UI =================== */}
           <div className="relative mx-auto w-[95%] max-w-[1550px] h-full pointer-events-auto">
-            <PageTurner page={page}>
+            <PageTurner page={safePage}>
               <div
                 className="
                   w-full h-full
@@ -183,7 +189,6 @@ function MithrilFrameInner({
               </div>
             </PageTurner>
           </div>
-
         </WeatherEngineProvider>
       </div>
     </MithrilContext.Provider>

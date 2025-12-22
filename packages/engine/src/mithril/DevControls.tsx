@@ -1,3 +1,4 @@
+// src/mithril/DevControls.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -109,12 +110,13 @@ export default function DevControls() {
               max={5}
               step={0.1}
               value={camera[axis]}
-              onChange={(e) =>
-                camera.set({
-                  ...camera,
-                  [axis]: parseFloat(e.target.value),
-                })
-              }
+              onChange={(e) => {
+                const value = parseFloat(e.target.value);
+                camera.set((prev) => ({
+                  ...prev,
+                  [axis]: value,
+                }));
+              }}
               className="flex-1 accent-amber-500"
             />
           </div>

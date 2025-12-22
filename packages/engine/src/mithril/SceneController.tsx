@@ -9,6 +9,7 @@ import React, {
 
 import { motion, useSpring, useTransform } from "framer-motion";
 
+import type { UseSeasonOptions } from "./hooks/useSeason";
 import useSeason from "./hooks/useSeason";
 import { useCamera } from "./hooks/useCamera";
 
@@ -65,7 +66,10 @@ export default function SceneController({
   // -------------------------------------------------------------------------
   // Saison + météo + ambiance
   // -------------------------------------------------------------------------
-  const season = useSeason({ biome, worldId });
+const season = useSeason({
+  biome: biome as UseSeasonOptions["biome"],
+  worldId,
+});
 
   /**
    * Construction canon du WeatherState

@@ -1,14 +1,26 @@
+// src/mithril/LightningArcs.tsx
 "use client";
+/**
+ * ⚡ LightningArcs — rendu canvas des arcs d’éclairs
+ * - Couleur dynamique selon lumière ambiante
+ * - Intensité liée à la météo
+ * - Flash + fade-out cinématique
+ */
 class LightningArcs {
     static canvas = null;
     static ctx = null;
-    /** Couleur dynamique selon phase du jour */
+    // ---------------------------------------------------------------------------
+    // Utils
+    // ---------------------------------------------------------------------------
+    /** Couleur dynamique selon luminosité (nuit → bleu) */
     static computeColor(lightLevel) {
-        // Nuit = arcs bleutés
         const blueTint = 180 + Math.floor((1 - lightLevel) * 60);
         return `rgba(${blueTint}, ${blueTint}, 255, 0.95)`;
     }
-    /** Initialise le canvas dans un layer du moteur */
+    // ---------------------------------------------------------------------------
+    // Lifecycle
+    // ---------------------------------------------------------------------------
+    /** Initialise le canvas dans un parent donné */
     static init(parent, lightLevel = 1) {
         if (this.canvas)
             return;
@@ -21,46 +33,55 @@ class LightningArcs {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         this.resize();
-        this.ctx.strokeStyle = this.computeColor(lightLevel);
-        window.addEventListener("resize", () => this.resize());
+        if (this.ctx) {
+            this.ctx.strokeStyle = this.computeColor(lightLevel);
+        }
+        window.addEventListener("resize", this.resize);
     }
     /** Resize dynamique */
-    static resize() {
-        if (!this.canvas)
+    static resize = () => {
+        if (!this.canvas || !this.canvas.parentElement)
             return;
         this.canvas.width = this.canvas.parentElement.clientWidth;
         this.canvas.height = this.canvas.parentElement.clientHeight;
-    }
-    /** API publique : spawn d’un arc */
+    };
+    // ---------------------------------------------------------------------------
+    // API publique
+    // ---------------------------------------------------------------------------
+    /** Spawn d’un arc directionnel */
     static spawn(direction, scene) {
         if (!this.canvas || !this.ctx)
             return;
         const w = this.canvas.width;
         const h = this.canvas.height;
         const startX = direction === "left"
-            ? w * 0.20
+            ? w * 0.2
             : direction === "right"
-                ? w * 0.80
-                : w * 0.50;
+                ? w * 0.8
+                : w * 0.5;
         const color = this.computeColor(scene.lightLevel);
-        this.drawArc(startX, -30, h, color, scene.intensity);
+        this.drawArc(startX, -30, h, color, scene.lightLevel);
     }
-    /** Arc vers un point aléatoire (utility) */
+    /** Spawn aléatoire (helper) */
     static spawnRandom(scene) {
         const dirs = ["left", "center", "right"];
         this.spawn(dirs[Math.floor(Math.random() * dirs.length)], scene);
     }
-    /** Dessin amélioré AAA */
+    // ---------------------------------------------------------------------------
+    // Rendu
+    // ---------------------------------------------------------------------------
     static drawArc(startX, yStart, maxHeight, color, intensity) {
+        if (!this.ctx || !this.canvas)
+            return;
         const ctx = this.ctx;
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        ctx.globalAlpha = 1;
         ctx.strokeStyle = color;
         ctx.lineWidth = 2 + intensity * 1.5;
         let x = startX;
         let y = yStart;
         ctx.beginPath();
         ctx.moveTo(x, y);
-        // fractale profonde (plus d'étapes pour intensité élevée)
         const steps = 12 + Math.floor(intensity * 6);
         for (let i = 0; i < steps; i++) {
             x += (Math.random() * 200 - 100) * (0.7 + intensity * 0.3);
@@ -68,30 +89,29 @@ class LightningArcs {
             ctx.lineTo(x, y);
         }
         ctx.stroke();
-        // flash global synchronisé
         this.flash(intensity);
-        // fade-out progressif de l'arc
         this.fadeOut();
     }
-    /** Flash global très rapide */
+    /** Flash blanc global très bref */
     static flash(intensity) {
-        if (!this.canvas)
+        if (!this.canvas || !this.canvas.parentElement)
             return;
         const flash = document.createElement("div");
         flash.className =
             "pointer-events-none absolute inset-0 z-[65] mix-blend-screen";
         flash.style.background = `rgba(255,255,255,${0.1 + intensity * 0.3})`;
         this.canvas.parentElement.appendChild(flash);
-        flash.animate([
-            { opacity: 1 },
-            { opacity: 0 }
-        ], {
+        flash
+            .animate([{ opacity: 1 }, { opacity: 0 }], {
             duration: 180,
             easing: "ease-out",
-        }).onfinish = () => flash.remove();
+        })
+            .onfinish = () => flash.remove();
     }
     /** Fade-out progressif du canvas */
     static fadeOut() {
+        if (!this.ctx || !this.canvas)
+            return;
         const ctx = this.ctx;
         let opacity = 1;
         const tick = () => {
