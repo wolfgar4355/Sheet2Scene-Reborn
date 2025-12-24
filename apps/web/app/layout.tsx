@@ -3,8 +3,8 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import FireAudio from "@components/FireAudio";
 
-import AudioBoot from "@mithril/AudioBoot";
-import { MithrilProvider } from "@mithril/engine";
+import { MithrilProvider } from "@lib/engine";
+// ou si AudioBoot est UI → le déplacer dans components/
 import BookAnimation from "@components/BookAnimation"; // ← AJOUT
 
 export const metadata: Metadata = {

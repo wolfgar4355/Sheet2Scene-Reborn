@@ -4,37 +4,36 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-import GrimoireFrame from "@lib/mithril/GrimoireFrame";
-import TransitionLayer from "@lib/mithril/TransitionLayer";
+import GrimoireFrame from "@components/GrimoireFrame";
+import TransitionLayer from "@components/TransitionLayer";
 
 export default function Home() {
   const router = useRouter();
   const [cinematic, setCinematic] = useState(false);
 
   function openBook() {
-    try { navigator.vibrate?.(15); } catch {}
+    try {
+      navigator.vibrate?.(15);
+    } catch {}
 
-    // Début de l’effet cinématique
     setCinematic(true);
 
-    // On laisse la caméra zoomer un peu AVANT d'aller à /create
     setTimeout(() => {
       router.push("/create");
-    }, 850); // timing calibré pour un effet impressionnant
+    }, 850);
   }
 
   return (
     <main className="relative min-h-[100svh] overflow-hidden">
-      
-      {/* --- BACKGROUND HALL --- */}
+      {/* BACKGROUND */}
       <div
         className={`
-          bg-hall absolute inset-0 transition-all duration-700 
+          bg-hall absolute inset-0 transition-all duration-700
           ${cinematic ? "blur-2xl scale-105 opacity-60" : "blur-md opacity-100"}
         `}
       />
 
-      {/* --- LUTRIN rapproché --- */}
+      {/* LECTERN */}
       <Image
         src="/images/lectern-clear.png"
         alt="Lutrin"
@@ -51,12 +50,12 @@ export default function Home() {
         `}
       />
 
-      {/* --- GRIMOIRE FERME (vue rapprochée) --- */}
+      {/* GRIMOIRE */}
       <button
         onClick={openBook}
         aria-label="Ouvrir le grimoire"
         className="
-          absolute left-1/2 -translate-x-1/2 
+          absolute left-1/2 -translate-x-1/2
           bottom-[14vh]
           focus:outline-none
           z-20
@@ -71,15 +70,20 @@ export default function Home() {
           priority
           className={`
             w-[min(720px,92vw)] transition-all ease-out duration-700
-            ${cinematic ? "scale-[1.55] translate-y-[-10vh] opacity-100" : "scale-100 opacity-100"}
+            ${
+              cinematic
+                ? "scale-[1.55] translate-y-[-10vh] opacity-100"
+                : "scale-100 opacity-100"
+            }
           `}
         />
       </button>
 
-      {/* --- CTA (disparaît en mode cinematic) --- */}
+      {/* CTA */}
       <nav
         className={`
-          fixed left-1/2 -translate-x-1/2 bottom-[calc(env(safe-area-inset-bottom)+16px)]
+          fixed left-1/2 -translate-x-1/2
+          bottom-[calc(env(safe-area-inset-bottom)+16px)]
           z-30 flex gap-3 transition-all duration-500
           ${cinematic ? "opacity-0 pointer-events-none" : "opacity-100"}
         `}
@@ -92,7 +96,7 @@ export default function Home() {
         </a>
       </nav>
 
-      {/* --- LAYERS DU MITHRIL ENGINE --- */}
+      {/* MITHRIL UI */}
       <GrimoireFrame />
       <TransitionLayer />
     </main>

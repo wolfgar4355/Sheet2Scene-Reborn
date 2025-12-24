@@ -28,4 +28,4 @@ export { useWeather } from "@/app/hooks/useWeather";
 export * from "@components/ambient.config";
 
 // Contenu statique et templates de pages
-export * from "@engine/content/grimoire";
+export * from "@lib/engine";

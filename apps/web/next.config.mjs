@@ -20,6 +20,11 @@ const nextConfig = {
   swcMinify: false,
 
   webpack(config) {
+    /**
+     * ⚠️ IMPORTANT
+     * On NE doit PAS exposer packages/engine à Webpack.
+     * Le moteur passe UNIQUEMENT via lib/ (engine bridge).
+     */
     config.resolve.alias = {
       /**
        * ─────────────────────────────
@@ -44,24 +49,6 @@ const nextConfig = {
       "@images": r("public/images"),
       "@sounds": r("public/sounds"),
       "@assets": r("public/assets"),
-
-      /**
-       * ─────────────────────────────
-       * ENGINE (LOGIC / DATA ONLY)
-       * ⚠️ PAS d’UI React ici
-       * ─────────────────────────────
-       */
-      "@engine": r("../../packages/engine/src"),
-
-      /**
-       * Mithril-Quest DATA (safe)
-       */
-      "@mithril": r("../../packages/engine/src/data/mithril-quest"),
-      "@mq-worlds": r("../../packages/engine/src/data/mithril-quest/worlds"),
-      "@mq-eras": r("../../packages/engine/src/data/mithril-quest/eras"),
-      "@mq-bestiary": r("../../packages/engine/src/data/mithril-quest/bestiary"),
-      "@mq-items": r("../../packages/engine/src/data/mithril-quest/items"),
-      "@mq-spells": r("../../packages/engine/src/data/mithril-quest/spells"),
     };
 
     return config;
