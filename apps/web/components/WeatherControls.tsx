@@ -1,6 +1,6 @@
 "use client";
 
-import { useWeather } from "@/hooks/useWeather";
+import { useWeather } from "@hooks/useWeather";
 
 export default function WeatherControls() {
   const { weather, update } = useWeather();

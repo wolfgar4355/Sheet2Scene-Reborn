@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import useFlipSound from "@/hooks/useFlipSound";
+import useFlipSound from "@hooks/useFlipSound";
 import type { ReactNode } from "react";
 
 export default function FlipLink({
