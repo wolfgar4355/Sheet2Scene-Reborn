@@ -4,8 +4,8 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from "react";
 import { useWeather } from "./WeatherEngine";
 import { triggerCameraShake } from "./CameraShake";
-import { generateThunderEvent, } from "@engine/ambient/thunder";
-import { SoundManifest } from "@engine/ambient/sound.manifest";
+import { generateThunderEvent } from "../ambient/thunder";
+import { SoundManifest } from "../ambient/sound.manifest";
 /**
  * ⚡ LightningEngine — Weather-driven AAA (canon)
  * --------------------------------------------------

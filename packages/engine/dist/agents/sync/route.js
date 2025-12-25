@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { AGENTS, AGENT_GROUPS } from "@engine/agents/registry";
+import { AGENTS, AGENT_GROUPS } from "../registry";
 import { readEnv } from "@lib/env";
 export async function POST() {
     const env = readEnv();

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useScene } from "./SceneController";
 import { AudioBootCoreInstance } from "./AudioBoot";
 import { loadAudio } from "./audioLoader";
-import { pickWeatherSound } from "@engine/ambient";
+import { pickWeatherSound } from "../ambient";
 /**
  * AmbientManager — Mithril Engine AAA (CANON)
  * - lecture seule du WeatherState

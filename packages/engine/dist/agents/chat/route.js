@@ -3,8 +3,8 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { AGENT_GROUPS } from "../groups";
 import { AGENTS } from "../registry";
-import { askAgentLLM } from "@engine/utils/ai";
-import { sendDiscord } from "@engine/utils/discord";
+import { askAgentLLM } from "../../utils/ai";
+import { sendDiscord } from "../../utils/discord";
 const Body = z.object({
     to: z.union([z.string(), z.array(z.string())]), // "victor" | "@TechCouncil" | ["victor","priya"]
     text: z.string().min(1),

@@ -3,7 +3,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, } from "react";
 import useSeason from "./hooks/useSeason";
-import { createWeatherState } from "@engine/ambient/weather";
+import { createWeatherState } from "../ambient/weather";
 const WeatherEngineContext = createContext(undefined);
 export function useWeather() {
     const ctx = useContext(WeatherEngineContext);

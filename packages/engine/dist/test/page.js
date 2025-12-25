@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { getWorlds, getErasForWorld } from "@engine/getWorlds";
+import { getWorlds, getErasForWorld } from "../getWorlds";
 export default function Page() {
     const worlds = getWorlds();
     const eras = getErasForWorld("fantasy");

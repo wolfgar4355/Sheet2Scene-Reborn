@@ -5,7 +5,7 @@ import { createContext, useContext, } from "react";
 import { motion, useSpring, useTransform } from "framer-motion";
 import useSeason from "./hooks/useSeason";
 import { useCamera } from "./hooks/useCamera";
-import { createWeatherState } from "@engine/ambient/weather";
+import { createWeatherState } from "../ambient/weather";
 const SceneContext = createContext(undefined);
 export function useScene() {
     const ctx = useContext(SceneContext);

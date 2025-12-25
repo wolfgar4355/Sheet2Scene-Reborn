@@ -1,4 +1,4 @@
-import { AGENTS } from "@engine/agents/registry";
+import { AGENTS } from "../registry";
 export async function POST(req) {
     // 1️⃣ Parsing contrôlé (unknown → AgentTask)
     const raw = (await req.json());

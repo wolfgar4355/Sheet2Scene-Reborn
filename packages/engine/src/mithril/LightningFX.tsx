@@ -9,6 +9,7 @@ import LightningArcs from "./LightningArcs";
 import { triggerCameraShake } from "./CameraShake";
 
 import { generateThunderEvent } from "../ambient/thunder";
+import type { ThunderEvent } from "../ambient/thunder";
 import { SoundManifest } from "../ambient/sound.manifest";
 
 /**
