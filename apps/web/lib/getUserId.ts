@@ -2,13 +2,13 @@
 
 /**
  * Extrait l'user_id depuis les headers de la requête.
- * 
+ *
  * Sources possibles (par ordre de priorité) :
  * - x-user-id (custom, recommandé)
  * - authorization: Bearer <user_id> (fallback simple)
  */
 export function getUserIdFromRequestHeaders(
-  headers: Headers | ReadonlyHeaders
+  headers: Headers
 ): string | null {
   // 1️⃣ Header custom explicite (RECOMMANDÉ)
   const direct = headers.get("x-user-id");
