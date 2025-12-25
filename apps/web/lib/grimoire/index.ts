@@ -13,13 +13,13 @@ export { default as TransitionLayer } from "@components/TransitionLayer";
 export { default as SceneController } from "@components/SceneController";
 
 // Navigation interne (TOC → intro → pages → create)
-export { useBookNav } from "@/app/hooks/useBookNav";
+export { useBookNav } from "@hooks/useBookNav";
 
 // Sons de flips / ouvertures (synced)
-export { default as bookSounds } from "@/app/utils/bookSounds";
+export { default as bookSounds } from "@utils/bookSounds";
 
 // Effets ambiance météo / foyer
-export { useWeather } from "@/app/hooks/useWeather";
+export { useWeather } from "@hooks/useWeather";
 
 // Config ambiance globale
 export * from "@components/ambient.config";
