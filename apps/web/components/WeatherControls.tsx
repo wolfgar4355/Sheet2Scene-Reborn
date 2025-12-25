@@ -2,6 +2,18 @@
 
 import { useWeather } from "@hooks/useWeather";
 
+/**
+ * ⚠️ Doit correspondre EXACTEMENT
+ * aux valeurs supportées par ambientManager
+ */
+type WeatherKind =
+  | "clear"
+  | "rain"
+  | "storm"
+  | "snow"
+  | "wind"
+  | "fog";
+
 export default function WeatherControls() {
   const { weather, update } = useWeather();
 
@@ -11,7 +23,9 @@ export default function WeatherControls() {
 
       <select
         value={weather.kind}
-        onChange={(e) => update(e.target.value, weather.intensity)}
+        onChange={(e) =>
+          update(e.target.value as WeatherKind, weather.intensity)
+        }
         className="bg-gray-800 p-2 rounded"
       >
         <option value="clear">Clear</option>
@@ -28,7 +42,9 @@ export default function WeatherControls() {
         max={1}
         step={0.01}
         value={weather.intensity}
-        onChange={(e) => update(weather.kind, parseFloat(e.target.value))}
+        onChange={(e) =>
+          update(weather.kind, parseFloat(e.target.value))
+        }
         className="w-full"
       />
 
