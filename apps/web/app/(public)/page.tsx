@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { triggerBookAnimation } from "@/components/BookAnimation";
+import { triggerBookAnimation } from "../../components/BookAnimation";
 
 export default function PublicLandingPage() {
   const router = useRouter();
