@@ -1,25 +1,29 @@
 // lib/supabase/server.ts
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
-import { createServerClient } from "@supabase/ssr";
 
-export function getSupabaseServerClient() {
+export function getSupabaseServerClient(): SupabaseClient {
   const cookieStore = cookies();
 
-  return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value;
-        },
-        set(name: string, value: string, options) {
-          cookieStore.set({ name, value, ...options });
-        },
-        remove(name: string, options) {
-          cookieStore.set({ name, value: "", ...options, maxAge: 0 });
-        },
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!url || !anon) {
+    throw new Error("Missing Supabase env vars");
+  }
+
+  return createClient(url, anon, {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+    global: {
+      headers: {
+        Cookie: cookieStore
+          .getAll()
+          .map(c => `${c.name}=${c.value}`)
+          .join("; "),
       },
-    }
-  );
+    },
+  });
 }
