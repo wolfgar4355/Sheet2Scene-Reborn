@@ -10,7 +10,8 @@ import {
   type DayPhase,
 } from "../time";
 
-import type { WeatherState, WeatherKind } from "@engine/ambient";
+import type { WeatherState, WeatherKind } from "../../ambient";
+
 // ---------------------------------------------------------------------------
 // Options
 // ---------------------------------------------------------------------------

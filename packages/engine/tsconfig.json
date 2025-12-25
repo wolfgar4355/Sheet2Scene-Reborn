@@ -17,9 +17,6 @@
     "outDir": "dist",
 
     "baseUrl": ".",
-    "paths": {
-      "@engine/*": ["src/*"]
-    }
   },
 
   "include": ["src"],

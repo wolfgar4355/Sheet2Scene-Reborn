@@ -1,5 +1,5 @@
-import { AGENTS } from "@engine/agents/registry";
-import type { AgentTask } from "@engine/agents/registry";
+import { AGENTS } from "../registry";
+import type { AgentTask } from "../registry";
 
 export async function POST(req: Request) {
   // 1️⃣ Parsing contrôlé (unknown → AgentTask)

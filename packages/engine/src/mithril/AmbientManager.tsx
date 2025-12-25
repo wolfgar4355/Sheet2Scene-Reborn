@@ -7,9 +7,8 @@ import { useScene } from "./SceneController";
 import { AudioBootCoreInstance } from "./AudioBoot";
 import { loadAudio } from "./audioLoader";
 
-import type { WeatherState, WeatherKind } from "@engine/ambient";
-import { pickWeatherSound } from "@engine/ambient";
-
+import type { WeatherState, WeatherKind } from "../ambient";
+import { pickWeatherSound } from "../ambient";
 /**
  * AmbientManager — Mithril Engine AAA (CANON)
  * - lecture seule du WeatherState

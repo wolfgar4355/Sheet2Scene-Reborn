@@ -8,12 +8,8 @@ import { useScene } from "./SceneController";
 import LightningArcs from "./LightningArcs";
 import { triggerCameraShake } from "./CameraShake";
 
-import {
-  generateThunderEvent,
-  type ThunderEvent,
-} from "@engine/ambient/thunder";
-
-import { SoundManifest } from "@engine/ambient/sound.manifest";
+import { generateThunderEvent } from "../ambient/thunder";
+import { SoundManifest } from "../ambient/sound.manifest";
 
 /**
  * ⚡ LightningFX — Mithril Engine AAA
