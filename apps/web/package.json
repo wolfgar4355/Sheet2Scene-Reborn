@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-  "dev": "HOST=0.0.0.0 PORT=3000 next dev",
+    "dev": "HOST=0.0.0.0 PORT=3000 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.84.0",
     "autoprefixer": "^10.4.22",
     "clsx": "^2.1.1",
