@@ -11,5 +11,8 @@
     "build": "npm run build:engine && npm --workspace=web run build",
     "dev": "npm --workspace=web run dev",
     "start": "npm --workspace=web start"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.8.0"
   }
 }
