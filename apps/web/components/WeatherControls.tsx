@@ -3,15 +3,14 @@
 import { useWeather } from "@hooks/useWeather";
 
 /**
- * ⚠️ Doit correspondre EXACTEMENT
- * aux valeurs supportées par ambientManager
+ * ⚠️ DOIT matcher exactement le moteur
+ * (ambientManager)
  */
 type WeatherKind =
   | "clear"
   | "rain"
   | "storm"
   | "snow"
-  | "wind"
   | "fog";
 
 export default function WeatherControls() {
@@ -32,7 +31,6 @@ export default function WeatherControls() {
         <option value="rain">Rain</option>
         <option value="storm">Storm</option>
         <option value="snow">Snow</option>
-        <option value="wind">Wind</option>
         <option value="fog">Fog</option>
       </select>
 
@@ -43,7 +41,7 @@ export default function WeatherControls() {
         step={0.01}
         value={weather.intensity}
         onChange={(e) =>
-          update(weather.kind, parseFloat(e.target.value))
+          update(weather.kind as WeatherKind, parseFloat(e.target.value))
         }
         className="w-full"
       />
