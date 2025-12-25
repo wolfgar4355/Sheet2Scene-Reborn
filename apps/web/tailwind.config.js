@@ -3,11 +3,12 @@ const config = {
   content: [
     "./app/**/*.{ts,tsx,mdx}",
     "./components/**/*.{ts,tsx,mdx}",
-    "./pages/**/*.{ts,tsx,mdx}",
+    "./hooks/**/*.{ts,tsx,mdx}",
+    "./lib/**/*.{ts,tsx,mdx}",
     "./public/**/*.html",
   ],
 
-  // Pour inclure tes classes dynamiques (raw)
+  // Pour inclure les classes dynamiques générées (ex: bg-[url('/images/...')])
   safelist: [
     {
       pattern: /bg-\[url\(\'\/images\/.*\'\)\]/,
@@ -17,7 +18,7 @@ const config = {
   theme: {
     extend: {
       backgroundImage: {
-        parchment: "url('/images/parchment.png')",
+        parchment: "url('/images/bg-parchment.png')",
         hall: "url('/images/bg-hall.png')",
         study: "url('/images/bg-study.jpg')",
       },
