@@ -3,6 +3,7 @@ import { getAdmin } from "@lib/supabase/admin";
 import { getUserIdFromRequestHeaders } from "@lib/getUserId";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 function bad(message: string, status = 400) {
   return NextResponse.json({ ok: false, error: message }, { status });
