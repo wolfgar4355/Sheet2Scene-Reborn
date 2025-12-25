@@ -1,6 +1,9 @@
+// apps/web/components/FlipLink.tsx
 "use client";
+
 import Link from "next/link";
 import useFlipSound from "@/hooks/useFlipSound";
+import type { ReactNode } from "react";
 
 export default function FlipLink({
   href,
@@ -9,12 +12,18 @@ export default function FlipLink({
 }: {
   href: string;
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
-  const play = useFlipSound();
+  const playFlip = useFlipSound();
 
   return (
-    <Link href={href} className={className} onClick={() => play()}>
+    <Link
+      href={href}
+      className={className}
+      onClick={() => {
+        playFlip();
+      }}
+    >
       {children}
     </Link>
   );
