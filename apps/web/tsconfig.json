@@ -16,21 +16,18 @@
 
     "baseUrl": ".",
 
-    "paths": {
-      /* APP */
-      "@/*": ["app/*"],
+"paths": {
+  "@/*": ["./*"],
 
-      /* UI / LOCAL */
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@utils/*": ["utils/*"],
-      "@config/*": ["config/*"],
+  "@components/*": ["components/*"],
+  "@hooks/*": ["hooks/*"],
+  "@utils/*": ["utils/*"],
+  "@config/*": ["config/*"],
 
-      /* LIB (frontend-safe uniquement) */
-      "@lib/*": ["lib/*"],
-      "@lib/supabase/*": ["lib/supabase/*"],
-      "@lib/getUserId": ["lib/getUserId.ts"]
-    },
+  "@lib/*": ["lib/*"],
+  "@lib/supabase/*": ["lib/supabase/*"],
+  "@lib/getUserId": ["lib/getUserId.ts"]
+}
 
     "plugins": [{ "name": "next" }]
   },
