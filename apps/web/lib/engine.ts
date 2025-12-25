@@ -1,10 +1,11 @@
-// ⚠️ Fichier passerelle unique vers le moteur
-// ⚠️ Ne jamais importer @engine ailleurs dans le web
+// apps/web/lib/engine.ts
+// =====================================================
+// ⚠️ PASSERELLE WEB → DATA ENGINE UNIQUEMENT
+// ⚠️ AUCUN runtime, AUCUN manager, AUCUN side-effect
+// =====================================================
 
+// Worlds & eras (DATA ONLY – SAFE)
 export { getWorlds, getErasForWorld } from "../../../packages/engine/src/getWorlds";
 
-// Ambient (safe)
-export { ambientManager } from "../../../packages/engine/src/ambient/weather";
-
-// Grimoire content (data uniquement)
+// Grimoire content (DATA ONLY)
 export * from "../../../packages/engine/src/content/grimoire";
