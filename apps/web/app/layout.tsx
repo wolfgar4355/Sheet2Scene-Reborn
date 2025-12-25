@@ -1,11 +1,9 @@
 // apps/web/app/layout.tsx
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import FireAudio from "@components/FireAudio";
 
-import { MithrilProvider } from "@lib/engine";
-// ou si AudioBoot est UI → le déplacer dans components/
-import BookAnimation from "@components/BookAnimation"; // ← AJOUT
+import FireAudio from "@components/FireAudio";
+import BookAnimation from "@components/BookAnimation";
 
 export const metadata: Metadata = {
   title: "Sheet2Scene",
@@ -50,9 +48,6 @@ export default function RootLayout({
       </head>
 
       <body className="min-h-screen antialiased">
-        {/* Préchargement audio */}
-        <AudioBoot />
-
         {/* 🔥 Ambiance feu de foyer */}
         <FireAudio />
 
@@ -61,13 +56,11 @@ export default function RootLayout({
           <div className="fire-smoke"></div>
         </div>
 
-        {/* 🔥 SUPER IMPORTANT : Overlay global pour animations du grimoire */}
+        {/* 📖 Overlay global du grimoire (UI ONLY) */}
         <BookAnimation />
 
-        {/* 🔮 Noyau du Mithril Engine */}
-        <MithrilProvider>
-          {children}
-        </MithrilProvider>
+        {/* 🌍 Contenu applicatif */}
+        {children}
 
         {/* Portail modal */}
         <div id="modal-root"></div>
