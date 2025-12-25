@@ -1,4 +1,4 @@
-k// apps/web/components/Grimoire3D.tsx
+// apps/web/components/Grimoire3D.tsx
 "use client";
 
 import Image from "next/image";
