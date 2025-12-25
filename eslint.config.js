@@ -1,5 +1,6 @@
 // eslint.config.js
 // @ts-check
+
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import reactPlugin from "eslint-plugin-react";
@@ -9,41 +10,85 @@ import globals from "globals";
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-  // remplace .eslintignore
-  { ignores: ["**/node_modules/**", "**/.next/**", "**/dist/**", "**/build/**", "**/coverage/**"] },
+  // ─────────────────────────────────────────────
+  // GLOBAL IGNORES (équivalent .eslintignore)
+  // ─────────────────────────────────────────────
+  {
+    ignores: [
+      "**/node_modules/**",
+      "**/.next/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/coverage/**",
+    ],
+  },
 
-  // Bases JS/TS
+  // ─────────────────────────────────────────────
+  // BASE JS
+  // ─────────────────────────────────────────────
   js.configs.recommended,
-  ...tseslint.configs.recommended, // si tu veux la version type-checked: recommendedTypeChecked + parserOptions.project
+
+  // ─────────────────────────────────────────────
+  // TYPESCRIPT (⚠️ PARSER OBLIGATOIRE)
+  // ─────────────────────────────────────────────
+  ...tseslint.configs.recommended,
 
   {
     files: ["**/*.{ts,tsx,js,jsx,mjs,cjs}"],
     plugins: {
       react: reactPlugin,
-      "react-hooks": reactHooks,      // <-- nom exact
+      "react-hooks": reactHooks,
       "@next/next": nextPlugin,
       "@typescript-eslint": tseslint.plugin,
     },
     languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: "module",
-      globals: { ...globals.browser, ...globals.node },
+      // 🔥 C’EST ÇA QUI MANQUAIT
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        project: true, // détecte tsconfig automatiquement
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
     },
     rules: {
+      // React / Next
       "react/react-in-jsx-scope": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
       "@next/next/no-img-element": "warn",
+
+      // TypeScript
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_" },
+      ],
+
+      // Général
       "no-empty": ["error", { allowEmptyCatch: true }],
     },
-    settings: { react: { version: "detect" } },
+    settings: {
+      react: { version: "detect" },
+    },
   },
 
-  // Fichiers Node/config/scripts
+  // ─────────────────────────────────────────────
+  // NODE / CONFIG / SCRIPTS
+  // ─────────────────────────────────────────────
   {
-    files: ["**/*.config.{js,cjs,mjs,ts}", "scripts/**/*.{js,ts}", "server.{js,ts}"],
-    languageOptions: { globals: globals.node },
+    files: [
+      "**/*.config.{js,cjs,mjs,ts}",
+      "scripts/**/*.{js,ts}",
+      "server.{js,ts}",
+    ],
+    languageOptions: {
+      parser: tseslint.parser,
+      sourceType: "module",
+      globals: globals.node,
+    },
   },
 ];
