@@ -13,7 +13,8 @@ export { default as TransitionLayer } from "@components/TransitionLayer";
 export { default as SceneController } from "@components/SceneController";
 
 // Navigation interne (TOC → intro → pages → create)
-export { useBookNav } from "@hooks/useBookNav";
+// ✅ CORRECT
+export { default as useBookNav } from "@hooks/useBookNav";
 
 // Sons de flips / ouvertures (synced)
 export { default as bookSounds } from "@utils/bookSounds";
