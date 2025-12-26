@@ -20,10 +20,16 @@ const nextConfig = {
   swcMinify: false,
 
   /**
-   * ✅ CRITICAL FIX
-   * Next.js 14 ne supporte PAS encore correctement
-   * ESLint Flat Config pendant le build.
-   * Sans ça : "Parsing error: import/export is reserved"
+   * ✅ CRITICAL FIX (Supabase / undici / Next 14)
+   * Empêche Next.js de bundler @supabase/supabase-js
+   * sinon crash: createContextKey is not a function
+   */
+  experimental: {
+    serverComponentsExternalPackages: ["@supabase/supabase-js"],
+  },
+
+  /**
+   * ESLint Flat Config issue during build
    */
   eslint: {
     ignoreDuringBuilds: true,
