@@ -1,27 +1,24 @@
 // lib/supabase/admin.ts
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
-let _admin: SupabaseClient | null = null;
+let _admin: ReturnType<typeof createClient> | null = null;
 
 /**
- * Client Supabase ADMIN
+ * Supabase ADMIN client
  * - Service Role ONLY
- * - Server-side uniquement
- * - Pas de session, pas de cookies
+ * - Server-side ONLY
+ * - Lazy-loaded (safe for Next.js build)
  */
-export function getAdmin(): SupabaseClient {
+export function getAdmin() {
   if (_admin) return _admin;
 
-  const url =
-    process.env.SUPABASE_URL ??
-    process.env.NEXT_PUBLIC_SUPABASE_URL;
-
+  const url = process.env.SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!url || !serviceKey) {
     throw new Error(
-      "Missing Supabase env vars (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY). " +
-      "Add them in Vercel → Settings → Environment Variables."
+      "Missing Supabase admin env vars. " +
+      "Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in Vercel."
     );
   }
 

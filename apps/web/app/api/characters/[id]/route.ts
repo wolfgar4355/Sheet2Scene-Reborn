@@ -4,6 +4,8 @@ import { getUserIdFromRequestHeaders } from "@lib/getUserId";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
 
 function bad(message: string, status = 400) {
   return NextResponse.json({ ok: false, error: message }, { status });
