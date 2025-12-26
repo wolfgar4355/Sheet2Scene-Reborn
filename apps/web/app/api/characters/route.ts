@@ -1,61 +1,73 @@
-import { NextResponse } from 'next/server'
-import { getAdmin } from '@lib/supabase/admin';
-import { getUserIdFromRequestHeaders } from '@lib/getUserId'
+// app/api/characters/route.ts
+
+import { NextRequest, NextResponse } from "next/server";
+import { getAdmin } from "@lib/supabase/admin";
+import { getUserIdFromRequestHeaders } from "@lib/getUserId";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 type CharacterBody = {
-  name?: string
-  system?: string
-  data?: Record<string, unknown>
-}
+  name?: string;
+  system?: string;
+  data?: Record<string, unknown>;
+};
 
 function bad(message: string, status = 400) {
-  return NextResponse.json({ ok: false, error: message }, { status })
+  return NextResponse.json({ ok: false, error: message }, { status });
 }
 
-export async function GET(req: Request) {
+// GET /api/characters
+export async function GET(req: NextRequest) {
   try {
-    const userId = getUserIdFromRequestHeaders(new Headers(req.headers));
-    if (!userId) return bad('Missing user id')
+    const userId = getUserIdFromRequestHeaders(req.headers);
+    if (!userId) return bad("Missing user id", 401);
 
     const { data, error } = await getAdmin()
-      .from('characters')
-      .select('*')
-      .eq('user_id', userId)
-      .order('updated_at', { ascending: false })
+      .from("characters")
+      .select("*")
+      .eq("user_id", userId)
+      .order("updated_at", { ascending: false });
 
-    if (error) throw error
-    return NextResponse.json({ ok: true, data: data ?? [] })
+    if (error) throw error;
+
+    return NextResponse.json({ ok: true, data: data ?? [] });
   } catch (e: any) {
-    return bad(e?.message ?? 'GET failed', 500)
+    return bad(e?.message ?? "GET failed", 500);
   }
 }
 
-export async function POST(req: Request) {
+// POST /api/characters
+export async function POST(req: NextRequest) {
   try {
-    const userId = getUserIdFromRequestHeaders(new Headers(req.headers))
-    if (!userId) return bad('Missing user id')
+    const userId = getUserIdFromRequestHeaders(req.headers);
+    if (!userId) return bad("Missing user id", 401);
 
-    const body = (await req.json()) as CharacterBody | undefined
-    if (!body) return bad('Missing JSON body')
+    const body = (await req.json()) as CharacterBody | undefined;
+    if (!body) return bad("Missing JSON body", 400);
 
-    const name = (body.name ?? '').trim()
-    const system = (body.system ?? '').trim()
-    const data = body.data ?? {}
+    const name = (body.name ?? "").trim();
+    const system = (body.system ?? "").trim();
+    const data = body.data ?? {};
 
-    if (!name) return bad('Field "name" is required')
-    if (!system) return bad('Field "system" is required')
+    if (!name) return bad('Field "name" is required', 400);
+    if (!system) return bad('Field "system" is required', 400);
 
-    const row = { user_id: userId, name, system, data }
+    const row = { user_id: userId, name, system, data };
 
     const { data: inserted, error } = await getAdmin()
-      .from('characters')
+      .from("characters")
       .insert(row)
       .select()
-      .single()
+      .single();
 
-    if (error) throw error
-    return NextResponse.json({ ok: true, character: inserted }, { status: 201 })
+    if (error) throw error;
+
+    return NextResponse.json(
+      { ok: true, character: inserted },
+      { status: 201 }
+    );
   } catch (e: any) {
-    return bad(e?.message ?? 'POST failed', 500)
+    return bad(e?.message ?? "POST failed", 500);
   }
 }
