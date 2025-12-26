@@ -1,7 +1,14 @@
-
 # env files
 .env*
 apps/web/.env*
 
-ecosystem.config.cjs
+# node
+node_modules
+**/node_modules
+
+# build / vercel
+.next
 .vercel
+
+# misc
+ecosystem.config.cjs
