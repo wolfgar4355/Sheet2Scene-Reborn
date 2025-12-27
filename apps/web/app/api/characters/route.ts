@@ -19,7 +19,9 @@ function bad(message: string, status = 400) {
   return NextResponse.json({ ok: false, error: message }, { status });
 }
 
-// GET /api/characters
+/* ============================================================
+   GET /api/characters
+   ============================================================ */
 export async function GET(req: NextRequest) {
   try {
     const userId = getUserIdFromRequestHeaders(req.headers);
@@ -39,7 +41,9 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// POST /api/characters
+/* ============================================================
+   POST /api/characters
+   ============================================================ */
 export async function POST(req: NextRequest) {
   try {
     const userId = getUserIdFromRequestHeaders(req.headers);
@@ -55,7 +59,15 @@ export async function POST(req: NextRequest) {
     if (!name) return bad('Field "name" is required', 400);
     if (!system) return bad('Field "system" is required', 400);
 
-    const row = { user_id: userId, name, system, data };
+    // ⚠️ IMPORTANT
+    // Cast volontaire pour éviter les conflits de types Supabase
+    const row = {
+      user_id: userId,
+      name,
+      system,
+      data,
+      updated_at: new Date().toISOString(),
+    } as any;
 
     const { data: inserted, error } = await getAdmin()
       .from("characters")

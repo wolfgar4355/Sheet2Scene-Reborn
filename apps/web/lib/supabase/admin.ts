@@ -1,28 +1,24 @@
-// lib/supabase/admin.ts
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/types/database";
 
-let _admin: ReturnType<typeof createClient> | null = null;
+let _admin: SupabaseClient<Database> | null = null;
 
-/**
- * Supabase ADMIN client
- * - Service Role ONLY
- * - Server-side ONLY
- * - Lazy-loaded (safe for Next.js build)
- */
-export function getAdmin() {
+export function getAdmin(): SupabaseClient<Database> {
   if (_admin) return _admin;
 
-  const url = process.env.SUPABASE_URL;
+  const url =
+    process.env.SUPABASE_URL ??
+    process.env.NEXT_PUBLIC_SUPABASE_URL;
+
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!url || !serviceKey) {
     throw new Error(
-      "Missing Supabase admin env vars. " +
-      "Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in Vercel."
+      "Missing Supabase env vars (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)"
     );
   }
 
-  _admin = createClient(url, serviceKey, {
+  _admin = createClient<Database>(url, serviceKey, {
     auth: {
       persistSession: false,
       autoRefreshToken: false,
