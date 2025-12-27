@@ -54,12 +54,20 @@ export async function PUT(
     const body = (await req.json()) as {
       name?: string;
       system?: string;
-      data?: Record<string, unknown>;
+      data?: unknown;
     };
+
+    const update: Record<string, unknown> = {
+      updated_at: new Date().toISOString(),
+    };
+
+    if (body.name !== undefined) update.name = body.name;
+    if (body.system !== undefined) update.system = body.system;
+    if (body.data !== undefined) update.data = body.data;
 
     const { data, error } = await getAdmin()
       .from("characters")
-      .update({ ...body, updated_at: new Date().toISOString() })
+      .update(update)
       .eq("user_id", userId)
       .eq("id", id)
       .select()
