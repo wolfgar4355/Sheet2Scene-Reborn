@@ -1,21 +1,22 @@
-// app/api/characters/[id]/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import { getAdmin } from "@lib/supabase/admin";
 import { getUserIdFromRequestHeaders } from "@lib/getUserId";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
-export const revalidate = 0;
+
+/**
+ * ⛔️ CRITICAL FIX
+ * Prevent Next.js from trying to prerender / collect data
+ */
+export const preferredRegion = "auto";
+export const maxDuration = 10;
 
 function bad(message: string, status = 400) {
   return NextResponse.json({ ok: false, error: message }, { status });
 }
 
-/* ============================================================
-   GET /api/characters/[id]
-   ============================================================ */
+// GET /api/characters/[id]
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
@@ -23,7 +24,7 @@ export async function GET(
   try {
     const userId = getUserIdFromRequestHeaders(req.headers);
     if (!userId) return bad("Missing user id", 401);
-    if (!params?.id) return bad("Missing id", 400);
+    if (!params.id) return bad("Missing id", 400);
 
     const { data, error } = await getAdmin()
       .from("characters")
@@ -41,9 +42,7 @@ export async function GET(
   }
 }
 
-/* ============================================================
-   PUT /api/characters/[id]
-   ============================================================ */
+// PUT /api/characters/[id]
 export async function PUT(
   req: NextRequest,
   { params }: { params: { id: string } }
@@ -51,7 +50,7 @@ export async function PUT(
   try {
     const userId = getUserIdFromRequestHeaders(req.headers);
     if (!userId) return bad("Missing user id", 401);
-    if (!params?.id) return bad("Missing id", 400);
+    if (!params.id) return bad("Missing id", 400);
 
     const body = (await req.json()) as {
       name?: string;
@@ -59,7 +58,6 @@ export async function PUT(
       data?: unknown;
     };
 
-    // Construction explicite pour éviter les problèmes de typing Supabase v2
     const update: Record<string, unknown> = {
       updated_at: new Date().toISOString(),
     };
@@ -70,7 +68,7 @@ export async function PUT(
 
     const { data, error } = await getAdmin()
       .from("characters")
-      .update(update as any) // ✅ cast localisé, safe en prod
+      .update(update)
       .eq("user_id", userId)
       .eq("id", params.id)
       .select()
@@ -84,9 +82,7 @@ export async function PUT(
   }
 }
 
-/* ============================================================
-   DELETE /api/characters/[id]
-   ============================================================ */
+// DELETE /api/characters/[id]
 export async function DELETE(
   req: NextRequest,
   { params }: { params: { id: string } }
@@ -94,7 +90,7 @@ export async function DELETE(
   try {
     const userId = getUserIdFromRequestHeaders(req.headers);
     if (!userId) return bad("Missing user id", 401);
-    if (!params?.id) return bad("Missing id", 400);
+    if (!params.id) return bad("Missing id", 400);
 
     const { error } = await getAdmin()
       .from("characters")
