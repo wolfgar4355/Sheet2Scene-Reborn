@@ -1,9 +1,15 @@
+// apps/web/lib/supabase/admin.ts
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import type { Database } from "@/types/database";
 
-let _admin: SupabaseClient<Database> | null = null;
+let _admin: SupabaseClient | null = null;
 
-export function getAdmin(): SupabaseClient<Database> {
+/**
+ * Supabase ADMIN client
+ * - Service Role only
+ * - Server-side only
+ * - NO Database typing (Supabase v2 safety)
+ */
+export function getAdmin(): SupabaseClient {
   if (_admin) return _admin;
 
   const url =
@@ -18,7 +24,7 @@ export function getAdmin(): SupabaseClient<Database> {
     );
   }
 
-  _admin = createClient<Database>(url, serviceKey, {
+  _admin = createClient(url, serviceKey, {
     auth: {
       persistSession: false,
       autoRefreshToken: false,
