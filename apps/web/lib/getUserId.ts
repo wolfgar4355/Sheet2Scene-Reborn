@@ -1,24 +1,17 @@
 // lib/getUserId.ts
+// ⚠️ AUCUN import depuis "next/headers"
 
-/**
- * Extrait l'user_id depuis les headers de la requête.
- *
- * Sources possibles (par ordre de priorité) :
- * - x-user-id (custom, recommandé)
- * - authorization: Bearer <user_id> (fallback simple)
- */
 export function getUserIdFromRequestHeaders(
   headers: Headers
 ): string | null {
-  // 1️⃣ Header custom explicite (RECOMMANDÉ)
-  const direct = headers.get("x-user-id");
-  if (direct) return direct;
-
-  // 2️⃣ Authorization: Bearer <userId>
+  // Exemple : Authorization: Bearer xxx
   const auth = headers.get("authorization");
-  if (auth?.startsWith("Bearer ")) {
-    return auth.slice("Bearer ".length).trim();
-  }
+  if (!auth) return null;
 
-  return null;
+  const [, token] = auth.split(" ");
+  if (!token) return null;
+
+  // ⚠️ ici tu fais ton décodage JWT / lookup
+  // placeholder :
+  return token; // ou userId extrait
 }
