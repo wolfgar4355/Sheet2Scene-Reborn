@@ -62,8 +62,8 @@ export async function PUT(
 
     const { data, error } = await getAdmin()
       .from("characters")
-      // ⬇️ CAST INTENTIONNEL (Supabase v2 + no Database type)
-      .update(update as any)
+      // ⛔️ Supabase v2 strict typing workaround
+      .update(update as unknown as never)
       .eq("user_id", userId)
       .eq("id", params.id)
       .select()
