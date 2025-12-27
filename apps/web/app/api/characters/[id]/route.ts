@@ -1,3 +1,4 @@
+GNU nano 8.6                                                                        route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getAdmin } from "@lib/supabase/admin";
 import { getUserIdFromRequestHeaders } from "@lib/getUserId";
@@ -106,3 +107,5 @@ export async function DELETE(
     return bad(e?.message ?? "DELETE failed", 500);
   }
 }
+
+
