@@ -53,17 +53,17 @@ export async function PUT(
       data?: unknown;
     };
 
-    const update: Record<string, unknown> = {
+    const update = {
       updated_at: new Date().toISOString(),
+      ...(body.name !== undefined && { name: body.name }),
+      ...(body.system !== undefined && { system: body.system }),
+      ...(body.data !== undefined && { data: body.data }),
     };
-
-    if (body.name !== undefined) update.name = body.name;
-    if (body.system !== undefined) update.system = body.system;
-    if (body.data !== undefined) update.data = body.data;
 
     const { data, error } = await getAdmin()
       .from("characters")
-      .update(update)
+      // ⬇️ CAST INTENTIONNEL (Supabase v2 + no Database type)
+      .update(update as any)
       .eq("user_id", userId)
       .eq("id", params.id)
       .select()
