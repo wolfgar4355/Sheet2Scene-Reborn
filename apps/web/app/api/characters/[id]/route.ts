@@ -1,15 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAdmin } from "@lib/supabase/admin";
 import { getUserIdFromRequestHeaders } from "@lib/getUserId";
-import type { Database } from "@/types/database";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 export const revalidate = 0;
-
-type CharacterUpdate =
-  Database["public"]["Tables"]["characters"]["Update"];
 
 function bad(message: string, status = 400) {
   return NextResponse.json({ ok: false, error: message }, { status });
@@ -23,6 +19,7 @@ export async function GET(
   try {
     const userId = getUserIdFromRequestHeaders(req.headers);
     if (!userId) return bad("Missing user id", 401);
+    if (!params.id) return bad("Missing id", 400);
 
     const { data, error } = await getAdmin()
       .from("characters")
@@ -48,6 +45,7 @@ export async function PUT(
   try {
     const userId = getUserIdFromRequestHeaders(req.headers);
     if (!userId) return bad("Missing user id", 401);
+    if (!params.id) return bad("Missing id", 400);
 
     const body = (await req.json()) as {
       name?: string;
@@ -55,13 +53,13 @@ export async function PUT(
       data?: unknown;
     };
 
-    const update: CharacterUpdate = {
+    const update: Record<string, unknown> = {
       updated_at: new Date().toISOString(),
     };
 
     if (body.name !== undefined) update.name = body.name;
     if (body.system !== undefined) update.system = body.system;
-    if (body.data !== undefined) update.data = body.data as any;
+    if (body.data !== undefined) update.data = body.data;
 
     const { data, error } = await getAdmin()
       .from("characters")
@@ -87,6 +85,7 @@ export async function DELETE(
   try {
     const userId = getUserIdFromRequestHeaders(req.headers);
     if (!userId) return bad("Missing user id", 401);
+    if (!params.id) return bad("Missing id", 400);
 
     const { error } = await getAdmin()
       .from("characters")
