@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { triggerBookAnimation } from "../../components/BookAnimation";
 
 export default function PublicLandingPage() {
   const router = useRouter();
@@ -17,20 +16,27 @@ export default function PublicLandingPage() {
   function playError() {
     try {
       audioRef.current?.play();
-    } catch {}
+    } catch {
+      // silence volontaire
+    }
   }
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
 
-    // Placeholder auth
+    // 🔒 Auth placeholder
     if (password !== "123") {
       setErrorMsg("Enchantement refusé");
       playError();
       return;
     }
 
-    // 🎉 Succès → Animation AAA
+    // ✅ IMPORT DYNAMIQUE CLIENT-ONLY (ANTI-CRASH BUILD)
+    const { triggerBookAnimation } = await import(
+      "../../components/BookAnimation"
+    );
+
+    // ✨ Animation AAA
     triggerBookAnimation(6, 120);
 
     setTimeout(() => {
@@ -40,15 +46,14 @@ export default function PublicLandingPage() {
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden text-white">
-
-      {/* audio erreur */}
+      {/* 🔊 Audio erreur */}
       <audio
         ref={audioRef}
         src="/sounds/ui/enchantement-refuse.mp3"
         preload="auto"
       />
 
-      {/* couverture + glow */}
+      {/* 📘 Grimoire + glow */}
       <div className="absolute inset-0 grid place-items-center">
         <div className="relative">
           <Image
@@ -62,14 +67,14 @@ export default function PublicLandingPage() {
         </div>
       </div>
 
-      {/* formulaire centré */}
+      {/* 📜 Formulaire */}
       <form
         onSubmit={handleLogin}
         className="absolute inset-0 grid place-items-center pointer-events-auto"
       >
         <div
           className={`
-            flex flex-col gap-4 
+            flex flex-col gap-4
             bg-black/50 p-6 rounded-xl shadow-2xl backdrop-blur-xl
             border border-amber-600/40
             transition-all
@@ -81,7 +86,7 @@ export default function PublicLandingPage() {
             <input
               type="email"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className="px-3 py-2 rounded bg-white/10 border border-amber-500/40 focus:ring-2 focus:ring-amber-300/40"
             />
           </label>
@@ -91,7 +96,7 @@ export default function PublicLandingPage() {
             <input
               type="password"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className="px-3 py-2 rounded bg-white/10 border border-amber-500/40 focus:ring-2 focus:ring-amber-300/40"
             />
           </label>
@@ -111,7 +116,7 @@ export default function PublicLandingPage() {
         </div>
       </form>
 
-      {/* animation shake */}
+      {/* 🎭 Animation shake */}
       <style jsx global>{`
         @keyframes shake {
           0% { transform: translateX(0); }
