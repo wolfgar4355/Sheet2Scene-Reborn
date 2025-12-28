@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getAdmin } from "@/lib/supabase/admin";
-import { getUserIdFromRequestHeaders } from "@/lib/getUserId";
+import { getUserIdFromApiRequest } from "@/lib/getUserId";
 
 type CharacterBody = {
   name?: string;
@@ -12,7 +12,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const userId = getUserIdFromRequestHeaders(req.headers);
+  const userId = getUserIdFromApiRequest(req);
   if (!userId) {
     return res.status(401).json({ ok: false, error: "Missing user id" });
   }
@@ -29,35 +29,39 @@ export default async function handler(
         .order("updated_at", { ascending: false });
 
       if (error) throw error;
+
       return res.status(200).json({ ok: true, data: data ?? [] });
     }
 
     // POST /api/characters
     if (req.method === "POST") {
-      const body = req.body as CharacterBody;
+      const body = req.body as CharacterBody | undefined;
 
       const name = body?.name?.trim();
       const system = body?.system?.trim();
       const data = body?.data ?? {};
 
       if (!name) {
-        return res.status(400).json({ ok: false, error: 'Field "name" is required' });
-      }
-      if (!system) {
-        return res.status(400).json({ ok: false, error: 'Field "system" is required' });
+        return res
+          .status(400)
+          .json({ ok: false, error: 'Field "name" is required' });
       }
 
-      const row = {
-        user_id: userId,
-        name,
-        system,
-        data,
-        updated_at: new Date().toISOString(),
-      };
+      if (!system) {
+        return res
+          .status(400)
+          .json({ ok: false, error: 'Field "system" is required' });
+      }
 
       const { data: inserted, error } = await supabase
         .from("characters")
-        .insert(row)
+        .insert({
+          user_id: userId,
+          name,
+          system,
+          data,
+          updated_at: new Date().toISOString(),
+        })
         .select()
         .single();
 
@@ -67,8 +71,11 @@ export default async function handler(
     }
 
     res.setHeader("Allow", ["GET", "POST"]);
-    return res.status(405).end();
+    return res.status(405).end("Method Not Allowed");
   } catch (e: any) {
-    return res.status(500).json({ ok: false, error: e.message });
+    return res.status(500).json({
+      ok: false,
+      error: e?.message ?? "Internal error",
+    });
   }
 }
