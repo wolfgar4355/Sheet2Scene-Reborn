@@ -1,5 +1,5 @@
-@tailwind base;
-@tailwind components;
+e@tailwind base;
+/@tailwind components;
 @tailwind utilities;
 
 /* -------------------------------------------------------
@@ -20,6 +20,16 @@ body {
   overflow-x: hidden;
 }
 
+/* -------------------------------------------------------
+   🏰 HALL PRINCIPAL — arrière-plan accueil
+------------------------------------------------------- */
+.bg-hall {
+  background-image: url("/images/bg-hall.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.05) contrast(1.05);
+}
 /* -------------------------------------------------------
    🕯️ FEU DE FOYER — ambiance visuelle
 ------------------------------------------------------- */

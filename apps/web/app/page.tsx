@@ -33,51 +33,51 @@ export default function Home() {
         `}
       />
 
-      {/* LECTERN */}
-      <Image
-        src="/images/lectern-clear.png"
-        alt="Lutrin"
-        width={900}
-        height={900}
-        draggable={false}
-        className={`
-          absolute left-[42%] bottom-[22vh]
-          -translate-x-1/2
-          w-[min(680px,95vw)]
-          select-none pointer-events-none
-          transition-all duration-600 ease-out
-          ${cinematic ? "opacity-0 scale-95" : "opacity-100 scale-100"}
-        `}
-      />
+{/* LECTERN */}
+<Image
+  src="/images/ui-lectern-clear.png"
+  alt="Lutrin"
+  width={900}
+  height={900}
+  draggable={false}
+  className={`
+    absolute left-[42%] bottom-[22vh]
+    -translate-x-1/2
+    w-[min(680px,95vw)]
+    select-none pointer-events-none
+    transition-all duration-600 ease-out
+    ${cinematic ? "opacity-0 scale-95" : "opacity-100 scale-100"}
+  `}
+/>
 
-      {/* GRIMOIRE */}
-      <button
-        onClick={openBook}
-        aria-label="Ouvrir le grimoire"
-        className="
-          absolute left-1/2 -translate-x-1/2
-          bottom-[14vh]
-          focus:outline-none
-          z-20
-        "
-      >
-        <Image
-          src="/images/grimoire-closed-clear.png"
-          alt="Grimoire"
-          width={800}
-          height={600}
-          draggable={false}
-          priority
-          className={`
-            w-[min(720px,92vw)] transition-all ease-out duration-700
-            ${
-              cinematic
-                ? "scale-[1.55] translate-y-[-10vh] opacity-100"
-                : "scale-100 opacity-100"
-            }
-          `}
-        />
-      </button>
+{/* GRIMOIRE */}
+<button
+  onClick={openBook}
+  aria-label="Ouvrir le grimoire"
+  className="
+    absolute left-1/2 -translate-x-1/2
+    bottom-[14vh]
+    focus:outline-none
+    z-20
+  "
+>
+  <Image
+    src="/images/ui-grimoire-closed-clear.png"
+    alt="Grimoire"
+    width={800}
+    height={600}
+    draggable={false}
+    priority
+    className={`
+      w-[min(720px,92vw)] transition-all ease-out duration-700
+      ${
+        cinematic
+          ? "scale-[1.55] translate-y-[-10vh] opacity-100"
+          : "scale-100 opacity-100"
+      }
+    `}
+  />
+</button>
 
       {/* CTA */}
       <nav
@@ -99,6 +99,8 @@ export default function Home() {
       {/* MITHRIL UI */}
       <GrimoireFrame />
       <TransitionLayer />
+      <div className="fireplace-ambient" />
+      <div className="magic-halo" />
     </main>
   );
 }

@@ -4,13 +4,12 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function IntroPage() {
+export default function IntroClient() {
   const router = useRouter();
 
   useEffect(() => {
     // ⏳ Pause magique 2 secondes
     const timer = setTimeout(() => {
-      // Après la pause → aller à TOC
       router.push("/grimoire?view=toc");
     }, 2000);
 

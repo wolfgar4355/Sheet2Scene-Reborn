@@ -1,81 +1,61 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getAdmin } from "@/lib/supabase/admin";
-import { getUserIdFromApiRequest } from "@/lib/getUserId";
-
-type CharacterBody = {
-  name?: string;
-  system?: string;
-  data?: Record<string, unknown>;
-};
+import { createSupabaseServerApi } from "@/lib/supabase/server-api";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const userId = getUserIdFromApiRequest(req);
-  if (!userId) {
-    return res.status(401).json({ ok: false, error: "Missing user id" });
+  const supabase = createSupabaseServerApi(req, res);
+
+  const {
+    data: { user },
+    error: authError,
+  } = await supabase.auth.getUser();
+
+  if (!user || authError) {
+    return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const supabase = getAdmin();
+  // GET /api/characters
+  if (req.method === "GET") {
+    const { data, error } = await supabase
+      .from("characters")
+      .select("*")
+      .order("updated_at", { ascending: false });
 
-  try {
-    // GET /api/characters
-    if (req.method === "GET") {
-      const { data, error } = await supabase
-        .from("characters")
-        .select("*")
-        .eq("user_id", userId)
-        .order("updated_at", { ascending: false });
-
-      if (error) throw error;
-
-      return res.status(200).json({ ok: true, data: data ?? [] });
+    if (error) {
+      return res.status(500).json({ error: error.message });
     }
 
-    // POST /api/characters
-    if (req.method === "POST") {
-      const body = req.body as CharacterBody | undefined;
-
-      const name = body?.name?.trim();
-      const system = body?.system?.trim();
-      const data = body?.data ?? {};
-
-      if (!name) {
-        return res
-          .status(400)
-          .json({ ok: false, error: 'Field "name" is required' });
-      }
-
-      if (!system) {
-        return res
-          .status(400)
-          .json({ ok: false, error: 'Field "system" is required' });
-      }
-
-      const { data: inserted, error } = await supabase
-        .from("characters")
-        .insert({
-          user_id: userId,
-          name,
-          system,
-          data,
-          updated_at: new Date().toISOString(),
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-
-      return res.status(201).json({ ok: true, character: inserted });
-    }
-
-    res.setHeader("Allow", ["GET", "POST"]);
-    return res.status(405).end("Method Not Allowed");
-  } catch (e: any) {
-    return res.status(500).json({
-      ok: false,
-      error: e?.message ?? "Internal error",
-    });
+    return res.status(200).json({ characters: data });
   }
+
+  // POST /api/characters
+  if (req.method === "POST") {
+    const { name, system, data } = req.body;
+
+    if (!name || !system) {
+      return res.status(400).json({ error: "Missing fields" });
+    }
+
+    const { data: inserted, error } = await supabase
+      .from("characters")
+      .insert({
+        user_id: user.id,
+        name,
+        system,
+        data,
+      })
+      .select()
+      .single();
+
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    return res.status(201).json({ character: inserted });
+  }
+
+  res.setHeader("Allow", ["GET", "POST"]);
+  return res.status(405).end();
 }
