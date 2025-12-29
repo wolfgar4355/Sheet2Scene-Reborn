@@ -2,44 +2,42 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase/client";
+import { getSupabaseBrowser } from "@/lib/supabase/client";
 
-export default function RequireAuth({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RequireAuth({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const [checking, setChecking] = useState(true);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    let mounted = true;
+    const supabase = getSupabaseBrowser();
 
-    async function checkAuth() {
-      const { data } = await supabase.auth.getUser();
+    let alive = true;
 
-      if (!mounted) return;
+    supabase.auth.getSession().then(({ data }) => {
+      if (!alive) return;
 
-      if (!data.user) {
+      if (!data.session) {
         router.replace("/auth/login");
         return;
       }
 
-      setChecking(false);
-    }
+      setReady(true);
+    });
 
-    checkAuth();
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) router.replace("/auth/login");
+    });
 
     return () => {
-      mounted = false;
+      alive = false;
+      sub.subscription.unsubscribe();
     };
   }, [router]);
 
-  // ⏳ écran neutre pendant la vérification
-  if (checking) {
+  if (!ready) {
     return (
-      <div className="w-full h-screen grid place-items-center text-white">
-        Chargement du grimoire…
+      <div className="min-h-[100svh] grid place-items-center text-white">
+        Chargement...
       </div>
     );
   }
