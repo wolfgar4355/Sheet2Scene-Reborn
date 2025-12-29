@@ -2,18 +2,18 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createSupabaseBrowser } from "@/lib/supabase/client";
+import { getSupabaseBrowser } from "@/lib/supabase/client";
 
 export default function SignupPage() {
-  const supabase = createSupabaseBrowser();
   const router = useRouter();
+  const supabase = getSupabaseBrowser();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -21,15 +21,18 @@ export default function SignupPage() {
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      // optionnel: si tu veux email confirmation, tu peux ajouter options ici
+      // options: { emailRedirectTo: `${location.origin}/auth/callback` }
     });
+
+    setLoading(false);
 
     if (error) {
       setError(error.message);
-      setLoading(false);
       return;
     }
 
-    // 🔥 session créée → layout.tsx laisse passer
+    // ✅ compte créé → intro
     router.push("/grimoire/intro");
     router.refresh();
   }
@@ -47,6 +50,7 @@ export default function SignupPage() {
           placeholder="Email"
           value={email}
           required
+          autoComplete="email"
           onChange={(e) => setEmail(e.target.value)}
           className="px-3 py-2 rounded bg-white/10"
         />
@@ -56,15 +60,17 @@ export default function SignupPage() {
           placeholder="Mot de passe"
           value={password}
           required
+          autoComplete="new-password"
           onChange={(e) => setPassword(e.target.value)}
           className="px-3 py-2 rounded bg-white/10"
         />
 
-        {error && <p className="text-red-400 text-sm">{error}</p>}
+        {error && <p className="text-red-400 text-sm text-center">{error}</p>}
 
         <button
+          type="submit"
           disabled={loading}
-          className="py-2 rounded bg-amber-700 hover:bg-amber-600"
+          className="py-2 rounded bg-amber-700 hover:bg-amber-600 disabled:opacity-50 text-white font-semibold"
         >
           {loading ? "Création..." : "Créer le compte"}
         </button>

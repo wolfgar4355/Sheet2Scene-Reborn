@@ -2,17 +2,18 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase/client";
+import { getSupabaseBrowser } from "@/lib/supabase/client";
 
 export default function LoginPage() {
   const router = useRouter();
+  const supabase = getSupabaseBrowser();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     setLoading(true);
@@ -31,46 +32,43 @@ export default function LoginPage() {
 
     // ✅ login OK → intro
     router.push("/grimoire/intro");
+    router.refresh();
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
+    <main className="min-h-screen flex items-center justify-center text-white">
       <form
         onSubmit={onSubmit}
-        className="flex flex-col gap-4 p-6 bg-black/60 rounded-xl"
+        className="flex flex-col gap-4 p-6 bg-black/60 rounded-xl w-[min(420px,92vw)]"
       >
-        <h1 className="text-xl font-bold text-white text-center">
-          Connexion
-        </h1>
+        <h1 className="text-xl font-bold text-center">Connexion</h1>
 
         <input
           type="email"
           placeholder="Email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           required
-          className="px-3 py-2 rounded bg-white/10 text-white"
+          autoComplete="email"
+          className="px-3 py-2 rounded bg-white/10 text-white outline-none"
         />
 
         <input
           type="password"
           placeholder="Mot de passe"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           required
-          className="px-3 py-2 rounded bg-white/10 text-white"
+          autoComplete="current-password"
+          className="px-3 py-2 rounded bg-white/10 text-white outline-none"
         />
 
-        {error && (
-          <p className="text-red-400 text-sm text-center">
-            {error}
-          </p>
-        )}
+        {error && <p className="text-red-400 text-sm text-center">{error}</p>}
 
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 rounded bg-amber-700 hover:bg-amber-600 disabled:opacity-50"
+          className="px-4 py-2 rounded bg-amber-700 hover:bg-amber-600 disabled:opacity-50 font-semibold"
         >
           {loading ? "Connexion..." : "Login"}
         </button>

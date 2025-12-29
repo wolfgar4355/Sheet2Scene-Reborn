@@ -10,6 +10,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  min-height: 100svh; /* ✅ utile mobile */
   color-scheme: light;
   background: radial-gradient(
     circle at 50% 30%,
@@ -19,17 +20,19 @@ body {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
   overflow-x: hidden;
 }
-
 /* -------------------------------------------------------
    🏰 HALL PRINCIPAL — arrière-plan accueil
 ------------------------------------------------------- */
 .bg-hall {
+  position: absolute;
+  inset: 0;
   background-image: url("/images/bg-hall.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   filter: saturate(1.05) contrast(1.05);
 }
+
 /* -------------------------------------------------------
    🕯️ FEU DE FOYER — ambiance visuelle
 ------------------------------------------------------- */
