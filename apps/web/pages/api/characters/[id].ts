@@ -1,27 +1,35 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { createSupabaseServer } from "@/lib/supabase/server";
 
+type ApiError = { error: string };
+type ApiOk<T> = T;
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<ApiOk<any> | ApiError>
 ) {
   const supabase = createSupabaseServer();
 
   const {
     data: { user },
+    error: authError,
   } = await supabase.auth.getUser();
 
-  if (!user) {
+  if (authError || !user) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
   const userId = user.id;
-  const id = req.query.id as string;
 
-  if (!id) {
+  // id peut être string | string[] | undefined en Next API routes
+  const rawId = req.query.id;
+  const id = Array.isArray(rawId) ? rawId[0] : rawId;
+
+  if (!id || typeof id !== "string") {
     return res.status(400).json({ error: "Missing id" });
   }
 
+  // GET /api/characters/:id
   if (req.method === "GET") {
     const { data, error } = await supabase
       .from("characters")
@@ -30,23 +38,45 @@ export default async function handler(
       .eq("user_id", userId)
       .single();
 
-    if (error) return res.status(404).json({ error: error.message });
-    return res.json({ character: data });
+    if (error) {
+      // souvent 0 row => 404
+      return res.status(404).json({ error: error.message });
+    }
+
+    return res.status(200).json({ character: data });
   }
 
+  // PUT /api/characters/:id
   if (req.method === "PUT") {
+    // Whitelist des champs updatables (évite d'écraser user_id, created_at, etc.)
+    const body = (req.body ?? {}) as Record<string, unknown>;
+
+    const patch: Record<string, any> = {};
+    if (typeof body.name === "string") patch.name = body.name;
+    if (typeof body.system === "string") patch.system = body.system;
+    if (body.data !== undefined) patch.data = body.data;
+
+    // Optionnel: si rien à updater
+    if (Object.keys(patch).length === 0) {
+      return res.status(400).json({ error: "No valid fields to update" });
+    }
+
     const { data, error } = await supabase
       .from("characters")
-      .update(req.body)
+      .update(patch)
       .eq("id", id)
       .eq("user_id", userId)
       .select()
       .single();
 
-    if (error) return res.status(500).json({ error: error.message });
-    return res.json({ character: data });
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    return res.status(200).json({ character: data });
   }
 
+  // DELETE /api/characters/:id
   if (req.method === "DELETE") {
     const { error } = await supabase
       .from("characters")
@@ -54,10 +84,13 @@ export default async function handler(
       .eq("id", id)
       .eq("user_id", userId);
 
-    if (error) return res.status(500).json({ error: error.message });
-    return res.json({ ok: true });
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    return res.status(200).json({ ok: true });
   }
 
   res.setHeader("Allow", ["GET", "PUT", "DELETE"]);
-  res.status(405).end();
+  return res.status(405).json({ error: "Method Not Allowed" });
 }
