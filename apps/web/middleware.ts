@@ -1,8 +1,6 @@
 // apps/web/middleware.ts
-import { NextRequest, NextResponse } from "next/server";
-import { createServerClient } from "@supabase/ssr";
-
-export const runtime = "nodejs";
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 function basicAuthGate(req: NextRequest) {
   const wantUser = process.env.BASIC_AUTH_USER;
@@ -20,14 +18,12 @@ function basicAuthGate(req: NextRequest) {
     });
   }
 
+  // ✅ Edge runtime : atob est dispo
   let user = "";
   let pass = "";
   try {
-    const base64 = authHeader.split(" ")[1] || "";
-    const decoded =
-      typeof atob === "function"
-        ? atob(base64)
-        : Buffer.from(base64, "base64").toString("utf8");
+    const base64 = authHeader.slice("Basic ".length).trim();
+    const decoded = atob(base64);
     [user, pass] = decoded.split(":");
   } catch {
     return new NextResponse("Bad auth header", { status: 400 });
@@ -40,41 +36,14 @@ function basicAuthGate(req: NextRequest) {
     });
   }
 
-  return null; // OK → laisse passer
+  return null;
 }
 
-export async function middleware(req: NextRequest) {
-  // 1) Basic Auth (optionnel)
+export function middleware(req: NextRequest) {
   const basic = basicAuthGate(req);
   if (basic) return basic;
 
-  // 2) Supabase SSR session refresh (cookies)
-  const res = NextResponse.next();
-
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  // Si Supabase pas configuré → laisse passer (utile en dev)
-  if (!url || !anon) return res;
-
-  const supabase = createServerClient(url, anon, {
-    cookies: {
-      get(name) {
-        return req.cookies.get(name)?.value;
-      },
-      set(name, value, options) {
-        res.cookies.set({ name, value, ...options });
-      },
-      remove(name, options) {
-        res.cookies.set({ name, value: "", ...options, maxAge: 0 });
-      },
-    },
-  });
-
-  // ⚠️ déclenche le refresh cookie/session
-  await supabase.auth.getUser();
-
-  return res;
+  return NextResponse.next();
 }
 
 export const config = {

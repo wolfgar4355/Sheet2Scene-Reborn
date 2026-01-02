@@ -1,12 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createSupabaseBrowser } from "@/lib/supabase/client";
+import { getSupabaseBrowser } from "@/lib/supabase/client";
 import { useEffect, useState } from "react";
 
 export default function UserMenu() {
   const router = useRouter();
-  const supabase = createSupabaseBrowser();
+  const supabase = getSupabaseBrowser();
   const [email, setEmail] = useState<string | null>(null);
 
   useEffect(() => {

@@ -18,10 +18,7 @@ export default function LoginPage() {
     setError(null);
     setLoading(true);
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     setLoading(false);
 
@@ -30,18 +27,17 @@ export default function LoginPage() {
       return;
     }
 
-    // ✅ login OK → intro
     router.push("/grimoire/intro");
     router.refresh();
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center text-white">
+    <main className="min-h-screen flex items-center justify-center">
       <form
         onSubmit={onSubmit}
-        className="flex flex-col gap-4 p-6 bg-black/60 rounded-xl w-[min(420px,92vw)]"
+        className="flex flex-col gap-4 p-6 bg-black/60 rounded-xl"
       >
-        <h1 className="text-xl font-bold text-center">Connexion</h1>
+        <h1 className="text-xl font-bold text-white text-center">Connexion</h1>
 
         <input
           type="email"
@@ -50,7 +46,7 @@ export default function LoginPage() {
           onChange={(e) => setEmail(e.target.value)}
           required
           autoComplete="email"
-          className="px-3 py-2 rounded bg-white/10 text-white outline-none"
+          className="px-3 py-2 rounded bg-white/10 text-white"
         />
 
         <input
@@ -60,7 +56,7 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
           autoComplete="current-password"
-          className="px-3 py-2 rounded bg-white/10 text-white outline-none"
+          className="px-3 py-2 rounded bg-white/10 text-white"
         />
 
         {error && <p className="text-red-400 text-sm text-center">{error}</p>}
@@ -68,7 +64,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 rounded bg-amber-700 hover:bg-amber-600 disabled:opacity-50 font-semibold"
+          className="px-4 py-2 rounded bg-amber-700 hover:bg-amber-600 disabled:opacity-50 text-white"
         >
           {loading ? "Connexion..." : "Login"}
         </button>
