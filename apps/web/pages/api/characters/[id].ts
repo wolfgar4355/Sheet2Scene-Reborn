@@ -7,6 +7,13 @@ type CharacterUpdate = Database["public"]["Tables"]["characters"]["Update"];
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const supabase = createSupabaseServerApi(req, res);
 
+  // ✅ Guard: ne jamais appeler supabase si env manquantes
+  if (!supabase) {
+    return res.status(500).json({
+      error: "Server not configured (missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY)",
+    });
+  }
+
   const {
     data: { user },
     error: authError,
@@ -40,7 +47,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === "PUT") {
     const body = (req.body ?? {}) as Record<string, unknown>;
 
-    // Patch typé (seulement champs autorisés)
     const patch: CharacterUpdate = {};
     if (typeof body.name === "string") patch.name = body.name;
     if (typeof body.system === "string") patch.system = body.system;

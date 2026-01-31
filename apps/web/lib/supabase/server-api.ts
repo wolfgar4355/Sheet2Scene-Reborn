@@ -3,18 +3,34 @@ import { createServerClient } from "@supabase/ssr";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { Database } from "@/types/database";
 
-function getEnv() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+function getEnvSafe() {
+  const url = (process.env.NEXT_PUBLIC_SUPABASE_URL || "").trim();
+  const anon = (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "").trim();
 
-  if (!url) throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL");
-  if (!anon) throw new Error("Missing NEXT_PUBLIC_SUPABASE_ANON_KEY");
+  // ⚠️ Ne jamais throw ici: en prod/build ça peut tuer le build.
+  if (!url || !anon) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(
+        "[Supabase] Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY (server-api)"
+      );
+    }
+    return null;
+  }
 
   return { url, anon };
 }
 
+/**
+ * createSupabaseServerApi(req,res)
+ * Helper pour pages/api/* (Pages Router).
+ *
+ * Retourne `null` si env manquantes, à gérer dans la route API (res.status(500)...).
+ */
 export function createSupabaseServerApi(req: NextApiRequest, res: NextApiResponse) {
-  const { url, anon } = getEnv();
+  const env = getEnvSafe();
+  if (!env) return null;
+
+  const { url, anon } = env;
 
   return createServerClient<Database>(url, anon, {
     cookies: {

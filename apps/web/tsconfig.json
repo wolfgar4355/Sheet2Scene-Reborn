@@ -26,7 +26,6 @@
 
   "@lib/*": ["lib/*"],
   "@lib/supabase/*": ["lib/supabase/*"],
-  "@lib/getUserId": ["lib/getUserId.ts"]
 },
 
     "plugins": [{ "name": "next" }]

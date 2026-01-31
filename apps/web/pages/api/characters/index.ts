@@ -7,6 +7,13 @@ type CharacterInsert = Database["public"]["Tables"]["characters"]["Insert"];
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const supabase = createSupabaseServerApi(req, res);
 
+  // ✅ Guard: ne jamais appeler supabase si env manquantes
+  if (!supabase) {
+    return res.status(500).json({
+      error: "Server not configured (missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY)",
+    });
+  }
+
   const {
     data: { user },
     error: authError,

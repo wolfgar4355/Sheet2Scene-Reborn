@@ -4,12 +4,6 @@ import { cookies } from "next/headers";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { Database } from "@/types/database";
 
-function mustEnv(name: string) {
-  const v = process.env[name];
-  if (!v) throw new Error(`Missing env var: ${name}`);
-  return v;
-}
-
 type AnyOptions = CookieOptions & {
   expires?: Date;
   maxAge?: number;
@@ -19,6 +13,11 @@ type AnyOptions = CookieOptions & {
   secure?: boolean;
   httpOnly?: boolean;
 };
+
+function getEnv(name: string) {
+  const v = process.env[name];
+  return typeof v === "string" && v.trim().length > 0 ? v : "";
+}
 
 // mini helper sans dépendance externe (Pages Router)
 function serializeCookie(name: string, value: string, options: AnyOptions = {}) {
@@ -39,17 +38,32 @@ function serializeCookie(name: string, value: string, options: AnyOptions = {}) 
  * createSupabaseServer()
  * - App Router (Server Components / Layout / Route Handlers): createSupabaseServer()
  * - Pages Router (pages/api): createSupabaseServer(req, res)
+ *
+ * ⚠️ Retourne `null` si env manquantes ou hors request scope (prerender),
+ * pour éviter de casser le build.
  */
-export function createSupabaseServer(): ReturnType<typeof createServerClient<Database>>;
+export function createSupabaseServer():
+  | ReturnType<typeof createServerClient<Database>>
+  | null;
 export function createSupabaseServer(
   req: NextApiRequest,
   res: NextApiResponse
-): ReturnType<typeof createServerClient<Database>>;
+):
+  | ReturnType<typeof createServerClient<Database>>
+  | null;
 export function createSupabaseServer(req?: NextApiRequest, res?: NextApiResponse) {
-  const url = mustEnv("NEXT_PUBLIC_SUPABASE_URL");
-  const anon = mustEnv("NEXT_PUBLIC_SUPABASE_ANON_KEY");
+  const url = getEnv("NEXT_PUBLIC_SUPABASE_URL");
+  const anon = getEnv("NEXT_PUBLIC_SUPABASE_ANON_KEY");
 
-  // ✅ Pages Router
+  // Si env pas là → on ne throw pas (sinon build/prerender meurt)
+  if (!url || !anon) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[Supabase] Missing NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY");
+    }
+    return null;
+  }
+
+  // ✅ Pages Router (pages/api)
   if (req && res) {
     return createServerClient<Database>(url, anon, {
       cookies: {
@@ -69,32 +83,30 @@ export function createSupabaseServer(req?: NextApiRequest, res?: NextApiResponse
     });
   }
 
-  // ✅ App Router
-  const cookieStore = cookies();
+  // ✅ App Router (Server Components / Route Handlers)
+  // En prerender/SSG, cookies() peut throw -> on fallback "no cookies"
+  let cookieStore: ReturnType<typeof cookies> | null = null;
+  try {
+    cookieStore = cookies();
+  } catch {
+    cookieStore = null;
+  }
 
   return createServerClient<Database>(url, anon, {
     cookies: {
       get(name) {
-        return cookieStore.get(name)?.value;
+        return cookieStore?.get(name)?.value;
       },
       set(name, value, options) {
-        // Dans certains contextes (Server Component pur), set peut throw -> on ignore.
+        if (!cookieStore) return;
         try {
-          cookieStore.set({
-            name,
-            value,
-            ...options,
-          } as any);
+          cookieStore.set({ name, value, ...options } as any);
         } catch {}
       },
       remove(name, options) {
+        if (!cookieStore) return;
         try {
-          cookieStore.set({
-            name,
-            value: "",
-            ...options,
-            maxAge: 0,
-          } as any);
+          cookieStore.set({ name, value: "", ...options, maxAge: 0 } as any);
         } catch {}
       },
     },
@@ -104,6 +116,8 @@ export function createSupabaseServer(req?: NextApiRequest, res?: NextApiResponse
 /** Helper utilisé par tes layouts/pages server-side */
 export async function getServerUser() {
   const supabase = createSupabaseServer();
+  if (!supabase) return null;
+
   const { data, error } = await supabase.auth.getUser();
   if (error) return null;
   return data.user ?? null;
