@@ -2,9 +2,7 @@
 import { createBrowserClient } from "@supabase/ssr";
 import type { Database } from "@/types/database";
 
-type BrowserClient = ReturnType<typeof createBrowserClient<Database>>;
-
-let browserClient: BrowserClient | null = null;
+let browserClient: ReturnType<typeof createBrowserClient<Database>> | null = null;
 
 function mustEnv(name: string) {
   const v = process.env[name];
@@ -12,7 +10,7 @@ function mustEnv(name: string) {
   return v;
 }
 
-export function getSupabaseBrowser(): BrowserClient {
+export function getSupabaseBrowser() {
   if (browserClient) return browserClient;
 
   const url = mustEnv("NEXT_PUBLIC_SUPABASE_URL");
