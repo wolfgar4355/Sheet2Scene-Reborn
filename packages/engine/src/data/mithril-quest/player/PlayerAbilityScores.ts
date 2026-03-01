@@ -1,0 +1,9 @@
+// @ts-nocheck
+export interface PlayerAbilityScores {
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
+}

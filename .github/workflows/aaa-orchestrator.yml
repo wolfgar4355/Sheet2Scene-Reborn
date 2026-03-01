@@ -1,0 +1,35 @@
+name: "AAA v3 — Full Suite"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  aaa_ci:
+    name: "AAA v3 CI Orchestrator"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      # OPTIONNEL : créer .env minimal si ton check-backend en a besoin
+      # - name: Prepare env for backend checks
+      #   run: |
+      #     echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+      #     echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> .env
+      #     echo "SUPABASE_SERVICE_KEY=${{ secrets.SUPABASE_SERVICE_KEY }}" >> .env
+
+      - name: Run AAA v3 (CI mode)
+        run: npm run aaa:ci

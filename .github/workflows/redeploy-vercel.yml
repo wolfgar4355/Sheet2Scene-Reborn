@@ -1,0 +1,32 @@
+name: 🔁 Redeploy Vercel (Manual)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    name: 🚀 Trigger Vercel Redeploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⚪ Checkout repository
+      uses: actions/checkout@v4
+
+    - name: 🔁 Call Vercel redeploy hook
+      run: |
+        curl -X POST \
+        -H "Content-Type: application/json" \
+        -d '{"force": true}' \
+        "https://api.vercel.com/v1/integrations/deploy/${{ secrets.VERCEL_DEPLOY_HOOK }}"
+
+    - name: 🔔 Notify Discord
+      if: always()
+      run: |
+        JSON=$(jq -n \
+          --arg msg "🔁 Vercel redeploy triggered manually." \
+          '{content: $msg}' )
+
+        curl -s \
+        -H "Content-Type: application/json" \
+        -d "$JSON" \
+        "${{ secrets.DISCORD_WEBHOOK_URL }}"

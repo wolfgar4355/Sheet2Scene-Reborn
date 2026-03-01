@@ -1,0 +1,102 @@
+name: "S2S Agent (Auto-Code Updates)"
+
+on:
+  push:
+    branches: [ main ]
+  issues:
+    types: [opened, edited, labeled, reopened]
+  workflow_dispatch:
+
+jobs:
+  s2s-agent:
+    runs-on: ubuntu-latest
+
+    # 🚫 Empêche les boucles infinies (le workflow ignore le bot)
+    if: github.actor != 'github-actions[bot]'
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+
+      # -------------------------------
+      # 1. Checkout repo propre
+      # -------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      # -------------------------------
+      # 2. Fix Git LFS complet
+      # -------------------------------
+      - name: Setup Git LFS correctly
+        run: |
+          git lfs install --force
+          git lfs pull
+          git lfs checkout
+          echo "✔ Git LFS ready"
+
+      # -------------------------------
+      # 3. Setup Node.js
+      # -------------------------------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # -------------------------------
+      # 4. Installer les dépendances
+      # -------------------------------
+      - name: Install dependencies
+        run: npm ci
+
+      # -------------------------------
+      # 5. Exécuter script d'agent
+      # -------------------------------
+      - name: Run S2S agent script
+        run: |
+          node scripts/agent.js
+          echo "✔ Agent script executed"
+
+      # -------------------------------
+      # 6. Vérifier s'il y a des modifications
+      # -------------------------------
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      # -------------------------------
+      # 7. Stop si aucun changement
+      # -------------------------------
+      - name: No changes — skipping PR
+        if: steps.changes.outputs.changed == 'false'
+        run: echo "✔ No changes — workflow finished."
+
+      # -------------------------------
+      # 8. Créer PR si modifications
+      # -------------------------------
+      - name: Create Pull Request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "🤖 Auto-update by S2S Agent"
+          title: "🤖 S2S Agent – Auto Update"
+          body: |
+            The S2S Agent automatically generated updates.
+
+            - 📄 Updated files
+            - 🔒 Git LFS safe mode
+            - ♻ Infinite loop protection enabled
+
+            Please review before merging.
+          branch: "s2s-agent/${{ github.run_id }}"
+          delete-branch: true

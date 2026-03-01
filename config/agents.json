@@ -1,0 +1,279 @@
+{
+  "version": "1.0",
+  "product": "Sheet2Scene",
+  "updated_at": "2025-09-29T00:00:00Z",
+  "agents": [
+    {
+      "id": "joe.ffry-da",
+      "name": "Joeffry (DA)",
+      "role": "Directeur artistique",
+      "scope": "Brand + in-app, charte visuelle, expérience \"grimoire\"",
+      "deliverables": ["Brand book", "Design system visuel", "Bibliothèque d’assets"],
+      "timezone": "Europe/Paris",
+      "contact": {"email": "da@godintech.example", "slack": "@Joeffry"},
+      "notes": "Référent visuel global; valide les écrans clés et l’iconographie."
+    },
+    {
+      "id": "willy-thompson-designer",
+      "name": "Willy Thompson",
+      "role": "Designer graphique / Illustrateur",
+      "scope": "Écrans, icônes, couvertures, pages parchemin, cartes, bannières",
+      "deliverables": ["Écrans UI", "Illustrations", "Kit marketing"],
+      "timezone": "America/Toronto",
+      "contact": {"email": "willy@godintech.example", "slack": "@Willy"},
+      "notes": "Décline la charte; pair avec le DA pour cohérence."
+    },
+    {
+      "id": "susan-winchester-tech3d",
+      "name": "Susan Winchester",
+      "age": 37,
+      "origin": "États-Unis",
+      "role": "Tech/3D Artist",
+      "scope": "Optimisation WebGL/WebGPU, glTF 2.0, PBR JSON, atlases",
+      "deliverables": ["glTF 2.0", "PBR materials JSON", "Atlases packés", "Perf reports"],
+      "constraints": ["Budget VRAM mobile", "Aucun asset tiers sous licence"],
+      "timezone": "America/Los_Angeles",
+      "contact": {"email": "susan@godintech.example", "slack": "@Susan"},
+      "traits": ["Rigoureuse", "Orientée perf", "Documentation claire"],
+      "favorite_expressions": ["Frame time d’abord", "Pack it tight", "No overdraw", "Mobile rules"]
+    },
+    {
+      "id": "pm-jp",
+      "name": "Aiko Tanaka",
+      "age": 36,
+      "origin": "Japon",
+      "role": "Product Manager / Producer",
+      "scope": "Roadmap, priorisation, livrables multi-équipes",
+      "deliverables": ["PRD", "Roadmap", "KPI produit"],
+      "timezone": "Asia/Tokyo",
+      "contact": {"email": "aiko@godintech.example", "slack": "@Aiko"}
+    },
+    {
+      "id": "backend-lead-it",
+      "name": "Luca Moretti",
+      "age": 44,
+      "origin": "Italie",
+      "role": "Lead Back-End / API (Node/TS)",
+      "scope": "API v1/v1.2, sécurité, perf, observabilité",
+      "deliverables": ["Contrats OpenAPI", "Services API", "SLO/alerting"],
+      "timezone": "Europe/Rome",
+      "contact": {"email": "luca@godintech.example", "slack": "@Luca"}
+    },
+    {
+      "id": "devops-sre-es",
+      "name": "Carmen Alvarez",
+      "age": 31,
+      "origin": "Espagne",
+      "role": "DevOps / SRE (Cloud + GPU)",
+      "scope": "Infra, CI/CD, autoscaling GPU, observabilité",
+      "deliverables": ["Pipelines", "Terraform/Helm", "Runbooks SRE"],
+      "timezone": "Europe/Madrid",
+      "contact": {"email": "carmen@godintech.example", "slack": "@Carmen"}
+    },
+    {
+      "id": "qa-lead-salem",
+      "name": "Nathan Cole",
+      "age": 51,
+      "origin": "Salem, MA",
+      "role": "QA Automation Lead (mobile + web)",
+      "scope": "Stratégie tests, e2e, CI qualité",
+      "deliverables": ["Plan de test", "Suites e2e", "Rapports release"],
+      "timezone": "America/New_York",
+      "contact": {"email": "nathan@godintech.example", "slack": "@Nathan"}
+    },
+    {
+      "id": "mobile-eng-campbellton",
+      "name": "Alex Leblanc",
+      "age": 40,
+      "origin": "Campbellton, NB",
+      "role": "Mobile Engineer (React Native/Flutter)",
+      "scope": "Builds locaux Android/iOS, preview testeurs",
+      "deliverables": ["APK/IPA internes", "Feature flags mobile"],
+      "timezone": "America/Moncton",
+      "contact": {"email": "alex@godintech.example", "slack": "@Alex"}
+    },
+    {
+      "id": "ml-genai-fr",
+      "name": "Claire Dubois",
+      "age": 41,
+      "origin": "France",
+      "role": "ML/GenAI Engineer (image + sécurité)",
+      "impact": "Qualité rendus, sécurité prompts/uploads",
+      "deliverables": ["Filtres sécurité", "Masquage PI", "Upscaler", "Seeds reproductibles"],
+      "timezone": "Europe/Paris",
+      "contact": {"email": "claire@godintech.example", "slack": "@Claire"}
+    },
+    {
+      "id": "uxr-content-qc",
+      "name": "Marc-Antoine Gagnon",
+      "age": 38,
+      "origin": "Québec, QC",
+      "role": "UX Researcher / Content Designer (FR/EN)",
+      "impact": "Clarté des parcours & micro-textes, onboarding",
+      "deliverables": ["Tests utilisateurs (5–8)", "Microcopy", "Amélioration ToC"],
+      "timezone": "America/Toronto",
+      "contact": {"email": "ma.gagnon@godintech.example", "slack": "@MA"}
+    },
+    {
+      "id": "payments-ny",
+      "name": "Harper Lewis",
+      "age": 35,
+      "origin": "New York, USA",
+      "role": "Payments/Monétisation Engineer",
+      "impact": "Abonnements CAD/USD, Party split, taxes",
+      "deliverables": ["Stripe intégration", "Essai gratuit", "Limites d’usage"],
+      "timezone": "America/New_York",
+      "contact": {"email": "harper@godintech.example", "slack": "@Harper"}
+    },
+    {
+      "id": "community-support-la",
+      "name": "Jasmine Carter",
+      "age": 49,
+      "origin": "Los Angeles, USA",
+      "role": "Community & Support Lead",
+      "deliverables": ["Discord/Reddit", "FAQ dynamique", "Macros support"],
+      "timezone": "America/Los_Angeles",
+      "contact": {"email": "jasmine@godintech.example", "slack": "@Jasmine"}
+    },
+    {
+      "id": "sec-privacy-saskatoon",
+      "name": "Owen Clarke",
+      "age": 43,
+      "origin": "Saskatoon, SK",
+      "role": "Security/Privacy (fractional)",
+      "deliverables": ["Politique données", "Chiffrement at-rest/in-transit", "Revue permissions"],
+      "timezone": "America/Regina",
+      "contact": {"email": "owen@godintech.example", "slack": "@Owen"}
+    },
+    {
+      "id": "frontend-london",
+      "name": "Amelia Brooks",
+      "age": 42,
+      "origin": "Londres, UK",
+      "role": "Frontend Web Engineer (React/Next + WebGL/WebGPU/Three.js)",
+      "deliverables": ["Landing grimoire", "ToC rubans", "Page-flip perf", "A11y"],
+      "timezone": "Europe/London",
+      "contact": {"email": "amelia@godintech.example", "slack": "@Amelia"}
+    },
+    {
+      "id": "fullstack-billing-gatineau",
+      "name": "Émile Fortin",
+      "age": 38,
+      "origin": "Gatineau, QC",
+      "role": "Full-Stack Billing (Node/TS) — support Harper",
+      "deliverables": ["Webhooks Stripe", "Portail client", "Quotas/essais en prod", "Métriques conversion"],
+      "timezone": "America/Toronto",
+      "contact": {"email": "emile@godintech.example", "slack": "@Emile"}
+    },
+    {
+      "id": "data-analytics-terrebonne",
+      "name": "Sophie Martin",
+      "age": 50,
+      "origin": "Terrebonne, QC",
+      "role": "Data/Analytics Engineer (Product Analytics)",
+      "deliverables": ["Instrumentation (TTFA, réussite, funnels)", "Schéma events", "Dashboards (Amplitude/GA4/Metabase)"],
+      "timezone": "America/Toronto",
+      "contact": {"email": "sophie@godintech.example", "slack": "@Sophie"}
+    },
+    {
+      "id": "game-system-sweden",
+      "name": "Elin Andersson",
+      "age": 40,
+      "origin": "Suède",
+      "role": "Game Content/System Designer (RPG-agnostique, légal)",
+      "deliverables": ["Schémas neutres PNJ/BBEG/loot/monstres/quêtes", "Tables équilibrées", "Prompts-templates non-marqués"],
+      "timezone": "Europe/Stockholm",
+      "contact": {"email": "elin@godintech.example", "slack": "@Elin"}
+    },
+    {
+      "id": "support-tools-au",
+      "name": "Ryan Miller",
+      "age": 46,
+      "origin": "Australie",
+      "role": "Support Tools Engineer",
+      "deliverables": ["Console interne (tickets, quotas, flags séc.)", "FAQ dynamique & macros", "Vue Party/Billing"],
+      "timezone": "Australia/Sydney",
+      "contact": {"email": "ryan@godintech.example", "slack": "@Ryan"}
+    },
+    {
+      "id": "motion-designer-la",
+      "name": "Ava Beaumont",
+      "age": 45,
+      "origin": "Louisiane, USA",
+      "role": "Motion Designer/Animator",
+      "deliverables": ["Micro-interactions", "Page flip", "Animations rubans"],
+      "timezone": "America/Chicago",
+      "contact": {"email": "ava@godintech.example", "slack": "@Ava"}
+    },
+    {
+      "id": "sound-coaticook",
+      "name": "Étienne Roy",
+      "age": 41,
+      "origin": "Coaticook, QC",
+      "role": "Sound Designer",
+      "deliverables": ["Sons subtils", "Feedbacks UI", "Mixage léger"],
+      "timezone": "America/Toronto",
+      "contact": {"email": "etienne@godintech.example", "slack": "@Etienne"}
+    },
+    {
+      "id": "localization-lead-fl",
+      "name": "Natalie Brooks",
+      "age": 39,
+      "origin": "Floride, USA",
+      "role": "Localization Lead (FR/EN/ES/DE/JP)",
+      "deliverables": ["Glossaires", "Process L10n", "QA linguistique"],
+      "timezone": "America/New_York",
+      "contact": {"email": "natalie@godintech.example", "slack": "@Natalie"}
+    },
+    {
+      "id": "growth-crm-halifax",
+      "name": "Patrick O’Connell",
+      "age": 45,
+      "origin": "Halifax, NS",
+      "role": "Growth/CRM",
+      "deliverables": ["Acquisition", "Emails in-product", "Essais → conversion"],
+      "timezone": "America/Halifax",
+      "contact": {"email": "patrick@godintech.example", "slack": "@Patrick"}
+    },
+    {
+      "id": "community-mod-qc",
+      "name": "Mélissa Tremblay",
+      "age": 31,
+      "origin": "St-Ambroise-de-Kildare, QC",
+      "role": "Community Moderator (part-time)",
+      "deliverables": ["Modération Discord/Reddit", "Calendrier posts", "Relais feedback"],
+      "timezone": "America/Toronto",
+      "contact": {"email": "melissa@godintech.example", "slack": "@Melissa"}
+    },
+    {
+      "id": "tech-writer-transylvania",
+      "name": "Vlad Ionescu",
+      "age": 53,
+      "origin": "Transylvanie",
+      "role": "Technical Writer",
+      "deliverables": ["Docs", "FAQ", "Guides créateurs"],
+      "timezone": "Europe/Bucharest",
+      "contact": {"email": "vlad@godintech.example", "slack": "@Vlad"}
+    },
+    {
+      "id": "appsec-mx",
+      "name": "Lucía Fernández",
+      "age": 44,
+      "origin": "Mexique",
+      "role": "AppSec/Pentest (contractor)",
+      "deliverables": ["Revue de code", "Threat-modeling", "Tests d’intrusion"],
+      "timezone": "America/Mexico_City",
+      "contact": {"email": "lucia@godintech.example", "slack": "@Lucia"}
+    },
+    {
+      "id": "privacy-ops-toronto",
+      "name": "Anita Kapoor",
+      "age": 37,
+      "origin": "Toronto, ON",
+      "role": "Privacy Ops (part-time)",
+      "deliverables": ["DSR", "Registre traitements", "Politiques de rétention"],
+      "timezone": "America/Toronto",
+      "contact": {"email": "anita@godintech.example", "slack": "@Anita"}
+    }
+  ]
+}

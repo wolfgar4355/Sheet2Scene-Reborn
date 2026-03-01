@@ -1,0 +1,87 @@
+name: 🛡️ Privacy Scan (Maya)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  privacy-scan:
+    name: 🔎 Scan RGPD / Données personnelles
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout repo
+      uses: actions/checkout@v4
+
+    - name: 🧪 Scan files and logs
+      id: scan
+      shell: bash
+      run: |
+        echo "🔍 Analyse des fichiers, logs, exports, scripts..."
+
+        # --- Patterns détectables ---
+        EMAIL_REGEX="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
+        PHONE_REGEX="\b[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}\b"
+        TOKEN_REGEX="(sk-|sbp_|service_|anon_)[A-Za-z0-9]{8,}"
+
+        # --- Fichiers suspects ---
+        TARGETS="./logs ./exports ./scripts ./supabase ./src"
+
+        FOUND=false
+        REPORT=""
+
+        # Recherche des emails
+        EMAILS=$(grep -R -E "$EMAIL_REGEX" $TARGETS || true)
+        if [[ ! -z "$EMAILS" ]]; then
+          FOUND=true
+          REPORT+="📧 Emails détectés:\n$EMAILS\n\n"
+        fi
+
+        # Recherche des numéros de téléphone
+        PHONES=$(grep -R -E "$PHONE_REGEX" $TARGETS || true)
+        if [[ ! -z "$PHONES" ]]; then
+          FOUND=true
+          REPORT+="📱 Numéros possibles:\n$PHONES\n\n"
+        fi
+
+        # Tokens API potentiels
+        TOKENS=$(grep -R -E "$TOKEN_REGEX" $TARGETS || true)
+        if [[ ! -z "$TOKENS" ]]; then
+          FOUND=true
+          REPORT+="🔑 Tokens détectés:\n$TOKENS\n\n"
+        fi
+
+        if [[ "$FOUND" = true ]]; then
+          echo "status=fail" >> $GITHUB_OUTPUT
+          echo "report<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$REPORT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          exit 1
+        else
+          echo "status=ok" >> $GITHUB_OUTPUT
+        fi
+
+    - name: 🔔 Notify Discord
+      if: always()
+      run: |
+        STATUS="${{ steps.scan.outputs.status }}"
+
+        if [[ "$STATUS" == "ok" ]]; then
+          COLOR=3066993
+          MESSAGE="🟢 Privacy Scan OK — aucun risque de données personnelles."
+        else
+          COLOR=15158332
+          MESSAGE="🔴 Privacy Scan FAILED — données personnelles détectées !"
+        fi
+
+        JSON=$(jq -n \
+          --arg msg "$MESSAGE" \
+          --arg rep "${{ steps.scan.outputs.report }}" \
+          --argjson color $COLOR \
+          '{embeds:[{title: "🛡️ Privacy Scan (Maya)", description: ($msg + "\n\n```" + $rep + "```"), color:$color}]}' )
+
+        curl -s -H "Content-Type: application/json" \
+          -d "$JSON" \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"

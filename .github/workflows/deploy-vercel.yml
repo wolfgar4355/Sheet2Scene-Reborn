@@ -1,0 +1,67 @@
+name: 🚀 Sheet2Scene — QA + Deploy to Vercel (Production)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: 🟦 Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: 📦 Install dependencies
+      run: npm ci
+
+    - name: 🔍 Run Backend QA
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      run: |
+        chmod +x scripts/check-backend.sh
+        bash scripts/check-backend.sh
+
+    - name: ❌ Notify Discord if QA fails
+      if: failure()
+      run: |
+        JSON=$(jq -n \
+          --arg desc "❌ Production Deploy FAILED — Sheet2Scene (main). Check GitHub Actions logs." \
+          '{embeds:[{title:"Production Deploy Failed",description:$desc,color:15158332}]}' )
+        curl -s -H "Content-Type: application/json" \
+          -d "$JSON" \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"
+
+    - name: ▲ Deploy to Vercel (Production)
+      if: success()
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      run: |
+        npm install -g vercel
+        vercel pull --yes --environment=production --token $VERCEL_TOKEN
+        vercel build --prod --token $VERCEL_TOKEN
+        PROD_URL=$(vercel deploy --prebuilt --prod --token $VERCEL_TOKEN)
+        echo "prod_url=$PROD_URL" >> $GITHUB_OUTPUT
+
+    - name: 📢 Notify Discord (Production Successful)
+      if: success()
+      run: |
+        URL="${{ steps.build_and_deploy.outputs.prod_url }}"
+        JSON=$(jq -n \
+          --arg url "$URL" \
+          --arg desc "🟢 Production Deploy Successful — Sheet2Scene\n➡️ Live: $URL" \
+          '{embeds:[{title:"Production Deploy Success",description:$desc,color:3066993}]}' )
+        curl -s -H "Content-Type: application/json" \
+          -d "$JSON" \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"

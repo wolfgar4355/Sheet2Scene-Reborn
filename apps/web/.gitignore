@@ -1,0 +1,17 @@
+# env files
+.env*
+apps/web/.env*
+
+# node
+node_modules
+**/node_modules
+
+# build / vercel
+.next
+.vercel
+
+# misc
+ecosystem.config.cjs
+
+.vercel
+.env*.local

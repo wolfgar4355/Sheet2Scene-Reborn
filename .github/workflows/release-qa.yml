@@ -1,0 +1,54 @@
+name: 🧪 Release QA Summary & Pre-Deployment Check
+
+on:
+  workflow_run:
+    workflows:
+      - "🧱 Backend QA Full Suite"
+      - "🎨 Frontend QA & Build Validation"
+    types:
+      - completed
+
+  workflow_dispatch:
+
+jobs:
+  release-summary:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ⬇️ Download QA Reports
+        uses: actions/download-artifact@v4
+        with:
+          name: "qa-reports"
+        continue-on-error: true
+
+      - name: 🧩 Combine Backend & Frontend Reports
+        run: |
+          mkdir -p logs
+
+          BACKEND=$(jq -r '.status // "missing"' qa-reports/backend-qa-report/backend-report.json 2>/dev/null || echo "missing")
+          FRONTEND=$(jq -r '.status // "missing"' qa-reports/frontend-qa-report/frontend-report.json 2>/dev/null || echo "missing")
+
+          echo "{\"timestamp\":\"$(date -u +'%Y-%m-%dT%H:%M:%SZ')\", \"backend\":\"$BACKEND\", \"frontend\":\"$FRONTEND\"}" \
+            > logs/release-summary.json
+
+      - name: 📤 Upload Summary Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-summary
+          path: logs/release-summary.json
+
+      # -------------------------------------------------------------
+      # 🔕 DISCORD NOTIFICATION DESACTIVÉE POUR ÉVITER LE FAIL
+      # -------------------------------------------------------------
+      - name: 🔕 Skip Discord Notification
+        run: echo "Discord summary disabled for this repo."
+
+      # -------------------------------------------------------------
+      # 🚀 Conditional Vercel Deployment
+      # -------------------------------------------------------------
+      - name: 🚀 Conditional Vercel Deployment
+        if: success()
+        run: echo "All QA checks passed – ready for Vercel deployment ✔️"

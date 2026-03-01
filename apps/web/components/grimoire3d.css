@@ -1,0 +1,102 @@
+/* ============================
+   🎨 WRAPPER
+   ============================ */
+.g3d-wrap {
+  perspective: 2200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ============================
+   📘 BOOK STRUCTURE  
+   ============================ */
+.g3d-book {
+  position: relative;
+  width: min(88vw, 560px);
+  aspect-ratio: 3 / 4;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tiltX, -8deg)) rotateY(var(--tiltY, -6deg));
+  transition: transform 0.25s ease-out;
+  pointer-events: auto;
+}
+
+/* BACK COVER */
+.g3d-back {
+  position: absolute;
+  inset: 0;
+  background: #2a1e12;
+  border-radius: 12px;
+  transform: translateZ(-24px);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
+}
+
+/* ============================
+   📄 PAGES STACK
+   ============================ */
+.g3d-pages {
+  position: absolute;
+  inset: 4% 6% 4% 8%;
+  transform-style: preserve-3d;
+}
+
+.g3d-page {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #f6f0e8, #efe7d9);
+  border-radius: 6px;
+  transform: translateZ(calc(var(--i) * 1.2px));
+  box-shadow:
+    inset -2px 0 4px rgba(0,0,0,0.2),
+    0 0 1px rgba(0,0,0,0.1);
+}
+
+/* ============================
+   📕 COVER
+   ============================ */
+.g3d-cover {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  transform: translateZ(12px);
+}
+
+.g3d-cover img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Gloss layer */
+.g3d-cover-gloss {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg,
+    rgba(255,255,255,0.25) 0%,
+    rgba(255,255,255,0.05) 40%,
+    rgba(0,0,0,0) 80%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* ============================
+   🕳️ SHADOW BELOW BOOK
+   ============================ */
+.g3d-shadow {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  width: 70%;
+  height: 40px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0) 70%
+  );
+  filter: blur(16px);
+  pointer-events: none;
+}

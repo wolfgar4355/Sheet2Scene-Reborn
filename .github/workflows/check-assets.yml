@@ -1,0 +1,38 @@
+name: 🌿 Vérification des assets visuels
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  check-assets:
+    name: Vérifier la nomenclature des fichiers visuels
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Cloner le dépôt
+      uses: actions/checkout@v4
+
+    - name: 🔧 Donner les permissions d’exécution aux scripts
+      run: chmod +x ./scripts/check-assets-names.sh
+
+    - name: 🚀 Lancer la vérification de nomenclature
+      id: runcheck
+      run: |
+        echo "📂 Démarrage de la vérification des fichiers visuels..."
+        bash ./scripts/check-assets-names.sh
+      continue-on-error: true
+
+    - name: ✅ Résultat final
+      if: steps.runcheck.outcome == 'success'
+      run: echo "🟢 Tous les fichiers respectent les conventions de nommage."
+
+    - name: ❌ Échec – fichiers non conformes
+      if: steps.runcheck.outcome != 'success'
+      run: |
+        echo "🚨 Certains fichiers ne respectent pas la nomenclature."
+        echo "📌 Merci de les renommer selon la charte /docs/Section2-Design.md."
+        exit 1

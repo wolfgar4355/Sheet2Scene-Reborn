@@ -1,0 +1,65 @@
+name: 🛡️ Post-Deploy Watchdog & Health Check
+
+on:
+  workflow_run:
+    workflows: ["Sheet2Scene — Deploy to Vercel"]
+    types: [completed]
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🌐 Set deployment URL
+      run: |
+        # URL de PROD (ajuste si nécessaire)
+        echo "DEPLOY_URL=https://sheet2scene.vercel.app" >> $GITHUB_ENV
+
+    - name: 🩺 Checking endpoint health
+      run: |
+        FAIL=false
+        echo "Testing Sheet2Scene endpoints..."
+
+        for path in "/" "/create" "/api/status" "/api/generate"; do
+          resp=$(curl -o /dev/null -s -w "%{http_code}" "$DEPLOY_URL$path")
+
+          if [ "$resp" -ge 200 ] && [ "$resp" -lt 400 ]; then
+            echo "🟢 $path OK"
+          else
+            echo "🔴 $path FAILED ($resp)"
+            FAIL=true
+          fi
+        done
+
+        echo "FAIL=$FAIL" >> $GITHUB_ENV
+
+    - name: 📁 Save watchdog report
+      run: |
+        mkdir -p logs
+        echo "{\"timestamp\":\"$(date "+%Y-%m-%d %H:%M:%S")\",\"deploy\":\"$DEPLOY_URL\",\"fail\":\"$FAIL\"}" > logs/watchdog.json
+
+    - name: 📤 Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: watchdog-report
+        path: logs/watchdog.json
+
+    - name: 🔔 Notify Discord
+      run: |
+        COLOR=3066993
+        MSG="Deployment is healthy ✔"
+
+        if [ "$FAIL" = "true" ]; then
+          COLOR=15158332
+          MSG="⚠️ Deployment issues detected"
+        fi
+
+        JSON=$(jq -n \
+          --arg title "🛡️ Sheet2Scene Post-Deploy Watchdog" \
+          --arg desc "$MSG\nURL: $DEPLOY_URL\nTime: $(date "+%Y-%m-%d %H:%M:%S")" \
+          --argjson color $COLOR \
+          '{embeds: [{title: $title, description: $desc, color: $color}]}' )
+
+        curl -s -H "Content-Type: application/json" \
+          -d "$JSON" \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"

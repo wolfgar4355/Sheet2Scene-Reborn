@@ -1,0 +1,78 @@
+name: 🎨 Design QA – Vérification visuelle & formats
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  check_design:
+    name: Vérification Design QA
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Cloner le dépôt
+      uses: actions/checkout@v4
+
+    - name: 🔒 Donner droits d’exécution aux scripts
+      run: chmod +x ./scripts/check-assets-names.sh
+
+    - name: 🔍 Vérifier formats des fichiers visuels
+      id: check_formats
+      run: |
+        echo "🔍 Vérification des formats (images + audio)..."
+
+        ALLOWED_EXTENSIONS="png|jpg|jpeg|webp|svg|mp3|wav|ogg|mp4|json|gif"
+        BAD_FILES=$(find apps/web/public -type f ! -regex ".*\.\(${ALLOWED_EXTENSIONS}\)")
+        if [[ -n "$BAD_FILES" ]]; then
+          echo "❌ Certains fichiers ont des extensions interdites"
+          echo "$BAD_FILES"
+          echo "bad=true" >> $GITHUB_OUTPUT
+        else
+          echo "✅ Tous les fichiers ont des extensions autorisées"
+          echo "bad=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: 🔠 Vérifier les noms des assets (nomenclature)
+      id: check_names
+      run: |
+        echo "🔍 Vérification de la nomenclature..."
+
+        if ./scripts/check-assets-names.sh >/dev/null 2>&1; then
+          echo "names_ok=true" >> $GITHUB_OUTPUT
+          echo "✅ Tous les fichiers respectent la nomenclature"
+        else
+          echo "names_ok=false" >> $GITHUB_OUTPUT
+          echo "❌ Certains fichiers NE respectent PAS la nomenclature"
+        fi
+
+    - name: 📝 Générer résumé QA
+      id: summary
+      run: |
+        if [[ "${{ steps.check_formats.outputs.bad }}" == "false" && "${{ steps.check_names.outputs.names_ok }}" == "true" ]]; then
+          echo "status=success" >> $GITHUB_OUTPUT
+        else
+          echo "status=failure" >> $GITHUB_OUTPUT
+        fi
+
+    - name: 📢 Notification Discord
+      run: |
+        if [[ "${{ steps.summary.outputs.status }}" == "success" ]]; then
+          COLOR=3066993
+          DESC="🟢 La vérification Design QA est passée avec succès."
+        else
+          COLOR=15158332
+          DESC="❌ La vérification Design QA a échoué."
+        fi
+
+        JSON=$(jq -n \
+          --arg title "Sheet2Scene – Design QA" \
+          --arg desc "$DESC" \
+          --argjson color $COLOR \
+          '{embeds:[{title:$title,description:$desc,color:$color}]}' )
+
+        curl -s -H "Content-Type: application/json" \
+          -d "$JSON" \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"

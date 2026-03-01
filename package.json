@@ -1,0 +1,18 @@
+{
+  "name": "sheet2scene",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "preinstall": "npm run build:engine",
+    "build:engine": "npm --workspace=engine run build",
+    "build": "npm run build:engine && npm --workspace=web run build",
+    "dev": "npm --workspace=web run dev",
+    "start": "npm --workspace=web start"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.89.0"
+  }
+}
