@@ -1,5 +1,5 @@
 // @ts-nocheck
-import type { GmeMonster } from "../../../../../../gm/types";
+import type { GmeMonster } from "../../../../../gm/types";
 
 export const MONSTERS: GmeMonster[] = [
   // 🐾 CR 4–5 — BÊTES & BÊTES MAGIQUES

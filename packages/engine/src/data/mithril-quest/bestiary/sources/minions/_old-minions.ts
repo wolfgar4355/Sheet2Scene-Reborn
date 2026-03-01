@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { MonsterDefinition } from "./categories";
+import type { MonsterDefinition } from "../../../types";
 
 export const FANTASY_MINIONS: MonsterDefinition[] = [
   {
