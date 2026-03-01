@@ -1,8 +1,7 @@
 // apps/web/middleware.ts
-import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-function basicAuthGate(req: NextRequest) {
+function basicAuthGate(req: Request) {
   const wantUser = process.env.BASIC_AUTH_USER;
   const wantPass = process.env.BASIC_AUTH_PASS;
 
@@ -39,7 +38,7 @@ function basicAuthGate(req: NextRequest) {
   return null;
 }
 
-export function middleware(req: NextRequest) {
+export function middleware(req: Request) {
   const basic = basicAuthGate(req);
   if (basic) return basic;
 
