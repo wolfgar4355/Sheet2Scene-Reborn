@@ -1,0 +1,166 @@
+export declare const MQ_TABARDS: readonly [{
+    readonly key: "plain_tabard";
+    readonly label: "Tabard Simple";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 4;
+    readonly material: "tissu épais";
+    readonly properties: readonly [];
+    readonly eras: readonly ["age-of-heroes", "high-kingdoms"];
+    readonly description: "Un tabard en tissu uni, porté par les milices ou pour masquer une armure simple.";
+}, {
+    readonly key: "militia_tabard";
+    readonly label: "Tabard de Milice";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 5;
+    readonly material: "tissu grossier";
+    readonly properties: readonly [];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un tabard basique arborant des couleurs locales, souvent utilisé pour identifier les troupes civiles.";
+}, {
+    readonly key: "cotton_surcoat";
+    readonly label: "Surcot de Coton";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 6;
+    readonly material: "coton";
+    readonly properties: readonly [];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Un vêtement léger souvent porté par-dessus une cotte de mailles ou une tunique.";
+}, {
+    readonly key: "scout_tabard";
+    readonly label: "Tabard d’Éclaireur";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 8;
+    readonly material: "tissu renforcé";
+    readonly properties: readonly ["stealth"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "De couleur mate, conçu pour éviter la détection lors des missions discrètes.";
+}, {
+    readonly key: "merchant_surcoat";
+    readonly label: "Surcot de Marchand";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 10;
+    readonly material: "lin décoré";
+    readonly properties: readonly [];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Un surcot décoré de motifs simples, typiquement porté par les marchands itinérants.";
+}, {
+    readonly key: "borderlands_tabard";
+    readonly label: "Tabard des Marches Frontalières";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 7;
+    readonly material: "laine épaisse";
+    readonly properties: readonly ["cold-resistant"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un tabard plus chaud conçu pour les gardes patrouillant en régions froides.";
+}, {
+    readonly key: "forest_tabard";
+    readonly label: "Tabard Forestier";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 9;
+    readonly material: "tissu camouflé";
+    readonly properties: readonly ["stealth"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Porté par les chasseurs et éclaireurs des forêts profondes.";
+}, {
+    readonly key: "desert_surcoat";
+    readonly label: "Surcot du Désert";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 8;
+    readonly material: "lin respirant";
+    readonly properties: readonly ["heat-resistant"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Léger et respirant, parfait pour les climats arides.";
+}, {
+    readonly key: "heraldic_tabard";
+    readonly label: "Tabard Héraldiquement Brodé";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 12;
+    readonly material: "tissu brodé";
+    readonly properties: readonly [];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Un tabard arborant les couleurs et symboles d’une maison noble mineure.";
+}, {
+    readonly key: "battle_surcoat";
+    readonly label: "Surcot de Bataille";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 18;
+    readonly material: "tissu + cuir fin";
+    readonly properties: readonly [];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un surcot légèrement renforcé, porté par-dessus une armure pour absorber la saleté et les chocs mineurs.";
+}, {
+    readonly key: "runic_tabard";
+    readonly label: "Tabard Runique";
+    readonly rarity: "rare";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 150;
+    readonly material: "tissu gravé de runes";
+    readonly properties: readonly ["magic"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Les runes discrètement brodées sur le tissu offrent une légère protection mystique.";
+}, {
+    readonly key: "shadow_tabard";
+    readonly label: "Tabard de l’Ombre";
+    readonly rarity: "rare";
+    readonly armor: 1;
+    readonly weight: 0.5;
+    readonly value: 220;
+    readonly material: "tissu d’ombre";
+    readonly properties: readonly ["magic", "stealth", "dark-resonance"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Une étoffe surnaturelle qui absorbe la lumière et étouffe les sons.";
+}, {
+    readonly key: "celestial_surcoat";
+    readonly label: "Surcot Céleste";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 300;
+    readonly material: "tissu radiant";
+    readonly properties: readonly ["magic", "radiant"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Un vêtement brillant faiblement, signe de faveur divine.";
+}, {
+    readonly key: "warden_tabard";
+    readonly label: "Tabard du Gardien";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 260;
+    readonly material: "tissu enchanté + cuir";
+    readonly properties: readonly ["magic", "warding"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Renforcé d’un enchantement protecteur, souvent porté par les protecteurs des temples.";
+}, {
+    readonly key: "phoenix_tabard";
+    readonly label: "Tabard du Phénix";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 350;
+    readonly material: "tissu ignifuge";
+    readonly properties: readonly ["magic", "fire-resistant"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Résistant aux flammes, souvent porté par les mages du feu et les guerriers flamboyants.";
+}];

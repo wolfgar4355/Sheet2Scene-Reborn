@@ -1,0 +1,28 @@
+import * as aberrations from "./aberrations";
+import * as beasts from "./beasts";
+import * as constructs from "./constructs";
+import * as dragons from "./dragons";
+import * as elementals from "./elementals";
+import * as fey from "./fey";
+import * as fiends from "./fiends";
+import * as humanoids from "./humanoids";
+import * as magicalBeasts from "./magical-beasts";
+import * as mythic from "./mythic";
+import * as titans from "./titans";
+import * as undead from "./undead";
+export declare const CATEGORIES: {
+    aberrations: typeof aberrations;
+    beasts: typeof beasts;
+    constructs: typeof constructs;
+    dragons: typeof dragons;
+    elementals: typeof elementals;
+    fey: typeof fey;
+    fiends: typeof fiends;
+    humanoids: typeof humanoids;
+    magicalBeasts: typeof magicalBeasts;
+    mythic: typeof mythic;
+    titans: typeof titans;
+    undead: typeof undead;
+};
+export type CategoryRegistry = typeof CATEGORIES;
+export default CATEGORIES;

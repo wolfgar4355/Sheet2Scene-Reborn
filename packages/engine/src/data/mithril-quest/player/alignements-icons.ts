@@ -7,7 +7,7 @@
 //
 // ============================================================================
 
-import type { MQAlignment } from "./alignments";
+import type { MQAlignment } from "./alignements";
 
 export interface MQAlignmentIcon {
   key: MQAlignment["key"];

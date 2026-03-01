@@ -1,0 +1,166 @@
+export declare const MQ_SURCOATS: readonly [{
+    readonly key: "simple_surcoat";
+    readonly label: "Surcot Simple";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 6;
+    readonly material: "lin épais";
+    readonly properties: readonly [];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Un surcot basique porté pour protéger les vêtements ou décorer une armure.";
+}, {
+    readonly key: "leather_surcoat";
+    readonly label: "Surcot de Cuir Souple";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 12;
+    readonly material: "cuir fin";
+    readonly properties: readonly [];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un surcot légèrement renforcé, donnant une protection minimale.";
+}, {
+    readonly key: "scout_surcoat";
+    readonly label: "Surcot d’Éclaireur";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 10;
+    readonly material: "tissu camouflé";
+    readonly properties: readonly ["stealth"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Conçu pour les patrouilles discrètes dans les forêts et les broussailles.";
+}, {
+    readonly key: "winter_surcoat";
+    readonly label: "Surcot d’Hiver";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 14;
+    readonly material: "laine épaisse";
+    readonly properties: readonly ["cold-resistant"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un surcot chaud, utilisé par les soldats des régions nordiques.";
+}, {
+    readonly key: "summer_surcoat";
+    readonly label: "Surcot d’Été";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 7;
+    readonly material: "lin léger";
+    readonly properties: readonly ["heat-resistant"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Idéal pour les climats chauds et les longues marches au soleil.";
+}, {
+    readonly key: "merchant_surcoat";
+    readonly label: "Surcot de Marchand";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 12;
+    readonly material: "tissu brodé";
+    readonly properties: readonly [];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Arboré par les guildes marchandes de haut rang.";
+}, {
+    readonly key: "military_surcoat";
+    readonly label: "Surcot Militaire";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 16;
+    readonly material: "tissu + cuir";
+    readonly properties: readonly [];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Porté par-dessus les plates ou les mailles, absorbe la saleté et les impacts mineurs.";
+}, {
+    readonly key: "coastal_surcoat";
+    readonly label: "Surcot Côtier";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 9;
+    readonly material: "tissu résistant au sel";
+    readonly properties: readonly ["salt-resistant"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Adapté aux régions maritimes et aux embruns corrosifs.";
+}, {
+    readonly key: "monastic_surcoat";
+    readonly label: "Surcot Monastique";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 8;
+    readonly material: "tissu sacré";
+    readonly properties: readonly [];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Porté par les moines-guerriers de petits ordres religieux.";
+}, {
+    readonly key: "guard_surcoat";
+    readonly label: "Surcot de Garde";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 15;
+    readonly material: "coton renforcé";
+    readonly properties: readonly [];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Uniforme simple des gardes de villes et châteaux.";
+}, {
+    readonly key: "runic_surcoat";
+    readonly label: "Surcot Runique";
+    readonly rarity: "rare";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 180;
+    readonly material: "tissu enchanté";
+    readonly properties: readonly ["magic"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Des runes lumineuses renforcent la protection contre les attaques magiques.";
+}, {
+    readonly key: "shadow_surcoat";
+    readonly label: "Surcot de l’Ombre";
+    readonly rarity: "rare";
+    readonly armor: 1;
+    readonly weight: 0.5;
+    readonly value: 240;
+    readonly material: "tissu d’ombre";
+    readonly properties: readonly ["magic", "stealth"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "L’étoffe semble absorber la lumière, renforçant la furtivité du porteur.";
+}, {
+    readonly key: "celestial_surcoat";
+    readonly label: "Surcot Céleste";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 320;
+    readonly material: "tissu radiant";
+    readonly properties: readonly ["magic", "radiant"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Bénit par une entité céleste, ce surcot manifeste une faible aura protectrice.";
+}, {
+    readonly key: "warden_surcoat";
+    readonly label: "Surcot du Gardien";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 260;
+    readonly material: "tissu cuirassé";
+    readonly properties: readonly ["magic", "warding"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Utilisé par les protecteurs des temples et sanctuaires.";
+}, {
+    readonly key: "phoenix_surcoat";
+    readonly label: "Surcot du Phénix";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 350;
+    readonly material: "tissu ignifuge";
+    readonly properties: readonly ["magic", "fire-resistant"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Résistant au feu, fréquemment porté par les mages flamboyants.";
+}];

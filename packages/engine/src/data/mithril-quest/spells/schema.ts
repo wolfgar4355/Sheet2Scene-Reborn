@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------
 // Importation centralisée depuis types.ts (full MQ)
 
-export type {
+import type {
   WorldId,
   SpellTier,
   SpellComponents,
@@ -15,6 +15,19 @@ export type {
   SpellSchoolId,
   Spell
 } from "./types";
+
+export type {
+  WorldId,
+  SpellTier,
+  SpellComponents,
+  CastingTimeId,
+  SpellRangeType,
+  SpellRange,
+  SpellScaling,
+  SpellTagId,
+  SpellSchoolId,
+  Spell
+};
 
 // ---------------------------------------------------------------
 // Ères officielles de Mithril-Quest (compatibles MQ canon + bonus)

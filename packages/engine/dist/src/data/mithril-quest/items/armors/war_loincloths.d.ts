@@ -1,0 +1,166 @@
+export declare const MQ_WAR_LOINCLOTHS: readonly [{
+    readonly key: "warrior_wrap";
+    readonly label: "Pagne du Guerrier";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 12;
+    readonly material: "cuir épais";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes", "dark-age"];
+    readonly description: "Un pagne renforcé utilisé par les combattants légers. Souple et solide.";
+}, {
+    readonly key: "bone_guard_wrap";
+    readonly label: "Pagne à Renforts d’Os";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 2;
+    readonly value: 18;
+    readonly material: "cuir + os";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Des fragments d’os polis ajoutent une légère protection sans gêner les mouvements.";
+}, {
+    readonly key: "tribal_battle_wrap";
+    readonly label: "Pagne Tribal de Bataille";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 1;
+    readonly value: 15;
+    readonly material: "peaux tribales";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Décoré de pigments de guerre, il est conçu pour les raids rapides.";
+}, {
+    readonly key: "forest_war_wrap";
+    readonly label: "Pagne Guérilla Forestière";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 14;
+    readonly material: "fibres végétales renforcées";
+    readonly properties: readonly ["camouflage"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Tissé de fibres souples, il offre une bonne mobilité dans les forêts denses.";
+}, {
+    readonly key: "sandstorm_wrap";
+    readonly label: "Pagne Tempête-de-Sable";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 16;
+    readonly material: "lin + cuir";
+    readonly properties: readonly ["heat-resist"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Conçu pour les guerriers du désert, résiste aux vents et à la chaleur.";
+}, {
+    readonly key: "reinforced_warcloth";
+    readonly label: "Pagne Renforcé";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 2;
+    readonly value: 20;
+    readonly material: "cuir + plaques fines";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Une fine couche de plaques métalliques cousues sous le tissu.";
+}, {
+    readonly key: "iron_ring_wrap";
+    readonly label: "Pagne Anneaux de Fer";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 2;
+    readonly value: 22;
+    readonly material: "anneaux métalliques";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "De petits anneaux de fer ajoutent une résistance modérée sans sacrifier la flexibilité.";
+}, {
+    readonly key: "mercenary_war_wrap";
+    readonly label: "Pagne du Mercenaire";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 2;
+    readonly value: 19;
+    readonly material: "tissu + cuir tanné";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un modèle courant porté par les combattants indépendants.";
+}, {
+    readonly key: "nomad_battle_wrap";
+    readonly label: "Pagne de Guerre Nomade";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 17;
+    readonly material: "peaux souples";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Léger et ventilé, conçu pour les longs déplacements et les escarmouches rapides.";
+}, {
+    readonly key: "steppe_raider_wrap";
+    readonly label: "Pagne du Pillard des Steppes";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 1;
+    readonly value: 21;
+    readonly material: "cuir brut";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Très populaire dans les tribus cavalières, offrant une bonne liberté de mouvement.";
+}, {
+    readonly key: "runic_battlewrap";
+    readonly label: "Pagne Runique de Guerre";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 1;
+    readonly value: 180;
+    readonly material: "peau runique";
+    readonly properties: readonly ["magic", "battle-focus"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Des runes de combat confèrent au porteur une agressivité et une précision augmentées.";
+}, {
+    readonly key: "berserker_fang_wrap";
+    readonly label: "Pagne Croc-du-Berserker";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 1;
+    readonly value: 200;
+    readonly material: "peaux + crocs gravés";
+    readonly properties: readonly ["rage-boost", "magic"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Les crocs rituels attisent la fureur du porteur.";
+}, {
+    readonly key: "shadow_war_wrap";
+    readonly label: "Pagne de Guerre des Ombres";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 0;
+    readonly value: 230;
+    readonly material: "tissu ombreux";
+    readonly properties: readonly ["stealth", "dark-resonance"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Né dans les ténèbres, il absorbe la lumière et amplifie l’agressivité silencieuse.";
+}, {
+    readonly key: "guardian_warcloth";
+    readonly label: "Pagne du Gardien Sacré";
+    readonly rarity: "rare";
+    readonly armor: 5;
+    readonly weight: 1;
+    readonly value: 260;
+    readonly material: "étoffe bénie";
+    readonly properties: readonly ["holy", "radiant-resist"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Porté par les défenseurs sacrés des temples oubliés.";
+}, {
+    readonly key: "astral_warwrap";
+    readonly label: "Pagne Astral de Bataille";
+    readonly rarity: "rare";
+    readonly armor: 5;
+    readonly weight: 0;
+    readonly value: 300;
+    readonly material: "chaîne astrale";
+    readonly properties: readonly ["magic", "force-resist"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Les liens astrals vibrent à chaque mouvement, créant une aura défensive.";
+}];

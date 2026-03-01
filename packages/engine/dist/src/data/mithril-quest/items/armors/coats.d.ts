@@ -1,0 +1,166 @@
+export declare const MQ_COATS: readonly [{
+    readonly key: "traveler_coat";
+    readonly label: "Manteau du Voyageur";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 2;
+    readonly value: 12;
+    readonly material: "toile épaisse";
+    readonly properties: readonly ["weatherproof"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Un manteau simple mais essentiel pour les longues routes, protège du vent et de la pluie.";
+}, {
+    readonly key: "hunter_coat";
+    readonly label: "Manteau de Chasseur";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 18;
+    readonly material: "cuir léger";
+    readonly properties: readonly ["stealth"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un manteau camouflé utilisé par les chasseurs des bois profonds.";
+}, {
+    readonly key: "frost_coat";
+    readonly label: "Manteau Givré";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 3;
+    readonly value: 20;
+    readonly material: "fourrure";
+    readonly properties: readonly ["cold-resistant"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un vêtement chaud conçu pour survivre aux hivers rigoureux des montagnes.";
+}, {
+    readonly key: "desert_coat";
+    readonly label: "Manteau du Désert";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 14;
+    readonly material: "lin léger";
+    readonly properties: readonly ["heat-resistant"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Protège de la chaleur intense et des tempêtes de sable.";
+}, {
+    readonly key: "mercenary_coat";
+    readonly label: "Manteau de Mercenaire";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 22;
+    readonly material: "cuir renforcé";
+    readonly properties: readonly [];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Un manteau robuste porté par les guerriers indépendants et les caravanes armées.";
+}, {
+    readonly key: "scout_coat";
+    readonly label: "Manteau d’Éclaireur";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 17;
+    readonly material: "tissu silencieux";
+    readonly properties: readonly ["stealth"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Conçu pour les mouvements rapides et silencieux dans les forêts.";
+}, {
+    readonly key: "farmer_raincoat";
+    readonly label: "Imperméable de Fermier";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 9;
+    readonly material: "peau huilée";
+    readonly properties: readonly ["weatherproof"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Un manteau simple mais efficace contre la pluie battante.";
+}, {
+    readonly key: "militia_coat";
+    readonly label: "Manteau de Milice";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 16;
+    readonly material: "toile + cuir";
+    readonly properties: readonly [];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "L'uniforme de base des milices locales et villageoises.";
+}, {
+    readonly key: "coastal_windcoat";
+    readonly label: "Manteau des Vents Côtiers";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 13;
+    readonly material: "tissu salin";
+    readonly properties: readonly ["salt-resistant"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Protège des embruns salés et des vents violents du littoral.";
+}, {
+    readonly key: "artisan_coat";
+    readonly label: "Manteau d’Artisan";
+    readonly rarity: "common";
+    readonly armor: 0;
+    readonly weight: 1;
+    readonly value: 15;
+    readonly material: "tissu robuste";
+    readonly properties: readonly [];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Porté par les artisans et guildes de métier prestigieuses.";
+}, {
+    readonly key: "shadowstep_coat";
+    readonly label: "Manteau Pas-de-l’Ombre";
+    readonly rarity: "rare";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 260;
+    readonly material: "tissu d’ombre";
+    readonly properties: readonly ["magic", "stealth"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un manteau qui se fond dans les ténèbres, parfait pour les assassins.";
+}, {
+    readonly key: "celestial_drape";
+    readonly label: "Drapé Céleste";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 320;
+    readonly material: "tissu radiant";
+    readonly properties: readonly ["magic", "radiant"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Un manteau lumineux, bénit par une force céleste.";
+}, {
+    readonly key: "stormcoat";
+    readonly label: "Manteau Orageux";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 340;
+    readonly material: "tissu tempête";
+    readonly properties: readonly ["magic", "shock-resistant"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Chargé d'énergie électrique, protecteur contre la foudre et les chocs.";
+}, {
+    readonly key: "warden_coat";
+    readonly label: "Manteau du Gardien Sacré";
+    readonly rarity: "rare";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 380;
+    readonly material: "tissu cuirassé";
+    readonly properties: readonly ["magic", "warding"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Conçu pour les gardiens des temples et des archives sacrées.";
+}, {
+    readonly key: "phoenix_coat";
+    readonly label: "Manteau du Phénix";
+    readonly rarity: "rare";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 400;
+    readonly material: "tissu ignifuge";
+    readonly properties: readonly ["magic", "fire-resistant"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Un manteau imprégné d'énergie ardente, résistant aux flammes.";
+}];

@@ -2,7 +2,7 @@
 // tiers.ts — Niveaux de puissance des sorts (Mithril-Quest)
 
 // ⚠️ IMPORTANT : le type SpellTier vient maintenant de ../types
-import type { SpellTier } from "../types";
+import type { SpellTier } from "./types";
 
 export interface SpellTierDef {
   id: SpellTier;

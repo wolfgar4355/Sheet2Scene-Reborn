@@ -1,0 +1,166 @@
+export declare const MQ_ROBES: readonly [{
+    readonly key: "simple_cloth_robe";
+    readonly label: "Robe en Tissu Simple";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 5;
+    readonly material: "tissu";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Une robe simple portée par les érudits, novices ou acolytes.";
+}, {
+    readonly key: "initiate_mage_robe";
+    readonly label: "Robe de Mage Initié";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 12;
+    readonly material: "tissu épais";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Robe standard des apprentis mages, tissée pour résister à la chaleur des sorts ratés.";
+}, {
+    readonly key: "traveler_robe";
+    readonly label: "Robe de Voyageur";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 10;
+    readonly material: "lin renforcé";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Une robe robuste conçue pour les longs voyages, dotée de poches secrètes.";
+}, {
+    readonly key: "acolyte_robe";
+    readonly label: "Robe d’Acolyte";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 8;
+    readonly material: "tissu religieux";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age", "high-kingdoms"];
+    readonly description: "Tenue portée par les jeunes prêtres, simple mais respectée.";
+}, {
+    readonly key: "forest_druid_robe";
+    readonly label: "Robe du Druide Forestier";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 15;
+    readonly material: "fibres naturelles";
+    readonly properties: readonly ["nature-attuned"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Tissée à partir de fibres végétales, elle favorise la connexion à la nature.";
+}, {
+    readonly key: "scholar_robe";
+    readonly label: "Robe d’Érudit";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 14;
+    readonly material: "laine fine";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age", "arcane-renaissance"];
+    readonly description: "La tenue traditionnelle des bibliothécaires et chercheurs.";
+}, {
+    readonly key: "battlecloth_robe";
+    readonly label: "Robe de Tissu de Bataille";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 18;
+    readonly material: "tissu renforcé";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Une robe légèrement renforcée, portée par les guérisseurs en zone de guerre.";
+}, {
+    readonly key: "desert_wanderer_robe";
+    readonly label: "Robe du Marcheur du Désert";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 15;
+    readonly material: "tissu respirant";
+    readonly properties: readonly ["heat-resist"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Robe légère conçue pour les climats arides, protège du sable et du soleil brûlant.";
+}, {
+    readonly key: "shadow_adept_robe";
+    readonly label: "Robe d’Adepte de l’Ombre";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 18;
+    readonly material: "tissu noir";
+    readonly properties: readonly ["stealth"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Une robe sombre privilégiée par ceux qui opèrent dans les ruelles et les cryptes.";
+}, {
+    readonly key: "ritual_robe";
+    readonly label: "Robe de Rituel";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 12;
+    readonly material: "tissu cérémonial";
+    readonly properties: readonly ["ritual"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Portée lors de cérémonies diverses, elle est souvent marquée de symboles mystiques.";
+}, {
+    readonly key: "runebound_robe";
+    readonly label: "Robe Runeblie";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 1;
+    readonly value: 220;
+    readonly material: "tissu runique";
+    readonly properties: readonly ["magic", "spell-focus"];
+    readonly eras: readonly ["high-kingdoms", "arcane-renaissance"];
+    readonly description: "Des runes cousues dans la fibre amplifient la concentration et la puissance des sorts.";
+}, {
+    readonly key: "druidic_wildrobe";
+    readonly label: "Robe Sauvage Druidiques";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 2;
+    readonly value: 260;
+    readonly material: "fibres vivantes";
+    readonly properties: readonly ["nature-attuned", "regen"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Une robe vivante qui se régénère lentement et renforce la magie naturelle.";
+}, {
+    readonly key: "celestial_priest_robe";
+    readonly label: "Robe du Prêtre Céleste";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 1;
+    readonly value: 300;
+    readonly material: "tissu radiant";
+    readonly properties: readonly ["radiant-resist", "holy"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Un tissu lumineux qui protège contre l’énergie sacrée et renforce les bénédictions.";
+}, {
+    readonly key: "void_silks";
+    readonly label: "Soieries du Vide";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 0;
+    readonly value: 350;
+    readonly material: "soie d’ombre";
+    readonly properties: readonly ["stealth", "dark-resonance"];
+    readonly eras: readonly ["dark-age", "mythic-age"];
+    readonly description: "Une matière soyeuse qui semble absorber la lumière, idéale pour les adeptes de l’occulte.";
+}, {
+    readonly key: "astral_arcane_garment";
+    readonly label: "Habit Arcanique Astral";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 0;
+    readonly value: 420;
+    readonly material: "tissu astral";
+    readonly properties: readonly ["magic", "force-resist"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Un vêtement tissé à partir de filaments astrals, améliorant la manipulation de l’énergie brute.";
+}];

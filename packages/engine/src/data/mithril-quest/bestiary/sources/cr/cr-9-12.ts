@@ -1,5 +1,5 @@
 // @ts-nocheck
-import type { GmeMonster } from "./types";
+import type { GmeMonster } from "../../../../../../gm/types";
 
 export const MONSTERS: GmeMonster[] = [
 
@@ -361,7 +361,7 @@ export const MONSTERS: GmeMonster[] = [
     ref: { source: "custom" }
   },
   // (note: Archer Féerique Légendaire, Danseur du Brume Primordial, Gardien des Saisons, Cerf Couronne-d’Étoiles sont déjà listés plus haut — ici tu les avais dupliqués dans les captures, je ne les duplique PAS dans le fichier)
-  
+
   // 🌪 CR 9–12 — ÉLÉMENTAIRES SUPÉRIEURS
   {
     id: "sovereign-fire-elemental",

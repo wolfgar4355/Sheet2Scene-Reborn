@@ -1,0 +1,166 @@
+export declare const MQ_THIGHPLATES: readonly [{
+    readonly key: "leather_thighguards";
+    readonly label: "Garde-Cuisses en Cuir";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 12;
+    readonly material: "cuir";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes", "dark-age"];
+    readonly description: "De simples renforts en cuir épais, offrant une protection correcte sans sacrifier la mobilité.";
+}, {
+    readonly key: "padded_thighwraps";
+    readonly label: "Bandelettes Matelassées";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 6;
+    readonly material: "tissu matelassé";
+    readonly properties: readonly ["padded", "light"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Une couche rembourrée conçue pour absorber partiellement les coups.";
+}, {
+    readonly key: "scout_splitguards";
+    readonly label: "Garde-Cuisses Fendues de Scout";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 8;
+    readonly material: "tissu renforcé";
+    readonly properties: readonly ["light", "flexible"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Des pièces légères séparées en plusieurs panneaux pour maximiser l'agilité.";
+}, {
+    readonly key: "militia_ironplates";
+    readonly label: "Plaques de Milice";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 4;
+    readonly value: 18;
+    readonly material: "fer";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Des plaques basiques utilisées par les soldats de milice, lourdes mais fiables.";
+}, {
+    readonly key: "fur_thighwraps";
+    readonly label: "Protège-Cuisses en Fourrure";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 9;
+    readonly material: "fourrure";
+    readonly properties: readonly ["warm"];
+    readonly eras: readonly ["ancient-age", "dark-age"];
+    readonly description: "Portés dans les régions froides, ils offrent chaleur et un minimum de protection.";
+}, {
+    readonly key: "nomad_sandplates";
+    readonly label: "Plaques de Sable Nomades";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 14;
+    readonly material: "cuir léger";
+    readonly properties: readonly ["heat-resistant"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Des protections souples adaptées aux climats désertiques.";
+}, {
+    readonly key: "archer_split_skirt";
+    readonly label: "Jupe Fendue de Tireur";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 11;
+    readonly material: "tissu renforcé";
+    readonly properties: readonly ["quiet"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Une jupe fendue renforcée permettant des mouvements fluides pour les archers.";
+}, {
+    readonly key: "tribal_thighplates";
+    readonly label: "Plaques Tribales";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 3;
+    readonly value: 15;
+    readonly material: "bois durci";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Des plaques en bois cérémoniel durci, offrant une résistance surprenante.";
+}, {
+    readonly key: "rider_thighpads";
+    readonly label: "Protège-Cuisses de Cavalier";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 13;
+    readonly material: "cuir épais";
+    readonly properties: readonly ["reinforced"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Renforcés pour résister au frottement constant de la selle.";
+}, {
+    readonly key: "battle_lamellar";
+    readonly label: "Lamelles de Bataille";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 4;
+    readonly value: 20;
+    readonly material: "lamelles d'acier";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["dark-age", "high-kingdoms"];
+    readonly description: "Des lamelles métalliques lacées ensemble pour une protection robuste.";
+}, {
+    readonly key: "stormwalk_legplates";
+    readonly label: "Plaques Marche-Tempête";
+    readonly rarity: "rare";
+    readonly armor: 5;
+    readonly weight: 4;
+    readonly value: 260;
+    readonly material: "acier-tempête";
+    readonly properties: readonly ["thunder-resist", "reinforced"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Des plaques infusées d’énergie orageuse, réduisant les chocs électriques subis.";
+}, {
+    readonly key: "shadowveil_thighguards";
+    readonly label: "Garde-Cuisses Voile-d’Ombre";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 1;
+    readonly value: 240;
+    readonly material: "tissu nocturne";
+    readonly properties: readonly ["silent-step", "light"];
+    readonly eras: readonly ["dark-age", "mythic-age"];
+    readonly description: "Forgées dans un tissu absorbant la lumière, parfaites pour les assassins et éclaireurs.";
+}, {
+    readonly key: "druid_woodguard";
+    readonly label: "Garde-Cuisses Sylvestres";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 2;
+    readonly value: 210;
+    readonly material: "bois vivant";
+    readonly properties: readonly ["nature-tuned", "regeneration-lite"];
+    readonly eras: readonly ["age-of-heroes", "mythic-age"];
+    readonly description: "Écorce vivante mouvante, réagissant instinctivement aux attaques.";
+}, {
+    readonly key: "runeforged_legplates";
+    readonly label: "Plaques Runeforgées";
+    readonly rarity: "rare";
+    readonly armor: 5;
+    readonly weight: 5;
+    readonly value: 300;
+    readonly material: "acier runique";
+    readonly properties: readonly ["magic-resist", "reinforced"];
+    readonly eras: readonly ["high-kingdoms", "arcane-renaissance"];
+    readonly description: "Des plaques martelées avec des glyphes anciens, offrant une protection magique.";
+}, {
+    readonly key: "astral_moonplates";
+    readonly label: "Plaques Lunaire-Astrales";
+    readonly rarity: "rare";
+    readonly armor: 6;
+    readonly weight: 2;
+    readonly value: 380;
+    readonly material: "métal astral";
+    readonly properties: readonly ["radiant-resist", "light"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Forgées à partir de minerai astral infusé de lumière lunaire, incroyablement légères.";
+}];

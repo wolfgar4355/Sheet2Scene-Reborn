@@ -1,0 +1,27 @@
+export * from "./worlds";
+export * from "./eras";
+export * from "./bestiary";
+export * from "./classes";
+export * from "./races";
+export * from "./items";
+export * from "./roles";
+export * from "./rituals";
+export * from "./factions";
+export * from "./habitats";
+export * from "./gm";
+export * from "./character";
+export * from "./player";
+export * from "./tags";
+export declare const FANTASY_any: {
+    readonly spells: import("../../adapters/spells.adapter").Spell[];
+    readonly classes: any;
+    readonly races: any[];
+    readonly eras: import("./types-worlds").MQEra[];
+    readonly roles: string[];
+    readonly items: import("../../adapters/items.adapter").Item[];
+    readonly bestiary: any;
+    readonly factions: import("../../adapters/factions.adapter").Faction[];
+    readonly habitats: any;
+    readonly gm: any;
+    readonly rituals: import("./rituals/schema").Ritual[];
+};

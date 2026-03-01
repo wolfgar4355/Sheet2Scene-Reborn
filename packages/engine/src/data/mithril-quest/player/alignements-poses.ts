@@ -8,7 +8,7 @@
 //
 // ============================================================================
 
-import type { MQAlignment } from "./alignments";
+import type { MQAlignment } from "./alignements";
 
 export interface MQAlignmentPosePreset {
   key: MQAlignment["key"];

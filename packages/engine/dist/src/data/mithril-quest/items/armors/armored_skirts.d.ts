@@ -1,0 +1,166 @@
+export declare const MQ_ARMORED_SKIRTS: readonly [{
+    readonly key: "iron_segmented_skirt";
+    readonly label: "Jupe Segmentée en Fer";
+    readonly rarity: "common";
+    readonly armor: 4;
+    readonly weight: 5;
+    readonly value: 25;
+    readonly material: "fer";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["dark-age", "high-kingdoms"];
+    readonly description: "Des bandes de fer superposées offrant une protection correcte sans bloquer complètement les mouvements.";
+}, {
+    readonly key: "steel_battle_skirt";
+    readonly label: "Jupe de Combat en Acier";
+    readonly rarity: "common";
+    readonly armor: 5;
+    readonly weight: 6;
+    readonly value: 35;
+    readonly material: "acier";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Une jupe blindée simple composée de plaques d’acier rivetées sur un support en cuir.";
+}, {
+    readonly key: "brigandine_warskirt";
+    readonly label: "Jupe Brigandine";
+    readonly rarity: "common";
+    readonly armor: 4;
+    readonly weight: 4;
+    readonly value: 30;
+    readonly material: "brigandine";
+    readonly properties: readonly ["reinforced"];
+    readonly eras: readonly ["dark-age", "age-of-heroes"];
+    readonly description: "Tissu épais doublé de petites plaques métalliques. Bon compromis mobilité/armure.";
+}, {
+    readonly key: "leather_plate_skirt";
+    readonly label: "Jupe Cuir-Platé";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 3;
+    readonly value: 22;
+    readonly material: "cuir + métal";
+    readonly properties: readonly ["reinforced"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Cuir rigide rehaussé de plaques fines, populaire auprès des mercenaires.";
+}, {
+    readonly key: "chainmail_skirt";
+    readonly label: "Jupe de Maille";
+    readonly rarity: "common";
+    readonly armor: 4;
+    readonly weight: 5;
+    readonly value: 28;
+    readonly material: "maille";
+    readonly properties: readonly ["metal", "flexible"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Anneaux de maille protégeant efficacement le haut des jambes.";
+}, {
+    readonly key: "steel_tassets";
+    readonly label: "Tassettes en Acier";
+    readonly rarity: "common";
+    readonly armor: 5;
+    readonly weight: 5;
+    readonly value: 26;
+    readonly material: "acier";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Deux plaques en acier couvrant l’avant et les côtés des cuisses.";
+}, {
+    readonly key: "legion_plate_skirt";
+    readonly label: "Jupe de Légion";
+    readonly rarity: "common";
+    readonly armor: 5;
+    readonly weight: 6;
+    readonly value: 32;
+    readonly material: "acier riveté";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["age-of-heroes", "dark-age"];
+    readonly description: "Modèle inspiré des armures de légionnaires, offrant une bonne défense frontale.";
+}, {
+    readonly key: "heavy_lamellar_skirt";
+    readonly label: "Jupe Lamellaire Lourde";
+    readonly rarity: "common";
+    readonly armor: 4;
+    readonly weight: 5;
+    readonly value: 24;
+    readonly material: "lamelles métalliques";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["dark-age", "high-kingdoms"];
+    readonly description: "Lamelles épaisses montées sur un tissu robuste. Design traditionnel guerrier.";
+}, {
+    readonly key: "reinforced_warkilt";
+    readonly label: "Kilt de Guerre Renforcé";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 3;
+    readonly value: 20;
+    readonly material: "cuir renforcé";
+    readonly properties: readonly ["reinforced"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Un kilt tribal auquel on a ajouté une couche de plaques légères.";
+}, {
+    readonly key: "soldier_platewrap";
+    readonly label: "Tablier Blindé du Soldat";
+    readonly rarity: "common";
+    readonly armor: 4;
+    readonly weight: 4;
+    readonly value: 23;
+    readonly material: "acier + cuir";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Plaques métalliques cousues sur une base en cuir, couvrant le bas du torse et les hanches.";
+}, {
+    readonly key: "runic_plate_skirt";
+    readonly label: "Jupe de Plaques Runiques";
+    readonly rarity: "rare";
+    readonly armor: 7;
+    readonly weight: 5;
+    readonly value: 240;
+    readonly material: "acier runique";
+    readonly properties: readonly ["magic-resist"];
+    readonly eras: readonly ["high-kingdoms", "arcane-renaissance"];
+    readonly description: "Chaque plaque est gravée de runes protectrices réduisant les dégâts magiques.";
+}, {
+    readonly key: "obsidian_warskirt";
+    readonly label: "Jupe de Guerre Obsidienne";
+    readonly rarity: "rare";
+    readonly armor: 8;
+    readonly weight: 4;
+    readonly value: 320;
+    readonly material: "obsidienne vivante";
+    readonly properties: readonly ["cursed", "dark-resonance"];
+    readonly eras: readonly ["dark-age", "mythic-age"];
+    readonly description: "L’obsidienne semble vibrer, absorbant partiellement les impacts et la lumière.";
+}, {
+    readonly key: "stormguard_tassets";
+    readonly label: "Tassettes Garde-Tempête";
+    readonly rarity: "rare";
+    readonly armor: 7;
+    readonly weight: 5;
+    readonly value: 280;
+    readonly material: "acier-tempête";
+    readonly properties: readonly ["thunder-resist"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Forgées dans un alliage imprégné d’énergie orageuse, elles dissipent les charges électriques.";
+}, {
+    readonly key: "celestial_plate_kilt";
+    readonly label: "Kilt de Plaques Céleste";
+    readonly rarity: "rare";
+    readonly armor: 8;
+    readonly weight: 4;
+    readonly value: 350;
+    readonly material: "acier radiant";
+    readonly properties: readonly ["radiant-resist", "magic"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Un éclat doux émane de ses plaques, réduisant les dégâts radiants et lumineux.";
+}, {
+    readonly key: "astral_segmented_skirt";
+    readonly label: "Jupe Segmentée Astrale";
+    readonly rarity: "rare";
+    readonly armor: 9;
+    readonly weight: 3;
+    readonly value: 420;
+    readonly material: "alliage astral";
+    readonly properties: readonly ["light", "force-resist"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Un alliage astral fluide qui absorbe une partie de l’impact, même contre l’énergie pure.";
+}];

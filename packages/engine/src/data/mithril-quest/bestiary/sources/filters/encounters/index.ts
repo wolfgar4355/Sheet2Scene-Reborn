@@ -4,7 +4,7 @@
 //  Charge les catégories additionnelles : embuscades, patrouilles, raids, etc.
 // ============================================================================
 
-import type { MonsterDefinition } from "./types";
+import type { MonsterDefinition } from "../../../types";
 
 // Import des tables
 import AMBUSHES from "./ambushes";

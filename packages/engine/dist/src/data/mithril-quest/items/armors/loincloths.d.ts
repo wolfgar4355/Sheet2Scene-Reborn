@@ -1,0 +1,166 @@
+export declare const MQ_LOINCLOTHS: readonly [{
+    readonly key: "simple_loincloth";
+    readonly label: "Pagne Simple";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 3;
+    readonly material: "tissu";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Un simple morceau de tissu utilisé comme vêtement de base dans certaines régions chaudes.";
+}, {
+    readonly key: "traveler_wrap";
+    readonly label: "Pagne de Voyageur";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 6;
+    readonly material: "tissu solide";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Conçu pour la mobilité, ce pagne est souvent porté par les voyageurs désertiques.";
+}, {
+    readonly key: "hunter_loincloth";
+    readonly label: "Pagne du Chasseur";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 10;
+    readonly material: "peau légère";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Un pagne robuste fabriqué à partir de peaux tannées, populaire parmi les chasseurs nomades.";
+}, {
+    readonly key: "jungle_wrap";
+    readonly label: "Pagne des Jungles";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 8;
+    readonly material: "fibres végétales";
+    readonly properties: readonly ["light", "humidity-resistant"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Tissé à partir de fibres naturelles, il résiste bien aux climats humides.";
+}, {
+    readonly key: "tribal_war_wrap";
+    readonly label: "Pagne Guerrier Tribal";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 12;
+    readonly material: "peau brodée";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Un pagne décoré de motifs de guerre, porté lors de raids et conflits tribaux.";
+}, {
+    readonly key: "scavenger_loincloth";
+    readonly label: "Pagne du Charognard";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 7;
+    readonly material: "tissu récupéré";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Assemblé de morceaux de tissus récupérés, il offre une protection minimale.";
+}, {
+    readonly key: "desert_breeze_wrap";
+    readonly label: "Pagne Brise-Désert";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 9;
+    readonly material: "lin respirant";
+    readonly properties: readonly ["heat-resist"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Un vêtement frais conçu pour les fortes chaleurs et les tempêtes de sable.";
+}, {
+    readonly key: "ritual_loincloth";
+    readonly label: "Pagne Rituel";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 11;
+    readonly material: "tissu sacré";
+    readonly properties: readonly ["ritual"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Porté lors de cérémonies religieuses ou occultes.";
+}, {
+    readonly key: "apprentice_wrap";
+    readonly label: "Pagne d’Apprenti";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 5;
+    readonly material: "tissu épais";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Tenue simple pour apprentis moines ou disciples de temples.";
+}, {
+    readonly key: "forest_loincloth";
+    readonly label: "Pagne Forestier";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 12;
+    readonly material: "feuilles tressées";
+    readonly properties: readonly ["nature-attuned", "light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Fabriqué à partir de feuilles renforcées, prisé des tribus forestières.";
+}, {
+    readonly key: "runic_loincloth";
+    readonly label: "Pagne Runique";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 1;
+    readonly value: 180;
+    readonly material: "tissu runique";
+    readonly properties: readonly ["magic", "spell-focus"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Des runes cousues dans le tissu renforcent la vitalité et la concentration.";
+}, {
+    readonly key: "druidic_vine_wrap";
+    readonly label: "Pagne de Vigne Druidiques";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 1;
+    readonly value: 220;
+    readonly material: "vignes vivantes";
+    readonly properties: readonly ["nature-attuned", "regen"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Des vignes enchantées se resserrent pour offrir une protection naturelle.";
+}, {
+    readonly key: "shadow_silk_wrap";
+    readonly label: "Pagne en Soie d’Ombre";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 0;
+    readonly value: 240;
+    readonly material: "soie noire";
+    readonly properties: readonly ["stealth", "dark-resonance"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Une soie surnaturelle qui absorbe la lumière et dissimule le porteur.";
+}, {
+    readonly key: "celestial_wrap";
+    readonly label: "Pagne Céleste";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 0;
+    readonly value: 300;
+    readonly material: "tissu radiant";
+    readonly properties: readonly ["holy", "radiant-resist"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Un tissu lumineux imprégné d’énergie sacrée, porté par des champions mystiques.";
+}, {
+    readonly key: "astral_chain_wrap";
+    readonly label: "Pagne Chaîne Astrale";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 1;
+    readonly value: 350;
+    readonly material: "chaînes astrales";
+    readonly properties: readonly ["magic", "force-resist"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "De fines chaînes astrales vibrent légèrement autour du porteur, offrant une protection étonnante.";
+}];
