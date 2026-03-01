@@ -10,7 +10,8 @@ function getEnv(name: string) {
     if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "production") {
       console.warn(`[Supabase Client] Missing env var: ${name}. Client might not work.`);
     }
-    return ""; // Fallback for static generation (prerendering)
+    // Fallback for static generation (prerendering) to prevent @supabase/ssr crashes
+    return name === "NEXT_PUBLIC_SUPABASE_URL" ? "https://placeholder.supabase.co" : "placeholder-key";
   }
   return v;
 }
