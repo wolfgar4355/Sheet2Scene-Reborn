@@ -1,4 +1,7 @@
 // @ts-nocheck
+import type { PlayerAbilityScores } from "./PlayerAbilityScores";
+import type { PlayerAppearance } from "./PlayerAppearance";
+
 export interface MQPlayerSheet {
   name: string;
   race: string;               // key from ALL_RACES

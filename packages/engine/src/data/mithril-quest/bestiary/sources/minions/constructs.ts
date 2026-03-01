@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { UniversalCreature } from "../UNIVERSAL_CREATURE";
+import type { UniversalCreature } from "../../UNIVERSAL_CREATURE";
 
 // ========================================================
 //  CONSTRUCTS — Version AAA (Mithril Engine Ready)
@@ -7,190 +7,190 @@ import { UniversalCreature } from "../UNIVERSAL_CREATURE";
 
 export const constructs: UniversalCreature[] = [
 
-/* =======================================================
-   A — ARCANE AUTOMATON — CR 1
-   ======================================================= */
-{
-  id: "arcane-automaton",
-  name: "Arcane Automaton",
-  rarity: "uncommon",
+  /* =======================================================
+     A — ARCANE AUTOMATON — CR 1
+     ======================================================= */
+  {
+    id: "arcane-automaton",
+    name: "Arcane Automaton",
+    rarity: "uncommon",
 
-  type: ["construct"],
-  categories: ["sentinel", "arcane"],
-  biomes: ["dungeon", "ruins", "arcane-labs"],
-  habitats: ["arcane-workshop", "golem-forges"],
-  factions: ["clockwork", "arcanum"],
+    type: ["construct"],
+    categories: ["sentinel", "arcane"],
+    biomes: ["dungeon", "ruins", "arcane-labs"],
+    habitats: ["arcane-workshop", "golem-forges"],
+    factions: ["clockwork", "arcanum"],
 
-  tagsAAA: ["arcane-core", "mana-reactor", "non-organic"],
-  cr: 1,
+    tagsAAA: ["arcane-core", "mana-reactor", "non-organic"],
+    cr: 1,
 
-  hp: 18,
-  ac: 14,
-  speed: "30 ft.",
+    hp: 18,
+    ac: 14,
+    speed: "30 ft.",
 
-  attacks: [
-    { name: "Arcane Bolt", toHit: 4, dmg: "1d8 force" }
-  ],
+    attacks: [
+      { name: "Arcane Bolt", toHit: 4, dmg: "1d8 force" }
+    ],
 
-  behavior: {
-    aggression: 1,
-    courage: 3,
-    tactics: ["ranged-focus", "keep-distance"]
+    behavior: {
+      aggression: 1,
+      courage: 3,
+      tactics: ["ranged-focus", "keep-distance"]
+    },
+
+    drops: ["arcane-circuit", "mana-crystal"],
+    abilities: ["Overheat Burst", "Mana Surge"],
+
+    visuals: ["floating-runes", "golem-joints", "arcane-glow"]
   },
 
-  drops: ["arcane-circuit", "mana-crystal"],
-  abilities: ["Overheat Burst", "Mana Surge"],
+  /* =======================================================
+     A — STONE SENTINEL — CR 2
+     ======================================================= */
+  {
+    id: "stone-sentinel",
+    name: "Stone Sentinel",
+    rarity: "uncommon",
 
-  visuals: ["floating-runes", "golem-joints", "arcane-glow"]
-},
+    type: ["construct"],
+    categories: ["guardian"],
+    biomes: ["ruins", "mountains"],
+    habitats: ["old-temples", "giant-statue-halls"],
+    factions: ["stonebound"],
 
-/* =======================================================
-   A — STONE SENTINEL — CR 2
-   ======================================================= */
-{
-  id: "stone-sentinel",
-  name: "Stone Sentinel",
-  rarity: "uncommon",
+    tagsAAA: ["heavy", "non-organic", "monolithic"],
+    cr: 2,
 
-  type: ["construct"],
-  categories: ["guardian"],
-  biomes: ["ruins", "mountains"],
-  habitats: ["old-temples", "giant-statue-halls"],
-  factions: ["stonebound"],
+    hp: 32,
+    ac: 16,
+    speed: "25 ft.",
 
-  tagsAAA: ["heavy", "non-organic", "monolithic"],
-  cr: 2,
+    attacks: [
+      { name: "Stone Slam", toHit: 5, dmg: "2d6 bludgeoning" }
+    ],
 
-  hp: 32,
-  ac: 16,
-  speed: "25 ft.",
+    behavior: {
+      aggression: 2,
+      courage: 5,
+      tactics: ["block-path", "protect-zone"]
+    },
 
-  attacks: [
-    { name: "Stone Slam", toHit: 5, dmg: "2d6 bludgeoning" }
-  ],
+    drops: ["living-stone-core", "granite-shard"],
+    abilities: ["Immovable Frame", "Energy Absorption"],
 
-  behavior: {
-    aggression: 2,
-    courage: 5,
-    tactics: ["block-path", "protect-zone"]
+    visuals: ["cracked-stone", "glowing-sigils"]
   },
 
-  drops: ["living-stone-core", "granite-shard"],
-  abilities: ["Immovable Frame", "Energy Absorption"],
+  /* =======================================================
+     C — CLOCKWORK SOLDIER — CR 3
+     ======================================================= */
+  {
+    id: "clockwork-soldier",
+    name: "Clockwork Soldier",
+    rarity: "rare",
 
-  visuals: ["cracked-stone", "glowing-sigils"]
-},
+    type: ["construct"],
+    categories: ["soldier"],
+    biomes: ["workshops", "ruins", "city"],
+    habitats: ["clockwork-factory", "steam-barracks"],
+    factions: ["clockwork"],
 
-/* =======================================================
-   C — CLOCKWORK SOLDIER — CR 3
-   ======================================================= */
-{
-  id: "clockwork-soldier",
-  name: "Clockwork Soldier",
-  rarity: "rare",
+    tagsAAA: ["mechanical", "precision-attack", "gears"],
+    cr: 3,
 
-  type: ["construct"],
-  categories: ["soldier"],
-  biomes: ["workshops", "ruins", "city"],
-  habitats: ["clockwork-factory", "steam-barracks"],
-  factions: ["clockwork"],
+    hp: 45,
+    ac: 17,
+    speed: "30 ft.",
 
-  tagsAAA: ["mechanical", "precision-attack", "gears"],
-  cr: 3,
+    attacks: [
+      { name: "Gearblade Slash", toHit: 6, dmg: "1d10 slashing" }
+    ],
 
-  hp: 45,
-  ac: 17,
-  speed: "30 ft.",
+    behavior: {
+      aggression: 3,
+      courage: 4,
+      tactics: ["auto-parry", "advance-and-strike"]
+    },
 
-  attacks: [
-    { name: "Gearblade Slash", toHit: 6, dmg: "1d10 slashing" }
-  ],
+    drops: ["steel-spring", "clockwork-core"],
+    abilities: ["Auto-Counter", "Winding Surge"],
 
-  behavior: {
-    aggression: 3,
-    courage: 4,
-    tactics: ["auto-parry", "advance-and-strike"]
+    visuals: ["whirring-gears", "steam-vents", "metal-plates"]
   },
 
-  drops: ["steel-spring", "clockwork-core"],
-  abilities: ["Auto-Counter", "Winding Surge"],
+  /* =======================================================
+     O — OBSIDIAN GOLEM — CR 5
+     ======================================================= */
+  {
+    id: "obsidian-golem",
+    name: "Obsidian Golem",
+    rarity: "elite",
 
-  visuals: ["whirring-gears", "steam-vents", "metal-plates"]
-},
+    type: ["construct"],
+    categories: ["brute"],
+    biomes: ["lava-fields", "ruins", "infernal-zones"],
+    habitats: ["obsidian-forges", "demon-workshops"],
+    factions: ["infernal"],
 
-/* =======================================================
-   O — OBSIDIAN GOLEM — CR 5
-   ======================================================= */
-{
-  id: "obsidian-golem",
-  name: "Obsidian Golem",
-  rarity: "elite",
+    tagsAAA: ["superheated-body", "dark-core", "non-organic"],
+    cr: 5,
 
-  type: ["construct"],
-  categories: ["brute"],
-  biomes: ["lava-fields", "ruins", "infernal-zones"],
-  habitats: ["obsidian-forges", "demon-workshops"],
-  factions: ["infernal"],
+    hp: 102,
+    ac: 18,
+    speed: "30 ft.",
 
-  tagsAAA: ["superheated-body", "dark-core", "non-organic"],
-  cr: 5,
+    attacks: [
+      { name: "Obsidian Fist", toHit: 7, dmg: "2d10 fire + 2d6 bludgeoning" }
+    ],
 
-  hp: 102,
-  ac: 18,
-  speed: "30 ft.",
+    behavior: {
+      aggression: 4,
+      courage: 5,
+      tactics: ["magma-trail", "smash-frontline"]
+    },
 
-  attacks: [
-    { name: "Obsidian Fist", toHit: 7, dmg: "2d10 fire + 2d6 bludgeoning" }
-  ],
+    drops: ["obsidian-fragment", "molten-heart"],
+    abilities: ["Molten Body", "Lava Burst"],
 
-  behavior: {
-    aggression: 4,
-    courage: 5,
-    tactics: ["magma-trail", "smash-frontline"]
+    visuals: ["cracked-magma-skin", "lava-veins"]
   },
 
-  drops: ["obsidian-fragment", "molten-heart"],
-  abilities: ["Molten Body", "Lava Burst"],
+  /* =======================================================
+     A — ASTRAL WATCHER — CR 7
+     ======================================================= */
+  {
+    id: "astral-watcher",
+    name: "Astral Watcher",
+    rarity: "legendary",
 
-  visuals: ["cracked-magma-skin", "lava-veins"]
-},
+    type: ["construct"],
+    categories: ["mystic", "sentinel"],
+    biomes: ["astral", "void"],
+    habitats: ["astral-sanctuary", "null-zone"],
+    factions: ["arcanum"],
 
-/* =======================================================
-   A — ASTRAL WATCHER — CR 7
-   ======================================================= */
-{
-  id: "astral-watcher",
-  name: "Astral Watcher",
-  rarity: "legendary",
+    tagsAAA: ["levitation", "void-shield", "anti-magic"],
+    cr: 7,
 
-  type: ["construct"],
-  categories: ["mystic", "sentinel"],
-  biomes: ["astral", "void"],
-  habitats: ["astral-sanctuary", "null-zone"],
-  factions: ["arcanum"],
+    hp: 130,
+    ac: 19,
+    speed: "Hover 30 ft.",
 
-  tagsAAA: ["levitation", "void-shield", "anti-magic"],
-  cr: 7,
+    attacks: [
+      { name: "Void Beam", toHit: 8, dmg: "3d10 force" }
+    ],
 
-  hp: 130,
-  ac: 19,
-  speed: "Hover 30 ft.",
+    behavior: {
+      aggression: 2,
+      courage: 5,
+      tactics: ["zone-denial", "magic-suppression"]
+    },
 
-  attacks: [
-    { name: "Void Beam", toHit: 8, dmg: "3d10 force" }
-  ],
+    drops: ["astral-shard", "null-core"],
+    abilities: ["Null Field", "Levitation", "Disrupt Magic"],
 
-  behavior: {
-    aggression: 2,
-    courage: 5,
-    tactics: ["zone-denial", "magic-suppression"]
+    visuals: ["floating-sphere", "glowing-runes", "gravity-distortion"]
   },
-
-  drops: ["astral-shard", "null-core"],
-  abilities: ["Null Field", "Levitation", "Disrupt Magic"],
-
-  visuals: ["floating-sphere", "glowing-runes", "gravity-distortion"]
-},
 
 ];
 
