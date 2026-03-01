@@ -1,14 +1,15 @@
 // apps/web/middleware.ts
+import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-function basicAuthGate(req: Request) {
+function basicAuthGate(req: NextRequest) {
   const wantUser = process.env.BASIC_AUTH_USER;
   const wantPass = process.env.BASIC_AUTH_PASS;
 
   // Si pas configuré → pas de Basic Auth
   if (!wantUser || !wantPass) return null;
 
-  const authHeader = req.headers.get("authorization") || "";
+  const authHeader = (req as any).headers.get("authorization") || "";
 
   if (!authHeader.startsWith("Basic ")) {
     return new NextResponse("Auth required", {
@@ -38,7 +39,7 @@ function basicAuthGate(req: Request) {
   return null;
 }
 
-export function middleware(req: Request) {
+export function middleware(req: NextRequest) {
   const basic = basicAuthGate(req);
   if (basic) return basic;
 
