@@ -1,7 +1,0 @@
-// @ts-nocheck
-export const BLIGHT_HABITATS = [
-    "SWAMP_ENCOUNTERS",
-    "FOREST_ENCOUNTERS",
-    "CAVES_ENCOUNTERS",
-    "UNDERDARK_ENCOUNTERS",
-];
