@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
 import { runpodService } from "@/lib/runpod/service";
-import { createClient } from "@/lib/supabase/server";
+import { createSupabaseServer } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
     try {
-        const supabase = createClient();
+        const supabase = createSupabaseServer();
+
+        if (!supabase) {
+            return NextResponse.json({ error: "Supabase mal configuré" }, { status: 500 });
+        }
 
         // 1. Vérification de l'authentification
         const { data: { user }, error: authError } = await supabase.auth.getUser();
