@@ -11,8 +11,8 @@ const r = (...paths) => path.resolve(__dirname, ...paths);
 const nextConfig = {
   reactStrictMode: true,
 
-  // OK à garder
-  swcMinify: false,
+  // OK à garder (Avertissement: swcMinify: false va disparaître dans Next.js 15, on laisse par défaut)
+  // swcMinify: false,
 
   // ⚠️ SUPPRIMÉ : App Router / Server Components ONLY
   // experimental: {

@@ -9,11 +9,11 @@ const config = {
   ],
 
   // Pour inclure les classes dynamiques générées (ex: bg-[url('/images/...')])
-  safelist: [
-    {
-      pattern: /bg-\[url\(\'\/images\/.*\'\)\]/,
-    },
-  ],
+  // safelist: [
+  //   {
+  //     pattern: /bg-\[url\(\'\/images\/.*\'\)\]/,
+  //   },
+  // ],
 
   theme: {
     extend: {
