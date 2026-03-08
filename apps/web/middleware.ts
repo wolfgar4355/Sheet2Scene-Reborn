@@ -1,6 +1,5 @@
 // apps/web/middleware.ts
 import { NextResponse, type NextRequest } from "next/server";
-import { updateSession } from "@/lib/supabase/middleware";
 
 function basicAuthGate(req: NextRequest) {
   try {
@@ -44,12 +43,11 @@ function basicAuthGate(req: NextRequest) {
 
 export async function middleware(req: NextRequest) {
   try {
-    // 1) Vérification optionnelle (Basic Auth dev)
+    // Vérification optionnelle (Basic Auth dev)
     const basic = basicAuthGate(req);
     if (basic) return basic;
 
-    // 2) Rafraîchissement sécurisé de la session Supabase
-    return await updateSession(req);
+    return NextResponse.next();
     
   } catch (err) {
     console.error("[Middleware] Fatal invocation error:", err);
