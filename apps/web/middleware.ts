@@ -9,7 +9,7 @@ function basicAuthGate(req: NextRequest) {
 
     if (!wantUser || !wantPass) return null;
 
-    const authHeader = req.headers.get("authorization") || "";
+    const authHeader = (req as any).headers?.get("authorization") || "";
 
     if (!authHeader.startsWith("Basic ")) {
       return new NextResponse("Auth required", {
