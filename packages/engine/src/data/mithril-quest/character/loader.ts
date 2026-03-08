@@ -9,7 +9,7 @@ import {
   type MQCharacterSheet,
 } from "./types";
 
-import { getMQSheetSchema } from "../mithril-quest/character/schema";
+import { getMQSheetSchema } from "./schema";
 
 // Tous les types de fiches utilisables dans S2S
 export type AnyCharacterSheet = MQCharacterSheet;

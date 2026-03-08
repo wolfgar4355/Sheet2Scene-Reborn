@@ -1,0 +1,177 @@
+export declare const GEAR: readonly [{
+    readonly key: "traveler_cloak";
+    readonly label: "Cape de Voyageur";
+    readonly type: "gear";
+    readonly subType: "clothing";
+    readonly rarity: "common";
+    readonly value: 2;
+    readonly weight: 2;
+    readonly properties: readonly ["weather-resist"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes", "high-kingdoms"];
+    readonly description: "Une cape robuste protégeant de la pluie et du vent, portée par la plupart des voyageurs.";
+}, {
+    readonly key: "padded_boots";
+    readonly label: "Bottes Matelassées";
+    readonly type: "gear";
+    readonly subType: "clothing";
+    readonly rarity: "common";
+    readonly value: 1;
+    readonly weight: 1;
+    readonly properties: readonly ["comfort"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Des bottes simples mais confortables pour de longues marches.";
+}, {
+    readonly key: "weathered_hat";
+    readonly label: "Chapeau Battu par les Vents";
+    readonly type: "gear";
+    readonly subType: "clothing";
+    readonly rarity: "common";
+    readonly value: 1;
+    readonly weight: 1;
+    readonly properties: readonly ["sun-shield"];
+    readonly eras: readonly ["age-of-heroes", "high-kingdoms"];
+    readonly description: "Large et déformé, idéal pour les climats ensoleillés ou pluvieux.";
+}, {
+    readonly key: "adventurer_pack";
+    readonly label: "Pack de l’Aventurier";
+    readonly type: "gear";
+    readonly subType: "adventurer";
+    readonly rarity: "common";
+    readonly value: 10;
+    readonly weight: 18;
+    readonly properties: readonly ["all-in-one"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Un ensemble comprenant des rations, une corde, une lanterne, une couverture et une gourde.";
+}, {
+    readonly key: "scout_pack";
+    readonly label: "Pack d’Éclaireur";
+    readonly type: "gear";
+    readonly subType: "adventurer";
+    readonly rarity: "common";
+    readonly value: 12;
+    readonly weight: 12;
+    readonly properties: readonly ["lightweight"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Contient du matériel léger : jumelles, cartes, craie et rations sèches.";
+}, {
+    readonly key: "survival_kit";
+    readonly label: "Trousse de Survie";
+    readonly type: "gear";
+    readonly subType: "adventurer";
+    readonly rarity: "common";
+    readonly value: 15;
+    readonly weight: 4;
+    readonly properties: readonly ["firestarter", "medic-basic"];
+    readonly eras: readonly ["ancient-age", "high-kingdoms"];
+    readonly description: "Comprend silex, aiguilles, fil, herbes simples et outils de base.";
+}, {
+    readonly key: "rope_50ft";
+    readonly label: "Corde 50 pieds";
+    readonly type: "gear";
+    readonly subType: "utility";
+    readonly rarity: "common";
+    readonly value: 1;
+    readonly weight: 10;
+    readonly properties: readonly ["climb", "tie"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Une corde solide de 50 pieds, utile dans presque toutes les situations.";
+}, {
+    readonly key: "iron_spikes";
+    readonly label: "Pointes de Fer (10)";
+    readonly type: "gear";
+    readonly subType: "utility";
+    readonly rarity: "common";
+    readonly value: 1;
+    readonly weight: 5;
+    readonly properties: readonly ["terrain-anchor"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Utilisées pour stabiliser des cordes, bloquer des portes ou escalader.";
+}, {
+    readonly key: "toolbox_basic";
+    readonly label: "Boîte à Outils Basique";
+    readonly type: "gear";
+    readonly subType: "utility";
+    readonly rarity: "common";
+    readonly value: 5;
+    readonly weight: 8;
+    readonly properties: readonly ["repair-basic"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Contient clés, marteau, clous, limes et outils de réparation simples.";
+}, {
+    readonly key: "healer_tools";
+    readonly label: "Trousse de Guérisseur";
+    readonly type: "gear";
+    readonly subType: "utility";
+    readonly rarity: "common";
+    readonly value: 8;
+    readonly weight: 3;
+    readonly properties: readonly ["medic"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Bandages, aiguilles, herbes coagulantes et compresses.";
+}, {
+    readonly key: "minor_focus_orb";
+    readonly label: "Orbe de Focalisation Mineur";
+    readonly type: "gear";
+    readonly subType: "mystic";
+    readonly rarity: "uncommon";
+    readonly value: 25;
+    readonly weight: 1;
+    readonly properties: readonly ["spell-focus"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Un petit cristal amplifiant légèrement les sorts mineurs.";
+}, {
+    readonly key: "ether_lantern";
+    readonly label: "Lanterne Éthérique";
+    readonly type: "gear";
+    readonly subType: "mystic";
+    readonly rarity: "uncommon";
+    readonly value: 40;
+    readonly weight: 3;
+    readonly properties: readonly ["magic", "ghost-vision"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Une lanterne révélant la présence d’esprits et d’énergies arcaniques.";
+}, {
+    readonly key: "ritual_chalk";
+    readonly label: "Craie Rituelle";
+    readonly type: "gear";
+    readonly subType: "mystic";
+    readonly rarity: "uncommon";
+    readonly value: 10;
+    readonly weight: 1;
+    readonly properties: readonly ["ritual"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Utilisée pour tracer cercles runiques et glyphes d’invocation.";
+}, {
+    readonly key: "ceremonial_robes";
+    readonly label: "Robe Cérémoniale";
+    readonly type: "gear";
+    readonly subType: "ceremonial";
+    readonly rarity: "common";
+    readonly value: 6;
+    readonly weight: 3;
+    readonly properties: readonly ["cleanse"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Des robes portées lors de rites religieux ou spirituels.";
+}, {
+    readonly key: "ancestor_mask";
+    readonly label: "Masque Ancêtre";
+    readonly type: "gear";
+    readonly subType: "ceremonial";
+    readonly rarity: "uncommon";
+    readonly value: 30;
+    readonly weight: 2;
+    readonly properties: readonly ["spirit-link"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Un masque sacré utilisé lors de danses ancestrales.";
+}, {
+    readonly key: "war_drums";
+    readonly label: "Tambours de Guerre";
+    readonly type: "gear";
+    readonly subType: "ceremonial";
+    readonly rarity: "rare";
+    readonly value: 120;
+    readonly weight: 8;
+    readonly properties: readonly ["battle-boost"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Des tambours puissants utilisés pour galvaniser les troupes.";
+}];

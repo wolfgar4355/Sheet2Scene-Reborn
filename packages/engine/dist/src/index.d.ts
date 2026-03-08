@@ -1,5 +1,7 @@
 export * from "./ambient.config";
 export * from "./getWorlds";
+export * from "./grimoire";
+export * from "./adapters/characters.adapter";
 export * from "./mithril/AmbientManager";
 export * from "./mithril/GrimoireFrame";
 export * from "./mithril/TransitionLayer";

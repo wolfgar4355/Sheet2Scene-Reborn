@@ -22,6 +22,6 @@ export declare const FANTASY_any: {
     readonly bestiary: any;
     readonly factions: import("../../adapters/factions.adapter").Faction[];
     readonly habitats: any;
-    readonly gm: any;
+    readonly gm: {};
     readonly rituals: import("./rituals/schema").Ritual[];
 };

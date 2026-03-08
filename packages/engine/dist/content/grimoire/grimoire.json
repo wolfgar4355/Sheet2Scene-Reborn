@@ -1,0 +1,37 @@
+[
+    {
+        "id": "intro-rituels",
+        "title": "Introduction aux Rituels",
+        "icon": "🕯️",
+        "tags": [
+            "magie",
+            "cabal"
+        ],
+        "excerpt": "Bases, cercles, composants et contraintes.",
+        "body": "Les rituels exigent **intention**, **sympathie** et **coût**.",
+        "links": [
+            "grimoire-symboles"
+        ]
+    },
+    {
+        "id": "grimoire-symboles",
+        "title": "Symboles & Sceaux",
+        "icon": "🔶",
+        "tags": [
+            "occultisme"
+        ],
+        "excerpt": "Taxonomie des sceaux usuels.",
+        "body": "Un sceau encode une *relation* : entité ↔ domaine.",
+        "links": [
+            "intro-rituels"
+        ]
+    },
+    {
+        "id": "bestiaire-lunaire",
+        "title": "bestiaire lunaire",
+        "icon": "🌜",
+        "tags": [],
+        "createdAt": 1760143434143,
+        "updatedAt": 1760143451126
+    }
+]

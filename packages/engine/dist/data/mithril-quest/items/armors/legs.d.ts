@@ -1,0 +1,166 @@
+export declare const MQ_LEGS: readonly [{
+    readonly key: "linen_trousers";
+    readonly label: "Pantalon de Lin";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 3;
+    readonly material: "lin";
+    readonly properties: readonly ["light", "comfortable"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Un pantalon simple en tissu léger, porté par les voyageurs et les artisans.";
+}, {
+    readonly key: "leather_leggings";
+    readonly label: "Jambières de Cuir Souple";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 10;
+    readonly material: "cuir";
+    readonly properties: readonly ["flexible"];
+    readonly eras: readonly ["age-of-heroes", "dark-age"];
+    readonly description: "Des jambières en cuir tanné, offrant une protection légère sans gêner les mouvements.";
+}, {
+    readonly key: "wool_travel_pants";
+    readonly label: "Pantalon de Voyage en Laine";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 2;
+    readonly value: 8;
+    readonly material: "laine";
+    readonly properties: readonly ["warm"];
+    readonly eras: readonly ["ancient-age", "dark-age"];
+    readonly description: "Un pantalon chaud pour les expéditions dans les régions froides.";
+}, {
+    readonly key: "scout_legwraps";
+    readonly label: "Bandelettes de Scout";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 5;
+    readonly material: "tissu";
+    readonly properties: readonly ["light", "quiet"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Des bandes de tissu serrées pour faciliter les déplacements silencieux.";
+}, {
+    readonly key: "rider_pants";
+    readonly label: "Pantalon de Cavalier";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 12;
+    readonly material: "cuir";
+    readonly properties: readonly ["reinforced"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Conçus pour les longues montées, ces pantalons renforcés sont appréciés des cavaliers.";
+}, {
+    readonly key: "worker_legguards";
+    readonly label: "Jambières d’Ouvrier";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 3;
+    readonly value: 7;
+    readonly material: "cuir épais";
+    readonly properties: readonly ["durable"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Des protections solides utilisées dans les mines et les forges.";
+}, {
+    readonly key: "cloth_battle_skirt";
+    readonly label: "Jupette de Combat en Tissu";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 6;
+    readonly material: "tissu renforcé";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Une jupe de combat légère conçue pour favoriser la mobilité.";
+}, {
+    readonly key: "hunter_legwraps";
+    readonly label: "Bandelettes de Chasseur";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 6;
+    readonly material: "tissu et corde";
+    readonly properties: readonly ["quiet", "light"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Les chasseurs les portent pour réduire le bruit en forêt.";
+}, {
+    readonly key: "militia_padded_legs";
+    readonly label: "Jambières Matelassées de Milice";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 3;
+    readonly value: 9;
+    readonly material: "tissu matelassé";
+    readonly properties: readonly ["padded"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Une protection basique distribuée aux soldats de milice.";
+}, {
+    readonly key: "nomad_sand_leggings";
+    readonly label: "Jambières de Nomade du Désert";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 11;
+    readonly material: "tissu sec et enroulé";
+    readonly properties: readonly ["heat-resistant"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Des vêtements légers conçus pour éviter la brûlure du sable.";
+}, {
+    readonly key: "shadowstep_leggings";
+    readonly label: "Jambières du Pas-Ombre";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 1;
+    readonly value: 150;
+    readonly material: "tissu nocturne";
+    readonly properties: readonly ["silent-step", "light"];
+    readonly eras: readonly ["dark-age", "arcane-renaissance"];
+    readonly description: "Imprégnées de magie d’ombre, elles étouffent presque totalement les bruits de pas.";
+}, {
+    readonly key: "stormforged_legplates";
+    readonly label: "Plaatines Forge-Tempête";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 5;
+    readonly value: 220;
+    readonly material: "acier tempête";
+    readonly properties: readonly ["thunder-resist", "reinforced"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Des plaques chargées d’énergie orageuse, résistantes aux chocs électriques.";
+}, {
+    readonly key: "druid_rootguards";
+    readonly label: "Garde-Racines du Druide";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 2;
+    readonly value: 180;
+    readonly material: "bois vivant";
+    readonly properties: readonly ["nature-tuned", "regeneration-lite"];
+    readonly eras: readonly ["age-of-heroes", "mythic-age"];
+    readonly description: "Des jambières faites d’écorce vivante, favorisant une légère régénération.";
+}, {
+    readonly key: "sandstrider_pants";
+    readonly label: "Pantalon Marche-Sable";
+    readonly rarity: "rare";
+    readonly armor: 3;
+    readonly weight: 1;
+    readonly value: 160;
+    readonly material: "fibre d'arène";
+    readonly properties: readonly ["heat-resistant", "sand-walker"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Créés par les nomades mystiques, permettant de marcher plus aisément sur le sable mouvant.";
+}, {
+    readonly key: "astral_weave_pants";
+    readonly label: "Pantalon en Tissage Astral";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 1;
+    readonly value: 260;
+    readonly material: "étoffe astrale";
+    readonly properties: readonly ["magic-resist", "light"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Tissés dans la lueur des constellations, offrant une protection étonnante pour leur poids.";
+}];

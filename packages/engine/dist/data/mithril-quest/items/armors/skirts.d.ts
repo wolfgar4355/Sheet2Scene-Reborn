@@ -1,0 +1,166 @@
+export declare const MQ_SKIRTS: readonly [{
+    readonly key: "cloth_battle_skirt";
+    readonly label: "Jupe de Combat en Tissu";
+    readonly rarity: "common";
+    readonly armor: 1;
+    readonly weight: 1;
+    readonly value: 5;
+    readonly material: "tissu renforcé";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Un simple tissu renforcé porté par les milices et éclaireurs. Mobilité maximale, protection minimale.";
+}, {
+    readonly key: "leather_warkilt";
+    readonly label: "Kilt de Guerre en Cuir";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 10;
+    readonly material: "cuir épais";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes", "dark-age"];
+    readonly description: "Kilt en cuir souple porté par les combattants tribaux et les pillards.";
+}, {
+    readonly key: "hunter_split_skirt";
+    readonly label: "Jupe Fendue de Chasseur";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 12;
+    readonly material: "tissu épais";
+    readonly properties: readonly ["quiet", "flexible"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Une jupe fendue permettant des mouvements silencieux pour la chasse ou la traque.";
+}, {
+    readonly key: "scout_lamellar_skirt";
+    readonly label: "Jupe Lamellaire d’Éclaireur";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 3;
+    readonly value: 18;
+    readonly material: "lamelles de cuir";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["dark-age", "high-kingdoms"];
+    readonly description: "Des lamelles cousues sur un tissu épais, apportant une protection légère.";
+}, {
+    readonly key: "militia_plate_skirt";
+    readonly label: "Jupe de Plaques de Milice";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 4;
+    readonly value: 15;
+    readonly material: "fer";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Plaques rudimentaires fixées sur une base en cuir. Lourd mais robuste.";
+}, {
+    readonly key: "desert_winds_skirt";
+    readonly label: "Jupe des Vents du Désert";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 1;
+    readonly value: 14;
+    readonly material: "tissu léger";
+    readonly properties: readonly ["heat-resistant"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Aérée et conçue pour les climats arides. Offre fraîcheur et aisance de mouvement.";
+}, {
+    readonly key: "fur_warskirt";
+    readonly label: "Jupe de Guerre en Fourrure";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 9;
+    readonly material: "fourrure épaisse";
+    readonly properties: readonly ["warm"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Une jupe portée dans les régions nordiques pour une meilleure isolation.";
+}, {
+    readonly key: "woodland_kilt";
+    readonly label: "Kilt Sylvestre";
+    readonly rarity: "common";
+    readonly armor: 2;
+    readonly weight: 2;
+    readonly value: 11;
+    readonly material: "tissu + bois léger";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age", "age-of-heroes"];
+    readonly description: "Renforts en bois poli cousus sur un tissu, prisés des peuples forestiers.";
+}, {
+    readonly key: "soldier_segmented_skirt";
+    readonly label: "Jupe Segmentée du Soldat";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 3;
+    readonly value: 17;
+    readonly material: "cuir + plaques";
+    readonly properties: readonly ["reinforced"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Des segments rigides attachés ensemble pour protéger la hanche sans trop nuire à la mobilité.";
+}, {
+    readonly key: "battle_tassets";
+    readonly label: "Tassettes de Bataille";
+    readonly rarity: "common";
+    readonly armor: 3;
+    readonly weight: 3;
+    readonly value: 16;
+    readonly material: "acier";
+    readonly properties: readonly ["metal"];
+    readonly eras: readonly ["dark-age", "high-kingdoms"];
+    readonly description: "Deux plaques métalliques suspendues, couvrant l’avant des cuisses.";
+}, {
+    readonly key: "shadowstep_skirt";
+    readonly label: "Jupe Pas-d’Ombre";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 1;
+    readonly value: 260;
+    readonly material: "tissu nocturne";
+    readonly properties: readonly ["silent-step", "shadow-tuned"];
+    readonly eras: readonly ["dark-age", "mythic-age"];
+    readonly description: "Absorbe la lumière et étouffe les pas. Parfaite pour assassins et éclaireurs nocturnes.";
+}, {
+    readonly key: "stormforged_kilt";
+    readonly label: "Kilt Forge-Tempête";
+    readonly rarity: "rare";
+    readonly armor: 5;
+    readonly weight: 3;
+    readonly value: 310;
+    readonly material: "acier-tempête";
+    readonly properties: readonly ["thunder-resist"];
+    readonly eras: readonly ["arcane-renaissance"];
+    readonly description: "Infusé d’énergie orageuse, il protège contre les chocs électriques et les attaques soniques.";
+}, {
+    readonly key: "druidwood_warskirt";
+    readonly label: "Jupe Sylvestre Vivante";
+    readonly rarity: "rare";
+    readonly armor: 4;
+    readonly weight: 2;
+    readonly value: 280;
+    readonly material: "bois vivant";
+    readonly properties: readonly ["nature-tuned", "regeneration-lite"];
+    readonly eras: readonly ["age-of-heroes", "mythic-age"];
+    readonly description: "Le bois réagit subtilement aux attaques, se déplaçant pour protéger son porteur.";
+}, {
+    readonly key: "runebound_skirt";
+    readonly label: "Jupe Lien-Runes";
+    readonly rarity: "rare";
+    readonly armor: 5;
+    readonly weight: 3;
+    readonly value: 350;
+    readonly material: "acier runique";
+    readonly properties: readonly ["magic-resist"];
+    readonly eras: readonly ["high-kingdoms", "arcane-renaissance"];
+    readonly description: "Chaque plaque est gravée de glyphes anciens qui dissipent partiellement l’énergie magique.";
+}, {
+    readonly key: "astral_wavekilt";
+    readonly label: "Kilt Astral";
+    readonly rarity: "rare";
+    readonly armor: 6;
+    readonly weight: 1;
+    readonly value: 420;
+    readonly material: "métal astral";
+    readonly properties: readonly ["radiant-resist", "light"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Fabriqué à partir d’un alliage astral fluide, il se déforme légèrement pour absorber les coups.";
+}];

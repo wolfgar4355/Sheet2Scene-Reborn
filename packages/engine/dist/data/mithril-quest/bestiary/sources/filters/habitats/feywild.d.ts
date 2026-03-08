@@ -1,0 +1,1 @@
+export declare const FEYWILD_HABITATS: readonly ["feywild", "feywild-glimmer-groves", "feywild-enchanted-rivers", "feywild-crystal-meadows", "feywild-fae-forest", "feywild-fae-courts", "feywild-dream-thickets"];

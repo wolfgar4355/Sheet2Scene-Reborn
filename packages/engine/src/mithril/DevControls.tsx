@@ -2,9 +2,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AmbientConfig } from "../ambient-config";
+import { AmbientConfig } from "../ambient.config";
 import { useCamera } from "./hooks/useCamera";
-import { getSeason, getDayPhase } from "../time";
+import { getSeason, getDayPhase } from "./time";
 
 /**
  * Mithril Engine — DevControls v2.0
@@ -14,8 +14,8 @@ export default function DevControls() {
   const [visible, setVisible] = useState(false);
   const [audioEnabled, setAudioEnabled] = useState(true);
 
-  const [season, setSeason] = useState(getSeason());
-  const [phase, setPhase] = useState(getDayPhase());
+  const [season, setSeason] = useState(getSeason(new Date().getMonth()));
+  const [phase, setPhase] = useState(getDayPhase(new Date().getHours()));
 
   const camera = useCamera();
 

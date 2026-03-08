@@ -7,8 +7,8 @@
 import { getAllSpells } from "../../adapters/spells.adapter";
 const spells = getAllSpells();
 
-import { getAllClasses } from "../../adapters/classes.adapter";
-const classes = getAllClasses();
+// import { getAllClasses } from "../../adapters/classes.adapter";
+const classes = [] as any;
 
 import { getAllRaces } from "../../adapters/races.adapter";
 const races = getAllRaces();
@@ -19,17 +19,17 @@ const eras = getAllEras();
 import { getAllRoles } from "../../adapters/roles.adapter";
 const roles = getAllRoles();
 
-import { getAllItems } from "../../adapters/items.adapter";
-const items = getAllItems();
+// import { getAllItems } from "../../adapters/items.adapter";
+const items = [] as any;
 
-import { getAllMonsters } from "../../adapters/bestiary.adapter";
-const bestiary = getAllMonsters();
+// import { getAllMonsters } from "../../adapters/bestiary.adapter";
+const bestiary = [] as any;
 
 import { getAllFactions } from "../../adapters/factions.adapter";
 const factions = getAllFactions();
 
-import { getAllHabitats } from "../../adapters/habitats.adapter";
-const habitats = getAllHabitats();
+// import { getAllHabitats } from "../../adapters/habitats.adapter";
+const habitats = [] as any;
 
 import { getAllGMData } from "../../adapters/gm.adapter";
 const gm = getAllGMData();
@@ -43,15 +43,15 @@ const rituals = getAllRituals();
 
 export * from "./worlds";       // fichier worlds.ts
 export * from "./eras";
-export * from "./bestiary";
+// export * from "./bestiary";
 // export * from "./spells";
 export * from "./classes";
 export * from "./races";
-export * from "./items";
+// export * from "./items";
 export * from "./roles";
-export * from "./rituals";
-export * from "./factions";
-export * from "./habitats";
+// export * from "./rituals";
+// export * from "./factions";
+// export * from "./habitats";
 export * from "./gm";
 export * from "./character";
 export * from "./player";

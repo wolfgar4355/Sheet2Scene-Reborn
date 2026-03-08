@@ -5,8 +5,8 @@
 // --------------------
 import { getAllSpells } from "../../adapters/spells.adapter";
 const spells = getAllSpells();
-import { getAllClasses } from "../../adapters/classes.adapter";
-const classes = getAllClasses();
+// import { getAllClasses } from "../../adapters/classes.adapter";
+const classes = [];
 import { getAllRaces } from "../../adapters/races.adapter";
 const races = getAllRaces();
 import { getAllEras } from "../../adapters/eras.adapter";
@@ -15,12 +15,12 @@ import { getAllRoles } from "../../adapters/roles.adapter";
 const roles = getAllRoles();
 import { getAllItems } from "../../adapters/items.adapter";
 const items = getAllItems();
-import { getAllMonsters } from "../../adapters/bestiary.adapter";
-const bestiary = getAllMonsters();
+// import { getAllMonsters } from "../../adapters/bestiary.adapter";
+const bestiary = [];
 import { getAllFactions } from "../../adapters/factions.adapter";
 const factions = getAllFactions();
-import { getAllHabitats } from "../../adapters/habitats.adapter";
-const habitats = getAllHabitats();
+// import { getAllHabitats } from "../../adapters/habitats.adapter";
+const habitats = [];
 import { getAllGMData } from "../../adapters/gm.adapter";
 const gm = getAllGMData();
 import { getAllRituals } from "../../adapters/rituals.adapter";

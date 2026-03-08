@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { useScene } from "./SceneController";
 
 import { AudioBootCoreInstance } from "./AudioBoot";
-import { loadAudio } from "./audioLoader";
+import { loadAudio } from "./utils/audioloader";
 
 import type { WeatherState, WeatherKind } from "../ambient";
 import { pickWeatherSound } from "../ambient";

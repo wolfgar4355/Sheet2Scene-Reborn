@@ -8,6 +8,8 @@
  */
 export * from "./ambient.config";
 export * from "./getWorlds";
+export * from "./grimoire";
+export * from "./adapters/characters.adapter";
 /* -------------------------------------------
  * MITHRIL VISUAL ENGINE (UI Components)
  * -------------------------------------------

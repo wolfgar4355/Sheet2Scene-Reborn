@@ -1,0 +1,166 @@
+export declare const MQ_HAUBERKS: readonly [{
+    readonly key: "leather_hauberk";
+    readonly label: "Haubert de Cuir Souple";
+    readonly rarity: "common";
+    readonly armor: 4;
+    readonly weight: 8;
+    readonly value: 35;
+    readonly material: "cuir tanné";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes", "dark-age"];
+    readonly description: "Un haubert simple mais efficace, conçu pour protéger le torse et les hanches.";
+}, {
+    readonly key: "reinforced_leather_hauberk";
+    readonly label: "Haubert Cuir Renforcé";
+    readonly rarity: "common";
+    readonly armor: 5;
+    readonly weight: 10;
+    readonly value: 50;
+    readonly material: "cuir + plaques fines";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "De fines plaques métalliques cousues sous le cuir lui offrent une protection améliorée.";
+}, {
+    readonly key: "studded_hauberk";
+    readonly label: "Haubert Clouté";
+    readonly rarity: "common";
+    readonly armor: 5;
+    readonly weight: 11;
+    readonly value: 55;
+    readonly material: "cuir clouté";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "Un modèle robuste où des clous de métal renforcent la surface du cuir.";
+}, {
+    readonly key: "chain_hauberk";
+    readonly label: "Haubert de Mailles";
+    readonly rarity: "common";
+    readonly armor: 6;
+    readonly weight: 20;
+    readonly value: 75;
+    readonly material: "mailles d’acier";
+    readonly properties: readonly ["medium"];
+    readonly eras: readonly ["dark-age", "high-kingdoms"];
+    readonly description: "Une cotte longue couvrant torse, cuisses et bras. Très répandue dans les armées.";
+}, {
+    readonly key: "ring_hauberk";
+    readonly label: "Haubert Anneaux";
+    readonly rarity: "common";
+    readonly armor: 5;
+    readonly weight: 18;
+    readonly value: 65;
+    readonly material: "anneaux en fer";
+    readonly properties: readonly ["medium"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Une version plus légère utilisant des anneaux plus espacés que la maille traditionnelle.";
+}, {
+    readonly key: "scale_hauberk";
+    readonly label: "Haubert d’Écailles";
+    readonly rarity: "common";
+    readonly armor: 6;
+    readonly weight: 25;
+    readonly value: 90;
+    readonly material: "plaques écaille";
+    readonly properties: readonly ["medium"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "De petites plaques se superposent pour offrir une excellente protection.";
+}, {
+    readonly key: "brigandine_hauberk";
+    readonly label: "Haubert Brigandine";
+    readonly rarity: "common";
+    readonly armor: 6;
+    readonly weight: 22;
+    readonly value: 85;
+    readonly material: "tissu + plaques rivetées";
+    readonly properties: readonly ["medium"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Un vêtement matelassé renforcé par de nombreuses plaques internes.";
+}, {
+    readonly key: "nomad_hauberk";
+    readonly label: "Haubert Nomade";
+    readonly rarity: "common";
+    readonly armor: 4;
+    readonly weight: 6;
+    readonly value: 30;
+    readonly material: "cuir léger";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["ancient-age"];
+    readonly description: "Souple et pratique pour les longs déplacements dans les steppes et déserts.";
+}, {
+    readonly key: "border_guard_hauberk";
+    readonly label: "Haubert des Gardes Frontaliers";
+    readonly rarity: "common";
+    readonly armor: 5;
+    readonly weight: 12;
+    readonly value: 48;
+    readonly material: "cuir + renforts métal";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Un modèle adopté par les forces stationnées dans les régions difficiles.";
+}, {
+    readonly key: "militia_hauberk";
+    readonly label: "Haubert de Milice";
+    readonly rarity: "common";
+    readonly armor: 5;
+    readonly weight: 10;
+    readonly value: 40;
+    readonly material: "cuir grossier";
+    readonly properties: readonly ["light"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Peu coûteux, rapidement fabriqué et distribué aux milices locales.";
+}, {
+    readonly key: "runeforged_hauberk";
+    readonly label: "Haubert Forgé-Rune";
+    readonly rarity: "rare";
+    readonly armor: 7;
+    readonly weight: 14;
+    readonly value: 350;
+    readonly material: "acier runique";
+    readonly properties: readonly ["magic", "warding"];
+    readonly eras: readonly ["high-kingdoms"];
+    readonly description: "La surface est parcourue de runes protectrices qui renforcent la résistance du porteur.";
+}, {
+    readonly key: "druidic_living_hauberk";
+    readonly label: "Haubert Vivant des Druides";
+    readonly rarity: "rare";
+    readonly armor: 6;
+    readonly weight: 8;
+    readonly value: 420;
+    readonly material: "écorce vivante";
+    readonly properties: readonly ["magic", "nature-bond"];
+    readonly eras: readonly ["age-of-heroes"];
+    readonly description: "Un haubert organique qui s’adapte au mouvement et se régénère lentement.";
+}, {
+    readonly key: "shadowwoven_hauberk";
+    readonly label: "Haubert Ombre-Tissé";
+    readonly rarity: "rare";
+    readonly armor: 6;
+    readonly weight: 4;
+    readonly value: 460;
+    readonly material: "tissu d’ombre";
+    readonly properties: readonly ["stealth", "dark-resonance", "magic"];
+    readonly eras: readonly ["dark-age"];
+    readonly description: "Tissé dans des filaments d’ombre condensée, idéal pour les éclaireurs nocturnes.";
+}, {
+    readonly key: "celestial_chain_hauberk";
+    readonly label: "Haubert de Chaînes Célestes";
+    readonly rarity: "rare";
+    readonly armor: 7;
+    readonly weight: 10;
+    readonly value: 600;
+    readonly material: "alliage radiant";
+    readonly properties: readonly ["magic", "radiant", "holy"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Les maillons brillent d’une lumière douce, renforçant la protection spirituelle.";
+}, {
+    readonly key: "titanbone_hauberk";
+    readonly label: "Haubert en Os de Titan";
+    readonly rarity: "rare";
+    readonly armor: 8;
+    readonly weight: 16;
+    readonly value: 800;
+    readonly material: "os mythique";
+    readonly properties: readonly ["heavy", "mythic", "magic"];
+    readonly eras: readonly ["mythic-age"];
+    readonly description: "Forgé dans les restes d’un titan, offrant une défense quasi inégalable.";
+}];

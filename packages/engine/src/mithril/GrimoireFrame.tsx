@@ -20,6 +20,7 @@ import TransitionLayer from "./TransitionLayer";
 import PageTurner from "./PageTurner";
 import DevControls from "./DevControls";
 import { TurnController } from "./encounter/TurnController";
+import SceneController from "./SceneController";
 
 import { useCamera } from "./hooks/useCamera";
 import useSeason, {
@@ -155,6 +156,7 @@ function MithrilFrameInner({
           transition: "background-color 0.7s ease",
         }}
       >
+        <SceneController biome={biome} worldId={safeWorldId}>
         <WeatherEngineProvider biome={biome} worldId={safeWorldId}>
           {/* =================== ENCOUNTER / WORLD =================== */}
           <EncounterController>
@@ -190,6 +192,7 @@ function MithrilFrameInner({
             </PageTurner>
           </div>
         </WeatherEngineProvider>
+        </SceneController>
       </div>
     </MithrilContext.Provider>
   );

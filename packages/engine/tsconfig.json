@@ -18,6 +18,7 @@
       "node"
     ],
     "outDir": "dist",
+    "rootDir": "src",
     "baseUrl": ".",
     "composite": true
   },

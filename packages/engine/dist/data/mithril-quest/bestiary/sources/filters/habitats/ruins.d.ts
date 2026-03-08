@@ -1,0 +1,1 @@
+export declare const RUINS_HABITATS: readonly ["ruins", "collapsed-halls", "ancient-temple", "arcane-ruins", "dungeon-entrance", "forgotten-citadels", "sunken-sanctuary", "shattered-obelisks", "lost-libraries", "crumbling-battlements", "buried-vaults", "echoing-chambers"];
