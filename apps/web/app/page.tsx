@@ -26,7 +26,8 @@ export default function Home() {
       {/* BACKGROUND (CSS .bg-hall dans globals.css) */}
       <div
         className={`
-          bg-hall absolute inset-0 transition-all duration-700
+          absolute inset-0 transition-all duration-700
+          bg-[url('/images/bg-hall.png')] bg-cover bg-center bg-no-repeat
           ${cinematic ? "blur-2xl scale-105 opacity-60" : "blur-md opacity-100"}
         `}
       />
@@ -54,7 +55,7 @@ export default function Home() {
         className={`
           absolute left-1/2 bottom-[18vh]
           -translate-x-1/2
-          w-[min(760px,96vw)]
+          w-[min(760px,96vw)] h-auto object-contain
           select-none pointer-events-none
           transition-all duration-700 ease-out
           ${cinematic ? "opacity-0 scale-95" : "opacity-100 scale-100"}
@@ -69,7 +70,7 @@ export default function Home() {
           absolute left-1/2 -translate-x-1/2
           bottom-[10vh]
           z-20
-          focus:outline-none
+          outline-none focus:outline-none focus-visible:outline-none border-none ring-0 focus:ring-0 bg-transparent
           transition-transform duration-300
           ${cinematic ? "pointer-events-none" : "hover:scale-[1.02] active:scale-[0.99]"}
         `}
@@ -82,7 +83,7 @@ export default function Home() {
           draggable={false}
           priority
           className={`
-            w-[min(820px,96vw)]
+            w-[min(820px,96vw)] h-auto object-contain
             drop-shadow-[0_24px_48px_rgba(0,0,0,0.65)]
             transition-all ease-out duration-700
             ${
