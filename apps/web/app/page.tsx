@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { bgHallB64, uiLecternB64, uiGrimoireB64 } from "./assetsBase64";
+import { bg_hall_b64, ui_lectern_b64, ui_grimoire_b64 } from "./assetsBase64";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -29,7 +29,7 @@ export default function Home() {
     <main className="relative min-h-[100svh] overflow-hidden">
       {/* BACKGROUND (image brute pour éviter bug Vercel) */}
       <img
-        src={bgHallB64}
+        src={bg_hall_b64}
         alt="Bibliothèque"
         className={`
           absolute inset-0 w-full h-full object-cover transition-all duration-700
@@ -52,7 +52,7 @@ export default function Home() {
 
       {/* LECTERN (lutrin) */}
       <img
-        src={uiLecternB64}
+        src={ui_lectern_b64}
         alt="Lutrin"
         className={`
           absolute left-1/2 bottom-[18vh]
@@ -78,7 +78,7 @@ export default function Home() {
         `}
       >
         <img
-          src={uiGrimoireB64}
+          src={ui_grimoire_b64}
           alt="Grimoire"
           className={`
             w-[min(820px,96vw)] h-auto object-contain
