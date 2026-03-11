@@ -31,6 +31,7 @@ export default function Home() {
         alt="Bibliothèque"
         className={`
           absolute inset-0 w-full h-full object-cover transition-all duration-700
+          bg-[#0a0a0f]
           ${cinematic ? "blur-2xl scale-105 opacity-60" : "blur-md opacity-100"}
         `}
       />
@@ -87,6 +88,10 @@ export default function Home() {
                 : "scale-100 opacity-100"
             }
           `}
+          onError={(e) => {
+             // Fallback visuel temporaire si Vercel bloque le PNG LFS
+             e.currentTarget.style.display = 'none';
+          }}
         />
       </button>
 
