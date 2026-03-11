@@ -10,6 +10,9 @@ const r = (...paths) => path.resolve(__dirname, ...paths);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
 
   // OK à garder (Avertissement: swcMinify: false va disparaître dans Next.js 15, on laisse par défaut)
   // swcMinify: false,
