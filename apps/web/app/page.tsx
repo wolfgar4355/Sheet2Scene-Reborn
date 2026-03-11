@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   const router = useRouter();
   const [cinematic, setCinematic] = useState(false);
