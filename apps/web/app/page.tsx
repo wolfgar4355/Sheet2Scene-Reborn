@@ -27,7 +27,7 @@ export default function Home() {
     <main className="relative min-h-[100svh] overflow-hidden">
       {/* BACKGROUND (image brute pour éviter bug Vercel) */}
       <img
-        src="/images/bg-hall.png"
+        src="/assets/layout/bg-hall.png"
         alt="Bibliothèque"
         className={`
           absolute inset-0 w-full h-full object-cover transition-all duration-700
@@ -50,7 +50,7 @@ export default function Home() {
 
       {/* LECTERN (lutrin) */}
       <img
-        src="/images/ui-lectern-clear.png"
+        src="/assets/layout/ui-lectern.png"
         alt="Lutrin"
         className={`
           absolute left-1/2 bottom-[18vh]
@@ -76,7 +76,7 @@ export default function Home() {
         `}
       >
         <img
-          src="/images/ui-grimoire-closed-clear.png"
+          src="/assets/layout/ui-grimoire.png"
           alt="Grimoire"
           className={`
             w-[min(820px,96vw)] h-auto object-contain
