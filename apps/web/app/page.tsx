@@ -5,9 +5,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { bg_hall_b64, ui_lectern_b64, ui_grimoire_b64 } from "./assetsBase64";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 export default function Home() {
   const router = useRouter();
   const [cinematic, setCinematic] = useState(false);
