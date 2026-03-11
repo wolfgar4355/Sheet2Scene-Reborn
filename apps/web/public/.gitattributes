@@ -1,0 +1,5 @@
+*.png !filter !diff !merge text=auto
+*.jpg !filter !diff !merge text=auto
+*.jpeg !filter !diff !merge text=auto
+*.svg !filter !diff !merge text=auto
+*.gif !filter !diff !merge text=auto
