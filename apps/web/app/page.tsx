@@ -87,10 +87,6 @@ export default function Home() {
                 : "scale-100 opacity-100"
             }
           `}
-          onError={(e) => {
-             // Fallback visuel temporaire si Vercel bloque le PNG LFS
-             e.currentTarget.style.display = 'none';
-          }}
         />
       </button>
 
