@@ -25,11 +25,12 @@ export default function Home() {
 
   return (
     <main className="relative min-h-[100svh] overflow-hidden">
-      {/* BACKGROUND (CSS .bg-hall dans globals.css) */}
-      <div
+      {/* BACKGROUND (image brute pour éviter bug Vercel) */}
+      <img
+        src="/images/bg-hall.png"
+        alt="Bibliothèque"
         className={`
-          absolute inset-0 transition-all duration-700
-          bg-[url('/images/bg-hall.png')] bg-cover bg-center bg-no-repeat
+          absolute inset-0 w-full h-full object-cover transition-all duration-700
           ${cinematic ? "blur-2xl scale-105 opacity-60" : "blur-md opacity-100"}
         `}
       />
@@ -47,13 +48,9 @@ export default function Home() {
       />
 
       {/* LECTERN (lutrin) */}
-      <Image
+      <img
         src="/images/ui-lectern-clear.png"
         alt="Lutrin"
-        width={1200}
-        height={1200}
-        draggable={false}
-        priority
         className={`
           absolute left-1/2 bottom-[18vh]
           -translate-x-1/2
@@ -77,13 +74,9 @@ export default function Home() {
           ${cinematic ? "pointer-events-none" : "hover:scale-[1.02] active:scale-[0.99]"}
         `}
       >
-        <Image
+        <img
           src="/images/ui-grimoire-closed-clear.png"
           alt="Grimoire"
-          width={1100}
-          height={800}
-          draggable={false}
-          priority
           className={`
             w-[min(820px,96vw)] h-auto object-contain
             drop-shadow-[0_24px_48px_rgba(0,0,0,0.65)]
