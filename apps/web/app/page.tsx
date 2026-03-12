@@ -24,14 +24,13 @@ export default function Home() {
 
   return (
     <main className="relative min-h-[100svh] overflow-hidden">
-      {/* BACKGROUND (image brute pour éviter bug Vercel) */}
+      {/* BACKGROUND */}
       <img
         src={bg_hall_b64}
         alt="Bibliothèque"
         className={`
           absolute inset-0 w-full h-full object-cover transition-all duration-700
-          bg-[#0a0a0f]
-          ${cinematic ? "blur-2xl scale-105 opacity-60" : "blur-md opacity-100"}
+          ${cinematic ? "blur-xl scale-105 opacity-50" : "opacity-100"}
         `}
       />
 
@@ -47,43 +46,44 @@ export default function Home() {
         }}
       />
 
-      {/* LECTERN (lutrin) */}
+      {/* LECTERN (lutrin) — fond de scène */}
       <img
         src={ui_lectern_b64}
         alt="Lutrin"
         className={`
-          absolute left-1/2 bottom-[18vh]
+          absolute left-1/2 bottom-0
           -translate-x-1/2
-          w-[min(760px,96vw)] h-auto object-contain
+          w-[min(680px,90vw)] h-auto object-contain
           select-none pointer-events-none
           transition-all duration-700 ease-out
           ${cinematic ? "opacity-0 scale-95" : "opacity-100 scale-100"}
         `}
       />
 
-      {/* GRIMOIRE (bouton) */}
+      {/* GRIMOIRE (bouton cliquable sur le lutrin) */}
       <button
         onClick={openBook}
         aria-label="Ouvrir le grimoire"
         className={`
           absolute left-1/2 -translate-x-1/2
-          bottom-[10vh]
+          bottom-[28vh]
           z-20
-          outline-none focus:outline-none focus-visible:outline-none border-none ring-0 focus:ring-0 bg-transparent
+          p-0 m-0 border-none ring-0 bg-transparent
+          outline-none focus:outline-none focus-visible:outline-none
           transition-transform duration-300
-          ${cinematic ? "pointer-events-none" : "hover:scale-[1.02] active:scale-[0.99]"}
+          ${cinematic ? "pointer-events-none" : "hover:scale-[1.03] active:scale-[0.98]"}
         `}
       >
         <img
           src={ui_grimoire_b64}
           alt="Grimoire"
           className={`
-            w-[min(820px,96vw)] h-auto object-contain
-            drop-shadow-[0_24px_48px_rgba(0,0,0,0.65)]
+            w-[min(300px,45vw)] h-auto object-contain
+            drop-shadow-[0_16px_40px_rgba(0,0,0,0.8)]
             transition-all ease-out duration-700
             ${
               cinematic
-                ? "scale-[1.55] translate-y-[-12vh] opacity-100"
+                ? "scale-[1.4] translate-y-[-8vh] opacity-0"
                 : "scale-100 opacity-100"
             }
           `}
